@@ -5,39 +5,22 @@ permalink: /about/
 author_profile: true
 ---
 
-### Professional Summary
-I am a seasoned **SAP Solution Architect** with over **13 years of experience** in the SAP ecosystem. My expertise lies at the intersection of Finance and Technology, specifically in architecting end-to-end solutions for **S/4HANA transformations**. 
+### Professional Overview
+I am a seasoned **SAP Certified Solution Architect** with over **13 years of comprehensive experience** across finance, auditing, taxation, and enterprise system implementation. My career is built on a solid foundation in financial operations, supported by a Bachelor’s degree in Accounts and Finance.
 
-I specialize in high-volume billing, subscription economy models, and complex revenue recognition compliance (IFRS 15 / ASC 606). My goal is to help global enterprises transition from traditional sales to agile, "Everything-as-a-Service" (XaaS) models.
+### Career Highlights
+* **Solution Leadership:** Proven track record of leading complex SAP implementations for global enterprises in SaaS, Media, Telecommunications, Logistics, and Utilities.
+* **Compliance Architect:** Successfully designed SAP BRIM-SD-RAR solutions to achieve compliance with **IFRS 15 / ASC 606** revenue recognition standards.
+* **Strategic Advisor:** Certified in **Presales Skills - RISE with SAP S/4HANA Cloud (2022)**, actively contributing to RFPs, PoCs, and client workshops.
+* **Corporate Trainer:** Recognized mentor and trainer for SAP BRIM, RAR, and FSCM modules, delivering knowledge transition for internal and client teams.
 
----
+### Core Technical Skills
+* **SAP S/4HANA:** Deep expertise in BRIM (SOM, CC, CI, FI-CA), RAR, FSCM, and FI.
+* **Integration:** Architecting complex system integrations between SAP S/4HANA and external applications.
+* **Management Tools:** Proficient in JIRA, HPQC, Solution Manager, and Service Now.
 
-### 🛠 Technical Expertise
-* **SAP BRIM:** Subscription Order Management (SOM), Convergent Charging (CC), Convergent Invoicing (CI).
-* **SAP RAR:** Revenue Accounting and Reporting for global compliance.
-* **SAP FSCM:** Credit, Dispute, and Collections Management.
-* **SAP FI-CA:** Contract Accounts Receivable and Payable for high-volume industries.
-* **Integration:** Vertex Tax Solution, External Cash Desks, and Third-party Billing Engines.
-
----
-
-### 🏭 Industry Experience
-Throughout my career, I have led implementations across diverse sectors:
-* **Telecommunications** (Subscription billing & hardware bundles)
-* **High-Tech & SaaS** (Device-as-a-Service and cloud licensing)
-* **Utilities & Media** (Usage-based billing models)
-* **Logistics & Professional Services**
-
----
-
-### 📜 Certifications & Education
-* **SAP Certified Application Associate** – S/4HANA Finance / BRIM
-* **IFRS 15 Specialist** – Revenue from Contracts with Customers
-* **Bachelor of Commerce (B.Com)** – Deep focus on Accounting and Auditing
-
----
-
-### 🏗 Project Highlights
-* **End-to-End S/4HANA Transformation:** Led the architectural design for a multi-country rollout involving complex subscription models.
-* **Global Tax Automation:** Integrated Vertex with SAP BRIM to automate multi-state and international tax compliance.
-* **Revenue Compliance:** Successfully implemented SAP RAR to automate IFRS-15 reporting, reducing manual month-end closing time by 40%.
+### Education & Certifications
+* **Bachelor of Commerce (Honors):** Calcutta University, India.
+* **SAP S/4HANA BRIM Certified Associate**.
+* **SAP Presales Skills 2022:** RISE with S/4HANA Cloud.
+* **SAP FI ECC 6.0 Certified (2013)**.
