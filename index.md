@@ -44,7 +44,7 @@ An analysis of the transition from traditional billing to modern, subscription-b
 
 | Module | Focus Area |
 | :--- | :--- |
-| **SAP BRIM** | SOM, CC, CI, and FI-CA for Subscription Models. |
+| **SAP BRIM** | SOM, CC, CI, and FI-CA for various business models. |
 | **SAP RAR** | Revenue Accounting, IFRS 15 Compliance, and Amortization. |
 | **SAP FSCM** | Credit & Dispute Management with BRIM Integration. |
 | **SAP FI** | General Ledger, Asset Accounting, and Financial Reporting. |
