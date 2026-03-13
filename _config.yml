@@ -1,21 +1,23 @@
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" # The clean SAP-blue professional skin
+minimal_mistakes_skin: "air" # Professional SAP-blue skin
 
 # Site Settings
 url: "https://amitkshaw.com"
-baseurl: "" # Leave empty for custom domain
+baseurl: "" 
 title: "Amit Kumar Shaw"
 name: "Amit Kumar Shaw"
 description: "SAP Solution Architect | BRIM, RAR, FSCM Specialist"
 locale: "en-US"
 
-# Navigation (This creates the horizontal tabs at the top)
+# Navigation (Horizontal Tabs)
 masthead_links:
   - title: "About"
     url: /about/
   - title: "Expertise"
     url: /expertise/sap-brim/
+  - title: "Projects"
+    url: /projects/
   - title: "Resources"
     url: /resources/
   - title: "Interests"
@@ -28,7 +30,7 @@ author:
   name: "Amit Kumar Shaw"
   avatar: "/assets/images/profile.jpg"
   bio: "SAP Solution Architect | Specializing in BRIM, RAR, FSCM | 13+ Years Experience"
-  location: "United States"
+  location: "Atlanta, GA"
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
@@ -37,7 +39,7 @@ author:
       icon: "fas fa-fw fa-envelope"
       url: "mailto:contact@amitkshaw.com"
 
-# Collections (For your deep-dive technical pages)
+# Collections
 collections:
   expertise:
     output: true
@@ -45,11 +47,11 @@ collections:
   posts:
     output: true
 
-# Critical Fix for 404s (Tells GitHub to look inside your folder)
+# Critical Folder Inclusion
 include:
   - _pages
 
-# Defaults (Forces the professional design on every page automatically)
+# Defaults
 defaults:
   - scope:
       path: ""
