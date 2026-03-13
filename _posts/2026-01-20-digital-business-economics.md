@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "The Economics Behind Digital Business Models"
 excerpt: "How digital business models have evolved and the economic drivers behind subscription economies."
 categories: [Business Strategy, Digital Transformation]
