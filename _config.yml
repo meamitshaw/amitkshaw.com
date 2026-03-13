@@ -1,6 +1,6 @@
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" # Clean SAP-blue professional skin
+minimal_mistakes_skin: "air"
 
 # Site Settings
 url: "https://amitkshaw.com"
@@ -10,7 +10,7 @@ name: "Amit Kumar Shaw"
 description: "SAP Solution Architect | BRIM, RAR, FSCM Specialist"
 locale: "en-US"
 
-# Navigation (Horizontal Tabs)
+# Navigation
 masthead_links:
   - title: "About"
     url: /about/
@@ -25,12 +25,12 @@ masthead_links:
   - title: "Contact"
     url: /contact/
 
-# # Site Author Sidebar
+# Site Author Sidebar
 author:
-  name:   "Amit Kumar Shaw"
-  avatar: "/assets/images/profile.jpg" # Ensure your photo is named exactly this
-  bio:    "SAP Solution Architect"
-  job_title: "BRIM • RAR • FSCM • FI" # This adds a clear second line
+  name: "Amit Kumar Shaw"
+  avatar: "/assets/images/profile.jpg"
+  bio: "SAP Solution Architect"
+  job_title: "BRIM • RAR • FSCM • FI"
   location: "Atlanta, GA"
   links:
     - label: "LinkedIn"
@@ -38,10 +38,7 @@ author:
       url: "https://www.linkedin.com/in/akumarshaw/"
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:contact@amitkshaw.com"
-      - label: "Download CV"
-      icon: "fas fa-fw fa-file-pdf"
-      url: "/assets/Amit_Kumar_Shaw_CV.pdf" # Upload your PDF to the assets folder
+      url: "mailto:meamitshaw@gmail.com"
 
 # Collections
 collections:
