@@ -12,7 +12,7 @@ excerpt: "Architecting high-volume billing and revenue compliance solutions for 
 # Amit Kumar Shaw
 ## SAP Solution Architect | BRIM • RAR • FSCM • FI
 
-I am a seasoned **SAP Certified Solution Architect** with over **12.5 years of experience** in finance and enterprise system implementation. I specialize in leading complex SAP transformations for global enterprises across the SaaS, Telecommunications, and Utilities sectors.
+I am a seasoned **SAP Certified Solution Architect** with over **13 years of experience** in finance and enterprise system implementation. I specialize in leading complex SAP transformations for global enterprises across the SaaS, Telecommunications, and Utilities sectors.
 
 ---
 
