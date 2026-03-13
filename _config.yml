@@ -1,12 +1,12 @@
 title: Amit Kumar Shaw
 email: contact@amitkshaw.com
-description: Enterprise Architect | SAP BRIM, RAR & FSCM Specialist
+description: Enterprise Architect | SAP BRIM, RAR, FSCM & FI Specialist
 remote_theme: "raviriley/agency-jekyll-theme" # Robust, clean, and modern
 
 # Identity
 author:
   name: Amit Kumar Shaw
-  job_title: "Enterprise Architect | Author"
+  job_title: "Solution Architect | Author"
   location: "Atlanta, GA"
   avatar: /assets/images/profile.jpg
 
@@ -31,3 +31,9 @@ collections:
 social:
   linkedin: akumarshaw
   whatsapp: "917337327827"
+
+  # Build Settings
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-sitemap # Excellent for SEO so recruiters find you on Google
