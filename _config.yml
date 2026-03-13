@@ -1,0 +1,14 @@
+
+title: Amit Kumar Shaw
+description: SAP Architect specializing in SAP BRIM, SAP RAR, FSCM and Quote-to-Cash architecture
+url: https://amitkshaw.com
+baseurl: ""
+theme: minima
+markdown: kramdown
+permalink: /blog/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+collections:
+  diagrams:
+    output: true
