@@ -25,11 +25,12 @@ masthead_links:
   - title: "Contact"
     url: /contact/
 
-# Site Author Sidebar
+# # Site Author Sidebar
 author:
-  name: "Amit Kumar Shaw"
-  avatar: "/assets/images/profile.jpg"
-  bio: "SAP Solution Architect | BRIM, RAR, FSCM Specialist | 13+ Years Experience"
+  name:   "Amit Kumar Shaw"
+  avatar: "/assets/images/profile.jpg" # Ensure your photo is named exactly this
+  bio:    "SAP Solution Architect"
+  job_title: "BRIM • RAR • FSCM • FI" # This adds a clear second line
   location: "Atlanta, GA"
   links:
     - label: "LinkedIn"
@@ -38,6 +39,9 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:contact@amitkshaw.com"
+      - label: "Download CV"
+      icon: "fas fa-fw fa-file-pdf"
+      url: "/assets/Amit_Kumar_Shaw_CV.pdf" # Upload your PDF to the assets folder
 
 # Collections
 collections:
