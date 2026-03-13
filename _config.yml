@@ -15,6 +15,7 @@ collections:
     output: true
 
 # Essential Plugins
-plugins:
+  plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-feed
