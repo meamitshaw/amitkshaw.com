@@ -1,68 +1,33 @@
-# Theme Settings
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air"
+title: Amit Kumar Shaw
+email: contact@amitkshaw.com
+description: Enterprise Architect | SAP BRIM, RAR & FSCM Specialist
+remote_theme: "raviriley/agency-jekyll-theme" # Robust, clean, and modern
 
-# Site Settings
-url: "https://amitkshaw.com"
-baseurl: "" 
-title: "Amit Kumar Shaw"
-name: "Amit Kumar Shaw"
-description: "SAP Solution Architect | BRIM, RAR, FSCM Specialist"
-locale: "en-US"
-
-# Navigation
-masthead_links:
-  - title: "About"
-    url: /about/
-  - title: "Expertise"
-    url: /expertise/sap-brim/
-  - title: "Projects"
-    url: /projects/
-  - title: "Resources"
-    url: /resources/
-  - title: "Interests"
-    url: /interests/
-  - title: "Contact"
-    url: /contact/
-
-# Site Author Sidebar
+# Identity
 author:
-  name: "Amit Kumar Shaw"
-  avatar: "/assets/images/profile.jpg"
-  bio: "SAP Solution Architect"
-  job_title: "BRIM • RAR • FSCM • FI"
+  name: Amit Kumar Shaw
+  job_title: "Enterprise Architect | Author"
   location: "Atlanta, GA"
-  links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/akumarshaw/"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: "mailto:meamitshaw@gmail.com"
+  avatar: /assets/images/profile.jpg
 
-# Collections
+# Navigation (One-page style + Deep Links)
+nav:
+  - { name: "Expertise", link: "#expertise" }
+  - { name: "Projects", link: "#projects" }
+  - { name: "Library", link: "/library/" }
+  - { name: "Interests", link: "/interests/" }
+  - { name: "Contact", link: "#contact" }
+
+# Enable Collections
 collections:
+  library:
+    output: true
+    permalink: /library/:path/
   expertise:
     output: true
     permalink: /expertise/:path/
-  posts:
-    output: true
 
-# Folder Inclusion
-include:
-  - _pages
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "single"
-      author_profile: true
-      classes: wide
-
-# Build Settings
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
-  - jekyll-feed
+# Social Integration
+social:
+  linkedin: akumarshaw
+  whatsapp: "917337327827"
