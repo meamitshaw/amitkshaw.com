@@ -1,0 +1,23 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "Expertise"
+    url: /expertise/sap-brim/
+  - title: "Resources"
+    url: /resources/
+  - title: "Interests"
+    url: /interests/
+  - title: "Contact"
+    url: /contact/
+
+expertise-nav:
+  title: "SAP Solutions"
+  children:
+    - title: "SAP BRIM"
+      url: /expertise/sap-brim/
+    - title: "SAP RAR"
+      url: /expertise/sap-rar/
+    - title: "SAP FSCM"
+      url: /expertise/sap-fscm/
+    - title: "SAP FI"
+      url: /expertise/sap-fi/
