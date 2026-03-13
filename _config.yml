@@ -1,6 +1,6 @@
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" # Professional SAP-blue skin
+minimal_mistakes_skin: "air" # Clean SAP-blue professional skin
 
 # Site Settings
 url: "https://amitkshaw.com"
@@ -29,7 +29,7 @@ masthead_links:
 author:
   name: "Amit Kumar Shaw"
   avatar: "/assets/images/profile.jpg"
-  bio: "SAP Solution Architect | Specializing in BRIM, RAR, FSCM | 13+ Years Experience"
+  bio: "SAP Solution Architect | BRIM, RAR, FSCM Specialist | 13+ Years Experience"
   location: "Atlanta, GA"
   links:
     - label: "LinkedIn"
@@ -47,7 +47,7 @@ collections:
   posts:
     output: true
 
-# Critical Folder Inclusion
+# Folder Inclusion
 include:
   - _pages
 
