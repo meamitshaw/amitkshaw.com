@@ -2,7 +2,7 @@
 layout: post
 title: "Real-Time Processing in SAP FI-CA using External Cash Desks"
 excerpt: "Optimizing payment processing speeds in Contract Accounts Receivable and Payable."
-categories: [SAP S/4HANA FI-CA Feature]
+categories: [Technical, SAP S/4HANA FI-CA Feature]
 ---
 Processing high-volume payments in real-time is a challenge for many industries. Here, I explain the use of external cash desks in the FI-CA subledger.
 
