@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="container">
+    <div class="logo">Amit Kumar Shaw</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/sap-architecture">SAP Architecture</a>
+      <a href="/publications">Publications</a>
+      <a href="/blog">Blog</a>
+      <a href="/model-railroading">Model Railroading</a>
+      <a href="/contact">Contact</a>
+      <a href="https://www.linkedin.com/in/akumarshaw" target="_blank">LinkedIn</a>
+    </nav>
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+<main class="container">
+{{ content }}
+</main>
+
+<footer>
+<p>© 2026 Amit Kumar Shaw • SAP Architect • BRIM | RAR | FSCM</p>
+</footer>
+
+<script src="/assets/js/theme.js"></script>
+</body>
+</html>
