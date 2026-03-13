@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 author_profile: true
 header:
   overlay_color: "#000"
@@ -12,7 +12,7 @@ excerpt: "Architecting high-volume billing and revenue compliance solutions for 
 # Amit Kumar Shaw
 ## SAP Solution Architect | BRIM • RAR • FSCM • FI
 
-I am a seasoned **SAP Certified Solution Architect** with over **13 years of experience** in finance and enterprise system implementation. I specialize in leading complex SAP transformations for global enterprises across the SaaS, Telecommunications, and Utilities sectors.
+I am a seasoned **SAP Certified Solution Architect** with over **12.5 years of experience** in finance and enterprise system implementation. I specialize in leading complex SAP transformations for global enterprises across the SaaS, Telecommunications, and Utilities sectors.
 
 ---
 
@@ -44,7 +44,7 @@ An analysis of the transition from traditional billing to modern, subscription-b
 
 | Module | Focus Area |
 | :--- | :--- |
-| **SAP BRIM** | Subscription Order Management (SOM), Convergent Charging (CC), Convergent Invoicing (CI), and Contract Accounting (FI-CA) for various Business Models. |
+| **SAP BRIM** | SOM, CC, CI, and FI-CA for Subscription Models. |
 | **SAP RAR** | Revenue Accounting, IFRS 15 Compliance, and Amortization. |
 | **SAP FSCM** | Credit & Dispute Management with BRIM Integration. |
 | **SAP FI** | General Ledger, Asset Accounting, and Financial Reporting. |
