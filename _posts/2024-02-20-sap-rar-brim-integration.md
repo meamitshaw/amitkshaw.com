@@ -2,8 +2,6 @@
 layout: post
 title: "SAP Revenue Accounting and Reporting (RAR) Integration with SAP BRIM"
 excerpt: "A deep dive into IFRS 15 compliance and the integration between RAR and BRIM."
-header:
-  teaser: "https://www.acuitilabs.com/wp-content/uploads/2022/06/SAP-Revenue-Accounting-and-Reporting-Integration-with-SAP-BRIM.jpg"
 categories: [SAP S/4HANA RAR, IFRS Compliance]
 ---
 Bridging the gap between billing and revenue recognition is critical for modern enterprises. This post covers the integration logic required for seamless reporting.
