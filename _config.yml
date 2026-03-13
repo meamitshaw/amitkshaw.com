@@ -1,6 +1,6 @@
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" # The professional "SAP Blue" skin
+minimal_mistakes_skin: "air" # The clean SAP-blue professional skin
 
 # Site Settings
 url: "https://amitkshaw.com"
@@ -10,7 +10,7 @@ name: "Amit Kumar Shaw"
 description: "SAP Solution Architect | BRIM, RAR, FSCM Specialist"
 locale: "en-US"
 
-# Navigation (This creates the TABS at the top)
+# Navigation (This creates the horizontal tabs at the top)
 masthead_links:
   - title: "About"
     url: /about/
@@ -26,7 +26,7 @@ masthead_links:
 # Site Author Sidebar
 author:
   name: "Amit Kumar Shaw"
-  avatar: "/assets/images/profile.jpg" # Make sure your photo is here
+  avatar: "/assets/images/profile.jpg"
   bio: "SAP Solution Architect | Specializing in BRIM, RAR, FSCM | 13+ Years Experience"
   location: "United States"
   links:
@@ -37,7 +37,7 @@ author:
       icon: "fas fa-fw fa-envelope"
       url: "mailto:contact@amitkshaw.com"
 
-# Collections
+# Collections (For your deep-dive technical pages)
 collections:
   expertise:
     output: true
@@ -45,14 +45,18 @@ collections:
   posts:
     output: true
 
-# Defaults (This applies the professional look to every page automatically)
+# Critical Fix for 404s (Tells GitHub to look inside your folder)
+include:
+  - _pages
+
+# Defaults (Forces the professional design on every page automatically)
 defaults:
   - scope:
       path: ""
     values:
       layout: "single"
       author_profile: true
-      classes: wide # Makes content easier to read for professionals
+      classes: wide
 
 # Build Settings
 plugins:
