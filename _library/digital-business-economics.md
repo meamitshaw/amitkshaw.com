@@ -2,7 +2,7 @@
 layout: post
 title: "The Economics Behind Digital Business Models"
 excerpt: "How digital business models have evolved and the economic drivers behind subscription economies."
-categories: [Business Strategy, Digital Transformation]
+categories: [Strategic, Business Strategy, Digital Transformation]
 ---
 Understanding the shift from ownership to access. This article covers how digital business models have evolved in recent times to favor recurring revenue.
 
