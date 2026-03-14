@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: default
 title: "Project Experience"
 permalink: /projects/
 author_profile: true
