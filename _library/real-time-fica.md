@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Real-Time Processing in SAP FI-CA using External Cash Desks"
 excerpt: "Optimizing payment processing speeds in Contract Accounts Receivable and Payable."
 type: "article"
