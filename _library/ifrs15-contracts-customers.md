@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "IFRS 15: Revenue from Contracts with Customers in SAP"
 excerpt: "A foundational look at the 5-step model of IFRS 15 and its technical implementation in SAP Accounting."
 type: "article"
