@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: About Amit Kumar Shaw
 permalink: /about/
 ---
