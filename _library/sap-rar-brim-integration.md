@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "SAP Revenue Accounting and Reporting (RAR) Integration with SAP BRIM"
 excerpt: "A deep dive into IFRS 15 compliance and the integration between RAR and BRIM."
 type: "article"
