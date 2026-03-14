@@ -5,14 +5,12 @@ permalink: /expertise/sap-brim/
 author_profile: true
 ---
 
-### High-Volume Subscription & Usage-Based Billing
-As a Solution Architect, I specialize in transforming traditional business models into agile, subscription-based economies using the SAP BRIM suite.
+## Strategic Monetization & Subscription Architecture
 
-#### Core Competencies:
-* **Subscription Order Management (SOM):** Designing complex product bundles and subscription schemas.
-* **Convergent Charging (CC):** Real-time rating and charging for high-volume data.
-* **Convergent Invoicing (CI):** Consolidating multiple billing streams into a single, customer-friendly invoice.
+"In the shift toward the Subscription Economy, I design 'Lead-to-Cash' ecosystems that handle extreme volume with financial integrity. My approach to SAP BRIM goes beyond billing; it is about building a scalable engine for business model innovation."
 
-
-
----
+## Key Architectural Focus Areas:
+* **Scalable Subscription Management:** Designing SOM (Subscription Order Management) to handle complex, multi-tier product bundles.
+* **High-Volume Mediation:** Utilizing Convergent Charging (CC) and Invoicing (CI) to process millions of transactions with sub-second accuracy.
+* **Revenue Leakage Prevention:** Implementing robust FI-CA (Contract Accounting) controls to ensure every cent is captured, cleared, and reconciled.
+* **Ecosystem Integration:** Harmonizing BRIM with Vertex for global tax compliance and external CRM/PLM systems.
