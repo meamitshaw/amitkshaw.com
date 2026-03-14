@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SAP FSCM & Working Capital
 permalink: /expertise/sap-fscm/
 excerpt: "Optimizing liquidity through intelligent Credit and Dispute management."
