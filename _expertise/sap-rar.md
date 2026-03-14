@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SAP RAR & Revenue Compliance
 permalink: /expertise/sap-rar/
 excerpt: "Automating IFRS 15 and ASC 606 compliance for global enterprises."
