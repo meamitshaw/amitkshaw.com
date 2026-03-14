@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Introduction to Equipment Integration: Device-as-a-Service"
 excerpt: "Transitioning from product sales to subscription-based hardware models using SAP."
 type: "article"
