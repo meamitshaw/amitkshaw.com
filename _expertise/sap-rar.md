@@ -1,18 +1,15 @@
 ---
-layout: single
+layout: page
 title: "SAP RAR (Revenue Accounting and Reporting)"
 permalink: /expertise/sap-rar/
 author_profile: true
 ---
 
-### IFRS 15 and ASC 606 Compliance
-I help organizations automate their revenue recognition processes to ensure compliance with global accounting standards.
+## Revenue Accounting & Regulatory Compliance (IFRS 15 / ASC 606)
+"Modern revenue recognition is a bridge between technical data and legal compliance. I architect SAP RAR solutions that automate the 5-step model, ensuring that global enterprises can report financial results with absolute certainty and zero manual intervention."
 
-#### Key Focus Areas:
-* **The 5-Step Model:** Implementing technical workflows to identify contracts, performance obligations (POBs), and transaction price allocation.
-* **Integration with BRIM/SD:** Ensuring seamless data flow from billing to the revenue sub-ledger.
-* **Contract Modifications:** Managing complex retrospective and prospective changes in revenue contracts.
-
-
-
----
+## Key Architectural Focus Areas:
+* **Automated Contract Management:** Streamlining the identification of performance obligations (POBs) across diverse revenue streams.
+* **Complex Allocation Logic:** Implementing Standalone Selling Price (SSP) calculations for multi-element arrangements.
+* **S/4HANA Optimized Reporting:** Leveraging the Universal Journal for real-time revenue insights and simplified period-end closing.
+* **Conflict Resolution:** Aligning Sales (SD), Billing (BRIM), and Accounting (FI) data to eliminate reconciliation discrepancies during audits.
