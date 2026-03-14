@@ -1,16 +1,17 @@
 ---
-layout: single
-title: "SAP FI / FI-CA"
+layout: page
+title: SAP FI (The Universal Journal)
 permalink: /expertise/sap-fi/
-author_profile: true
+excerpt: "The core financial backbone for global multi-GAAP reporting."
 ---
 
-### Financial & Contract Accounting
-Specializing in **FI-CA** (Contract Accounts Receivable and Payable) for industries with massive customer bases like Telecom and Utilities.
+### Executive Summary
+The General Ledger is the single source of truth. I design SAP FI architectures—optimized for **S/4HANA**—that harmonize sub-ledgers (BRIM, RAR, AP/AR) into a unified financial picture for the CFO.
 
-#### Expertise:
-* **Sub-ledger Accounting:** Managing millions of line items with high-performance processing.
-* **Payment Integration:** Connecting external cash desks and payment gateways for real-time clearing.
-* **Taxation:** Configuring global tax logic including Vertex and SAP Tax Service integrations.
+### Architectural Pillars
+* **The Universal Journal (ACDOCA):** Leveraging S/4HANA architecture for real-time reconciliation and multi-dimensional reporting.
+* **Multi-GAAP Reporting:** Designing parallel ledgers to meet both local and international (IFRS) accounting standards simultaneously.
+* **Asset Accounting & AP/AR:** Ensuring the lifecycle of every asset and liability is tracked with 100% auditability.
 
----
+### Strategic Impact
+I transform the finance department from a "record-keeper" into a strategic partner by providing instant, deep-dive visibility into global financial data.
