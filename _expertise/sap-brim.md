@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SAP BRIM Architecture
 permalink: /expertise/sap-brim/
 excerpt: "Architecting high-volume subscription and usage-based billing ecosystems."
