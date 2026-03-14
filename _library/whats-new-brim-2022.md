@@ -6,6 +6,8 @@ type: "article"
 category: "Functional"
 tag: [SAP S/4HANA BRIM Product Updates]
 ---
+{% raw %}
 The 2022 release of BRIM brought significant improvements to Subscription Order Management and Convergent Invoicing. Here are the highlights.
 
 [Read full article on LinkedIn](https://www.linkedin.com/pulse/whats-new-sap-brim-2022-amit-kumar-shaw/)
+{% endraw %}
