@@ -2,7 +2,9 @@
 layout: post
 title: "Introduction to Equipment Integration: Device-as-a-Service"
 excerpt: "Transitioning from product sales to subscription-based hardware models using SAP."
-categories: [Technical, SAP S/4HANA BRIM DaaS Feature]
+type: "article"
+category: "Technical"
+tag: [SAP S/4HANA BRIM DaaS Feature]
 ---
 The shift toward "Everything-as-a-Service" requires a new approach to equipment management. I discuss the economics and architecture of DaaS.
 
