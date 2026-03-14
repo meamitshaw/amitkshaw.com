@@ -2,7 +2,6 @@
 layout: default
 title: "Project Experience"
 permalink: /projects/
-author_profile: true
 ---
 
 Detailed below are major SAP transformation projects where I served as the lead architect or functional consultant.
