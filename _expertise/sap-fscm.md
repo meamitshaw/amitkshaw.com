@@ -1,16 +1,17 @@
 ---
-layout: single
-title: "SAP FSCM (Financial Supply Chain Management)"
+layout: page
+title: SAP FSCM & Working Capital
 permalink: /expertise/sap-fscm/
-author_profile: true
+excerpt: "Optimizing liquidity through intelligent Credit and Dispute management."
 ---
 
-### Credit & Dispute Management
-Optimizing the "Collection-to-Cash" cycle by implementing automated credit risk and dispute resolution workflows.
+### Executive Summary
+Cash flow is the lifeblood of the enterprise. I architect SAP FSCM (Financial Supply Chain Management) solutions that optimize working capital by automating the dispute-to-resolution cycle and providing data-driven credit risk assessments.
 
-#### Solutions:
-* **SAP Credit Management:** Real-time credit limit checks and automated scoring.
-* **Dispute Management:** Reducing Day Sales Outstanding (DSO) by streamlining the resolution of payment discrepancies.
-* **Collections Management:** Prioritizing customer contact based on risk and value.
+### Architectural Pillars
+* **Credit Management:** Utilizing S/4HANA real-time scoring to automate credit limits and mitigate bad debt risk.
+* **Dispute Management:** Streamlining the workflow for billing discrepancies, reducing the "Time-to-Resolution."
+* **Collections Management:** Implementing prioritized worklists for collection agents based on risk and value.
 
----
+### Strategic Impact
+By reducing DSO (Days Sales Outstanding) and improving the customer experience through transparent billing, I directly impact the company’s bottom-line liquidity.
