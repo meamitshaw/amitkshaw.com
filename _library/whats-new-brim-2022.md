@@ -2,7 +2,9 @@
 layout: post
 title: "What's New in SAP BRIM 2022"
 excerpt: "Reviewing the key features, improvements, and functional changes in the SAP BRIM 2022 release."
-categories: [Functional, SAP S/4HANA BRIM Product Updates]
+type: "article"
+category: "Functional"
+tag: [SAP S/4HANA BRIM Product Updates]
 ---
 The 2022 release of BRIM brought significant improvements to Subscription Order Management and Convergent Invoicing. Here are the highlights.
 
