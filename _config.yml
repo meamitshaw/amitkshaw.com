@@ -16,6 +16,7 @@ author:
 nav:
   - { name: "About", link: "/about/" }
   - { name: "Expertise", link: "#expertise" }
+  - { name: "Expertise", link: "/projects/" }
   - { name: "Library", link: "/library/" }
   - { name: "Interests", link: "/interests/" }
   - { name: "Contact", link: "/contact/" }
