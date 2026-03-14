@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "The Evolution of SAP BRIM"
 excerpt: "Tracing the journey from SAP Hybris Billing to the modern S/4HANA BRIM suite."
 type: "article"
