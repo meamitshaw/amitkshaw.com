@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "SAP BRIM Integration with Vertex Tax Solution"
 excerpt: "Exploring how to streamline global tax compliance by integrating Vertex with SAP BRIM."
 type: "article"
