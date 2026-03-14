@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Credit Management with SAP BRIM Integration"
 excerpt: "How to manage financial risk and credit limits within the high-volume BRIM environment."
 type: "article"
