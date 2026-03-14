@@ -1,15 +1,17 @@
 ---
 layout: page
-title: "SAP RAR (Revenue Accounting and Reporting)"
+title: SAP RAR & Revenue Compliance
 permalink: /expertise/sap-rar/
-author_profile: true
+excerpt: "Automating IFRS 15 and ASC 606 compliance for global enterprises."
 ---
 
-## Revenue Accounting & Regulatory Compliance (IFRS 15 / ASC 606)
-"Modern revenue recognition is a bridge between technical data and legal compliance. I architect SAP RAR solutions that automate the 5-step model, ensuring that global enterprises can report financial results with absolute certainty and zero manual intervention."
+### Executive Summary
+I bridge the gap between financial regulations and technical automation. By architecting SAP RAR solutions, I help global enterprises navigate the complexities of **IFRS 15** and **ASC 606**, ensuring that revenue is recognized accurately without manual intervention.
 
-## Key Architectural Focus Areas:
-* **Automated Contract Management:** Streamlining the identification of performance obligations (POBs) across diverse revenue streams.
-* **Complex Allocation Logic:** Implementing Standalone Selling Price (SSP) calculations for multi-element arrangements.
-* **S/4HANA Optimized Reporting:** Leveraging the Universal Journal for real-time revenue insights and simplified period-end closing.
-* **Conflict Resolution:** Aligning Sales (SD), Billing (BRIM), and Accounting (FI) data to eliminate reconciliation discrepancies during audits.
+### Architectural Pillars
+* **Performance Obligations (POBs):** Automating the identification and grouping of obligations across Sales (SD), Billing (BRIM), and external sources.
+* **Transaction Price Allocation:** Implementing Standalone Selling Price (SSP) logic to allocate revenue across multi-element arrangements.
+* **Fulfillment & Recognition:** Tracking event-based and time-based revenue triggers to ensure audit-ready financial statements.
+
+### Strategic Impact
+My implementations shorten the month-end close cycle and eliminate the "spreadsheet risk" typically associated with complex revenue recognition compliance.
