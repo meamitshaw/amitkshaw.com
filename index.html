@@ -602,31 +602,72 @@
         <p id="lightbox-caption" class="text-white text-center mt-6 font-medium tracking-wide text-sm"></p>
     </div>
 </div>
-    <section id="contact" class="py-20 bg-slate-900 text-white text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-4">Let's Design Your Solution</h2>
-            <p class="text-slate-400 mb-12">Currently open to strategic advisory and architectural leadership roles.</p>
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="p-8 bg-slate-800 rounded-2xl border border-slate-700">
-                    <i class="fas fa-phone text-sky-400 text-2xl mb-4"></i>
-                    <p class="font-bold text-lg">+1 678 704 1260</p>
-                </div>
-                <div class="p-8 bg-slate-800 rounded-2xl border border-slate-700">
-                    <i class="fas fa-envelope text-sky-400 text-2xl mb-4"></i>
-                    <p class="font-bold text-lg">contact@amitkshaw.com</p>
+    
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div>
+                <h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">Get In Touch</h4>
+                <h2 class="text-4xl font-bold mb-6">Let's Architect Your <br>Next Transformation.</h2>
+                <p class="text-slate-400 mb-10 max-w-md">
+                    Currently open to strategic consulting engagements, architectural reviews, and speaking opportunities regarding SAP BRIM, RAR, and AI in Finance.
+                </p>
+                
+                <div class="space-y-6">
+                    <a href="mailto:Contact@amitkshaw.com" class="flex items-center p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-sky-500 transition group">
+                        <div class="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-slate-500 uppercase">Email Me</span>
+                            <span class="text-lg font-medium group-hover:text-sky-400 transition">Contact@amitkshaw.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/amitkshaw" target="_blank" class="flex items-center p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-sky-500 transition group">
+                        <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-slate-500 uppercase">Professional Network</span>
+                            <span class="text-lg font-medium group-hover:text-sky-400 transition">linkedin.com/in/amitkshaw</span>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.linkedin.com/in/akumarshaw/" target="_blank" class="text-4xl text-slate-500 hover:text-sky-400 transition">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+
+            <div class="bg-white rounded-[2rem] p-10 text-slate-900 shadow-2xl">
+                <form action="https://formspree.io/f/your-id" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Name</label>
+                            <input type="text" name="name" class="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-sky-500 transition" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Company</label>
+                            <input type="text" name="company" class="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-sky-500 transition" placeholder="Enterprise Ltd">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-slate-400">Message</label>
+                        <textarea name="message" rows="4" class="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-sky-500 transition" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-sky-600 text-white font-bold rounded-xl hover:bg-sky-500 transition shadow-lg shadow-sky-200">
+                        Send Inquiry
+                    </button>
+                </form>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="py-10 border-t border-slate-100 text-center text-slate-400 text-xs">
         &copy; 2026 Amit Kumar Shaw. All Rights Reserved. SAP is a registered trademark of SAP SE.
     </footer>
+
+            
 <script>
     function openLightbox(imageSrc, captionText = "Portfolio Detail") {
         const lightbox = document.getElementById('lightbox');
