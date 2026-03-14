@@ -6,6 +6,8 @@ type: "article"
 category: "Technical"
 tag: [SAP S/4HANA BRIM, Taxation, Vertex Tax Solution]
 ---
+{% raw %}
 In this article, I delve into the technicalities of connecting SAP BRIM with Vertex to automate tax calculations across various jurisdictions.
 
 [Read full article on Acuiti Labs](https://www.acuitilabs.com/sap-brim-integration-with-vertex-tax-solution/)
+{% endraw %}
