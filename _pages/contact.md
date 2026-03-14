@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Let's Connect
 permalink: /contact/
 ---
