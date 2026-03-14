@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: page
 title: "SAP BRIM (Billing & Revenue Innovation Management)"
 permalink: /expertise/sap-brim/
 author_profile: true
