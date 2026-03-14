@@ -565,33 +565,43 @@
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="aspect-video bg-sky-50 rounded-2xl p-8 relative overflow-hidden group">
-                    <i class="fas fa-globe-americas text-sky-100 text-9xl absolute -right-5 -bottom-5 group-hover:rotate-12 transition-transform duration-700"></i>
-                    <div class="relative z-10">
-                        <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Recent Visits</span>
-                        <ul class="mt-4 space-y-2">
-                            <li class="flex items-center text-slate-700 text-xs font-bold"><i class="fas fa-check text-sky-500 mr-2"></i> Tokyo & Kyoto, Japan</li>
-                            <li class="flex items-center text-slate-700 text-xs font-bold"><i class="fas fa-check text-sky-500 mr-2"></i> Alaska, USA</li>
-                            <li class="flex items-center text-slate-700 text-xs font-bold"><i class="fas fa-check text-sky-500 mr-2"></i> Colorado, USA</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Exploring the World</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Travel provides the perspective needed to solve global-scale architectural problems. From the high-tech urban pulse of Japan to the vast wilderness of Alaska, these experiences fuel my creative approach to problem-solving.
-                    </p>
-                </div>
-            </div>
+          <div class="space-y-6">
+    <div class="aspect-video bg-sky-50 rounded-2xl p-8 relative overflow-hidden group cursor-pointer" onclick="openLightbox('assets/travel-main.jpg')">
+        <i class="fas fa-globe-americas text-sky-100 text-9xl absolute -right-5 -bottom-5 group-hover:rotate-12 transition-transform duration-700"></i>
+        <div class="relative z-10">
+            <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Recent Visits</span>
+            <ul class="mt-4 space-y-3">
+                <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item" onclick="event.stopPropagation(); openLightbox('assets/japan-kyoto.jpg')">
+                    <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition"></i> Tokyo & Kyoto, Japan</span>
+                    <i class="fas fa-chevron-right text-[10px] text-sky-200"></i>
+                </li>
+                <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item" onclick="event.stopPropagation(); openLightbox('assets/alaska.jpg')">
+                    <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition"></i> Alaska, USA</span>
+                    <i class="fas fa-chevron-right text-[10px] text-sky-200"></i>
+                </li>
+                <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item" onclick="event.stopPropagation(); openLightbox('assets/colorado.jpg')">
+                    <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition"></i> Colorado, USA</span>
+                    <i class="fas fa-chevron-right text-[10px] text-sky-200"></i>
+                </li>
+            </ul>
         </div>
     </div>
-
-    <div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex items-center justify-center p-4" onclick="closeLightbox()">
-        <button class="absolute top-8 right-8 text-white text-3xl">&times;</button>
-        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl">
+    <div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Exploring the World</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+            Travel provides the perspective needed to solve global-scale architectural problems. From the urban pulse of Japan to the wilderness of Alaska, these experiences fuel my creative approach to SAP solutioning.
+        </p>
     </div>
-</section>
+</div>
+
+    <div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
+    <button class="absolute top-8 right-8 text-white text-4xl hover:text-sky-400 transition">&times;</button>
+    
+    <div class="relative max-w-5xl">
+        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-white/10">
+        <p id="lightbox-caption" class="text-white text-center mt-6 font-medium tracking-wide text-sm"></p>
+    </div>
+</div>
     <section id="contact" class="py-20 bg-slate-900 text-white text-center">
         <div class="max-w-4xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-4">Let's Design Your Solution</h2>
@@ -618,25 +628,37 @@
         &copy; 2026 Amit Kumar Shaw. All Rights Reserved. SAP is a registered trademark of SAP SE.
     </footer>
 <script>
-    function openLightbox(imageSrc) {
+    function openLightbox(imageSrc, captionText = "Portfolio Detail") {
         const lightbox = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
         
-        // Only open if an image source is provided (prevents opening on empty placeholders)
         if(imageSrc && imageSrc !== '#') {
             img.src = imageSrc;
+            // Optional: update caption text if you add an element for it
+            if(caption) caption.innerText = captionText;
+            
             lightbox.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
+            lightbox.classList.add('flex'); // Ensure flex is applied for centering
+            document.body.style.overflow = 'hidden';
         }
     }
 
     function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
         lightbox.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Resume scrolling
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = 'auto';
     }
 
-    // Close on 'Esc' key
+    // Close when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if(e.target === this || e.target.tagName === 'BUTTON') {
+            closeLightbox();
+        }
+    });
+
+    // Escape key support
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape") closeLightbox();
     });
