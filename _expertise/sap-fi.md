@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SAP FI (The Universal Journal)
 permalink: /expertise/sap-fi/
 excerpt: "The core financial backbone for global multi-GAAP reporting."
