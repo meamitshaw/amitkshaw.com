@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Streamlining Tax Compliance in SAP S/4HANA 2023"
 excerpt: "Exploring the latest tax compliance features and integrations in the S/4HANA 2023 release."
 type: "article"
