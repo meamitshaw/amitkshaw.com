@@ -6,6 +6,8 @@ type: "article"
 category: "Strategic"
 tag: [Business Strategy, Digital Transformation]
 ---
+{% raw %}
 Understanding the shift from ownership to access. This article covers how digital business models have evolved in recent times to favor recurring revenue.
 
 [Read full article on Acuiti Labs](https://www.acuitilabs.com/the-economics-behind-digital-business-models-and-how-they-have-evolved-in-recent-times/)
+{% endraw %}
