@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "What's New in SAP BRIM 2022"
 excerpt: "Reviewing the key features, improvements, and functional changes in the SAP BRIM 2022 release."
 type: "article"
