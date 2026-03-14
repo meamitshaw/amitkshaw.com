@@ -593,17 +593,8 @@
         </p>
     </div>
 </div>
-
-    <div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
-    <button class="absolute top-8 right-8 text-white text-4xl hover:text-sky-400 transition">&times;</button>
-    
-    <div class="relative max-w-5xl">
-        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-white/10">
-        <p id="lightbox-caption" class="text-white text-center mt-6 font-medium tracking-wide text-sm"></p>
-    </div>
-</div>
-    
-    <section id="contact" class="py-24 bg-slate-900 text-white">
+       
+<section id="contact" class="py-24 bg-slate-900 text-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             
@@ -716,6 +707,14 @@
     </div>
 </footer>
 
+<div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
+    <button class="absolute top-8 right-8 text-white text-4xl hover:text-sky-400 transition">&times;</button>
+    
+    <div class="relative max-w-5xl">
+        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-white/10">
+        <p id="lightbox-caption" class="text-white text-center mt-6 font-medium tracking-wide text-sm"></p>
+    </div>
+</div>
             
 <script>
     function openLightbox(imageSrc, captionText = "Portfolio Detail") {
