@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "What's New in SAP BRIM S/4HANA 2021"
 excerpt: "Analyzing the transition and new capabilities introduced in the S/4HANA 2021 version of BRIM."
 type: "article"
