@@ -30,75 +30,54 @@
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 sap-gradient">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+   <section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col items-center text-center">
             
-            <div class="md:col-span-8">
-                <h1 class="text-6xl font-bold text-slate-900 leading-tight mb-4">
-                    Amit Kumar Shaw
-                </h1>
-                <p class="text-2xl text-sky-700 font-light mb-6">SAP Solution Architect | Lead-to-Cash Specialist</p>
-                
-                <p class="text-slate-600 text-lg mb-8 leading-relaxed max-w-2xl">
-                    I drive <span class="font-bold text-slate-900">SAP Finance Transformation</span> by leveraging the full capability of the <span class="font-bold text-slate-900">SAP S/4HANA Digital Core</span>. With a deep-rooted background in <span class="font-bold text-slate-900">Finance and Auditing</span>, I architect end-to-end solutions for the <span class="font-bold text-slate-900">Digital Solutions Economy</span>—ensuring that high-volume, complex <span class="font-bold text-slate-900">Lead-to-Cash</span> processes are always matched with rigorous financial integrity and compliance.
-                </p>
-                
-                <div class="space-y-3" id="announcement-container">
-                    <div class="inline-flex items-center bg-white border border-amber-200 p-3 rounded-xl shadow-sm">
-                        <span class="flex h-3 w-3 relative mr-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-                        </span>
-                        <div class="text-sm text-slate-700">
-                            <span class="font-bold text-amber-800 uppercase tracking-tighter mr-2 text-xs">Latest Activity:</span>
-                            <span class="font-medium">Developing new frameworks for <span class="font-bold">AI-driven Revenue Leakage Detection</span> in S/4HANA.</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex items-center space-x-2 mb-6 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
+                <i class="fas fa-certificate text-sky-500 text-xs"></i>
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">SAP® Certified Solution Architect</span>
             </div>
 
-            <div class="md:col-span-4">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-sky-100 h-full flex flex-col">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-feather-alt text-sky-600 mr-2"></i>
-                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Featured Publications</h3>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
+                Architecting <span class="text-sky-600">Lead-to-Cash</span> <br class="hidden md:block"> for Global Enterprises.
+            </h1>
+
+            <p class="max-w-3xl text-xl text-slate-500 leading-relaxed mb-10">
+                Over <span class="text-slate-900 font-semibold">12.5 years</span> of expertise bridging the gap between <span class="text-slate-900 font-semibold">Audit/Finance integrity</span> and complex SAP digital transformations across BRIM, RAR, and S/4HANA.
+            </p>
+
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projects" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition shadow-xl shadow-slate-200">
+                    View Strategic Projects
+                </a>
+                <a href="mailto:contact@amitkshaw.com" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition">
+                    Get In Touch
+                </a>
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-slate-100 w-full">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Core Architectural Focus</p>
+                <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400">
+                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
+                        <span class="font-bold text-slate-600">SAP BRIM</span>
                     </div>
-                    <ul class="space-y-5 flex-1">
-                        <li class="group">
-                            <a href="https://www.acuitilabs.com/sap-brim-integration-with-vertex-tax-solution/" target="_blank" class="block">
-                                <h4 class="text-sm font-bold group-hover:text-sky-600 transition mb-1 leading-snug">SAP BRIM Integration with Vertex Tax Solution</h4>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">Acuiti Labs Publication</p>
-                            </a>
-                        </li>
-                        <li class="group border-t border-slate-50 pt-4">
-                            <a href="https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/" target="_blank" class="block">
-                                <h4 class="text-sm font-bold group-hover:text-sky-600 transition mb-1 leading-snug">RAR Integration with SAP BRIM (IFRS 15)</h4>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">Technical Deep-Dive</p>
-                            </a>
-                        </li>
-                        <li class="group border-t border-slate-50 pt-4">
-                            <a href="https://www.linkedin.com/pulse/real-time-processing-sap-fi-ca-using-external-cash-desks-shaw-vpdve/" target="_blank" class="block">
-                                <h4 class="text-sm font-bold group-hover:text-sky-600 transition mb-1 leading-snug">Real-Time Processing in SAP FI-CA</h4>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">LinkedIn Pulse Article</p>
-                            </a>
-                        </li>
-                        <li class="group border-t border-slate-50 pt-4">
-                            <a href="https://www.acuitilabs.com/credit-management-with-sap-brim-integration/" target="_blank" class="block">
-                                <h4 class="text-sm font-bold group-hover:text-sky-600 transition mb-1 leading-snug">Credit Management with SAP BRIM Integration</h4>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">FSCM & Risk Strategy</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <a href="#library" class="text-[11px] text-sky-600 font-bold uppercase tracking-wider flex items-center hover:text-sky-800 transition">
-                            Visit Technical Library <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
+                        <span class="font-bold text-slate-600">SAP RAR</span>
+                    </div>
+                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
+                        <span class="font-bold text-slate-600">SAP FSCM</span>
+                    </div>
+                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
+                        <span class="font-bold text-slate-600">S/4HANA FI</span>
                     </div>
                 </div>
             </div>
-            
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="about" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
