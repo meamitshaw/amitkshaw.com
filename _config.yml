@@ -1,24 +1,31 @@
-title: Amit Kumar Shaw
-email: contact@amitkshaw.com
-description: Enterprise Architect | SAP BRIM, RAR, FSCM & FI Specialist
-remote_theme: "raviriley/agency-jekyll-theme" # Robust, clean, and modern
+# Site Identity
+title: "Amit Kumar Shaw"
+name: "Amit Kumar Shaw"
+description: "Enterprise Architect | SAP BRIM, RAR, FSCM & FI Specialist"
+remote_theme: "raviriley/agency-jekyll-theme"
 
-# Identity
+# Author Branding
 author:
-  name: Amit Kumar Shaw
-  job_title: "Solution Architect | Author"
+  name: "Amit Kumar Shaw"
+  avatar: "/assets/images/profile.jpg"
+  job_title: "Senior SAP Architect"
   location: "Atlanta, GA"
-  avatar: /assets/images/profile.jpg
 
-# Navigation (One-page style + Deep Links)
+# Navigation Menu (Agency specific)
 nav:
+  - { name: "About", link: "/about/" }
   - { name: "Expertise", link: "#expertise" }
-  - { name: "Projects", link: "#projects" }
   - { name: "Library", link: "/library/" }
   - { name: "Interests", link: "/interests/" }
-  - { name: "Contact", link: "#contact" }
+  - { name: "Contact", link: "/contact/" }
 
-# Enable Collections
+# Social Links (Used by the theme for the footer/contact section)
+social:
+  linkedin: "akumarshaw"
+  whatsapp: "917337327827"
+  email: "contact@amitkshaw.com"
+
+# Collections Strategy (For your 13+ Articles and Expertise pages)
 collections:
   library:
     output: true
@@ -27,13 +34,8 @@ collections:
     output: true
     permalink: /expertise/:path/
 
-# Social Integration
-social:
-  linkedin: akumarshaw
-  whatsapp: "917337327827"
-
-  # Build Settings
+# Build Settings for GitHub Pages
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
-  - jekyll-sitemap # Excellent for SEO so recruiters find you on Google
+  - jekyll-sitemap
