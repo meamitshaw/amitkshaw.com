@@ -2,7 +2,9 @@
 layout: post
 title: "Streamlining Tax Compliance in SAP S/4HANA 2023"
 excerpt: "Exploring the latest tax compliance features and integrations in the S/4HANA 2023 release."
-categories: [Technical, SAP S/4HANA BRIM Feature]
+type: "article"
+category: "Technical"
+tag: [SAP S/4HANA BRIM Feature]
 ---
 With the 2023 release, SAP has introduced several enhancements for global tax management. This post explores how to leverage these for streamlined compliance.
 
