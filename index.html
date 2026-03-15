@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,107 +11,54 @@
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter','sans-serif']
+      }
+    }
+  }
+}
+</script>
+
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- AOS Animation -->
+<!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
-/* ---------- Global ---------- */
 
 body{
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
 .sap-gradient{
-    background: linear-gradient(135deg,#e0f2fe 0%,#f0f9ff 100%);
+background:linear-gradient(135deg,#e0f2fe 0%,#f0f9ff 100%);
 }
 
 .card-hover{
-    transition: all .3s ease;
+transition:all .3s ease;
 }
 
 .card-hover:hover{
-    transform: translateY(-5px);
+transform:translateY(-5px);
 }
 
-/* ---------- Reveal Animations ---------- */
-
-@keyframes reveal{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.animate-reveal{
-    opacity:0;
-    animation:reveal .8s ease-out forwards;
-}
-
-.delay-1{animation-delay:.2s;}
-.delay-2{animation-delay:.6s;}
-.delay-3{animation-delay:1s;}
-
-/* ---------- Scroll Reveal ---------- */
-
-.reveal-left,
-.reveal-right{
-    opacity:0;
-    transition:all .8s ease-out;
-}
-
-.reveal-left{
-    transform:translateX(-30px);
-}
-
-.reveal-right{
-    transform:translateX(30px);
-}
-
-.active-reveal{
-    opacity:1!important;
-    transform:translate(0)!important;
-}
-
-/* ---------- Image Zoom ---------- */
-
-.image-zoom{
-    transition:transform 1.2s ease-out;
-}
-
-.active-reveal .image-zoom{
-    transform:scale(1.05);
-}
-
-/* ---------- Card Animation ---------- */
-
-.reveal-card{
-    opacity:0;
-    transform:scale(.95) translateY(20px);
-    transition:all .6s cubic-bezier(0.16,1,0.3,1);
-}
-
-.active-card{
-    opacity:1!important;
-    transform:scale(1) translateY(0)!important;
-}
 </style>
 
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
 <!-- Navigation -->
+
 <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
 
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -138,7 +87,12 @@ Contact
 
 </div>
 
+<button class="md:hidden text-slate-700">
+<i class="fas fa-bars text-lg"></i>
+</button>
+
 </div>
+
 </nav>
 
  <section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
@@ -200,7 +154,7 @@ Contact
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-12 gap-16 items-center">
             
-            <div class="md:col-span-5 relative reveal-left">
+            <div class="md:col-span-5 relative" data-aos="fade-right">
                 <div class="aspect-square bg-slate-100 rounded-3xl overflow-hidden shadow-2xl shadow-slate-200">
                     <img src="assets/amit-kumar-shaw.jpg" alt="Amit Kumar Shaw" class="w-full h-full object-cover image-zoom">
                 </div>
@@ -208,11 +162,11 @@ Contact
             </div>
 
             <div class="md:col-span-7">
-                <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4 reveal-right" style="transition-delay: 0.1s;">The Architect's Story</h4>
-                <h2 class="text-4xl font-bold text-slate-900 mb-6 leading-tight reveal-right" style="transition-delay: 0.2s;">Bridging Financial Integrity with Digital Innovation.</h2>
+                <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4" data-aos="fade-left">The Architect's Story</h4>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6 leading-tight" data-aos="fade-left" data-aos-delay="100">Bridging Financial Integrity with Digital Innovation.</h2>
                 
                 <div class="space-y-6 text-slate-600 leading-relaxed">
-                    <p class="reveal-right" style="transition-delay: 0.3s;">
+                    <p class=data-aos="fade-left" data-aos-delay="200">
                         With over <span class="text-slate-900 font-semibold text-lg">13 years</span> of professional experience, my journey began in the rigorous world of <span class="text-slate-900 font-semibold">Auditing and Taxation</span> within a Chartered Accountant firm. This foundational decade in finance shaped my perspective: I don't just see code or configurations; I see the financial statements and regulatory compliance that drive a business.
                     </p>
                     <p class="reveal-right" style="transition-delay: 0.4s;">
@@ -244,7 +198,7 @@ Contact
         
         <div class="grid md:grid-cols-2 gap-8">
             
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.1s;">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-layer-group text-xl"></i>
@@ -252,7 +206,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP BRIM (Lead-to-Cash)</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Architecting high-volume subscription models across SOM, CC, and CI. Specializing in **performance tuning** and **multithreading** in Convergent Invoicing to handle enterprise-scale billing data for global Telecom and SaaS leaders.
+                    Architecting high-volume subscription models across SOM, CC, and CI. Specializing in <span class="font-semibold">performance tuning</span> and <span class="font-semibold">multithreading</span> in Convergent Invoicing to handle enterprise-scale billing data for global Telecom and SaaS leaders.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -264,7 +218,7 @@ Contact
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.2s;">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-file-contract text-xl"></i>
@@ -272,7 +226,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP RAR (Revenue Compliance)</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Automating **IFRS-15 / ASC-606 compliance** through robust architectural design. Expert in establishing seamless real-time integration between BRIM, SD, and RAR to ensure synchronized revenue recognition.
+                    Automating <span class="font-semibold">IFRS-15 / ASC-606 compliance</span> through robust architectural design. Expert in establishing seamless real-time integration between BRIM, SD, and RAR to ensure synchronized revenue recognition.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -284,7 +238,7 @@ Contact
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.3s;">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="300">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-shield-alt text-xl"></i>
@@ -292,7 +246,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP FSCM & FI-CA</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Optimizing working capital and liquidity through automated Credit, Dispute, and Collections management. Leveraging **RPA-led exception management (EMMA)** to streamline high-volume utility billing operations.
+                    Optimizing working capital and liquidity through automated Credit, Dispute, and Collections management. Leveraging <span class="font-semibold">RPA-led exception management (EMMA)</span> to streamline high-volume utility billing operations.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -304,7 +258,7 @@ Contact
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.4s;">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="400">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-university text-xl"></i>
@@ -312,7 +266,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">S/4HANA Finance</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Designing the Universal Journal as a "Single Source of Truth" for **Multi-GAAP reporting**. My technical designs are grounded in professional auditing experience, ensuring every architecture is inherently audit-ready.
+                    Designing the Universal Journal as a "Single Source of Truth" for <span class="font-semibold">Multi-GAAP reporting</span>. My technical designs are grounded in professional auditing experience, ensuring every architecture is inherently audit-ready.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -706,7 +660,7 @@ Contact
                 <div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Model Railroading (HO Scale)</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                        Captured by the mechanical precision of **Brass and Diecast steam locomotives**. My collection highlights the intricate detailing of the steam era, bridging historical engineering with modern DCC/DC technology.
+                        Captured by the mechanical precision of <span class="font-semibold">Brass and Diecast steam locomotives</span>. My collection highlights the intricate detailing of the steam era, bridging historical engineering with modern DCC/DC technology.
                     </p>
                     <div class="grid grid-cols-3 gap-2">
                         <div class="aspect-square bg-slate-50 rounded-lg border border-dashed border-slate-200 flex items-center justify-center text-slate-300 hover:border-sky-500 hover:text-sky-500 transition-all cursor-pointer group/cam" onclick="openLightbox('assets/freight-car.jpg')">
@@ -872,7 +826,7 @@ Contact
             </div>
         </div>
 
-        <div class="pt-8 border-t border-slate-200 flex flex-col md:row justify-between items-center gap-4">
+        <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 &copy; 2026 Amit Kumar Shaw. Built with precision and SAP expertise.
             </p>
@@ -894,129 +848,54 @@ Contact
     </div>
 </div>
             
-<script>
-    function openLightbox(imageSrc, captionText = "Portfolio Detail") {
-        const lightbox = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        const caption = document.getElementById('lightbox-caption');
-        
-        if(imageSrc && imageSrc !== '#') {
-            img.src = imageSrc;
-            // Optional: update caption text if you add an element for it
-            if(caption) caption.innerText = captionText;
-            
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex'); // Ensure flex is applied for centering
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = 'auto';
-    }
-
-    // Close when clicking outside the image
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-        if(e.target === this || e.target.tagName === 'BUTTON') {
-            closeLightbox();
-        }
-    });
-
-    // Escape key support
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") closeLightbox();
-    });
-
-    const observerOptions = {
-        threshold: 0.2 // Triggers when 20% of the section is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Find all elements with reveal classes inside this section
-                const reveals = entry.target.querySelectorAll('.reveal-left, .reveal-right');
-                reveals.forEach(el => el.classList.add('active-reveal'));
-                
-                // Once it has animated, stop watching this section
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Target the about section
-    observer.observe(document.querySelector('#about'));
-
-    // Configuration for the Expertise Observer
-    const expertiseObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Find all cards inside this section and add the active class
-                const cards = entry.target.querySelectorAll('.reveal-card');
-                cards.forEach(card => card.classList.add('active-card'));
-                
-                // Stop observing once animated
-                expertiseObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 }); // Trigger when 15% is visible
-
-    // Start watching the Expertise section
-    expertiseObserver.observe(document.querySelector('#expertise'));
-
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // 1. Observer for "About Me" (Reveal from left/right)
-        const aboutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
-                        el.classList.add('active-reveal');
-                    });
-                }
-            });
-        }, { threshold: 0.2 });
-        aboutObserver.observe(document.querySelector('#about'));
-
-        // 2. Observer for "Expertise" Cards (Scale-up stagger)
-        const expertiseObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const cards = entry.target.querySelectorAll('.reveal-card');
-                    cards.forEach(card => card.classList.add('active-card'));
-                }
-            });
-        }, { threshold: 0.1 });
-        expertiseObserver.observe(document.querySelector('#expertise'));
-
-        // 3. Handle Navigation Clicks (to ensure they trigger if user clicks "Expertise")
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                // If clicking Expertise, give a tiny delay then trigger cards manually
-                if (targetId === '#expertise') {
-                    setTimeout(() => {
-                        targetSection.querySelectorAll('.reveal-card').forEach(card => {
-                            card.classList.add('active-card');
-                        });
-                    }, 600); // 600ms is the standard scroll time
-                }
-            });
-        });
-    });
-</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
-  AOS.init({
-    duration: 800, // Animation speed
-    once: false,   // Whether animation should happen only once - set to false so it re-triggers when clicking Expertise button
-    mirror: true   // Whether elements should animate out while scrolling past them
-  });
+
+AOS.init({
+  duration: 900,
+  easing: "ease-out-cubic",
+  once: false,
+  mirror: true
+});
+
+
+/* LIGHTBOX */
+
+function openLightbox(src, caption="Portfolio Detail") {
+
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+    const cap = document.getElementById("lightbox-caption");
+
+    img.src = src;
+    cap.innerText = caption;
+
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+
+    document.body.style.overflow="hidden";
+}
+
+function closeLightbox(){
+    const lightbox = document.getElementById("lightbox");
+
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+
+    document.body.style.overflow="auto";
+}
+
+document.getElementById("lightbox").addEventListener("click",(e)=>{
+    if(e.target.id==="lightbox" || e.target.tagName==="BUTTON"){
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape") closeLightbox();
+});
+
 </script>
     
 </body>
