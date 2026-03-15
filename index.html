@@ -185,6 +185,22 @@ transform:translateY(12px);
 
 }
 
+#data-flow{
+
+position:absolute;
+inset:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+opacity:0.35;
+
+z-index:0;
+
+}
+
 </style>
 
 </head>
@@ -232,6 +248,8 @@ Contact
 <!-- Hero Section -->
 
 <section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
+
+<canvas id="data-flow"></canvas>
 
 <div id="hero-glow"></div>
 
@@ -1124,6 +1142,110 @@ glow.style.left = e.clientX + "px";
 glow.style.top = e.clientY + "px";
 
 });
+
+
+const canvas = document.getElementById("data-flow");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas(){
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+class Particle{
+
+constructor(){
+this.x = Math.random()*canvas.width;
+this.y = Math.random()*canvas.height;
+
+this.speedX = (Math.random()-0.5)*0.5;
+this.speedY = (Math.random()-0.5)*0.5;
+
+this.size = 2;
+}
+
+update(){
+
+this.x += this.speedX;
+this.y += this.speedY;
+
+if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+}
+
+draw(){
+
+ctx.fillStyle = "rgba(99,102,241,0.6)";
+ctx.beginPath();
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+ctx.fill();
+
+}
+
+}
+
+function init(){
+
+particles = [];
+
+for(let i=0;i<35;i++){
+particles.push(new Particle());
+}
+
+}
+
+function connect(){
+
+for(let a=0;a<particles.length;a++){
+
+for(let b=a;b<particles.length;b++){
+
+let dx = particles[a].x - particles[b].x;
+let dy = particles[a].y - particles[b].y;
+
+let distance = dx*dx + dy*dy;
+
+if(distance < 12000){
+
+ctx.strokeStyle = "rgba(148,163,184,0.2)";
+ctx.lineWidth = 1;
+
+ctx.beginPath();
+ctx.moveTo(particles[a].x,particles[a].y);
+ctx.lineTo(particles[b].x,particles[b].y);
+ctx.stroke();
+
+}
+
+}
+
+}
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p => {
+p.update();
+p.draw();
+});
+
+connect();
+
+requestAnimationFrame(animate);
+
+}
+
+init();
+animate();
 
 </script>
     
