@@ -214,9 +214,9 @@ transition:all .3s ease;
 <body class="bg-slate-50 text-slate-800 font-sans">
 
 <!-- Navigation -->
-<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100 relative">
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
+    
     <!-- Logo -->
     <span class="text-xl font-bold text-sky-700 underline decoration-sky-400">
       AKS.
@@ -230,38 +230,33 @@ transition:all .3s ease;
       <a href="#projects" class="hover:text-sky-600 transition">Projects</a>
       <a href="#resources" class="hover:text-sky-600 transition">Knowledge Hub</a>
       <a href="#interests" class="hover:text-sky-600 transition">Interests</a>
-      <a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">
-        Contact
-      </a>
+      <a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">Contact</a>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-md">
-      <div class="flex flex-col space-y-4 px-6 py-6 text-sm font-medium">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About Me</a>
-        <a href="#expertise" class="mobile-link">Expertise</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#resources" class="mobile-link">Knowledge Hub</a>
-        <a href="#interests" class="mobile-link">Interests</a>
-        <a href="#contact" class="mobile-link text-sky-600 font-semibold">Contact</a>
-      </div>
-    </div>
-
-    <!-- Hamburger / X Button -->
+    <!-- Mobile Menu Button -->
     <button id="menu-btn" class="md:hidden p-2 focus:outline-none text-slate-700">
-      <!-- Hamburger icon -->
+      <!-- Hamburger -->
       <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
-      <!-- X icon (hidden initially) -->
+      <!-- X icon -->
       <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M6 18L18 6M6 6l12 12" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
+  </div>
 
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden w-full bg-white border-t border-slate-100 shadow-md">
+    <div class="flex flex-col space-y-4 px-6 py-6 text-sm font-medium">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About Me</a>
+      <a href="#expertise" class="mobile-link">Expertise</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#resources" class="mobile-link">Knowledge Hub</a>
+      <a href="#interests" class="mobile-link">Interests</a>
+      <a href="#contact" class="mobile-link text-sky-600 font-semibold">Contact</a>
+    </div>
   </div>
 </nav>
 
