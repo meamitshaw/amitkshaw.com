@@ -850,6 +850,50 @@
     // Start watching the Expertise section
     expertiseObserver.observe(document.querySelector('#expertise'));
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 1. Observer for "About Me" (Reveal from left/right)
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+                        el.classList.add('active-reveal');
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        aboutObserver.observe(document.querySelector('#about'));
 
+        // 2. Observer for "Expertise" Cards (Scale-up stagger)
+        const expertiseObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.reveal-card');
+                    cards.forEach(card => card.classList.add('active-card'));
+                }
+            });
+        }, { threshold: 0.1 });
+        expertiseObserver.observe(document.querySelector('#expertise'));
+
+        // 3. Handle Navigation Clicks (to ensure they trigger if user clicks "Expertise")
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // If clicking Expertise, give a tiny delay then trigger cards manually
+                if (targetId === '#expertise') {
+                    setTimeout(() => {
+                        targetSection.querySelectorAll('.reveal-card').forEach(card => {
+                            card.classList.add('active-card');
+                        });
+                    }, 600); // 600ms is the standard scroll time
+                }
+            });
+        });
+    });
+</script>
+    
 </body>
 </html>
