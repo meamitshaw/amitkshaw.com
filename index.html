@@ -63,9 +63,9 @@ body{
 /* ---------- Scroll Reveal ---------- */
 
 .reveal-left,
-.reveal-right,
-.reveal-card{
+.reveal-right{
     opacity:0;
+    transition:all .8s ease-out;
 }
 
 .reveal-left{
@@ -252,7 +252,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP BRIM (Lead-to-Cash)</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Architecting high-volume subscription models across SOM, CC, and CI. Specializing in <span class="font-semibold">performance tuning</span> and <span class="font-semibold">multithreading</span> in Convergent Invoicing to handle enterprise-scale billing data for global Telecom and SaaS leaders.
+                    Architecting high-volume subscription models across SOM, CC, and CI. Specializing in **performance tuning** and **multithreading** in Convergent Invoicing to handle enterprise-scale billing data for global Telecom and SaaS leaders.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -272,7 +272,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP RAR (Revenue Compliance)</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Automating <span class="font-semibold">IFRS-15 / ASC-606 compliance</span> through robust architectural design. Expert in establishing seamless real-time integration between BRIM, SD, and RAR to ensure synchronized revenue recognition.
+                    Automating **IFRS-15 / ASC-606 compliance** through robust architectural design. Expert in establishing seamless real-time integration between BRIM, SD, and RAR to ensure synchronized revenue recognition.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -292,7 +292,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">SAP FSCM & FI-CA</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Optimizing working capital and liquidity through automated Credit, Dispute, and Collections management. Leveraging <span class="font-semibold">RPA-led exception management (EMMA)</span> to streamline high-volume utility billing operations.
+                    Optimizing working capital and liquidity through automated Credit, Dispute, and Collections management. Leveraging **RPA-led exception management (EMMA)** to streamline high-volume utility billing operations.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -312,7 +312,7 @@ Contact
                     <h3 class="text-xl font-bold text-slate-900">S/4HANA Finance</h3>
                 </div>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Designing the Universal Journal as a "Single Source of Truth" for <span class="font-semibold">Multi-GAAP reporting</span>. My technical designs are grounded in professional auditing experience, ensuring every architecture is inherently audit-ready.
+                    Designing the Universal Journal as a "Single Source of Truth" for **Multi-GAAP reporting**. My technical designs are grounded in professional auditing experience, ensuring every architecture is inherently audit-ready.
                 </p>
                 <ul class="space-y-2">
                     <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
@@ -706,7 +706,7 @@ Contact
                 <div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Model Railroading (HO Scale)</h3>
                     <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                        Captured by the mechanical precision of <span class="font-semibold">Brass and Diecast steam locomotives</span>. My collection highlights the intricate detailing of the steam era, bridging historical engineering with modern DCC/DC technology.
+                        Captured by the mechanical precision of **Brass and Diecast steam locomotives**. My collection highlights the intricate detailing of the steam era, bridging historical engineering with modern DCC/DC technology.
                     </p>
                     <div class="grid grid-cols-3 gap-2">
                         <div class="aspect-square bg-slate-50 rounded-lg border border-dashed border-slate-200 flex items-center justify-center text-slate-300 hover:border-sky-500 hover:text-sky-500 transition-all cursor-pointer group/cam" onclick="openLightbox('assets/freight-car.jpg')">
@@ -872,7 +872,7 @@ Contact
             </div>
         </div>
 
-        <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="pt-8 border-t border-slate-200 flex flex-col md:row justify-between items-center gap-4">
             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 &copy; 2026 Amit Kumar Shaw. Built with precision and SAP expertise.
             </p>
@@ -895,106 +895,129 @@ Contact
 </div>
             
 <script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* ---------------------------
-    LIGHTBOX
-    --------------------------- */
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-
-    window.openLightbox = function(src, caption = "Portfolio Detail") {
-        if(!src) return;
-
-        lightboxImg.src = src;
-        lightboxCaption.innerText = caption;
-
-        lightbox.classList.remove("hidden");
-        lightbox.classList.add("flex");
-
-        document.body.style.overflow = "hidden";
-    };
-
-    function closeLightbox() {
-        lightbox.classList.add("hidden");
-        lightbox.classList.remove("flex");
-
-        document.body.style.overflow = "auto";
+    function openLightbox(imageSrc, captionText = "Portfolio Detail") {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        
+        if(imageSrc && imageSrc !== '#') {
+            img.src = imageSrc;
+            // Optional: update caption text if you add an element for it
+            if(caption) caption.innerText = captionText;
+            
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex'); // Ensure flex is applied for centering
+            document.body.style.overflow = 'hidden';
+        }
     }
 
-    lightbox.addEventListener("click", (e) => {
-        if(e.target === lightbox || e.target.tagName === "BUTTON") {
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close when clicking outside the image
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if(e.target === this || e.target.tagName === 'BUTTON') {
             closeLightbox();
         }
     });
 
-    document.addEventListener("keydown", (e)=>{
-        if(e.key === "Escape") closeLightbox();
+    // Escape key support
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") closeLightbox();
     });
 
+    const observerOptions = {
+        threshold: 0.2 // Triggers when 20% of the section is visible
+    };
 
-    /* ---------------------------
-    SCROLL REVEAL OBSERVER
-    --------------------------- */
-
-    const sectionObserver = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-
-                entry.target
-                    .querySelectorAll(".reveal-left, .reveal-right")
-                    .forEach(el => el.classList.add("active-reveal"));
-
-                entry.target
-                    .querySelectorAll(".reveal-card")
-                    .forEach(el => el.classList.add("active-card"));
-
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all elements with reveal classes inside this section
+                const reveals = entry.target.querySelectorAll('.reveal-left, .reveal-right');
+                reveals.forEach(el => el.classList.add('active-reveal'));
+                
+                // Once it has animated, stop watching this section
+                observer.unobserve(entry.target);
             }
         });
-    },{
-        threshold:0.15
-    });
+    }, observerOptions);
 
-    document.querySelectorAll("#about, #expertise")
-        .forEach(section => sectionObserver.observe(section));
+    // Target the about section
+    observer.observe(document.querySelector('#about'));
 
-
-    /* ---------------------------
-    NAVIGATION TRIGGER FIX
-    --------------------------- */
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-        anchor.addEventListener("click", function(){
-
-            const target = document.querySelector(this.getAttribute("href"));
-
-            if(!target) return;
-
-            if(target.id === "expertise"){
-                setTimeout(()=>{
-                    target.querySelectorAll(".reveal-card")
-                        .forEach(card=>card.classList.add("active-card"));
-                },600);
+    // Configuration for the Expertise Observer
+    const expertiseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all cards inside this section and add the active class
+                const cards = entry.target.querySelectorAll('.reveal-card');
+                cards.forEach(card => card.classList.add('active-card'));
+                
+                // Stop observing once animated
+                expertiseObserver.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.15 }); // Trigger when 15% is visible
+
+    // Start watching the Expertise section
+    expertiseObserver.observe(document.querySelector('#expertise'));
+
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 1. Observer for "About Me" (Reveal from left/right)
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+                        el.classList.add('active-reveal');
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        aboutObserver.observe(document.querySelector('#about'));
+
+        // 2. Observer for "Expertise" Cards (Scale-up stagger)
+        const expertiseObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.reveal-card');
+                    cards.forEach(card => card.classList.add('active-card'));
+                }
+            });
+        }, { threshold: 0.1 });
+        expertiseObserver.observe(document.querySelector('#expertise'));
+
+        // 3. Handle Navigation Clicks (to ensure they trigger if user clicks "Expertise")
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // If clicking Expertise, give a tiny delay then trigger cards manually
+                if (targetId === '#expertise') {
+                    setTimeout(() => {
+                        targetSection.querySelectorAll('.reveal-card').forEach(card => {
+                            card.classList.add('active-card');
+                        });
+                    }, 600); // 600ms is the standard scroll time
+                }
+            });
+        });
     });
-
-});
-
-
-/* ---------------------------
-AOS ANIMATION
---------------------------- */
-
-AOS.init({
-    duration:800,
-    once:false,
-    mirror:true
-});
-
-</script>    
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation speed
+    once: false,   // Whether animation should happen only once - set to false so it re-triggers when clicking Expertise button
+    mirror: true   // Whether elements should animate out while scrolling past them
+  });
+</script>
+    
 </body>
 </html>
