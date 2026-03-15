@@ -1303,35 +1303,43 @@ mobileMenu.classList.add("hidden");
 
 });
 
-</script>
 
-<!-- JS for Mobile Menu -->
-<script>
+// Select elements
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const menuOpen = document.getElementById('menu-open');
 const menuClose = document.getElementById('menu-close');
+const mobileLinks = document.querySelectorAll('.mobile-link');
 
+// Toggle menu function
 menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-  menuOpen.classList.toggle('hidden');
-  menuClose.classList.toggle('hidden');
+  const isHidden = mobileMenu.classList.contains('hidden');
+
+  if (isHidden) {
+    mobileMenu.classList.remove('hidden');
+    menuOpen.classList.add('hidden');
+    menuClose.classList.remove('hidden');
+  } else {
+    mobileMenu.classList.add('hidden');
+    menuOpen.classList.remove('hidden');
+    menuClose.classList.add('hidden');
+  }
 });
 
-// Close menu when a mobile link is clicked
-document.querySelectorAll('.mobile-link').forEach(link => {
+// Handle mobile link clicks
+mobileLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
-    
-    // Only close if it's not a hash link (internal section)
+
+    // Only close menu for external links (not starting with #)
     if (!href.startsWith('#')) {
       mobileMenu.classList.add('hidden');
       menuOpen.classList.remove('hidden');
       menuClose.classList.add('hidden');
     }
+    // If internal link (#something), menu stays open
   });
 });
-
 </script>
     
 </body>
