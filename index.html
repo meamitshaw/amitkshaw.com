@@ -86,6 +86,59 @@ animation:heroFadeUp .9s ease forwards;
 animation:heroFloat 14s ease-in-out infinite;
 }
 
+/* Scroll Indicator */
+
+.scroll-indicator{
+
+position:absolute;
+bottom:30px;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.mouse{
+
+width:28px;
+height:45px;
+
+border:2px solid #cbd5f5;
+border-radius:20px;
+
+display:flex;
+justify-content:center;
+padding-top:6px;
+}
+
+.wheel{
+
+width:4px;
+height:8px;
+
+background:#64748b;
+border-radius:2px;
+
+animation:scrollWheel 1.6s infinite;
+}
+
+@keyframes scrollWheel{
+
+0%{
+opacity:0;
+transform:translateY(0);
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+transform:translateY(12px);
+}
+
+}
+
 </style>
 
 </head>
@@ -224,6 +277,16 @@ Core Architectural Focus
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+<div class="scroll-indicator">
+
+<div class="mouse">
+
+<div class="wheel"></div>
 
 </div>
 
