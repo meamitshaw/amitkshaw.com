@@ -1,73 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Architect Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Hero fade-in animation */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInUp { 
-      animation: fadeInUp 1s ease forwards; 
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Kumar Shaw | SAP Solution Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-white text-slate-900 font-sans">
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-50 to-indigo-50 text-center px-4">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4 opacity-0 animate-fadeInUp">Enterprise Architect Portfolio</h1>
-    <p class="text-lg md:text-xl text-gray-600 mb-6 opacity-0 animate-fadeInUp" style="animation-delay: 0.3s;">
-      Designing scalable, secure, and high-performing enterprise solutions.
-    </p>
-    <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 opacity-0 animate-fadeInUp" style="animation-delay: 0.6s">
-      Contact Me
-    </a>
-  </section>
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight">Amit Kumar <span class="text-sky-600">Shaw</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-slate-500">
+                <a href="#about" class="hover:text-sky-600 transition">About</a>
+                <a href="#expertise" class="hover:text-sky-600 transition">Expertise</a>
+                <a href="#resources" class="hover:text-sky-600 transition">Resources</a>
+                <a href="#interests" class="hover:text-sky-600 transition">Passions</a>
+                <a href="#contact" class="text-sky-600">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Projects Section -->
-  <section class="py-20 px-4 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-semibold text-center mb-12">Projects</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Project Card 1 -->
-      <div class="bg-white shadow-lg rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
-        <h3 class="font-semibold text-xl mb-2">Project Alpha</h3>
-        <p class="text-gray-600">Short description here.</p>
-      </div>
+    <section id="home" class="relative pt-32 pb-20 overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 mb-6 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm">
+                <i class="fas fa-certificate text-sky-500 text-xs"></i>
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">SAP® Certified Solution Architect</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
+                Architecting <span class="text-sky-600">Lead-to-Cash</span> <br class="hidden md:block"> for Global Enterprises.
+            </h1>
+            <p class="max-w-3xl text-xl text-slate-500 mx-auto mb-10 leading-relaxed">
+                Over <span class="text-slate-900 font-semibold">13 years</span> of expertise bridging the gap between <span class="text-slate-900 font-semibold">Audit/Finance integrity</span> and complex SAP digital transformations.
+            </p>
+            <div class="flex flex-col sm:row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#resources" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition shadow-xl shadow-slate-200">View Publications</a>
+                <a href="#contact" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-      <!-- Project Card 2 -->
-      <div class="bg-white shadow-lg rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
-        <h3 class="font-semibold text-xl mb-2">Project Beta</h3>
-        <p class="text-gray-600">Short description here.</p>
-      </div>
+    <section id="about" class="py-24 border-t border-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="aspect-square bg-slate-100 rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="assets/amit-kumar-shaw.jpg" alt="Amit Kumar Shaw" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:col-span-7">
+                    <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4">The Architect's Story</h4>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6">Finance Roots. Digital Future.</h2>
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+                        <p>My journey began in the rigorous world of <span class="text-slate-900 font-semibold">Auditing and Taxation</span>. This foundational decade in finance ensures that I don't just see code; I see the financial statements and compliance that drive your business.</p>
+                        <p>Today, I architect end-to-end ecosystems across <span class="text-sky-600 font-bold">SAP BRIM, RAR, and FSCM</span>, ensuring high-volume performance with audit-ready integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <!-- Project Card 3 -->
-      <div class="bg-white shadow-lg rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
-        <h3 class="font-semibold text-xl mb-2">Project Gamma</h3>
-        <p class="text-gray-600">Short description here.</p>
-      </div>
+    <section id="expertise" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-slate-900 mb-16 border-l-4 border-sky-500 pl-4">Core Expertise</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <i class="fas fa-layer-group text-sky-500 text-2xl mb-6 block"></i>
+                    <h3 class="font-bold mb-3">SAP BRIM</h3>
+                    <p class="text-sm text-slate-500">Subscription billing, multithreading in CI, and high-volume performance tuning.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <i class="fas fa-file-contract text-indigo-500 text-2xl mb-6 block"></i>
+                    <h3 class="font-bold mb-3">SAP RAR</h3>
+                    <p class="text-sm text-slate-500">IFRS-15/ASC-606 compliance and complex BRF+ decision logic.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <i class="fas fa-shield-alt text-emerald-500 text-2xl mb-6 block"></i>
+                    <h3 class="font-bold mb-3">SAP FSCM</h3>
+                    <p class="text-sm text-slate-500">Credit, Dispute, and Collections management with RPA integration.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <i class="fas fa-university text-slate-400 text-2xl mb-6 block"></i>
+                    <h3 class="font-bold mb-3">S/4HANA FI</h3>
+                    <p class="text-sm text-slate-500">Universal Journal architecture and multi-GAAP financial reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="resources" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4">Thought Leadership</h4>
+                <h2 class="text-3xl font-bold text-slate-900">Technical Resources</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <a href="https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/" target="_blank" class="group p-8 bg-slate-50 rounded-3xl border border-transparent hover:border-sky-500 transition">
+                    <span class="text-[10px] font-bold text-sky-600 uppercase mb-4 block">SAP RAR</span>
+                    <h3 class="font-bold text-lg mb-3 group-hover:text-sky-600">Integration with SAP BRIM</h3>
+                    <p class="text-sm text-slate-500 line-clamp-2">Architecting compliance hand-offs in Lead-to-Cash cycles.</p>
+                </a>
+                <a href="https://www.linkedin.com/in/amitkshaw/" target="_blank" class="group p-8 bg-slate-50 rounded-3xl border border-transparent hover:border-sky-500 transition">
+                    <span class="text-[10px] font-bold text-sky-600 uppercase mb-4 block">SAP BRIM</span>
+                    <h3 class="font-bold text-lg mb-3 group-hover:text-sky-600">Vertex Tax Integration</h3>
+                    <p class="text-sm text-slate-500 line-clamp-2">Global taxation complexity in subscription billing.</p>
+                </a>
+                <div class="p-8 bg-slate-900 rounded-3xl text-white relative overflow-hidden">
+                    <span class="px-2 py-1 bg-sky-500 text-[10px] font-bold uppercase rounded mb-4 inline-block">Coming Soon</span>
+                    <h3 class="font-bold text-lg mb-2">The SAP BRIM Guide</h3>
+                    <p class="text-sm text-slate-400">A comprehensive roadmap for consultants.</p>
+                    <i class="fas fa-book absolute bottom-[-10px] right-[-10px] text-white/10 text-6xl"></i>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="resources.html" class="inline-block px-10 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-sky-600 transition">View All Resources (13+)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-slate-900 mb-16">Passions & Pursuits</h2>
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <div class="aspect-video bg-slate-200 rounded-2xl overflow-hidden cursor-pointer" onclick="openLightbox('assets/train-large.jpg', 'HO Scale Brass Steam Collection')">
+                        <img src="assets/train-thumb.jpg" alt="Brass Trains" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-xl">Model Railroading (HO Scale)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Captivated by the mechanical precision of **Brass and Diecast steam locomotives**. Exploring the bridge between history and modern DCC technology.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="aspect-video bg-slate-900 rounded-2xl flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
+                        <i class="fas fa-microchip text-sky-500/10 text-8xl absolute"></i>
+                        <h4 class="font-bold relative z-10">AI + Finance</h4>
+                        <p class="text-sky-400 text-[10px] font-mono mt-2 uppercase tracking-widest">Elevating Transformation</p>
+                    </div>
+                    <h3 class="font-bold text-xl">AI-Driven Finance</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Exploring how Gen-AI and ML reshape financial ecosystems—from autonomous revenue recognition to predictive clearing.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="aspect-video bg-sky-100 rounded-2xl p-8 relative overflow-hidden cursor-pointer" onclick="openLightbox('assets/travel-large.jpg', 'Exploring Global Landscapes')">
+                        <i class="fas fa-globe-americas text-sky-200 text-8xl absolute -right-5 -bottom-5"></i>
+                        <span class="text-[10px] font-bold text-sky-600 uppercase block mb-4">Recent Footsteps</span>
+                        <ul class="text-xs font-bold space-y-2">
+                            <li><i class="fas fa-check text-sky-500 mr-2"></i> Tokyo & Kyoto, Japan</li>
+                            <li><i class="fas fa-check text-sky-500 mr-2"></i> Alaska & Colorado, USA</li>
+                        </ul>
+                    </div>
+                    <h3 class="font-bold text-xl">Exploring the World</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Finding inspiration in the contrast between high-tech urban pulses and untouched wilderness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">Let's Connect.</h2>
+            <div class="flex flex-col md:row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                <a href="mailto:Contact@amitkshaw.com" class="text-2xl font-medium hover:text-sky-400 transition">Contact@amitkshaw.com</a>
+                <span class="hidden md:block text-slate-700">|</span>
+                <a href="https://www.linkedin.com/in/amitkshaw" target="_blank" class="text-2xl font-medium hover:text-sky-400 transition">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center border-t border-slate-100">
+        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">&copy; 2026 Amit Kumar Shaw. Built for Precision.</p>
+    </footer>
+
+    <div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-white text-4xl">&times;</button>
+        <div class="relative max-w-5xl">
+            <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white text-center mt-6 font-medium text-sm"></p>
+        </div>
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 px-4 bg-gray-100 text-center">
-    <h2 class="text-3xl font-semibold mb-6">Get in Touch</h2>
-    <p class="text-gray-600 mb-6">Feel free to reach out for collaboration or project inquiries.</p>
-    <a href="mailto:youremail@example.com" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200">
-      Email Me
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-8 text-center text-gray-500 text-sm">
-    © 2026 Enterprise Architect Portfolio. All rights reserved.
-  </footer>
-
+    <script>
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            if(src && src !== '#') {
+                img.src = src;
+                cap.innerText = caption || "";
+                lb.classList.remove('hidden');
+                lb.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeLightbox(); });
+    </script>
 </body>
 </html>
