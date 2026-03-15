@@ -201,6 +201,28 @@ z-index:0;
 
 }
 
+/* Navbar scroll effect */
+
+.nav-scrolled{
+background:rgba(255,255,255,0.95);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+nav{
+transition:all .3s ease;
+}
+
+/* Expertise Card Hover */
+
+.expertise-card{
+transition:all .3s ease;
+}
+
+.expertise-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
 </style>
 
 </head>
@@ -1246,6 +1268,18 @@ requestAnimationFrame(animate);
 
 init();
 animate();
+
+/* Navbar Color Change on Scroll */
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector("nav");
+
+  if (window.scrollY > 40) {
+    nav.classList.add("nav-scrolled");
+  } else {
+    nav.classList.remove("nav-scrolled");
+  }
+});
 
 </script>
     
