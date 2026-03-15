@@ -1320,12 +1320,18 @@ menuBtn.addEventListener('click', () => {
 
 // Close menu when a mobile link is clicked
 document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    menuOpen.classList.remove('hidden');
-    menuClose.classList.add('hidden');
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    
+    // Only close if it's not a hash link (internal section)
+    if (!href.startsWith('#')) {
+      mobileMenu.classList.add('hidden');
+      menuOpen.classList.remove('hidden');
+      menuClose.classList.add('hidden');
+    }
   });
 });
+
 </script>
     
 </body>
