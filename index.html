@@ -1,91 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Kumar Shaw | SAP Solution Architect</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .sap-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%); }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amit Kumar Shaw | SAP Solution Architect</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
-    @keyframes reveal {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+/* ---------- Global ---------- */
 
-    .animate-reveal {
-        opacity: 0; 
-        animation: reveal 0.8s ease-out forwards;
-    }
+body{
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
 
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.6s; }
-    .delay-3 { animation-delay: 1.0s; }
+.sap-gradient{
+    background: linear-gradient(135deg,#e0f2fe 0%,#f0f9ff 100%);
+}
+
+.card-hover{
+    transition: all .3s ease;
+}
+
+.card-hover:hover{
+    transform: translateY(-5px);
+}
+
+/* ---------- Reveal Animations ---------- */
+
+@keyframes reveal{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.animate-reveal{
+    opacity:0;
+    animation:reveal .8s ease-out forwards;
+}
+
+.delay-1{animation-delay:.2s;}
+.delay-2{animation-delay:.6s;}
+.delay-3{animation-delay:1s;}
+
+/* ---------- Scroll Reveal ---------- */
+
+.reveal-left,
+.reveal-right{
+    opacity:0;
+    transition:all .8s ease-out;
+}
+
+.reveal-left{
+    transform:translateX(-30px);
+}
+
+.reveal-right{
+    transform:translateX(30px);
+}
+
+.active-reveal{
+    opacity:1!important;
+    transform:translate(0)!important;
+}
+
+/* ---------- Image Zoom ---------- */
+
+.image-zoom{
+    transition:transform 1.2s ease-out;
+}
+
+.active-reveal .image-zoom{
+    transform:scale(1.05);
+}
+
+/* ---------- Card Animation ---------- */
+
+.reveal-card{
+    opacity:0;
+    transform:scale(.95) translateY(20px);
+    transition:all .6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.active-card{
+    opacity:1!important;
+    transform:scale(1) translateY(0)!important;
+}
 </style>
-<style>
-    /* Base hidden states */
-    .reveal-left {
-        opacity: 0;
-        transform: translateX(-30px);
-        transition: all 0.8s ease-out;
-    }
 
-    .reveal-right {
-        opacity: 0;
-        transform: translateX(30px);
-        transition: all 0.8s ease-out;
-    }
-
-    /* Active state when scrolled into view */
-    .active-reveal {
-        opacity: 1 !important;
-        transform: translate(0) !important;
-    }
-
-    /* Subtle zoom for your image */
-    .image-zoom {
-        transition: transform 1.2s ease-out;
-    }
-    .active-reveal .image-zoom {
-        transform: scale(1.05);
-    }
-</style>
-<style>
-    /* New Card Reveal State */
-    .reveal-card {
-        opacity: 0;
-        transform: scale(0.95) translateY(20px);
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Professional "Out" easing */
-    }
-
-    .active-card {
-        opacity: 1 !important;
-        transform: scale(1) translateY(0) !important;
-    }
-</style>
 </head>
+
 <body class="bg-slate-50 text-slate-800">
 
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold text-sky-700 underline decoration-sky-400">AKS.</span>
-            <div class="hidden md:flex space-x-8 font-medium text-sm">
-                <a href="#home" class="hover:text-sky-600 transition">Home</a>
-                <a href="#about" class="hover:text-sky-600 transition">About Me</a>
-                <a href="#expertise" class="hover:text-sky-600 transition">Expertise</a>
-                <a href="#projects" class="hover:text-sky-600 transition">Projects</a>
-                <a href="#resources" class="hover:text-sky-600 transition">Knowledge Hub</a>
-                <a href="#interests" class="hover:text-sky-600 transition">Interests</a>
-                <a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<span class="text-xl font-bold text-sky-700 underline decoration-sky-400">
+AKS.
+</span>
+
+<div class="hidden md:flex space-x-8 font-medium text-sm">
+
+<a href="#home" class="hover:text-sky-600 transition">Home</a>
+
+<a href="#about" class="hover:text-sky-600 transition">About Me</a>
+
+<a href="#expertise" class="hover:text-sky-600 transition">Expertise</a>
+
+<a href="#projects" class="hover:text-sky-600 transition">Projects</a>
+
+<a href="#resources" class="hover:text-sky-600 transition">Knowledge Hub</a>
+
+<a href="#interests" class="hover:text-sky-600 transition">Interests</a>
+
+<a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">
+Contact
+</a>
+
+</div>
+
+</div>
+</nav>
 
  <section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
     <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50"></div>
