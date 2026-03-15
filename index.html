@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .sap-gradient { background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%); }
@@ -274,46 +275,49 @@
     </div>
 </section>
 
-   <section id="projects" class="py-24 bg-white">
+   <section id="projects" class="py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         
         <div class="mb-24">
-            <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4">Industry Exposure</h2>
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4" data-aos="fade-right">
+                Industry Exposure
+            </h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fas fa-broadcast-tower text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Telecommunication</span>
                 </div>
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fas fa-ad text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Online Media Agency</span>
                 </div>
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fas fa-truck-moving text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Fleet Management</span>
                 </div>
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="400">
                     <i class="fas fa-cloud-download-alt text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Software (SaaS)</span>
                 </div>
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="500">
                     <i class="fas fa-bolt text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Power and Utilities</span>
                 </div>
-                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition">
+                <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="600">
                     <i class="fas fa-industry text-2xl text-sky-600 mb-4"></i>
                     <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Manufacturing</span>
                 </div>
             </div>
         </div>
 
-        <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4">Strategic Project Milestones</h2>
+        <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4" data-aos="fade-right">
+            Strategic Project Milestones
+        </h2>
         
         <div class="space-y-12">
-
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-500">
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up">
                 <div class="md:flex">
-                    <div class="md:w-1/3 bg-slate-900 p-8 text-white">
+                    <div class="md:w-1/3 bg-slate-900 p-8 text-white transition-colors duration-500 group-hover:bg-sky-900">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-project-diagram text-sky-400 mr-3"></i>
                             <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Lead Solution Architect</span>
@@ -329,21 +333,21 @@
                         <div>
                             <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Key Deliverables</h4>
                             <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-sky-600 transition-colors">
                                     <i class="fas fa-check-circle text-sky-500 mt-1 mr-3 flex-shrink-0"></i>
                                     Designed high-level solution documentation (PDD, KDD, KSD) aligned with SAP best practices.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-sky-600 transition-colors">
                                     <i class="fas fa-check-circle text-sky-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Optimized high-volume data processing in SAP Convergent Invoicing (CI) using multithreading to handle massive invoice volumes.
+                                    Optimized high-volume data processing in SAP Convergent Invoicing (CI) using multithreading.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-sky-600 transition-colors">
                                     <i class="fas fa-check-circle text-sky-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Integrated diverse ordering systems with SAP FSCM Credit Check to enhance enterprise risk management.
+                                    Integrated diverse ordering systems with SAP FSCM Credit Check.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-sky-600 transition-colors">
                                     <i class="fas fa-check-circle text-sky-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Automated complex customer refund processes and integrated real-time payment processing with multiple banking partners.
+                                    Automated customer refund processes and real-time payment processing.
                                 </li>
                             </ul>
                         </div>
@@ -351,9 +355,9 @@
                 </div>
             </div>
 
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-500">
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
                 <div class="md:flex">
-                    <div class="md:w-1/3 bg-slate-800 p-8 text-white">
+                    <div class="md:w-1/3 bg-slate-800 p-8 text-white transition-colors duration-500 group-hover:bg-indigo-900">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-rocket text-indigo-400 mr-3"></i>
                             <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Lead Solution Architect</span>
@@ -369,21 +373,21 @@
                         <div>
                             <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Key Deliverables</h4>
                             <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-indigo-600 transition-colors">
                                     <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Led the integration of legacy ECC systems with S/4HANA for Subscription Order Management (SOM) using MuleSoft middleware.
+                                    Led integration of legacy ECC systems with S/4HANA for SOM using MuleSoft.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-indigo-600 transition-colors">
                                     <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 flex-shrink-0"></i>
                                     Configured dynamic subscription products leveraging Advanced Variant Configuration (AVC).
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-indigo-600 transition-colors">
                                     <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Architected seamless integration between S/4HANA and in-house Revenue Accounting systems (RevRec) for synchronized recognition.
+                                    Architected seamless integration between S/4HANA and RevRec systems.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-indigo-600 transition-colors">
                                     <i class="fas fa-check-circle text-indigo-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Managed the end-to-end billing cycle, including the consolidation of SD billing within Convergent Invoicing.
+                                    Managed end-to-end billing cycle consolidation in Convergent Invoicing.
                                 </li>
                             </ul>
                         </div>
@@ -391,9 +395,9 @@
                 </div>
             </div>
 
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-500">
+            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
                 <div class="md:flex">
-                    <div class="md:w-1/3 bg-slate-900 p-8 text-white border-b-4 border-emerald-500">
+                    <div class="md:w-1/3 bg-slate-900 p-8 text-white border-b-4 border-emerald-500 transition-all duration-500 group-hover:bg-emerald-900">
                         <div class="flex items-center mb-4">
                             <i class="fas fa-file-invoice-dollar text-emerald-400 mr-3"></i>
                             <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">SAP RAR Consultant</span>
@@ -404,54 +408,22 @@
                     <div class="md:w-2/3 p-8">
                         <div class="mb-6">
                             <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-                            <p class="text-slate-700 font-medium">Spearheaded the implementation of SAP Revenue Accounting and Reporting (RAR) to achieve IFRS 15 compliance.</p>
+                            <p class="text-slate-700 font-medium">Spearheaded SAP RAR implementation to achieve IFRS 15 compliance.</p>
                         </div>
                         <div>
                             <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Key Deliverables</h4>
                             <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-emerald-600 transition-colors">
                                     <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Designed and maintained complex BRF+ decision tables to automate standardized revenue accounting processes.
+                                    Designed and maintained complex BRF+ decision tables for revenue automation.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-emerald-600 transition-colors">
                                     <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Established real-time integration across SAP BRIM, SD, and RAR within a single-system landscape.
+                                    Established real-time integration across SAP BRIM, SD, and RAR.
                                 </li>
-                                <li class="flex items-start text-sm text-slate-600">
+                                <li class="flex items-start text-sm text-slate-600 hover:text-emerald-600 transition-colors">
                                     <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Led the critical migration of open revenue contracts from legacy systems into S/4HANA while ensuring data integrity.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-500">
-                <div class="md:flex">
-                    <div class="md:w-1/3 bg-slate-800 p-8 text-white">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-charging-station text-orange-400 mr-3"></i>
-                            <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Functional Consultant</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Leading Power & Utilities Provider</h3>
-                        <p class="text-slate-400 text-sm">Tampa, Florida (SAP ECC 6.0)</p>
-                    </div>
-                    <div class="md:w-2/3 p-8">
-                        <div class="mb-6">
-                            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-                            <p class="text-slate-700 font-medium">Optimized the SAP IS-U FI-CA module to streamline meter-to-cash applications and payment processing.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Key Deliverables</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start text-sm text-slate-600">
-                                    <i class="fas fa-check-circle text-orange-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Implemented a Robotic Process Automation (RPA) solution to handle EMMA (Exception Management) cases, significantly reducing manual workload.
-                                </li>
-                                <li class="flex items-start text-sm text-slate-600">
-                                    <i class="fas fa-check-circle text-orange-500 mt-1 mr-3 flex-shrink-0"></i>
-                                    Designed robust multi-channel payment solutions including bank transfers, autopay, and external collection agencies.
+                                    Led critical migration of open revenue contracts from legacy systems.
                                 </li>
                             </ul>
                         </div>
@@ -461,19 +433,19 @@
 
         </div>
 
-        <div class="mt-24 p-12 bg-slate-900 rounded-3xl text-white">
+        <div class="mt-24 p-12 bg-slate-900 rounded-3xl text-white shadow-2xl transform transition-transform duration-700 hover:scale-[1.01]" data-aos="zoom-in-up">
             <h3 class="text-2xl font-bold mb-8">Strategic Expertise & Domain Origin</h3>
             <div class="grid md:grid-cols-2 gap-12">
-                <div>
+                <div data-aos="fade-up" data-aos-delay="300">
                     <h4 class="text-sky-400 font-bold uppercase tracking-tighter text-xs mb-4">Core Methodologies</h4>
                     <p class="text-slate-300 text-sm leading-relaxed">
                         Expert in <span class="text-white font-bold">SAP Activate</span> and <span class="text-white font-bold">Agile delivery</span>. I utilize JIRA and Solution Manager for milestone tracking and technical documentation across all project phases.
                     </p>
                 </div>
-                <div>
+                <div data-aos="fade-up" data-aos-delay="400">
                     <h4 class="text-sky-400 font-bold uppercase tracking-tighter text-xs mb-4">Foundational Strength</h4>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        My deep foundation in <span class="text-white font-bold">Finance and Auditing</span> (Chartered Accountant firm experience) ensures every technical SAP architecture is compliant, audit-ready, and aligns with global financial standards.
+                        My deep foundation in <span class="text-white font-bold">Finance and Auditing</span> ensures every technical SAP architecture is compliant, audit-ready, and aligns with global financial standards.
                     </p>
                 </div>
             </div>
@@ -893,6 +865,14 @@
             });
         });
     });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation speed
+    once: false,   // Whether animation should happen only once - set to false so it re-triggers when clicking Expertise button
+    mirror: true   // Whether elements should animate out while scrolling past them
+  });
 </script>
     
 </body>
