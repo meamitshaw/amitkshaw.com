@@ -1302,17 +1302,16 @@ mobileMenu.classList.add("hidden");
 
 </script>
 
-// Select elements
+// Elements
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const menuOpen = document.getElementById('menu-open');
 const menuClose = document.getElementById('menu-close');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
-// Toggle menu open/close
+// Toggle mobile menu
 menuBtn.addEventListener('click', () => {
   const isHidden = mobileMenu.classList.contains('hidden');
-
   if (isHidden) {
     mobileMenu.classList.remove('hidden');
     menuOpen.classList.add('hidden');
@@ -1324,27 +1323,17 @@ menuBtn.addEventListener('click', () => {
   }
 });
 
-// Smooth scroll and keep menu open for internal links
+// Smooth scroll for internal links and keep menu open
 mobileLinks.forEach(link => {
   link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-
-    if (href.startsWith('#')) {
-      // Prevent default jump
+    const targetId = link.getAttribute('href');
+    if (targetId.startsWith('#')) {
       e.preventDefault();
-
-      // Scroll smoothly to section
-      const target = document.querySelector(href);
+      const target = document.querySelector(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
-
-      // Menu stays open; remove the following if you want menu to close automatically
-      // mobileMenu.classList.add('hidden');
-      // menuOpen.classList.remove('hidden');
-      // menuClose.classList.add('hidden');
-    } else {
-      // External link clicked, close menu
+      // Optional: Close menu on link click
       mobileMenu.classList.add('hidden');
       menuOpen.classList.remove('hidden');
       menuClose.classList.add('hidden');
