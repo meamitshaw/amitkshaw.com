@@ -55,6 +55,19 @@
         transform: scale(1.05);
     }
 </style>
+<style>
+    /* New Card Reveal State */
+    .reveal-card {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Professional "Out" easing */
+    }
+
+    .active-card {
+        opacity: 1 !important;
+        transform: scale(1) translateY(0) !important;
+    }
+</style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
@@ -171,13 +184,13 @@
         </div>
     </div>
 </section>
-    <section id="expertise" class="py-24 bg-slate-50">
+   <section id="expertise" class="py-24 bg-slate-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-slate-900 mb-16 border-l-4 border-sky-500 pl-4">Core Architectural Expertise</h2>
         
         <div class="grid md:grid-cols-2 gap-8">
             
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.1s;">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-layer-group text-xl"></i>
@@ -197,7 +210,7 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.2s;">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-file-contract text-xl"></i>
@@ -217,7 +230,7 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.3s;">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-shield-alt text-xl"></i>
@@ -237,7 +250,7 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 reveal-card" style="transition-delay: 0.4s;">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-university text-xl"></i>
@@ -818,6 +831,24 @@
 
     // Target the about section
     observer.observe(document.querySelector('#about'));
+</script>
+<script>
+    // Configuration for the Expertise Observer
+    const expertiseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all cards inside this section and add the active class
+                const cards = entry.target.querySelectorAll('.reveal-card');
+                cards.forEach(card => card.classList.add('active-card'));
+                
+                // Stop observing once animated
+                expertiseObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 }); // Trigger when 15% is visible
+
+    // Start watching the Expertise section
+    expertiseObserver.observe(document.querySelector('#expertise'));
 </script>
 
 </body>
