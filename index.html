@@ -109,29 +109,6 @@ transform:translate(-50%,-50%);
 z-index:0;
 }
 
-/* Mouse Glow Effect */
-
-#hero-glow{
-
-position:absolute;
-width:500px;
-height:500px;
-
-background:radial-gradient(circle,
-rgba(14,165,233,0.25) 0%,
-rgba(99,102,241,0.15) 30%,
-transparent 70%);
-
-border-radius:50%;
-
-pointer-events:none;
-
-filter:blur(60px);
-
-transform:translate(-50%,-50%);
-z-index:0;
-}
-
 /* Scroll Indicator */
 
 .scroll-indicator{
@@ -204,8 +181,9 @@ z-index:0;
 /* Navbar scroll effect */
 
 .nav-scrolled{
-background:rgba(255,255,255,0.95);
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+background:#ffffff;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-bottom:1px solid #e2e8f0;
 }
 
 nav{
@@ -452,7 +430,7 @@ Core Architectural Focus
         
 <div class="grid md:grid-cols-2 gap-8">
             
-<div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+<div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="100">
 
 <div class="flex items-center mb-6">
 
@@ -478,7 +456,7 @@ Core Architectural Focus
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+            <div class=" expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-file-contract text-xl"></i>
@@ -498,7 +476,7 @@ Core Architectural Focus
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="300">
+            <div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="300">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-shield-alt text-xl"></i>
@@ -518,7 +496,7 @@ Core Architectural Focus
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="400">
+            <div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="400">
                 <div class="flex items-center mb-6">
                     <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mr-4">
                         <i class="fas fa-university text-xl"></i>
@@ -1156,6 +1134,8 @@ document.addEventListener("keydown",(e)=>{
     if(e.key==="Escape") closeLightbox();
 });
 
+/* Hero Glow */
+
 const glow = document.getElementById("hero-glow");
 
 document.addEventListener("mousemove",(e)=>{
@@ -1165,6 +1145,7 @@ glow.style.top = e.clientY + "px";
 
 });
 
+/* Canvas */
 
 const canvas = document.getElementById("data-flow");
 const ctx = canvas.getContext("2d");
