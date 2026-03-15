@@ -1314,7 +1314,7 @@ const menuOpen = document.getElementById('menu-open');
 const menuClose = document.getElementById('menu-close');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
-// Toggle menu function
+// Toggle menu open/close
 menuBtn.addEventListener('click', () => {
   const isHidden = mobileMenu.classList.contains('hidden');
 
@@ -1329,20 +1329,34 @@ menuBtn.addEventListener('click', () => {
   }
 });
 
-// Handle mobile link clicks
+// Smooth scroll and keep menu open for internal links
 mobileLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
 
-    // Only close menu for external links (not starting with #)
-    if (!href.startsWith('#')) {
+    if (href.startsWith('#')) {
+      // Prevent default jump
+      e.preventDefault();
+
+      // Scroll smoothly to section
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Menu stays open; remove the following if you want menu to close automatically
+      // mobileMenu.classList.add('hidden');
+      // menuOpen.classList.remove('hidden');
+      // menuClose.classList.add('hidden');
+    } else {
+      // External link clicked, close menu
       mobileMenu.classList.add('hidden');
       menuOpen.classList.remove('hidden');
       menuClose.classList.add('hidden');
     }
-    // If internal link (#something), menu stays open
   });
 });
+
 </script>
     
 </body>
