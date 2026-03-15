@@ -34,14 +34,14 @@ tailwind.config = {
 
 <style>
 
+/* Global */
+
 body{
 font-family:'Inter',sans-serif;
 scroll-behavior:smooth;
 }
 
-.sap-gradient{
-background:linear-gradient(135deg,#e0f2fe 0%,#f0f9ff 100%);
-}
+/* Card Hover */
 
 .card-hover{
 transition:all .3s ease;
@@ -49,6 +49,41 @@ transition:all .3s ease;
 
 .card-hover:hover{
 transform:translateY(-5px);
+}
+
+/* Hero Animation */
+
+@keyframes heroFadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.animate-reveal{
+opacity:0;
+animation:heroFadeUp .9s ease forwards;
+}
+
+.delay-1{animation-delay:.25s}
+.delay-2{animation-delay:.5s}
+.delay-3{animation-delay:.75s}
+.delay-4{animation-delay:1s}
+
+/* Floating Background */
+
+@keyframes heroFloat{
+0%{transform:translate(-10%,-50%)}
+50%{transform:translate(-5%,-55%)}
+100%{transform:translate(-10%,-50%)}
+}
+
+.hero-bg{
+animation:heroFloat 14s ease-in-out infinite;
 }
 
 </style>
@@ -95,59 +130,105 @@ Contact
 
 </nav>
 
- <section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
-    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="flex flex-col items-center text-center">
-            
-            <div class="flex items-center space-x-2 mb-6 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm animate-reveal">
-                <i class="fas fa-certificate text-sky-500 text-xs"></i>
-                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">SAP® Certified Solution Architect</span>
-            </div>
+<!-- Hero Section -->
 
-            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8 animate-reveal delay-1">
-                Architecting <span class="text-sky-600">Lead-to-Cash</span> <br class="hidden md:block"> for Global Enterprises.
-            </h1>
+<section id="home" class="relative pt-32 pb-20 bg-white overflow-hidden">
 
-            <p class="max-w-3xl text-xl text-slate-500 leading-relaxed mb-10 animate-reveal delay-2">
-                Over <span class="text-slate-900 font-semibold">13 years</span> of expertise bridging the gap between <span class="text-slate-900 font-semibold">Accounting integrity</span> and complex SAP digital transformations across BRIM, RAR, and S/4HANA.
-            </p>
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50 hero-bg"></div>
 
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-reveal delay-3">
-                <a href="#projects" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition shadow-xl shadow-slate-200">
-                    View Strategic Projects
-                </a>
-                <a href="mailto:contact@amitkshaw.com" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition">
-                    Get In Touch
-                </a>
-            </div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
 
-            <div class="mt-20 pt-10 border-t border-slate-100 w-full">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Core Architectural Focus</p>
-                <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400">
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">ERP Transformation</span>
-                    </div>
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">SAP S/4HANA</span>
-                    </div>
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">SAP BRIM</span>
-                    </div>
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">SAP RAR</span>
-                    </div>
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">SAP FSCM</span>
-                    </div>
-                    <div class="flex items-center space-x-2 grayscale hover:grayscale-0 transition">
-                        <span class="font-bold text-slate-600">SAP FI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="flex flex-col items-center text-center">
+
+<!-- Certification Badge -->
+
+<div class="flex items-center space-x-2 mb-6 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm animate-reveal">
+
+<i class="fas fa-certificate text-sky-500 text-xs"></i>
+
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+SAP® Certified Solution Architect
+</span>
+
+</div>
+
+<!-- Hero Title -->
+
+<h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8 animate-reveal delay-1">
+
+Architecting 
+<span class="bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
+Lead-to-Cash
+</span>
+
+<br class="hidden md:block">
+
+for Global Enterprises.
+
+</h1>
+
+<!-- Hero Description -->
+
+<p class="max-w-3xl text-xl text-slate-500 leading-relaxed mb-10 animate-reveal delay-2">
+
+Over 
+<span class="text-slate-900 font-semibold">13 years</span> 
+of expertise bridging the gap between 
+<span class="text-slate-900 font-semibold">Accounting integrity</span> 
+and complex SAP digital transformations across BRIM, RAR, and S/4HANA.
+
+</p>
+
+<!-- CTA Buttons -->
+
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-reveal delay-3">
+
+<a href="#projects"
+class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition transform hover:-translate-y-1 shadow-xl shadow-slate-200">
+
+View Strategic Projects
+
+</a>
+
+<a href="mailto:contact@amitkshaw.com"
+class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition">
+
+Get In Touch
+
+</a>
+
+</div>
+
+<!-- Focus Area -->
+
+<div class="mt-20 pt-10 border-t border-slate-100 w-full animate-reveal delay-4">
+
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">
+Core Architectural Focus
+</p>
+
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400">
+
+<span class="font-bold text-slate-600">ERP Transformation</span>
+
+<span class="font-bold text-slate-600">SAP S/4HANA</span>
+
+<span class="font-bold text-slate-600">SAP BRIM</span>
+
+<span class="font-bold text-slate-600">SAP RAR</span>
+
+<span class="font-bold text-slate-600">SAP FSCM</span>
+
+<span class="font-bold text-slate-600">SAP FI</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
    <section id="about" class="py-24 bg-white overflow-hidden">
