@@ -1,27 +1,30 @@
+// articles.js
 const articles = [
   {
-    "title": "Real-Time Processing in SAP FI-CA Using External Cash Desks",
-    "link": "https://www.linkedin.com/pulse/real-time-processing-sap-fi-ca-using-external-cash-desks-shaw-vpdve/",
-    "category": "Operations",
-    "source": "LinkedIn",
-    "image": "https://media.licdn.com/dms/image/C5622AQHexampleimage.jpg",
-    "description": "Optimizing payment clearing cycles and external payment gateway connectivity."
+    title: "SAP RAR Integration with SAP BRIM",
+    description: "Architecting the flow between subscription billing and revenue recognition engines to ensure IFRS 15 compliance.",
+    image: "assets/sap-rar.jpg",
+    link: "https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/",
+    category: "Integration",
+    color: "sky",        // Tailwind color for labels and hover
+    source: "Acuiti Labs"
   },
   {
-    "title": "SAP Revenue Accounting and Reporting Integration with SAP BRIM",
-    "link": "https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/",
-    "category": "SAP BRIM",
-    "source": "Acuiti Labs",
-    "image": "https://via.placeholder.com/600x400.png?text=SAP+BRIM+Article",
-    "description": "Detailed analysis of the architectural hand-off between billing engines and revenue recognition compliance."
+    title: "SAP S/4HANA BRIM Integration with Vertex Tax",
+    description: "Handling global taxation complexities and automated tax calculations in high-volume subscription environments.",
+    image: "assets/vertex-tax.jpg",
+    link: "https://www.acuitilabs.com/sap-brim-integration-with-vertex-tax-solution/",
+    category: "Taxation",
+    color: "indigo",
+    source: "Acuiti Labs"
   },
   {
-    "title": "SAP BRIM Integration with Vertex Tax Solution",
-    "link": "https://www.linkedin.com/in/amitkshaw/",
-    "category": "Integration",
-    "source": "LinkedIn",
-    "image": "https://via.placeholder.com/600x400.png?text=Vertex+Integration",
-    "description": "Navigating global taxation complexities within high-volume SAP billing landscapes."
+    title: "Real-Time Processing in SAP FI-CA",
+    description: "Utilizing External Cash Desks to optimize payment processing and clearing cycles for Utilities and Telecom.",
+    image: "assets/fi-ca-realtime.jpg",
+    link: "https://www.linkedin.com/pulse/real-time-processing-sap-fi-ca-using-external-cash-desks-shaw-vpdve/",
+    category: "Financial Ops",
+    color: "emerald",
+    source: "LinkedIn"
   }
-  // Add future articles here
 ];
