@@ -1,133 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Library | Amit Kumar Shaw</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Library | Amit Kumar Shaw</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-white text-slate-800">
 
-    <nav class="w-full bg-white border-b border-slate-100 py-6">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-slate-900 flex items-center group">
-                <i class="fas fa-arrow-left mr-3 text-sky-500 group-hover:-translate-x-1 transition"></i>
-                Back to Home
-            </a>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
-        </div>
-    </nav>
+  <nav class="w-full bg-white border-b border-slate-100 py-6">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="font-bold text-slate-900 flex items-center group">
+        <i class="fas fa-arrow-left mr-3 text-sky-500 group-hover:-translate-x-1 transition"></i>
+        Back to Home
+      </a>
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
+    </div>
+  </nav>
 
-    <header class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-4xl font-bold text-slate-900 mb-4">Technical Archive</h1>
-            <p class="text-lg text-slate-500 max-w-2xl">
-                A comprehensive collection of publications, whitepapers, and architectural guides focused on SAP BRIM, RAR, and Financial Transformation.
-            </p>
-        </div>
-    </header>
+  <header class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Technical Archive</h1>
+      <p class="text-lg text-slate-500 max-w-2xl">
+        A comprehensive collection of publications, whitepapers, and architectural guides.
+      </p>
+    </div>
+  </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
-        <div class="grid lg:grid-cols-12 gap-12">
-            
-            <div class="lg:col-span-8 space-y-12">
-                
-                <div class="p-8 bg-sky-900 rounded-3xl text-white relative overflow-hidden">
-                    <div class="relative z-10">
-                        <span class="px-3 py-1 bg-sky-500 text-[10px] font-bold uppercase rounded-full tracking-widest">In Progress</span>
-                        <h2 class="text-2xl font-bold mt-4 mb-2">SAP BRIM: A Consultant's Guide</h2>
-                        <p class="text-sky-100 text-sm mb-6 max-w-lg">A comprehensive roadmap to mastering SAP BRIM architecture, from lead-to-cash fundamentals to advanced subscription billing. Coming soon to this library.</p>
-                        <button class="text-xs font-bold uppercase tracking-widest border-b-2 border-sky-400 pb-1">Get notified on launch</button>
-                    </div>
-                    <i class="fas fa-book absolute right-[-20px] bottom-[-20px] text-9xl text-white/10 rotate-12"></i>
-                </div>
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <div class="mb-12">
+      <input type="text" id="search-box" placeholder="Search articles..." class="w-full md:w-1/2 border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
+    </div>
 
-                <div class="space-y-8">
-                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center">
-                        All Publications <span class="ml-4 h-[1px] bg-slate-100 flex-grow"></span>
-                    </h3>
+    <div id="resources-grid" class="grid md:grid-cols-3 gap-8"></div>
+  </main>
 
-                    <article class="group">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between">
-                            <div class="max-w-xl">
-                                <a href="https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/" target="_blank" class="text-xl font-bold text-slate-900 hover:text-sky-600 transition block mb-2">
-                                    SAP Revenue Accounting and Reporting Integration with SAP BRIM
-                                </a>
-                                <p class="text-sm text-slate-500 leading-relaxed">Detailed analysis of the architectural hand-off between billing engines and revenue recognition compliance.</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 md:text-right">
-                                <span class="block text-[10px] font-bold text-slate-400 uppercase">Acuiti Labs</span>
-                                <span class="text-xs font-medium text-slate-400">Technical Paper</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 h-[1px] bg-slate-50 group-hover:bg-sky-100 transition"></div>
-                    </article>
+  <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-[10px] uppercase tracking-widest font-bold">
+    &copy; 2026 Amit Kumar Shaw. All Rights Reserved.
+  </footer>
 
-                    <article class="group">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between">
-                            <div class="max-w-xl">
-                                <a href="https://www.linkedin.com/in/amitkshaw/" target="_blank" class="text-xl font-bold text-slate-900 hover:text-sky-600 transition block mb-2">
-                                    SAP BRIM Integration with Vertex Tax Solution
-                                </a>
-                                <p class="text-sm text-slate-500 leading-relaxed">Navigating global taxation complexities within high-volume SAP billing landscapes.</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 md:text-right">
-                                <span class="block text-[10px] font-bold text-slate-400 uppercase">LinkedIn</span>
-                                <span class="text-xs font-medium text-slate-400">Integration Guide</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 h-[1px] bg-slate-50 group-hover:bg-sky-100 transition"></div>
-                    </article>
+  <script>
+    function renderResources(filter="") {
+      const container = document.getElementById("resources-grid");
+      container.innerHTML = '';
+      const filtered = articles.filter(a => 
+        a.title.toLowerCase().includes(filter.toLowerCase()) ||
+        a.category.toLowerCase().includes(filter.toLowerCase()) ||
+        a.description.toLowerCase().includes(filter.toLowerCase())
+      );
+      filtered.forEach(a => {
+        const card = document.createElement("div");
+        card.className = "group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition";
+        card.innerHTML = `
+          <a href="${a.link}" target="_blank">
+            <img src="${a.image}" alt="${a.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+          </a>
+          <div class="p-6">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${a.category} • ${a.source}</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2 hover:text-sky-600 transition">${a.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">${a.description}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
 
-                    <article class="group">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between">
-                            <div class="max-w-xl">
-                                <a href="#" target="_blank" class="text-xl font-bold text-slate-900 hover:text-sky-600 transition block mb-2">
-                                    Real-Time Processing in SAP FI-CA Using External Cash Desks
-                                </a>
-                                <p class="text-sm text-slate-500 leading-relaxed">Optimizing payment clearing cycles and external payment gateway connectivity.</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 md:text-right">
-                                <span class="block text-[10px] font-bold text-slate-400 uppercase">Personal Archive</span>
-                                <span class="text-xs font-medium text-slate-400">Operations</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 h-[1px] bg-slate-50 group-hover:bg-sky-100 transition"></div>
-                    </article>
+    renderResources();
 
-                    </div>
-            </div>
-
-            <aside class="lg:col-span-4 space-y-12">
-                <div class="bg-slate-50 p-8 rounded-3xl">
-                    <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest mb-6">Filter by Topic</h4>
-                    <nav class="space-y-4">
-                        <a href="#" class="flex justify-between items-center text-sm font-medium text-slate-600 hover:text-sky-600">
-                            SAP BRIM <span class="px-2 py-0.5 bg-white rounded text-[10px] border border-slate-200">08</span>
-                        </a>
-                        <a href="#" class="flex justify-between items-center text-sm font-medium text-slate-600 hover:text-sky-600">
-                            SAP RAR <span class="px-2 py-0.5 bg-white rounded text-[10px] border border-slate-200">03</span>
-                        </a>
-                        <a href="#" class="flex justify-between items-center text-sm font-medium text-slate-600 hover:text-sky-600">
-                            Taxation & Vertex <span class="px-2 py-0.5 bg-white rounded text-[10px] border border-slate-200">02</span>
-                        </a>
-                    </nav>
-                </div>
-
-                <div class="p-8 bg-slate-900 rounded-3xl text-white">
-                    <h4 class="text-lg font-bold mb-4">Request a Topic</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Need a technical deep-dive on a specific Lead-to-Cash challenge? Suggest an article or request a whitepaper.</p>
-                    <a href="mailto:contact@amitkshaw.com" class="block w-full py-3 bg-white text-slate-900 text-center text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-sky-500 hover:text-white transition">Get in Touch</a>
-                </div>
-            </aside>
-
-        </div>
-    </main>
-
-    <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-[10px] uppercase tracking-widest font-bold">
-        &copy; 2026 Amit Kumar Shaw. All Rights Reserved.
-    </footer>
+    // Live search
+    const searchBox = document.getElementById("search-box");
+    searchBox.addEventListener("input", () => renderResources(searchBox.value));
+  </script>
 
 </body>
 </html>
