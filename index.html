@@ -877,42 +877,56 @@ My background in <span class="text-white font-bold">Finance and Auditing</span> 
 </section>
 
     
- <section id="resources" class="py-24 bg-slate-50">
+<section id="resources" class="py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-4xl font-bold text-slate-900 mb-6">Knowledge Hub</h2>
     <p class="text-lg text-slate-500 mb-12">
       Explore my technical articles, whitepapers, and architectural guides focused on SAP BRIM, RAR, and Financial Transformation.
     </p>
-    <div id="hub-cards" class="grid md:grid-cols-3 gap-8"></div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- E-Book Announcement Card -->
+      <div class="p-8 bg-sky-900 rounded-3xl text-white relative overflow-hidden group">
+        <div class="relative z-10">
+          <span class="px-3 py-1 bg-sky-500 text-[10px] font-bold uppercase rounded-full tracking-widest">In Progress</span>
+          <h2 class="text-2xl font-bold mt-4 mb-2">SAP BRIM: A Consultant's Guide</h2>
+          <p class="text-sky-100 text-sm mb-6 max-w-lg">A comprehensive roadmap to mastering SAP BRIM architecture, from lead-to-cash fundamentals to advanced subscription billing. Coming soon to this library.</p>
+          <button class="text-xs font-bold uppercase tracking-widest border-b-2 border-sky-400 pb-1">Get notified on launch</button>
+        </div>
+        <i class="fas fa-book absolute right-[-20px] bottom-[-20px] text-9xl text-white/10 rotate-12"></i>
+      </div>
+
+      <!-- Top 3 Articles -->
+      <div class="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+        <a href="https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/" target="_blank">
+          <img src="https://via.placeholder.com/600x400.png?text=SAP+BRIM+Article" alt="SAP Revenue Accounting and Reporting Integration with SAP BRIM" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+        </a>
+        <div class="p-6">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">SAP BRIM • Acuiti Labs</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2 hover:text-sky-600 transition">SAP Revenue Accounting and Reporting Integration with SAP BRIM</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Detailed analysis of the architectural hand-off between billing engines and revenue recognition compliance.</p>
+        </div>
+      </div>
+
+      <div class="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
+        <a href="https://www.linkedin.com/in/amitkshaw/" target="_blank">
+          <img src="https://via.placeholder.com/600x400.png?text=Vertex+Integration" alt="SAP BRIM Integration with Vertex Tax Solution" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+        </a>
+        <div class="p-6">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Integration • LinkedIn</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2 hover:text-sky-600 transition">SAP BRIM Integration with Vertex Tax Solution</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Navigating global taxation complexities within high-volume SAP billing landscapes.</p>
+        </div>
+      </div>
+
+    </div>
+
     <div class="mt-12 text-center">
       <a href="resources.html" class="inline-block py-3 px-6 bg-sky-600 text-white font-bold uppercase rounded-xl hover:bg-sky-500 transition">View All Articles</a>
     </div>
   </div>
 </section>
-
-<script>
-function renderHomeHub() {
-  const container = document.getElementById("hub-cards");
-  const featured = articles.slice(0,3); // Show top 3 articles
-  container.innerHTML = '';
-  featured.forEach(a => {
-    const card = document.createElement("div");
-    card.className = "group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition";
-    card.innerHTML = `
-      <a href="${a.link}" target="_blank">
-        <img src="${a.image}" alt="${a.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-      </a>
-      <div class="p-6">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${a.category} • ${a.source}</span>
-        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2 hover:text-sky-600 transition">${a.title}</h3>
-        <p class="text-sm text-slate-500 leading-relaxed">${a.description}</p>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-renderHomeHub();
-</script>
     
     <section id="interests" class="py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
