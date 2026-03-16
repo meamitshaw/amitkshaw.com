@@ -13,6 +13,7 @@
 <meta name="keywords" content="SAP BRIM, SAP RAR, SAP FSCM, SAP FI, SAP Solution Architect, S/4HANA, Lead to Cash">
 <meta name="author" content="Amit Kumar Shaw">
 <meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="XXXX">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Amit Kumar Shaw | SAP Solution Architect | Lead-to-Cash Expert">
@@ -65,7 +66,7 @@ tailwind.config = {
 </script>
 
 <!-- Preload Hero Image -->
-<link rel="preload" as="image" href="assets/amit-kumar-shaw.jpg">
+<link rel="preload" as="image" href="/assets/amit-kumar-shaw.jpg">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -77,15 +78,19 @@ tailwind.config = {
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Favicon -->
-<link rel="icon" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
 
 <style>
 
 /* Global */
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
 }
 
 /* Card Hover */
@@ -1221,7 +1226,7 @@ function closeLightbox() {
 }
 
 document.getElementById("lightbox").addEventListener("click", (e) => {
-  if (e.target.id === "lightbox" || e.target.tagName === "BUTTON") {
+  if (e.target === lightbox || e.target.tagName === "BUTTON") {
     closeLightbox();
   }
 });
@@ -1295,9 +1300,11 @@ if (canvas) {
 
     particles = [];
 
-    for (let i = 0; i < 35; i++) {
-      particles.push(new Particle());
-    }
+    const particleCount = window.innerWidth < 768 ? 20 : 35;
+
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
 
   }
 
@@ -1389,7 +1396,9 @@ if (menuBtn && mobileMenu) {
 
     } else {
 
-      mobileMenu.classList.add("hidden");
+      if (mobileMenu) {
+  mobileMenu.classList.add("hidden");
+}
 
       if (menuOpen) menuOpen.classList.remove("hidden");
       if (menuClose) menuClose.classList.add("hidden");
@@ -1421,7 +1430,9 @@ document.querySelectorAll(".mobile-link").forEach(link => {
 
     }
 
-    mobileMenu.classList.add("hidden");
+    if (mobileMenu) {
+  mobileMenu.classList.add("hidden");
+}
 
     if (menuOpen) menuOpen.classList.remove("hidden");
     if (menuClose) menuClose.classList.add("hidden");
@@ -1440,7 +1451,7 @@ window.addEventListener("scroll", () => {
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 200) {
+    if (window.scrollY >= sectionTop - 200) {
       current = section.getAttribute("id");
     }
   });
