@@ -1377,43 +1377,20 @@ if (canvas) {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
 
- class Particle {
+  class Particle {
 
-constructor() {
+    constructor() {
 
-this.x = Math.random() * canvas.width;
-this.y = Math.random() * canvas.height;
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
 
-this.speedX = (Math.random() - 0.5) * 0.4;
-this.speedY = (Math.random() - 0.5) * 0.4;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = (Math.random() - 0.5) * 0.4;
 
-this.size = Math.random() * 2 + 1;
+      this.size = Math.random() * 2 + 1;
+      this.opacity = Math.random() * 0.6 + 0.2;
 
-this.opacity = Math.random() * 0.6 + 0.2;
-
-}
-
-update() {
-
-this.x += this.speedX;
-this.y += this.speedY;
-
-if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-}
-
-draw() {
-
-ctx.fillStyle = `rgba(99,102,241,${this.opacity})`;
-
-ctx.beginPath();
-ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-ctx.fill();
-
-}
-
-}
+    }
 
     update() {
 
@@ -1422,15 +1399,42 @@ ctx.fill();
 
       if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
       if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
     }
 
     draw() {
 
-      ctx.fillStyle = "rgba(99,102,241,0.6)";
+      ctx.fillStyle = `rgba(99,102,241,${this.opacity})`;
+
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
+
     }
+
+  }
+
+  function drawSystemNodes(){
+
+    const nodes = [
+
+      { x: canvas.width*0.2, y: canvas.height*0.4 },
+      { x: canvas.width*0.4, y: canvas.height*0.2 },
+      { x: canvas.width*0.6, y: canvas.height*0.6 },
+      { x: canvas.width*0.75, y: canvas.height*0.35 },
+      { x: canvas.width*0.5, y: canvas.height*0.8 }
+
+    ];
+
+    nodes.forEach(n => {
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
+
+      ctx.fillStyle = "rgba(14,165,233,0.9)";
+      ctx.fill();
+
+    });
 
   }
 
@@ -1440,9 +1444,9 @@ ctx.fill();
 
     const particleCount = window.innerWidth < 768 ? 20 : 35;
 
-for (let i = 0; i < particleCount; i++) {
-  particles.push(new Particle());
-}
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
 
   }
 
@@ -1460,8 +1464,7 @@ for (let i = 0; i < particleCount; i++) {
         if (distance < 12000) {
 
           ctx.strokeStyle = "rgba(99,102,241,0.15)";
-ctx.lineWidth = 1.2;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 1.2;
 
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
@@ -1481,43 +1484,20 @@ ctx.lineWidth = 1.2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(p => {
-p.update();
-p.draw();
-});
+      p.update();
+      p.draw();
+    });
 
-drawSystemNodes();
+    drawSystemNodes();
 
     connect();
 
     requestAnimationFrame(animate);
+
   }
 
   init();
   animate();
-
-}
-
-function drawSystemNodes(){
-
-const nodes = [
-
-{ x: canvas.width*0.2, y: canvas.height*0.4 },
-{ x: canvas.width*0.4, y: canvas.height*0.2 },
-{ x: canvas.width*0.6, y: canvas.height*0.6 },
-{ x: canvas.width*0.75, y: canvas.height*0.35 },
-{ x: canvas.width*0.5, y: canvas.height*0.8 }
-
-]
-
-nodes.forEach(n => {
-
-ctx.beginPath();
-ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
-
-ctx.fillStyle = "rgba(14,165,233,0.9)";
-ctx.fill();
-
-})
 
 }
 
