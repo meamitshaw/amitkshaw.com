@@ -1131,6 +1131,8 @@ My background in <span class="text-white font-bold">Finance and Auditing</span> 
 
 <script>
 
+/* AOS Animation */
+
 AOS.init({
   duration: 900,
   easing: "ease-out-cubic",
@@ -1143,229 +1145,239 @@ AOS.init({
 
 function openLightbox(src, caption="Portfolio Detail") {
 
-    const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("lightbox-img");
-    const cap = document.getElementById("lightbox-caption");
+  const lightbox = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
+  const cap = document.getElementById("lightbox-caption");
 
-    img.src = src;
-    cap.innerText = caption;
+  img.src = src;
+  cap.innerText = caption;
 
-    lightbox.classList.remove("hidden");
-    lightbox.classList.add("flex");
+  lightbox.classList.remove("hidden");
+  lightbox.classList.add("flex");
 
-    document.body.style.overflow="hidden";
+  document.body.style.overflow = "hidden";
 }
 
-function closeLightbox(){
-    const lightbox = document.getElementById("lightbox");
+function closeLightbox() {
 
-    lightbox.classList.add("hidden");
-    lightbox.classList.remove("flex");
+  const lightbox = document.getElementById("lightbox");
 
-    document.body.style.overflow="auto";
+  lightbox.classList.add("hidden");
+  lightbox.classList.remove("flex");
+
+  document.body.style.overflow = "auto";
 }
 
-document.getElementById("lightbox").addEventListener("click",(e)=>{
-    if(e.target.id==="lightbox" || e.target.tagName==="BUTTON"){
-        closeLightbox();
-    }
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target.id === "lightbox" || e.target.tagName === "BUTTON") {
+    closeLightbox();
+  }
 });
 
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="Escape") closeLightbox();
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
 });
 
-/* Hero Glow */
+
+/* HERO GLOW EFFECT */
 
 const glow = document.getElementById("hero-glow");
 
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left = e.clientX + "px";
-glow.style.top = e.clientY + "px";
-
+document.addEventListener("mousemove", (e) => {
+  if (glow) {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  }
 });
 
-/* Canvas */
+
+/* CANVAS DATA FLOW ANIMATION */
 
 const canvas = document.getElementById("data-flow");
-const ctx = canvas.getContext("2d");
 
-let particles = [];
+if (canvas) {
 
-function resizeCanvas(){
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  const ctx = canvas.getContext("2d");
+  let particles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  class Particle {
+
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+
+      this.size = 2;
+    }
+
+    update() {
+
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+
+    draw() {
+
+      ctx.fillStyle = "rgba(99,102,241,0.6)";
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+  }
+
+  function init() {
+
+    particles = [];
+
+    for (let i = 0; i < 35; i++) {
+      particles.push(new Particle());
+    }
+
+  }
+
+  function connect() {
+
+    for (let a = 0; a < particles.length; a++) {
+
+      for (let b = a; b < particles.length; b++) {
+
+        let dx = particles[a].x - particles[b].x;
+        let dy = particles[a].y - particles[b].y;
+
+        let distance = dx * dx + dy * dy;
+
+        if (distance < 12000) {
+
+          ctx.strokeStyle = "rgba(148,163,184,0.2)";
+          ctx.lineWidth = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+
+        }
+
+      }
+
+    }
+
+  }
+
+  function animate() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    connect();
+
+    requestAnimationFrame(animate);
+  }
+
+  init();
+  animate();
+
 }
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
 
-class Particle{
-
-constructor(){
-this.x = Math.random()*canvas.width;
-this.y = Math.random()*canvas.height;
-
-this.speedX = (Math.random()-0.5)*0.5;
-this.speedY = (Math.random()-0.5)*0.5;
-
-this.size = 2;
-}
-
-update(){
-
-this.x += this.speedX;
-this.y += this.speedY;
-
-if(this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-if(this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-}
-
-draw(){
-
-ctx.fillStyle = "rgba(99,102,241,0.6)";
-ctx.beginPath();
-ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-ctx.fill();
-
-}
-
-}
-
-function init(){
-
-particles = [];
-
-for(let i=0;i<35;i++){
-particles.push(new Particle());
-}
-
-}
-
-function connect(){
-
-for(let a=0;a<particles.length;a++){
-
-for(let b=a;b<particles.length;b++){
-
-let dx = particles[a].x - particles[b].x;
-let dy = particles[a].y - particles[b].y;
-
-let distance = dx*dx + dy*dy;
-
-if(distance < 12000){
-
-ctx.strokeStyle = "rgba(148,163,184,0.2)";
-ctx.lineWidth = 1;
-
-ctx.beginPath();
-ctx.moveTo(particles[a].x,particles[a].y);
-ctx.lineTo(particles[b].x,particles[b].y);
-ctx.stroke();
-
-}
-
-}
-
-}
-
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(p => {
-p.update();
-p.draw();
-});
-
-connect();
-
-requestAnimationFrame(animate);
-
-}
-
-init();
-animate();
-
-/* Navbar Color Change on Scroll */
+/* NAVBAR COLOR CHANGE ON SCROLL */
 
 window.addEventListener("scroll", () => {
+
   const nav = document.querySelector("nav");
+
+  if (!nav) return;
 
   if (window.scrollY > 40) {
     nav.classList.add("nav-scrolled");
   } else {
     nav.classList.remove("nav-scrolled");
   }
+
 });
 
-/* Mobile Menu Panel Toggle */
+
+/* MOBILE MENU */
 
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
+const menuOpen = document.getElementById("menu-open");
+const menuClose = document.getElementById("menu-close");
 
-menuBtn.addEventListener("click", () => {
+if (menuBtn && mobileMenu) {
 
-mobileMenu.classList.toggle("hidden");
+  menuBtn.addEventListener("click", () => {
 
-});
+    const isHidden = mobileMenu.classList.contains("hidden");
+
+    if (isHidden) {
+
+      mobileMenu.classList.remove("hidden");
+
+      if (menuOpen) menuOpen.classList.add("hidden");
+      if (menuClose) menuClose.classList.remove("hidden");
+
+    } else {
+
+      mobileMenu.classList.add("hidden");
+
+      if (menuOpen) menuOpen.classList.remove("hidden");
+      if (menuClose) menuClose.classList.add("hidden");
+
+    }
+
+  });
+
+}
+
+
+/* MOBILE LINK CLICK */
 
 document.querySelectorAll(".mobile-link").forEach(link => {
 
-link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
 
-mobileMenu.classList.add("hidden");
+    const targetId = link.getAttribute("href");
 
-});
+    if (targetId.startsWith("#")) {
 
-});
-
-</script>
-
-// Elements
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuOpen = document.getElementById('menu-open');
-const menuClose = document.getElementById('menu-close');
-const mobileLinks = document.querySelectorAll('.mobile-link');
-
-// Toggle mobile menu
-menuBtn.addEventListener('click', () => {
-  const isHidden = mobileMenu.classList.contains('hidden');
-  if (isHidden) {
-    mobileMenu.classList.remove('hidden');
-    menuOpen.classList.add('hidden');
-    menuClose.classList.remove('hidden');
-  } else {
-    mobileMenu.classList.add('hidden');
-    menuOpen.classList.remove('hidden');
-    menuClose.classList.add('hidden');
-  }
-});
-
-// Smooth scroll for internal links and keep menu open
-mobileLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    const targetId = link.getAttribute('href');
-    if (targetId.startsWith('#')) {
       e.preventDefault();
+
       const target = document.querySelector(targetId);
+
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: "smooth" });
       }
-      // Optional: Close menu on link click
-      mobileMenu.classList.add('hidden');
-      menuOpen.classList.remove('hidden');
-      menuClose.classList.add('hidden');
+
     }
+
+    mobileMenu.classList.add("hidden");
+
+    if (menuOpen) menuOpen.classList.remove("hidden");
+    if (menuClose) menuClose.classList.add("hidden");
+
   });
+
 });
 
-</script>
-    
+</script>    
 </body>
 </html>
