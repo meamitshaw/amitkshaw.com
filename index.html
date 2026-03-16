@@ -1367,15 +1367,20 @@ const canvas = document.getElementById("data-flow");
 if (canvas) {
 
   const ctx = canvas.getContext("2d");
+
   let particles = [];
 
   function resizeCanvas() {
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
   }
 
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
+
+  /* PARTICLE CLASS */
 
   class Particle {
 
@@ -1414,15 +1419,17 @@ if (canvas) {
 
   }
 
-  function drawSystemNodes(){
+  /* SYSTEM NODE HIGHLIGHTS */
+
+  function drawSystemNodes() {
 
     const nodes = [
 
-      { x: canvas.width*0.2, y: canvas.height*0.4 },
-      { x: canvas.width*0.4, y: canvas.height*0.2 },
-      { x: canvas.width*0.6, y: canvas.height*0.6 },
-      { x: canvas.width*0.75, y: canvas.height*0.35 },
-      { x: canvas.width*0.5, y: canvas.height*0.8 }
+      { x: canvas.width * 0.2, y: canvas.height * 0.4 },
+      { x: canvas.width * 0.4, y: canvas.height * 0.2 },
+      { x: canvas.width * 0.6, y: canvas.height * 0.6 },
+      { x: canvas.width * 0.75, y: canvas.height * 0.35 },
+      { x: canvas.width * 0.5, y: canvas.height * 0.8 }
 
     ];
 
@@ -1438,6 +1445,56 @@ if (canvas) {
 
   }
 
+  /* FLOATING DOMAIN LABELS */
+
+  function drawFloatingLabels() {
+
+    const labels = [
+
+      "ERP",
+      "Finance",
+      "Accounting",
+      "Transformation",
+      "S/4HANA",
+      "Lead-to-Cash",
+      "Record-to-Report",
+      "Integration",
+      "Innovation",
+      "Automation",
+      "AI",
+      "Machine Learning"
+
+    ];
+
+    ctx.font = "600 14px Inter";
+    ctx.textAlign = "center";
+
+    labels.forEach((label, index) => {
+
+      const offset = Math.sin(Date.now() * 0.0005 + index) * 10;
+
+      const x = canvas.width * ((index % 4) + 1) / 5;
+
+      const y = canvas.height * (0.2 + Math.floor(index / 4) * 0.25) + offset;
+
+      if (label === "S/4HANA" || label === "Lead-to-Cash") {
+
+        ctx.fillStyle = "rgba(14,165,233,0.35)";
+
+      } else {
+
+        ctx.fillStyle = "rgba(71,85,105,0.18)";
+
+      }
+
+      ctx.fillText(label, x, y);
+
+    });
+
+  }
+
+  /* INITIALIZE PARTICLES */
+
   function init() {
 
     particles = [];
@@ -1445,10 +1502,14 @@ if (canvas) {
     const particleCount = window.innerWidth < 768 ? 20 : 35;
 
     for (let i = 0; i < particleCount; i++) {
+
       particles.push(new Particle());
+
     }
 
   }
+
+  /* CONNECT PARTICLES */
 
   function connect() {
 
@@ -1479,15 +1540,20 @@ if (canvas) {
 
   }
 
+  /* ANIMATION LOOP */
+
   function animate() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(p => {
+
       p.update();
       p.draw();
+
     });
 
+    drawFloatingLabels();
     drawSystemNodes();
 
     connect();
