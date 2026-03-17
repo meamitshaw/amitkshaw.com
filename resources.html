@@ -32,7 +32,7 @@
       <div class="lg:col-span-7">
         <h1 class="text-4xl font-bold text-slate-900 mb-4">Archived Resources & Technical Insights</h1>
         <p class="text-lg text-slate-500 max-w-2xl">
-          A curated collection of my whitepapers, technical articles, and architecture guides on 
+          A curated collection of whitepapers, technical articles, and architecture guides on 
           <span class="font-semibold text-slate-900">Financial Transformation, SAP BRIM, SAP RAR, SAP FSCM, SAP FI, and ERP modernization</span>.
         </p>
       </div>
@@ -59,8 +59,18 @@
   </div>
 </header>
 
-<!-- SEARCH + CATEGORY FILTER -->
-<section class="py-10">
+<!-- FEATURED ARTICLES -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
+      Featured Insights
+    </h3>
+    <div id="featured-grid" class="grid md:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- SEARCH + CATEGORY FILTERS BELOW FEATURED -->
+<section class="pb-10">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
 
     <!-- SEARCH -->
@@ -73,16 +83,6 @@
     <!-- CATEGORY FILTERS -->
     <div id="category-filters" class="flex flex-wrap gap-2 md:justify-end"></div>
 
-  </div>
-</section>
-
-<!-- FEATURED ARTICLES -->
-<section class="py-16">
-  <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
-      Featured Insights
-    </h3>
-    <div id="featured-grid" class="grid md:grid-cols-3 gap-6"></div>
   </div>
 </section>
 
@@ -112,14 +112,14 @@ const categoryContainer = document.getElementById("category-filters");
 
 let activeCategories = new Set();
 
-// 🧠 Build Category Counts
+// Build category map
 const categoryMap = {};
 articles.forEach(a => {
   categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
 });
 categoryMap["All"] = articles.length;
 
-// 🎯 Render Category Buttons (Multi-select)
+// Render category buttons
 Object.keys(categoryMap).forEach(cat => {
   const btn = document.createElement("button");
   btn.className =
@@ -137,15 +137,15 @@ Object.keys(categoryMap).forEach(cat => {
   categoryContainer.appendChild(btn);
 });
 
-// Card Template
-function createCard(a, index = 0) {
+// Create card
+function createCard(a, index=0) {
   const card = document.createElement("a");
   card.href = a.link;
   card.target = "_blank";
   card.className = "group bg-white p-6 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition flex flex-col justify-between";
-  // Animation
-  card.setAttribute("data-aos", "fade-up");
-  card.setAttribute("data-aos-delay", index * 100);
+  // AOS animation
+  card.setAttribute("data-aos","fade-up");
+  card.setAttribute("data-aos-delay", index*100);
 
   card.innerHTML = `
     <img src="${a.image}" class="w-full h-40 object-cover rounded-2xl mb-4">
@@ -160,28 +160,25 @@ function createCard(a, index = 0) {
 
 // Render Featured
 const featured = articles.filter(a => a.featured);
-featured.forEach((a, i) => featuredGrid.appendChild(createCard(a, i)));
+featured.forEach((a,i) => featuredGrid.appendChild(createCard(a,i)));
 
-// Filter & Search Logic
+// Filter logic
 function applyFilters() {
   const term = searchBox.value.toLowerCase();
   grid.innerHTML = "";
-
   const filtered = articles.filter(a => {
     const matchesSearch = a.title.toLowerCase().includes(term) || a.description.toLowerCase().includes(term);
     const matchesCategory = activeCategories.size === 0 || activeCategories.has(a.category);
     return matchesSearch && matchesCategory && !a.featured;
   });
-
-  filtered.forEach((a, i) => grid.appendChild(createCard(a, i)));
-
+  filtered.forEach((a,i) => grid.appendChild(createCard(a,i)));
   AOS.refresh();
 }
 
-// Search Input
+// Search input
 searchBox.addEventListener("input", applyFilters);
 
-// Initial Render
+// Init
 applyFilters();
 AOS.init({ duration: 800, once: true });
 </script>
