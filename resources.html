@@ -172,11 +172,19 @@ function createCard(a) {
   card.href = a.link;
   card.target = "_blank";
 
+  // Add AOS animation
+  card.setAttribute("data-aos", "fade-up");
+
   card.className = "p-5 border rounded-2xl hover:shadow-lg transition";
+
+  // Add Category and Tags
+  const tagsHTML = a.tags ? a.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-xs rounded-full mr-1">${t}</span>`).join("") : "";
 
   card.innerHTML = `
     <img src="${a.image}" class="h-40 w-full object-cover rounded-lg mb-3">
-    <h3 class="font-bold mb-2">${a.title}</h3>
+    <h3 class="font-bold mb-1">${a.title}</h3>
+    <p class="text-xs text-slate-400 mb-2">Category: <span class="font-semibold text-slate-600">${a.category}</span></p>
+    <div class="mb-2">${tagsHTML}</div>
     <p class="text-sm text-slate-500 mb-3">${a.description}</p>
     <div class="text-xs text-slate-400 flex items-center">
       <i class="${a.icon} mr-2"></i> ${a.source}
