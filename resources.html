@@ -31,14 +31,16 @@
     <div class="lg:col-span-7">
       <h1 class="text-4xl font-bold mb-4">Architecture & Technical Insights</h1>
       <p class="text-slate-500">
-        Explore insights across SAP BRIM, RAR, Finance Transformation, and ERP architecture.
+        A curated collection of my whitepapers, technical articles, and architectural guides focused on 
+                    <span class="font-semibold text-slate-900">Financial Transformation, SAP BRIM, SAP RAR, SAP FSCM, SAP FI and ERP modernization</span>. 
+                    These publications synthesize strategic perspectives with deep technical expertise and have been featured across LinkedIn, Acuiti Labs, and my personal architecture blog.
       </p>
     </div>
 
     <div class="lg:col-span-5">
       <div class="p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl text-white">
         <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
-        <p class="text-sm mb-4">Upcoming book on architecture & implementation.</p>
+        <p class="text-sm mb-4">I’m currently working on a comprehensive roadmap to mastering SAP BRIM—translating real-world experience into a structured guide for professionals looking to deepen their expertise. Stay tuned for the official launch and early access excerpts.</p>
         <a href="mailto:contact@amitkshaw.com"
            class="px-5 py-2 bg-white text-sky-600 rounded-lg font-bold">
            Get Notified
@@ -56,7 +58,7 @@
     <!-- FEATURED -->
     <div class="mb-16">
       <h3 class="text-sm font-bold text-slate-400 uppercase mb-6">Featured Insights</h3>
-      <div id="featured-grid" class="grid md:grid-cols-2 gap-6"></div>
+      <div id="featured-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
 
     <!-- SEARCH + FILTERS -->
@@ -170,7 +172,7 @@ function createCard(a) {
   card.href = a.link;
   card.target = "_blank";
 
-  card.className = "p-6 border rounded-2xl hover:shadow-lg transition";
+  card.className = "p-5 border rounded-2xl hover:shadow-lg transition";
 
   card.innerHTML = `
     <img src="${a.image}" class="h-40 w-full object-cover rounded-lg mb-3">
