@@ -166,18 +166,19 @@ function toggleSet(set, value) {
   set.has(value) ? set.delete(value) : set.add(value);
 }
 
-// CARD
+// CARD - Resources Page (matches main page style)
 function createCard(a) {
   const card = document.createElement("a");
   card.href = a.link;
   card.target = "_blank";
 
-  // Add AOS animation
+  // Same animation as main page
   card.setAttribute("data-aos", "fade-up");
 
+  // Theme/style matching main page
   card.className = "p-5 border rounded-2xl hover:shadow-lg transition";
 
-  // Add Category and Tags
+  // Tags
   const tagsHTML = a.tags ? a.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-xs rounded-full mr-1">${t}</span>`).join("") : "";
 
   card.innerHTML = `
