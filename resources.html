@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical Library | Amit Kumar Shaw</title>
+  <title>Resources | Amit Kumar Shaw</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -40,38 +40,61 @@
     &copy; 2026 Amit Kumar Shaw. All Rights Reserved.
   </footer>
 
-  <script>
-    function renderResources(filter="") {
-      const container = document.getElementById("resources-grid");
-      container.innerHTML = '';
-      const filtered = articles.filter(a => 
-        a.title.toLowerCase().includes(filter.toLowerCase()) ||
-        a.category.toLowerCase().includes(filter.toLowerCase()) ||
-        a.description.toLowerCase().includes(filter.toLowerCase())
-      );
-      filtered.forEach(a => {
-        const card = document.createElement("div");
-        card.className = "group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition";
-        card.innerHTML = `
-          <a href="${a.link}" target="_blank">
-            <img src="${a.image}" alt="${a.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
-          </a>
-          <div class="p-6">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">${a.category} • ${a.source}</span>
-            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2 hover:text-sky-600 transition">${a.title}</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">${a.description}</p>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-    }
+<script src="articles.js"></script>
 
-    renderResources();
+<script>
 
-    // Live search
-    const searchBox = document.getElementById("search-box");
-    searchBox.addEventListener("input", () => renderResources(searchBox.value));
-  </script>
+const grid = document.getElementById("article-grid");
+
+articles.forEach((article, index) => {
+
+const delay = 100 + index * 100;
+
+const card = document.createElement("a");
+
+card.href = article.link;
+card.target = "_blank";
+
+card.className = `group bg-white p-8 rounded-3xl border border-slate-100 hover:border-${article.color}-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between`;
+
+card.setAttribute("data-aos","fade-up");
+card.setAttribute("data-aos-delay",delay);
+
+card.innerHTML = `
+<div>
+
+<img src="${article.image}" class="w-full h-40 object-cover rounded-2xl mb-4">
+
+<div class="flex justify-between items-start mb-4">
+
+<span class="text-[10px] font-bold px-2 py-1 bg-${article.color}-50 text-${article.color}-600 rounded uppercase">
+${article.category}
+</span>
+
+<i class="fas fa-external-link-alt text-slate-300 group-hover:text-${article.color}-500 text-xs transition"></i>
+
+</div>
+
+<h3 class="text-lg font-bold text-slate-900 group-hover:text-${article.color}-600 transition mb-3">
+${article.title}
+</h3>
+
+<p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
+${article.description}
+</p>
+
+</div>
+
+<div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
+<i class="far fa-calendar-alt mr-2"></i> Published on ${article.source}
+</div>
+`;
+
+grid.appendChild(card);
+
+});
+
+</script>
 
 </body>
 </html>
