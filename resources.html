@@ -31,7 +31,7 @@
     <div class="lg:col-span-7">
       <h1 class="text-4xl font-bold mb-4">Architecture & Technical Insights</h1>
       <p class="text-slate-500">
-        Explore deep insights across SAP BRIM, RAR, Finance Transformation and ERP architecture.
+        Explore insights across SAP BRIM, RAR, Finance Transformation, and ERP architecture.
       </p>
     </div>
 
@@ -55,25 +55,45 @@
 
     <!-- FEATURED -->
     <div class="mb-16">
-      <h3 class="text-sm font-bold text-slate-400 uppercase mb-6">Featured</h3>
+      <h3 class="text-sm font-bold text-slate-400 uppercase mb-6">Featured Insights</h3>
       <div id="featured-grid" class="grid md:grid-cols-2 gap-6"></div>
     </div>
 
-    <!-- SEARCH -->
-    <input id="search-box" type="text"
-      placeholder="Search articles..."
-      class="w-full md:w-1/2 mb-6 p-3 border rounded-xl">
+    <!-- SEARCH + FILTERS -->
+    <div class="mb-8 flex flex-col lg:flex-row gap-8 justify-between">
 
-    <!-- CATEGORY FILTER -->
-    <div class="mb-6">
-      <h4 class="text-xs font-bold text-slate-400 mb-2">Categories</h4>
-      <div id="category-filters" class="flex flex-wrap gap-2"></div>
+      <!-- SEARCH -->
+      <div class="w-full lg:w-1/2">
+        <input id="search-box" type="text"
+          placeholder="Search articles..."
+          class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-sky-400">
+      </div>
+
+      <!-- FILTERS -->
+      <div class="w-full lg:w-1/2">
+
+        <div class="mb-4">
+          <h4 class="text-[10px] font-bold text-slate-400 uppercase mb-2">Categories</h4>
+          <div id="category-filters" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div>
+          <h4 class="text-[10px] font-bold text-slate-400 uppercase mb-2">Tags</h4>
+          <div id="tag-filters" class="flex flex-wrap gap-2"></div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- TAG FILTER -->
+    <!-- ACTIVE FILTERS -->
+    <div class="mb-6 flex items-center gap-3 flex-wrap" id="active-filters"></div>
+
+    <!-- CLEAR BUTTON -->
     <div class="mb-10">
-      <h4 class="text-xs font-bold text-slate-400 mb-2">Tags</h4>
-      <div id="tag-filters" class="flex flex-wrap gap-2"></div>
+      <button id="clear-filters"
+        class="text-xs text-red-500 font-bold hover:underline hidden">
+        Clear All Filters
+      </button>
     </div>
 
     <!-- GRID -->
@@ -91,11 +111,13 @@ const grid = document.getElementById("resources-grid");
 const searchBox = document.getElementById("search-box");
 const categoryContainer = document.getElementById("category-filters");
 const tagContainer = document.getElementById("tag-filters");
+const activeFiltersDiv = document.getElementById("active-filters");
+const clearBtn = document.getElementById("clear-filters");
 
 let activeCategories = new Set();
 let activeTags = new Set();
 
-// CATEGORY BUILD
+// CATEGORY
 const categoryMap = {};
 articles.forEach(a => {
   categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
@@ -103,12 +125,12 @@ articles.forEach(a => {
 
 Object.keys(categoryMap).forEach(cat => {
   const btn = document.createElement("button");
-  btn.className = "px-3 py-1 border rounded-lg text-sm";
+  btn.className = "px-3 py-1 border border-slate-200 rounded-lg text-xs font-semibold text-slate-600";
 
   btn.innerText = `${cat} (${categoryMap[cat]})`;
 
   btn.onclick = () => {
-    activeCategories.has(cat) ? activeCategories.delete(cat) : activeCategories.add(cat);
+    toggleSet(activeCategories, cat);
     btn.classList.toggle("bg-sky-600");
     btn.classList.toggle("text-white");
     applyFilters();
@@ -117,18 +139,18 @@ Object.keys(categoryMap).forEach(cat => {
   categoryContainer.appendChild(btn);
 });
 
-// TAG BUILD
+// TAGS
 const tagSet = new Set();
 articles.forEach(a => a.tags?.forEach(t => tagSet.add(t)));
 
 tagSet.forEach(tag => {
   const btn = document.createElement("button");
-  btn.className = "px-3 py-1 border rounded-lg text-xs";
+  btn.className = "px-3 py-1 border border-slate-200 rounded-lg text-xs text-slate-500";
 
   btn.innerText = tag;
 
   btn.onclick = () => {
-    activeTags.has(tag) ? activeTags.delete(tag) : activeTags.add(tag);
+    toggleSet(activeTags, tag);
     btn.classList.toggle("bg-indigo-600");
     btn.classList.toggle("text-white");
     applyFilters();
@@ -136,6 +158,11 @@ tagSet.forEach(tag => {
 
   tagContainer.appendChild(btn);
 });
+
+// TOGGLE
+function toggleSet(set, value) {
+  set.has(value) ? set.delete(value) : set.add(value);
+}
 
 // CARD
 function createCard(a) {
@@ -147,22 +174,56 @@ function createCard(a) {
 
   card.innerHTML = `
     <img src="${a.image}" class="h-40 w-full object-cover rounded-lg mb-3">
-
     <h3 class="font-bold mb-2">${a.title}</h3>
-
     <p class="text-sm text-slate-500 mb-3">${a.description}</p>
-
     <div class="text-xs text-slate-400 flex items-center">
       <i class="${a.icon} mr-2"></i> ${a.source}
     </div>
   `;
-
   return card;
 }
 
 // FEATURED
 articles.filter(a => a.featured)
 .forEach(a => featuredGrid.appendChild(createCard(a)));
+
+// ACTIVE FILTER CHIPS
+function renderActiveFilters() {
+
+  activeFiltersDiv.innerHTML = "";
+
+  [...activeCategories, ...activeTags].forEach(f => {
+    const chip = document.createElement("span");
+    chip.className = "px-3 py-1 bg-slate-200 rounded-full text-xs flex items-center gap-2";
+    chip.innerHTML = `${f} ✕`;
+
+    chip.onclick = () => {
+      activeCategories.delete(f);
+      activeTags.delete(f);
+      applyFilters();
+      rebuildButtons();
+    };
+
+    activeFiltersDiv.appendChild(chip);
+  });
+
+  clearBtn.style.display = (activeCategories.size || activeTags.size) ? "inline" : "none";
+}
+
+// RESET BUTTON UI
+function rebuildButtons() {
+  document.querySelectorAll("#category-filters button").forEach(btn => {
+    const name = btn.innerText.split(" (")[0];
+    btn.classList.toggle("bg-sky-600", activeCategories.has(name));
+    btn.classList.toggle("text-white", activeCategories.has(name));
+  });
+
+  document.querySelectorAll("#tag-filters button").forEach(btn => {
+    const name = btn.innerText;
+    btn.classList.toggle("bg-indigo-600", activeTags.has(name));
+    btn.classList.toggle("text-white", activeTags.has(name));
+  });
+}
 
 // FILTER
 function applyFilters() {
@@ -189,8 +250,19 @@ function applyFilters() {
   filtered.forEach(a => {
     if (!a.featured) grid.appendChild(createCard(a));
   });
+
+  renderActiveFilters();
 }
 
+// CLEAR
+clearBtn.onclick = () => {
+  activeCategories.clear();
+  activeTags.clear();
+  applyFilters();
+  rebuildButtons();
+};
+
+// SEARCH
 searchBox.addEventListener("input", applyFilters);
 
 // INIT
