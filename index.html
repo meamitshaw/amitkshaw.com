@@ -926,76 +926,6 @@ My background in <span class="text-white font-bold">Finance and Auditing</span> 
         </div>
 
     </div>
-
-<!-- Load Article Data -->
-<script src="articles.js"></script>
-
-<!-- Render Featured Articles -->
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-const grid = document.getElementById("article-grid");
-
-if (!grid || typeof articles === "undefined") {
-    console.error("Article grid or articles data not found.");
-    return;
-}
-
-const featuredArticles = articles.filter(a => a.featured);
-
-featuredArticles.forEach((article, index) => {
-
-const delay = 100 + index * 100;
-
-const card = document.createElement("a");
-
-card.href = article.link;
-card.target = "_blank";
-
-card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
-
-card.setAttribute("data-aos","fade-up");
-card.setAttribute("data-aos-delay",delay);
-
-card.innerHTML = `
-<div>
-
-<img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
-
-<div class="flex justify-between items-start mb-4">
-
-<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
-${article.category}
-</span>
-
-<i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
-
-</div>
-
-<h3 class="text-lg font-bold text-slate-900 transition mb-3">
-${article.title}
-</h3>
-
-<p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
-${article.description}
-</p>
-
-</div>
-
-<div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
-<i class="${article.icon} mr-2"></i> Published on ${article.source}
-</div>
-`;
-
-grid.appendChild(card);
-
-});
-
-});
-
-</script>
-
 </section>
     
     <section id="interests" class="py-24 bg-white overflow-hidden">
@@ -1697,5 +1627,75 @@ window.addEventListener("scroll", () => {
 });
 
 </script>    
+
+<!-- Load Article Data -->
+<script src="articles.js"></script>
+
+<!-- Render Featured Articles -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+const grid = document.getElementById("article-grid");
+
+if (!grid || typeof articles === "undefined") {
+    console.error("Article grid or articles data not found.");
+    return;
+}
+
+const featuredArticles = articles.filter(a => a.featured);
+
+featuredArticles.forEach((article, index) => {
+
+const delay = 100 + index * 100;
+
+const card = document.createElement("a");
+
+card.href = article.link;
+card.target = "_blank";
+
+card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
+
+card.setAttribute("data-aos","fade-up");
+card.setAttribute("data-aos-delay",delay);
+
+card.innerHTML = `
+<div>
+
+<img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
+
+<div class="flex justify-between items-start mb-4">
+
+<span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
+${article.category}
+</span>
+
+<i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+
+</div>
+
+<h3 class="text-lg font-bold text-slate-900 transition mb-3">
+${article.title}
+</h3>
+
+<p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
+${article.description}
+</p>
+
+</div>
+
+<div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
+<i class="${article.icon} mr-2"></i> Published on ${article.source}
+</div>
+`;
+
+grid.appendChild(card);
+
+});
+
+});
+
+</script>
+
 </body>
 </html>
