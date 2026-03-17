@@ -6,9 +6,13 @@
   <title>Resources | Amit Kumar Shaw</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- AOS animation library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body class="bg-white text-slate-800">
 
+  <!-- Navigation -->
   <nav class="w-full bg-white border-b border-slate-100 py-6">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
       <a href="index.html" class="font-bold text-slate-900 flex items-center group">
@@ -19,82 +23,90 @@
     </div>
   </nav>
 
+  <!-- Header -->
   <header class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
       <h1 class="text-4xl font-bold text-slate-900 mb-4">Technical Archive</h1>
       <p class="text-lg text-slate-500 max-w-2xl">
-        A comprehensive collection of publications, whitepapers, and architectural guides.
+        A comprehensive collection of publications, whitepapers, and architectural guides focused on SAP, Finance, and ERP Transformation.
       </p>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-6 py-16">
+
+    <!-- Search Box -->
     <div class="mb-12">
       <input type="text" id="search-box" placeholder="Search articles..." class="w-full md:w-1/2 border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
     </div>
 
+    <!-- Articles Grid -->
     <div id="resources-grid" class="grid md:grid-cols-3 gap-8"></div>
+
   </main>
 
   <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-[10px] uppercase tracking-widest font-bold">
     &copy; 2026 Amit Kumar Shaw. All Rights Reserved.
   </footer>
 
-<script src="articles.js"></script>
+  <!-- Article Data -->
+  <script src="articles.js"></script>
 
-<script>
+  <!-- Render Articles & Search -->
+  <script>
+  const grid = document.getElementById("resources-grid");
+  const searchBox = document.getElementById("search-box");
 
-const grid = document.getElementById("article-grid");
+  function renderArticles(list) {
+    grid.innerHTML = ""; // clear
+    list.forEach((article, index) => {
+      const delay = 100 + index * 100;
+      const card = document.createElement("a");
+      card.href = article.link;
+      card.target = "_blank";
+      card.className = `group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between`;
+      card.setAttribute("data-aos", "fade-up");
+      card.setAttribute("data-aos-delay", delay);
 
-articles.forEach((article, index) => {
+      card.innerHTML = `
+        <div>
+          <img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">${article.category}</span>
+            <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-3">${article.title}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">${article.description}</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
+          <i class="${article.icon} mr-2"></i> Published on ${article.source}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
 
-const delay = 100 + index * 100;
+    // Re-initialize AOS animations
+    if (typeof AOS !== 'undefined') AOS.refresh();
+  }
 
-const card = document.createElement("a");
+  // Initial render
+  renderArticles(articles);
 
-card.href = article.link;
-card.target = "_blank";
+  // Search functionality
+  searchBox.addEventListener("input", e => {
+    const term = e.target.value.toLowerCase();
+    const filtered = articles.filter(a =>
+      a.title.toLowerCase().includes(term) ||
+      a.description.toLowerCase().includes(term) ||
+      a.category.toLowerCase().includes(term) ||
+      a.source.toLowerCase().includes(term)
+    );
+    renderArticles(filtered);
+  });
 
-card.className = `group bg-white p-8 rounded-3xl border border-slate-100 hover:border-${article.color}-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between`;
-
-card.setAttribute("data-aos","fade-up");
-card.setAttribute("data-aos-delay",delay);
-
-card.innerHTML = `
-<div>
-
-<img src="${article.image}" class="w-full h-40 object-cover rounded-2xl mb-4">
-
-<div class="flex justify-between items-start mb-4">
-
-<span class="text-[10px] font-bold px-2 py-1 bg-${article.color}-50 text-${article.color}-600 rounded uppercase">
-${article.category}
-</span>
-
-<i class="fas fa-external-link-alt text-slate-300 group-hover:text-${article.color}-500 text-xs transition"></i>
-
-</div>
-
-<h3 class="text-lg font-bold text-slate-900 group-hover:text-${article.color}-600 transition mb-3">
-${article.title}
-</h3>
-
-<p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
-${article.description}
-</p>
-
-</div>
-
-<div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
-<i class="far fa-calendar-alt mr-2"></i> Published on ${article.source}
-</div>
-`;
-
-grid.appendChild(card);
-
-});
-
-</script>
+  // Initialize AOS
+  if (typeof AOS !== 'undefined') AOS.init();
+  </script>
 
 </body>
 </html>
