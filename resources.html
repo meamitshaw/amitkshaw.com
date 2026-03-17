@@ -22,13 +22,40 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- Header Section: Resources + Upcoming Book -->
   <header class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
-      <h1 class="text-4xl font-bold text-slate-900 mb-4">Technical Archive</h1>
-      <p class="text-lg text-slate-500 max-w-2xl">
-        A comprehensive collection of publications, whitepapers, and architectural guides focused on SAP, Finance, and ERP Transformation.
-      </p>
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+        <!-- Left: Archived Resources Info -->
+        <div class="lg:col-span-7" data-aos="fade-right" data-aos-duration="1000">
+          <h1 class="text-4xl font-bold text-slate-900 mb-4">Archived Resources</h1>
+          <p class="text-lg text-slate-500 max-w-2xl">
+            Explore my curated collection of whitepapers, technical articles, and architectural guides focused on 
+            <span class="font-semibold text-slate-900">Financial Transformation, SAP BRIM, SAP RAR, SAP FSCM, SAP FI, and ERP Transformation</span>.  
+            These insights have been published across LinkedIn, Acuiti Labs, and my personal architecture blog.
+          </p>
+        </div>
+
+        <!-- Right: Upcoming Book Card -->
+        <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="1000">
+          <div class="relative p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl shadow-xl text-white transform transition hover:scale-[1.02] duration-500">
+            <span class="absolute -top-3 left-6 px-3 py-1 bg-white text-sky-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Book</span>
+            <div class="flex flex-col items-start">
+              <i class="fas fa-book-open text-5xl mb-4"></i>
+              <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
+              <p class="text-sm leading-relaxed mb-6 italic">
+                Authoring a comprehensive roadmap to mastering SAP BRIM. Stay notified for launch & digital excerpt.
+              </p>
+              <a href="mailto:contact@amitkshaw.com?subject=Notify%20Me%20About%20SAP%20BRIM%20Book"
+                 class="inline-block px-6 py-3 bg-white text-sky-600 font-bold rounded-xl hover:bg-slate-100 transition">
+                Get Notified
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </header>
 
@@ -39,33 +66,8 @@
       <input type="text" id="search-box" placeholder="Search articles..." class="w-full md:w-1/2 border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
     </div>
 
-    <!-- Grid: Articles + Book Card -->
-    <div class="grid lg:grid-cols-12 gap-8">
-
-      <!-- Articles -->
-      <div class="lg:col-span-9">
-        <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8"></div>
-      </div>
-
-      <!-- Upcoming Book Card -->
-      <div class="lg:col-span-3" data-aos="fade-left" data-aos-duration="1000">
-        <div class="relative p-8 bg-white rounded-3xl border-2 border-sky-100 shadow-xl shadow-sky-100/50 transform transition hover:scale-[1.02] duration-500">
-          <span class="absolute -top-3 left-6 px-3 py-1 bg-sky-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Book</span>
-          <div class="flex flex-col items-start">
-            <i class="fas fa-book-open text-5xl text-sky-200 mb-4"></i>
-            <h4 class="text-lg font-bold text-slate-900 mb-2">SAP BRIM: A Consultant's Guide</h4>
-            <p class="text-xs text-slate-500 leading-relaxed mb-6 italic">
-              Currently authoring a comprehensive roadmap to mastering SAP BRIM. Stay notified for launch & digital excerpt.
-            </p>
-            <a href="mailto:contact@amitkshaw.com?subject=Notify%20Me%20About%20SAP%20BRIM%20Book" 
-               class="inline-block px-6 py-3 bg-sky-600 text-white font-bold rounded-xl hover:bg-sky-700 transition">
-              Get Notified
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <!-- Article Grid -->
+    <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 
   </main>
 
@@ -73,10 +75,10 @@
     &copy; 2026 Amit Kumar Shaw. All Rights Reserved.
   </footer>
 
-  <!-- Article Data -->
+  <!-- Articles JS -->
   <script src="articles.js"></script>
 
-  <!-- Render Articles & Search -->
+  <!-- Render Articles -->
   <script>
     const grid = document.getElementById("resources-grid");
     const searchBox = document.getElementById("search-box");
