@@ -66,6 +66,19 @@
   </div>
 </header>
 
+<!-- CATEGORY CARD -->
+<section class="py-10">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">
+      Filter by Category
+    </h3>
+
+    <div id="category-filters" class="flex flex-wrap gap-4"></div>
+
+  </div>
+</section>
+
 <!-- FEATURED ARTICLES -->
 <section class="py-16">
   <div class="max-w-7xl mx-auto px-6">
@@ -114,9 +127,49 @@
 const featuredGrid = document.getElementById("featured-grid");
 const grid = document.getElementById("resources-grid");
 const searchBox = document.getElementById("search-box");
+const categoryContainer = document.getElementById("category-filters");
 
-// CARD TEMPLATE
+let activeCategory = "All";
+
+// 🧠 BUILD CATEGORY COUNTS
+const categoryMap = {};
+
+articles.forEach(a => {
+  if (!categoryMap[a.category]) {
+    categoryMap[a.category] = 0;
+  }
+  categoryMap[a.category]++;
+});
+
+// ➕ ADD "ALL"
+categoryMap["All"] = articles.length;
+
+// 🎯 RENDER CATEGORY CARDS
+Object.keys(categoryMap).forEach(cat => {
+
+  const btn = document.createElement("button");
+
+  btn.className =
+  "px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-sky-50 hover:text-sky-600 transition";
+
+  btn.innerHTML = `
+    ${cat}
+    <span class="ml-2 text-xs bg-slate-100 px-2 py-0.5 rounded">
+      ${categoryMap[cat]}
+    </span>
+  `;
+
+  btn.addEventListener("click", () => {
+    activeCategory = cat;
+    applyFilters();
+  });
+
+  categoryContainer.appendChild(btn);
+});
+
+// 🧩 CARD TEMPLATE
 function createCard(article) {
+
   const card = document.createElement("a");
 
   card.href = article.link;
@@ -134,7 +187,6 @@ function createCard(article) {
       <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
         ${article.category}
       </span>
-
       <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
     </div>
 
@@ -156,36 +208,41 @@ function createCard(article) {
   return card;
 }
 
-// FEATURED
+// ⭐ FEATURED
 const featured = articles.filter(a => a.featured);
 featured.forEach(a => featuredGrid.appendChild(createCard(a)));
 
-// ALL
-function renderAll(list) {
+// 🔍 FILTER LOGIC
+function applyFilters() {
+
+  const term = searchBox.value.toLowerCase();
+
+  const filtered = articles.filter(a => {
+
+    const matchSearch =
+      a.title.toLowerCase().includes(term) ||
+      a.description.toLowerCase().includes(term);
+
+    const matchCategory =
+      activeCategory === "All" || a.category === activeCategory;
+
+    return matchSearch && matchCategory;
+  });
+
   grid.innerHTML = "";
-  list.forEach(a => {
+
+  filtered.forEach(a => {
     if (!a.featured) {
       grid.appendChild(createCard(a));
     }
   });
 }
 
-renderAll(articles);
+// 🔎 SEARCH
+searchBox.addEventListener("input", applyFilters);
 
-// SEARCH
-searchBox.addEventListener("input", e => {
-  const term = e.target.value.toLowerCase();
-
-  const filtered = articles.filter(a =>
-    a.title.toLowerCase().includes(term) ||
-    a.description.toLowerCase().includes(term) ||
-    a.category.toLowerCase().includes(term)
-  );
-
-  renderAll(filtered);
-});
-
-// INIT AOS
+// INIT
+applyFilters();
 AOS.init();
 
 </script>
