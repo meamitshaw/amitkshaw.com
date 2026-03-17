@@ -8,7 +8,7 @@ link: "https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integrati
 category: "Integration",
 color: "sky",
 source: "Acuiti Labs",
-icon: "fas fa-globe",   // Website icon
+icon: "fas fa-globe",
 featured: true
 },
 
