@@ -17,9 +17,8 @@
 <!-- NAV -->
 <nav class="w-full bg-white border-b border-slate-100 py-6">
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-    <a href="index.html" class="font-bold text-slate-900 flex items-center group">
-      <i class="fas fa-arrow-left mr-3 text-sky-500 group-hover:-translate-x-1 transition"></i>
-      Back to Home
+    <a href="index.html" class="font-bold text-slate-900 flex items-center">
+      <i class="fas fa-arrow-left mr-3 text-sky-500"></i> Back to Home
     </a>
     <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
   </div>
@@ -27,179 +26,135 @@
 
 <!-- HEADER -->
 <header class="py-20 bg-slate-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-8 items-center">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-8 items-center">
 
-      <div class="lg:col-span-7">
-        <h1 class="text-4xl font-bold text-slate-900 mb-4">Architecture & Technical Insights Library</h1>
-        <p class="text-lg text-slate-500 max-w-2xl">
-          A curated collection of my whitepapers, technical articles, and architecture guides.
-        </p>
-      </div>
-
-      <div class="lg:col-span-5">
-        <div class="relative p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl shadow-xl text-white">
-          <span class="absolute -top-3 left-6 px-3 py-1 bg-white text-sky-600 text-[10px] font-bold rounded-full">
-            Upcoming Book
-          </span>
-
-          <i class="fas fa-book-open text-5xl mb-4"></i>
-          <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
-
-          <p class="text-sm mb-6 italic">
-            A practical roadmap for SAP BRIM architecture, strategy, and implementation.
-          </p>
-
-          <a href="mailto:contact@amitkshaw.com?subject=Notify%20Me"
-             class="inline-block px-6 py-3 bg-white text-sky-600 font-bold rounded-xl hover:bg-slate-100 transition">
-            Get Notified
-          </a>
-        </div>
-      </div>
-
+    <div class="lg:col-span-7">
+      <h1 class="text-4xl font-bold mb-4">Architecture & Technical Insights</h1>
+      <p class="text-slate-500">
+        Explore deep insights across SAP BRIM, RAR, Finance Transformation and ERP architecture.
+      </p>
     </div>
+
+    <div class="lg:col-span-5">
+      <div class="p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl text-white">
+        <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
+        <p class="text-sm mb-4">Upcoming book on architecture & implementation.</p>
+        <a href="mailto:contact@amitkshaw.com"
+           class="px-5 py-2 bg-white text-sky-600 rounded-lg font-bold">
+           Get Notified
+        </a>
+      </div>
+    </div>
+
   </div>
 </header>
 
-<!-- MAIN LAYOUT -->
+<!-- CONTENT -->
 <section class="pb-20">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
+  <div class="max-w-7xl mx-auto px-6">
 
-    <!-- LEFT -->
-    <div class="lg:col-span-8">
-
-      <!-- FEATURED -->
-      <div class="mb-16">
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
-          Featured Insights
-        </h3>
-        <div id="featured-grid" class="grid md:grid-cols-2 gap-6"></div>
-      </div>
-
-      <!-- SEARCH -->
-      <div class="mb-10">
-        <input type="text" id="search-box"
-          placeholder="Search articles..."
-          class="w-full border border-slate-300 rounded-xl p-3 focus:ring-2 focus:ring-sky-400">
-      </div>
-
-      <!-- ALL -->
-      <div>
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
-          All Publications
-        </h3>
-        <div id="resources-grid" class="grid md:grid-cols-2 gap-8"></div>
-      </div>
-
+    <!-- FEATURED -->
+    <div class="mb-16">
+      <h3 class="text-sm font-bold text-slate-400 uppercase mb-6">Featured</h3>
+      <div id="featured-grid" class="grid md:grid-cols-2 gap-6"></div>
     </div>
 
-    <!-- RIGHT SIDEBAR -->
-    <div class="lg:col-span-4">
-      <div class="sticky top-24 space-y-8">
+    <!-- SEARCH -->
+    <input id="search-box" type="text"
+      placeholder="Search articles..."
+      class="w-full md:w-1/2 mb-6 p-3 border rounded-xl">
 
-        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
-          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest mb-6">
-            Categories
-          </h4>
-
-          <div id="category-filters" class="space-y-3"></div>
-        </div>
-
-      </div>
+    <!-- CATEGORY FILTER -->
+    <div class="mb-6">
+      <h4 class="text-xs font-bold text-slate-400 mb-2">Categories</h4>
+      <div id="category-filters" class="flex flex-wrap gap-2"></div>
     </div>
+
+    <!-- TAG FILTER -->
+    <div class="mb-10">
+      <h4 class="text-xs font-bold text-slate-400 mb-2">Tags</h4>
+      <div id="tag-filters" class="flex flex-wrap gap-2"></div>
+    </div>
+
+    <!-- GRID -->
+    <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
   </div>
 </section>
 
-<footer class="py-12 border-t text-center text-slate-400 text-[10px] uppercase font-bold">
-  &copy; 2026 Amit Kumar Shaw
-</footer>
-
-<!-- DATA -->
 <script src="articles.js"></script>
 
-<!-- SCRIPT -->
 <script>
 
 const featuredGrid = document.getElementById("featured-grid");
 const grid = document.getElementById("resources-grid");
 const searchBox = document.getElementById("search-box");
 const categoryContainer = document.getElementById("category-filters");
+const tagContainer = document.getElementById("tag-filters");
 
-let activeCategory = "All";
+let activeCategories = new Set();
+let activeTags = new Set();
 
-// CATEGORY COUNT
+// CATEGORY BUILD
 const categoryMap = {};
-
 articles.forEach(a => {
   categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
 });
-categoryMap["All"] = articles.length;
 
-// RENDER CATEGORY LIST
 Object.keys(categoryMap).forEach(cat => {
+  const btn = document.createElement("button");
+  btn.className = "px-3 py-1 border rounded-lg text-sm";
 
-  const item = document.createElement("div");
+  btn.innerText = `${cat} (${categoryMap[cat]})`;
 
-  item.className =
-  "flex justify-between items-center text-sm font-medium text-slate-600 cursor-pointer hover:text-sky-600";
-
-  item.innerHTML = `
-    <span>${cat}</span>
-    <span class="px-2 py-0.5 bg-white rounded text-[10px] border">
-      ${categoryMap[cat]}
-    </span>
-  `;
-
-  item.addEventListener("click", () => {
-    activeCategory = cat;
-    highlightCategory();
+  btn.onclick = () => {
+    activeCategories.has(cat) ? activeCategories.delete(cat) : activeCategories.add(cat);
+    btn.classList.toggle("bg-sky-600");
+    btn.classList.toggle("text-white");
     applyFilters();
-  });
+  };
 
-  categoryContainer.appendChild(item);
+  categoryContainer.appendChild(btn);
 });
 
-// highlight
-function highlightCategory() {
-  [...categoryContainer.children].forEach(el => {
-    const name = el.children[0].innerText;
-    el.classList.toggle("text-sky-600", name === activeCategory);
-    el.classList.toggle("font-bold", name === activeCategory);
-  });
-}
+// TAG BUILD
+const tagSet = new Set();
+articles.forEach(a => a.tags?.forEach(t => tagSet.add(t)));
+
+tagSet.forEach(tag => {
+  const btn = document.createElement("button");
+  btn.className = "px-3 py-1 border rounded-lg text-xs";
+
+  btn.innerText = tag;
+
+  btn.onclick = () => {
+    activeTags.has(tag) ? activeTags.delete(tag) : activeTags.add(tag);
+    btn.classList.toggle("bg-indigo-600");
+    btn.classList.toggle("text-white");
+    applyFilters();
+  };
+
+  tagContainer.appendChild(btn);
+});
 
 // CARD
-function createCard(article) {
-
+function createCard(a) {
   const card = document.createElement("a");
-  card.href = article.link;
+  card.href = a.link;
   card.target = "_blank";
 
-  card.className =
-  "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition flex flex-col justify-between";
+  card.className = "p-6 border rounded-2xl hover:shadow-lg transition";
 
   card.innerHTML = `
-  <div>
+    <img src="${a.image}" class="h-40 w-full object-cover rounded-lg mb-3">
 
-    <img src="${article.image}" class="w-full h-40 object-cover rounded-2xl mb-4">
+    <h3 class="font-bold mb-2">${a.title}</h3>
 
-    <div class="flex justify-between mb-4">
-      <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">
-        ${article.category}
-      </span>
-      <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+    <p class="text-sm text-slate-500 mb-3">${a.description}</p>
+
+    <div class="text-xs text-slate-400 flex items-center">
+      <i class="${a.icon} mr-2"></i> ${a.source}
     </div>
-
-    <h3 class="text-lg font-bold text-slate-900 mb-3">${article.title}</h3>
-
-    <p class="text-sm text-slate-500">${article.description}</p>
-
-  </div>
-
-  <div class="mt-6 pt-4 border-t text-xs text-slate-400 font-bold flex items-center">
-    <i class="${article.icon} mr-2"></i> ${article.source}
-  </div>
   `;
 
   return card;
@@ -215,28 +170,31 @@ function applyFilters() {
   const term = searchBox.value.toLowerCase();
 
   const filtered = articles.filter(a => {
-    return (
-      (activeCategory === "All" || a.category === activeCategory) &&
-      (a.title.toLowerCase().includes(term) ||
-       a.description.toLowerCase().includes(term))
-    );
+
+    const matchSearch =
+      a.title.toLowerCase().includes(term) ||
+      a.description.toLowerCase().includes(term);
+
+    const matchCategory =
+      activeCategories.size === 0 || activeCategories.has(a.category);
+
+    const matchTags =
+      activeTags.size === 0 || a.tags?.some(t => activeTags.has(t));
+
+    return matchSearch && matchCategory && matchTags;
   });
 
   grid.innerHTML = "";
 
   filtered.forEach(a => {
-    if (!a.featured) {
-      grid.appendChild(createCard(a));
-    }
+    if (!a.featured) grid.appendChild(createCard(a));
   });
 }
 
-// SEARCH
 searchBox.addEventListener("input", applyFilters);
 
 // INIT
 applyFilters();
-highlightCategory();
 AOS.init();
 
 </script>
