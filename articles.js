@@ -7,7 +7,6 @@ const articles = [
   link: "https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integration-with-sap-brim/",
   category: "Integration",
   tags: ["SAP BRIM", "SAP RAR"],
-  color: "sky",
   source: "Acuiti Labs",
   icon: "fas fa-globe",
   featured: true
