@@ -166,37 +166,70 @@ function toggleSet(set, value) {
   set.has(value) ? set.delete(value) : set.add(value);
 }
 
-// CARD - Resources Page (matches main page style)
-function createCard(a) {
+// CARD — Upgraded to match main page UI (NO functional changes)
+function createCard(a, index = 0) {
+
+  const delay = 100 + index * 100;
+
   const card = document.createElement("a");
   card.href = a.link;
   card.target = "_blank";
 
-  // Same animation as main page
+  card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
+
+  // AOS (with stagger support)
   card.setAttribute("data-aos", "fade-up");
+  card.setAttribute("data-aos-delay", delay);
 
-  // Theme/style matching main page
-  card.className = "p-5 border rounded-2xl hover:shadow-lg transition";
-
-  // Tags
-  const tagsHTML = a.tags ? a.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-xs rounded-full mr-1">${t}</span>`).join("") : "";
+  const tagsHTML = a.tags
+    ? a.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-xs rounded-full mr-1">${t}</span>`).join("")
+    : "";
 
   card.innerHTML = `
-    <img src="${a.image}" class="h-40 w-full object-cover rounded-lg mb-3">
-    <h3 class="font-bold mb-1">${a.title}</h3>
-    <p class="text-xs text-slate-400 mb-2">Category: <span class="font-semibold text-slate-600">${a.category}</span></p>
-    <div class="mb-2">${tagsHTML}</div>
-    <p class="text-sm text-slate-500 mb-3">${a.description}</p>
-    <div class="text-xs text-slate-400 flex items-center">
-      <i class="${a.icon} mr-2"></i> ${a.source}
+    <div>
+
+      <img src="${a.image}" alt="${a.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
+
+      <div class="flex justify-between items-start mb-4">
+
+        <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
+          ${a.category}
+        </span>
+
+        <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+
+      </div>
+
+      <h3 class="text-lg font-bold text-slate-900 transition mb-3 group-hover:text-indigo-600">
+        ${a.title}
+      </h3>
+
+      <div class="mb-3">${tagsHTML}</div>
+
+      <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
+        ${a.description}
+      </p>
+
+    </div>
+
+    <div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
+      <i class="${a.icon} mr-2"></i> Published on ${a.source}
     </div>
   `;
+
   return card;
 }
 
-// FEATURED
-articles.filter(a => a.featured)
-.forEach(a => featuredGrid.appendChild(createCard(a)));
+// FEATURED (with animation index)
+function renderFeatured() {
+  featuredGrid.innerHTML = "";
+
+  articles
+    .filter(a => a.featured)
+    .forEach((a, i) => {
+      featuredGrid.appendChild(createCard(a, i));
+    });
+}
 
 // ACTIVE FILTER CHIPS
 function renderActiveFilters() {
@@ -256,11 +289,24 @@ function applyFilters() {
     return matchSearch && matchCategory && matchTags;
   });
 
-  grid.innerHTML = "";
+ grid.innerHTML = "";
 
-  filtered.forEach(a => {
-    if (!a.featured) grid.appendChild(createCard(a));
-  });
+let index = 0;
+
+filtered.forEach(a => {
+  if (!a.featured) {
+    grid.appendChild(createCard(a, index));
+    index++;
+  }
+});
+
+// Optional empty state (safe UX improvement)
+if (index === 0) {
+  grid.innerHTML = `<p class="text-slate-400 text-sm">No articles found for selected filters.</p>`;
+}
+
+// Refresh animations after DOM update
+AOS.refresh();
 
   renderActiveFilters();
 }
