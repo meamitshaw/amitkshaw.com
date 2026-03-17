@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resources | Amit Kumar Shaw</title>
 
+<!-- TailwindCSS -->
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- AOS Animations -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
@@ -27,8 +30,7 @@
 <header class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-12 gap-8 items-center">
-
-      <!-- LEFT: Resources Header -->
+      <!-- LEFT -->
       <div class="lg:col-span-7">
         <h1 class="text-4xl font-bold text-slate-900 mb-4">Archived Resources & Technical Insights</h1>
         <p class="text-lg text-slate-500 max-w-2xl">
@@ -40,21 +42,16 @@
       <!-- RIGHT: Upcoming Book -->
       <div class="lg:col-span-5">
         <div class="relative p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl shadow-xl text-white">
-          <span class="absolute -top-3 left-6 px-3 py-1 bg-white text-sky-600 text-[10px] font-bold uppercase rounded-full">
-            Upcoming Book
-          </span>
+          <span class="absolute -top-3 left-6 px-3 py-1 bg-white text-sky-600 text-[10px] font-bold uppercase rounded-full">Upcoming Book</span>
           <i class="fas fa-book-open text-5xl mb-4"></i>
           <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
           <p class="text-sm mb-6 italic">
             Authoring a roadmap to mastering SAP BRIM. Stay notified about launch and early digital excerpts.
           </p>
           <a href="mailto:contact@amitkshaw.com?subject=Notify%20Me%20About%20SAP%20BRIM%20Book"
-             class="inline-block px-6 py-3 bg-white text-sky-600 font-bold rounded-xl hover:bg-slate-100 transition">
-            Get Notified
-          </a>
+             class="inline-block px-6 py-3 bg-white text-sky-600 font-bold rounded-xl hover:bg-slate-100 transition">Get Notified</a>
         </div>
       </div>
-
     </div>
   </div>
 </header>
@@ -62,36 +59,30 @@
 <!-- FEATURED ARTICLES -->
 <section class="py-16">
   <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
-      Featured Insights
-    </h3>
+    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Featured Insights</h3>
     <div id="featured-grid" class="grid md:grid-cols-3 gap-6"></div>
   </div>
 </section>
 
-<!-- SEARCH + CATEGORY FILTERS BELOW FEATURED -->
+<!-- SEARCH + FILTERS -->
 <section class="pb-10">
-  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-
-    <!-- SEARCH -->
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
     <div class="flex-1">
-      <input type="text" id="search-box"
-        placeholder="Search articles..."
-        class="w-full md:w-3/4 border border-slate-300 rounded-xl p-3 focus:ring-2 focus:ring-sky-400 transition" />
+      <input type="text" id="search-box" placeholder="Search articles..."
+        class="w-full md:w-3/4 border border-slate-300 rounded-xl p-3 focus:ring-2 focus:ring-sky-400 transition"/>
     </div>
-
-    <!-- CATEGORY FILTERS -->
-    <div id="category-filters" class="flex flex-wrap gap-2 md:justify-end"></div>
-
+    <div class="flex flex-wrap gap-2 md:justify-end items-center">
+      <div id="category-filters" class="flex flex-wrap gap-2"></div>
+      <div id="tag-filters" class="flex flex-wrap gap-2"></div>
+      <button id="clear-filters" class="px-4 py-2 text-sm font-semibold border rounded-xl hover:bg-red-50 hover:text-red-600 transition">Clear Filters</button>
+    </div>
   </div>
 </section>
 
 <!-- ALL ARTICLES -->
 <section class="pb-20">
   <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">
-      All Publications
-    </h3>
+    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">All Publications</h3>
     <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
   </div>
 </section>
@@ -103,75 +94,102 @@
 <!-- DATA -->
 <script src="articles.js"></script>
 
-<!-- RENDER CARDS + FILTERS -->
+<!-- RENDER + FILTERS -->
 <script>
 const featuredGrid = document.getElementById("featured-grid");
 const grid = document.getElementById("resources-grid");
 const searchBox = document.getElementById("search-box");
 const categoryContainer = document.getElementById("category-filters");
+const tagContainer = document.getElementById("tag-filters");
+const clearBtn = document.getElementById("clear-filters");
 
 let activeCategories = new Set();
+let activeTags = new Set();
 
-// Build category map
+// Build categories and tags
 const categoryMap = {};
-articles.forEach(a => {
-  categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
+const tagMap = {};
+articles.forEach(a=>{
+  categoryMap[a.category] = (categoryMap[a.category]||0)+1;
+  if(a.tags) a.tags.forEach(t=> tagMap[t] = (tagMap[t]||0)+1);
 });
-categoryMap["All"] = articles.length;
 
 // Render category buttons
-Object.keys(categoryMap).forEach(cat => {
+Object.keys(categoryMap).forEach(cat=>{
   const btn = document.createElement("button");
-  btn.className =
-    "px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-sky-50 hover:text-sky-600 transition";
-  btn.innerHTML = `${cat} <span class="ml-2 text-xs bg-slate-100 px-2 py-0.5 rounded">${categoryMap[cat]}</span>`;
-  btn.addEventListener("click", () => {
-    if (cat === "All") {
-      activeCategories.clear();
-    } else {
-      if (activeCategories.has(cat)) activeCategories.delete(cat);
-      else activeCategories.add(cat);
-    }
+  btn.className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-600 hover:bg-sky-50 hover:text-sky-600 transition";
+  btn.innerHTML=`${cat} <span class="ml-2 text-xs bg-slate-100 px-2 py-0.5 rounded">${categoryMap[cat]}</span>`;
+  btn.addEventListener("click", ()=>{
+    if(activeCategories.has(cat)) activeCategories.delete(cat);
+    else activeCategories.add(cat);
     applyFilters();
   });
   categoryContainer.appendChild(btn);
 });
 
-// Create card
-function createCard(a, index=0) {
-  const card = document.createElement("a");
-  card.href = a.link;
-  card.target = "_blank";
-  card.className = "group bg-white p-6 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition flex flex-col justify-between";
-  // AOS animation
-  card.setAttribute("data-aos","fade-up");
-  card.setAttribute("data-aos-delay", index*100);
+// Render tag buttons
+Object.keys(tagMap).forEach(tag=>{
+  const btn=document.createElement("button");
+  btn.className="px-3 py-1 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-600 hover:bg-sky-50 hover:text-sky-600 transition";
+  btn.innerText=tag;
+  btn.addEventListener("click", ()=>{
+    if(activeTags.has(tag)) activeTags.delete(tag);
+    else activeTags.add(tag);
+    applyFilters();
+  });
+  tagContainer.appendChild(btn);
+});
 
-  card.innerHTML = `
-    <img src="${a.image}" class="w-full h-40 object-cover rounded-2xl mb-4">
+// Clear filters
+clearBtn.addEventListener("click", ()=>{
+  activeCategories.clear();
+  activeTags.clear();
+  searchBox.value="";
+  applyFilters();
+});
+
+// Card builder
+function createCard(a,i){
+  const card=document.createElement("a");
+  card.href=a.link;
+  card.target="_blank";
+  card.className="group relative bg-white p-6 rounded-3xl border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition transform hover:scale-105 flex flex-col justify-between";
+
+  // Featured ribbon
+  if(a.featured) card.innerHTML+=`<span class="absolute top-2 left-2 bg-sky-600 text-white text-[10px] font-bold px-2 py-1 rounded">Featured</span>`;
+
+  card.innerHTML+=`
+    <img data-src="${a.image}" loading="lazy" class="w-full h-40 object-cover rounded-2xl mb-4 lazyload">
     <h3 class="text-lg font-bold text-slate-900 mb-2">${a.title}</h3>
-    <p class="text-sm text-slate-500 mb-3">${a.description}</p>
+    <p class="text-sm text-slate-500 mb-2">${a.description}</p>
+    <div class="flex flex-wrap gap-2 mb-2">
+      <span class="text-xs bg-slate-100 px-2 py-0.5 rounded">${a.category}</span>
+      ${(a.tags||[]).map(t=>`<span class="text-xs bg-indigo-100 px-2 py-0.5 rounded">${t}</span>`).join("")}
+    </div>
     <div class="mt-auto flex items-center text-xs text-slate-400 font-bold">
       <i class="${a.icon} mr-2"></i> ${a.source}
     </div>
   `;
+  card.setAttribute("data-aos","fade-up");
+  card.setAttribute("data-aos-delay",i*100);
   return card;
 }
 
 // Render Featured
-const featured = articles.filter(a => a.featured);
-featured.forEach((a,i) => featuredGrid.appendChild(createCard(a,i)));
+const featured = articles.filter(a=>a.featured);
+featured.forEach((a,i)=>featuredGrid.appendChild(createCard(a,i)));
 
-// Filter logic
-function applyFilters() {
+// Apply filters
+function applyFilters(){
   const term = searchBox.value.toLowerCase();
-  grid.innerHTML = "";
-  const filtered = articles.filter(a => {
-    const matchesSearch = a.title.toLowerCase().includes(term) || a.description.toLowerCase().includes(term);
-    const matchesCategory = activeCategories.size === 0 || activeCategories.has(a.category);
-    return matchesSearch && matchesCategory && !a.featured;
-  });
-  filtered.forEach((a,i) => grid.appendChild(createCard(a,i)));
+  grid.innerHTML="";
+  articles.filter(a=>{
+    if(a.featured) return false; // exclude featured from all articles
+    const matchSearch=a.title.toLowerCase().includes(term)||a.description.toLowerCase().includes(term);
+    const matchCat=activeCategories.size===0||activeCategories.has(a.category);
+    const matchTag=activeTags.size===0|| (a.tags||[]).some(t=>activeTags.has(t));
+    return matchSearch && matchCat && matchTag;
+  }).forEach((a,i)=> grid.appendChild(createCard(a,i)));
   AOS.refresh();
 }
 
@@ -180,7 +198,15 @@ searchBox.addEventListener("input", applyFilters);
 
 // Init
 applyFilters();
-AOS.init({ duration: 800, once: true });
+AOS.init({duration:800,once:true});
+</script>
+
+<!-- LazyLoad Polyfill -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.3.1/lazyload.min.js"></script>
+<script>
+new LazyLoad({
+  elements_selector: ".lazyload"
+});
 </script>
 
 </body>
