@@ -6,7 +6,6 @@
   <title>Resources | Amit Kumar Shaw</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- AOS animation library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
@@ -40,8 +39,33 @@
       <input type="text" id="search-box" placeholder="Search articles..." class="w-full md:w-1/2 border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-sky-400 transition" />
     </div>
 
-    <!-- Articles Grid -->
-    <div id="resources-grid" class="grid md:grid-cols-3 gap-8"></div>
+    <!-- Grid: Articles + Book Card -->
+    <div class="grid lg:grid-cols-12 gap-8">
+
+      <!-- Articles -->
+      <div class="lg:col-span-9">
+        <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8"></div>
+      </div>
+
+      <!-- Upcoming Book Card -->
+      <div class="lg:col-span-3" data-aos="fade-left" data-aos-duration="1000">
+        <div class="relative p-8 bg-white rounded-3xl border-2 border-sky-100 shadow-xl shadow-sky-100/50 transform transition hover:scale-[1.02] duration-500">
+          <span class="absolute -top-3 left-6 px-3 py-1 bg-sky-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Book</span>
+          <div class="flex flex-col items-start">
+            <i class="fas fa-book-open text-5xl text-sky-200 mb-4"></i>
+            <h4 class="text-lg font-bold text-slate-900 mb-2">SAP BRIM: A Consultant's Guide</h4>
+            <p class="text-xs text-slate-500 leading-relaxed mb-6 italic">
+              Currently authoring a comprehensive roadmap to mastering SAP BRIM. Stay notified for launch & digital excerpt.
+            </p>
+            <a href="mailto:contact@amitkshaw.com?subject=Notify%20Me%20About%20SAP%20BRIM%20Book" 
+               class="inline-block px-6 py-3 bg-sky-600 text-white font-bold rounded-xl hover:bg-sky-700 transition">
+              Get Notified
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
   </main>
 
@@ -54,58 +78,54 @@
 
   <!-- Render Articles & Search -->
   <script>
-  const grid = document.getElementById("resources-grid");
-  const searchBox = document.getElementById("search-box");
+    const grid = document.getElementById("resources-grid");
+    const searchBox = document.getElementById("search-box");
 
-  function renderArticles(list) {
-    grid.innerHTML = ""; // clear
-    list.forEach((article, index) => {
-      const delay = 100 + index * 100;
-      const card = document.createElement("a");
-      card.href = article.link;
-      card.target = "_blank";
-      card.className = `group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between`;
-      card.setAttribute("data-aos", "fade-up");
-      card.setAttribute("data-aos-delay", delay);
+    function renderArticles(list) {
+      grid.innerHTML = "";
+      list.forEach((article, index) => {
+        const delay = 100 + index * 100;
+        const card = document.createElement("a");
+        card.href = article.link;
+        card.target = "_blank";
+        card.className = `group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between`;
+        card.setAttribute("data-aos", "fade-up");
+        card.setAttribute("data-aos-delay", delay);
 
-      card.innerHTML = `
-        <div>
-          <img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">${article.category}</span>
-            <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+        card.innerHTML = `
+          <div>
+            <img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">${article.category}</span>
+              <i class="fas fa-external-link-alt text-slate-300 text-xs"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-3">${article.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">${article.description}</p>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">${article.title}</h3>
-          <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">${article.description}</p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
-          <i class="${article.icon} mr-2"></i> Published on ${article.source}
-        </div>
-      `;
-      grid.appendChild(card);
+          <div class="mt-6 pt-4 border-t border-slate-50 flex items-center text-xs font-bold text-slate-400">
+            <i class="${article.icon} mr-2"></i> Published on ${article.source}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      if (typeof AOS !== 'undefined') AOS.refresh();
+    }
+
+    renderArticles(articles);
+
+    searchBox.addEventListener("input", e => {
+      const term = e.target.value.toLowerCase();
+      const filtered = articles.filter(a =>
+        a.title.toLowerCase().includes(term) ||
+        a.description.toLowerCase().includes(term) ||
+        a.category.toLowerCase().includes(term) ||
+        a.source.toLowerCase().includes(term)
+      );
+      renderArticles(filtered);
     });
 
-    // Re-initialize AOS animations
-    if (typeof AOS !== 'undefined') AOS.refresh();
-  }
-
-  // Initial render
-  renderArticles(articles);
-
-  // Search functionality
-  searchBox.addEventListener("input", e => {
-    const term = e.target.value.toLowerCase();
-    const filtered = articles.filter(a =>
-      a.title.toLowerCase().includes(term) ||
-      a.description.toLowerCase().includes(term) ||
-      a.category.toLowerCase().includes(term) ||
-      a.source.toLowerCase().includes(term)
-    );
-    renderArticles(filtered);
-  });
-
-  // Initialize AOS
-  if (typeof AOS !== 'undefined') AOS.init();
+    if (typeof AOS !== 'undefined') AOS.init();
   </script>
 
 </body>
