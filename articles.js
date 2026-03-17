@@ -8,6 +8,7 @@ link: "https://www.acuitilabs.com/sap-revenue-accounting-and-reporting-integrati
 category: "Integration",
 color: "sky",
 source: "Acuiti Labs",
+icon: "fas fa-globe",   // Website icon
 featured: true
 },
 
@@ -19,6 +20,7 @@ link: "https://www.acuitilabs.com/sap-brim-integration-with-vertex-tax-solution/
 category: "Taxation",
 color: "indigo",
 source: "Acuiti Labs",
+icon: "fas fa-globe",
 featured: true
 },
 
@@ -30,17 +32,19 @@ link: "https://www.linkedin.com/pulse/real-time-processing-sap-fi-ca-using-exter
 category: "Financial Ops",
 color: "emerald",
 source: "LinkedIn",
+icon: "fab fa-linkedin",
 featured: true
 },
 
 {
-title: "SAP BRIM Multithreading Performance Optimization",
-description: "Techniques to handle high-volume billing runs using SAP Convergent Invoicing parallelization.",
+title: "SAP BRIM Performance Optimization",
+description: "Techniques to scale billing runs using SAP Convergent Invoicing multithreading.",
 image: "assets/brim-performance.jpg",
 link: "#",
 category: "Performance",
 color: "amber",
-source: "Personal Archive",
+source: "Personal Blog",
+icon: "fas fa-pen-nib",
 featured: false
 }
 
