@@ -54,7 +54,7 @@ const articles = [
   image: "assets/brim-daas.jpg",
   link: "https://www.acuitilabs.com/an-introduction-to-equipment-integration-device-as-a-service/",
   category: "Integration",
-  tags: ["SAP BRIM", "Other"],
+  tags: ["SAP BRIM", "Others"],
   source: "Acuiti Labs",
   icon: "fas fa-globe",
   featured: false
@@ -65,7 +65,7 @@ const articles = [
   description: "Simplify tax compliance with SAP S/4HANA BRIM. Correct invoices, adjust taxes instantly, and maintain clear audit trails — all without reversing the original invoice.",
   image: "assets/brim-invoice-adjustment.jpg",
   link: "https://www.linkedin.com/pulse/streamlining-tax-compliance-sap-s4hana-2023-exploring-amit-kumar-shaw-cp2me/",
-  category: "Compliance",
+  category: "Taxation",
   tags: ["SAP BRIM"],
   source: "LinkedIn",
   icon: "fab fa-linkedin",
