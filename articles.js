@@ -27,7 +27,7 @@ const articles = [
 {
   title: "Real-Time Processing in SAP FI-CA using External Cash Desks",
   description: "Utilizing External Cash Desks to optimize payment processing and clearing cycles for Utilities and Telecom.",
-  image: "assets/fica-realtime.jpg",
+  image: "assets/fica-realtime.png",
   link: "https://www.linkedin.com/pulse/real-time-processing-sap-fi-ca-using-external-cash-desks-shaw-vpdve/",
   category: "Financial Ops",
   tags: ["SAP FI", "SAP BRIM"],
