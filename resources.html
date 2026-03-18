@@ -1,1630 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Amit Kumar Shaw | SAP Solution Architect | Lead-to-Cash Expert</title>
-<link rel="canonical" href="https://amitkshaw.com">
-
-<meta name="description" content="Amit Kumar Shaw – SAP Solution Architect specializing in BRIM, RAR, FSCM, and S/4HANA Finance with 13+ years of global consulting experience.">
-<meta name="keywords" content="SAP BRIM, SAP RAR, SAP FSCM, SAP FI, SAP Solution Architect, S/4HANA, Lead to Cash">
-<meta name="author" content="Amit Kumar Shaw">
-<meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="XXXX">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Amit Kumar Shaw | SAP Solution Architect | Lead-to-Cash Expert">
-<meta property="og:description" content="Architecting Lead-to-Cash ecosystems using SAP BRIM, RAR, FSCM, and S/4HANA.">
-<meta property="og:image" content="https://amitkshaw.com/assets/amit-kumar-shaw.jpg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://amitkshaw.com">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Amit Kumar Shaw | SAP Solution Architect | Lead-to-Cash Expert">
-<meta name="twitter:description" content="Architecting Lead-to-Cash ecosystems using SAP BRIM, RAR, FSCM, and S/4HANA.">
-<meta name="twitter:image" content="https://amitkshaw.com/assets/amit-kumar-shaw.jpg">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Person",
- "name": "Amit Kumar Shaw",
- "jobTitle": "SAP Solution Architect",
- "url": "https://amitkshaw.com",
- "image": "https://amitkshaw.com/assets/amit-kumar-shaw.jpg",
- "sameAs": [
-   "https://www.linkedin.com/in/amitkshaw"
- ],
- "knowsAbout": [
-   "SAP BRIM",
-   "SAP RAR",
-   "SAP FSCM",
-   "S/4HANA Finance",
-   "Lead-to-Cash Architecture"
- ]
-}
-</script>
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- ADD FONT AWESOME HERE -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter','sans-serif']
-      }
-    }
-  }
-}
-</script>
-
-<!-- Preload Hero Image -->
-<link rel="preload" as="image" href="/assets/amit-kumar-shaw.jpg">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<!-- AOS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
-
-<style>
-
-/* Global */
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Inter',sans-serif;
-}
-
-/* Card Hover */
-
-.card-hover{
-transition:all .3s ease;
-}
-
-.card-hover:hover{
-transform:translateY(-5px);
-}
-
-/* Hero Animation */
-
-@keyframes heroFadeUp{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.animate-reveal{
-opacity:0;
-animation:heroFadeUp .9s ease forwards;
-}
-
-.delay-1{animation-delay:.25s}
-.delay-2{animation-delay:.5s}
-.delay-3{animation-delay:.75s}
-.delay-4{animation-delay:1s}
-
-/* Floating Background */
-
-@keyframes heroFloat{
-0%{transform:translate(-10%,-50%)}
-50%{transform:translate(-5%,-55%)}
-100%{transform:translate(-10%,-50%)}
-}
-
-.hero-bg{
-animation:heroFloat 14s ease-in-out infinite;
-}
-
-/* Mouse Glow Effect */
-
-#hero-glow{
-
-position:absolute;
-width:500px;
-height:500px;
-
-background:radial-gradient(circle,
-rgba(14,165,233,0.25) 0%,
-rgba(99,102,241,0.15) 30%,
-transparent 70%);
-
-border-radius:50%;
-
-pointer-events:none;
-
-filter:blur(60px);
-
-transform:translate(-50%,-50%);
-z-index:0;
-}
-
-/* Scroll Indicator */
-
-.scroll-indicator{
-
-position:absolute;
-bottom:30px;
-left:50%;
-
-transform:translateX(-50%);
-}
-
-.mouse{
-
-width:28px;
-height:45px;
-
-border:2px solid #cbd5f5;
-border-radius:20px;
-
-display:flex;
-justify-content:center;
-padding-top:6px;
-}
-
-.wheel{
-
-width:4px;
-height:8px;
-
-background:#64748b;
-border-radius:2px;
-
-animation:scrollWheel 1.6s infinite;
-}
-
-@keyframes scrollWheel{
-
-0%{
-opacity:0;
-transform:translateY(0);
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-opacity:0;
-transform:translateY(12px);
-}
-
-}
-
-#data-flow{
-
-position:absolute;
-inset:0;
-
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-opacity:0.35;
-
-z-index:0;
-
-}
-
-/* Navbar scroll effect */
-
-.nav-scrolled{
-background:#ffffff;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-border-bottom:1px solid #e2e8f0;
-}
-
-nav{
-transition:all .3s ease;
-}
-
-/* Expertise Card Hover */
-
-.expertise-card{
-transition:all .3s ease;
-}
-
-.expertise-card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
-}
-
-/* Mobile Menu CSS */
-
-#mobile-menu{
-transition:all .3s ease;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources | Amit Kumar Shaw</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-white text-slate-800">
 
-<!-- Navigation -->
-<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    
-    <!-- Logo -->
-    <span class="text-xl font-bold text-sky-700 underline decoration-sky-400">
-      AKS.
-    </span>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex space-x-8 font-medium text-sm">
-      <a href="#home" class="hover:text-sky-600 transition">Home</a>
-      <a href="#about" class="hover:text-sky-600 transition">About Me</a>
-      <a href="#expertise" class="hover:text-sky-600 transition">Expertise</a>
-      <a href="#projects" class="hover:text-sky-600 transition">Projects</a>
-      <a href="#resources" class="hover:text-sky-600 transition">Knowledge Hub</a>
-      <a href="#interests" class="hover:text-sky-600 transition">Interests</a>
-      <a href="#contact" class="bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition">Contact</a>
-    </div>
-
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden p-2 focus:outline-none text-slate-700">
-      <!-- Hamburger -->
-      <svg id="menu-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <!-- X icon -->
-      <svg id="menu-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden w-full bg-white border-t border-slate-100 shadow-md">
-    <div class="flex flex-col space-y-4 px-6 py-6 text-sm font-medium">
-      <a href="#home" class="mobile-link">Home</a>
-      <a href="#about" class="mobile-link">About Me</a>
-      <a href="#expertise" class="mobile-link">Expertise</a>
-      <a href="#projects" class="mobile-link">Projects</a>
-      <a href="#resources" class="mobile-link">Knowledge Hub</a>
-      <a href="#interests" class="mobile-link">Interests</a>
-      <a href="#contact" class="mobile-link text-sky-600 font-semibold">Contact</a>
-    </div>
+<!-- NAV -->
+<nav class="w-full bg-white border-b border-slate-100 py-6">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <a href="index.html" class="font-bold text-slate-900 flex items-center">
+      <i class="fas fa-arrow-left mr-3 text-sky-500"></i> Back to Home
+    </a>
+    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
   </div>
 </nav>
 
-<!-- Hero Section -->
-
-<section id="home" class="relative pt-32 pb-20 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
-
-<canvas id="data-flow"></canvas>
-
-<div id="hero-glow"></div>
-
-<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-sky-50 rounded-full blur-3xl opacity-50 hero-bg"></div>
-
-<div class="max-w-7xl mx-auto px-6 relative z-10">
-
-<div class="flex flex-col items-center text-center">
-
-<!-- Certification Badge -->
-
-<div class="flex items-center space-x-2 mb-6 px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm animate-reveal">
-
-<i class="fas fa-certificate text-sky-500 text-xs"></i>
-
-<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-SAP® Certified Solution Architect
-</span>
-
-</div>
-
-<!-- Hero Title -->
-
-<p class="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-3">
-Amit Kumar Shaw | SAP Solution Architect
-</p>
-
-<h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8 animate-reveal delay-1">
-
-Architecting 
-<span class="bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
-Lead-to-Cash
-</span>
-
-<br class="hidden md:block">
-
-for Global Enterprises.
-
-</h1>
-
-<!-- Hero Description -->
-
-<p class="max-w-3xl text-xl text-slate-500 leading-relaxed mb-10 animate-reveal delay-2">
-
-Over 
-<span class="text-slate-900 font-semibold">13 years</span> 
-of expertise bridging the gap between 
-<span class="text-slate-900 font-semibold">Accounting integrity</span> 
-and complex SAP digital transformations across BRIM, RAR, and S/4HANA.
-
-</p>
-
-<!-- CTA Buttons -->
-
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-reveal delay-3">
-
-<a href="#projects"
-class="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition transform hover:-translate-y-1 shadow-xl shadow-slate-200">
-
-View Strategic Projects
-
-</a>
-
-<a href="mailto:contact@amitkshaw.com"
-class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition">
-
-Get In Touch
-
-</a>
-
-</div>
-
-<!-- Focus Area -->
-
-<div class="mt-20 pt-10 border-t border-slate-100 w-full animate-reveal delay-4">
-
-<p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">
-Core Architectural Focus
-</p>
-
-<div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400">
-
-<span class="font-bold text-slate-600">ERP Transformation</span>
-
-<span class="font-bold text-slate-600">SAP S/4HANA</span>
-
-<span class="font-bold text-slate-600">SAP BRIM</span>
-
-<span class="font-bold text-slate-600">SAP RAR</span>
-
-<span class="font-bold text-slate-600">SAP FSCM</span>
-
-<span class="font-bold text-slate-600">SAP FI</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="scroll-indicator">
-
-<div class="mouse">
-
-<div class="wheel"></div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="about" class="py-24 bg-white overflow-hidden">
-
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="grid md:grid-cols-12 gap-16 items-center">
-
-      <div class="md:col-span-5 relative" data-aos="fade-right">
-        <div class="aspect-square bg-slate-100 rounded-3xl overflow-hidden shadow-2xl shadow-slate-200">
-          <img src="assets/amit-kumar-shaw.jpg" loading="lazy" alt="Amit Kumar Shaw" class="w-full h-full object-cover image-zoom">
-        </div>
-        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div class="md:col-span-7">
-
-        <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4" data-aos="fade-left">The Architect's Story</h4>
-
-        <h2 class="text-4xl font-bold text-slate-900 mb-6 leading-tight" data-aos="fade-left" data-aos-delay="100">Bridging Financial Integrity with Digital Innovation.</h2>
-
-        <div class="space-y-6 text-slate-600 leading-relaxed">
-
-          <p data-aos="fade-left" data-aos-delay="200">With <span class="text-slate-900 font-semibold text-lg">13+ years</span> of experience at the intersection of accounting and enterprise technology, I bring a finance-first lens to <span class="text-slate-900 font-semibold">digital transformation</span>. My early career in a Chartered Accountant firm built a strong foundation in <span class="text-slate-900 font-semibold">financial discipline,</span> which continues to shape how I approach system design.</p>
-
-          <p data-aos="fade-left" data-aos-delay="300">As a <span class="text-slate-900 font-semibold">Certified SAP Solution Architect</span>, I design end-to-end <span class="text-slate-900 font-semibold">Lead-to-Cash</span> ecosystems across <span class="text-sky-600 font-bold">SAP BRIM</span>, <span class="text-indigo-600 font-bold">RAR</span>, and <span class="text-emerald-600 font-bold">FSCM</span>, transforming complex revenue and billing landscapes into scalable, high-performing platforms for global organizations.</p>
-
-          <p data-aos="fade-left" data-aos-delay="400">I believe strong architecture balances innovation, governance, and financial control. By championing <span class="text-zinc-600 font-bold">Clean Core and sustainable design</span>, I help organizations stay agile while reducing long-term complexity and cost.</p>
-
-        </div>
-
-        <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-slate-100" data-aos="fade-left" data-aos-delay="500">
-
-          <div>
-            <span class="block text-3xl font-bold text-slate-900">13+</span>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Years of Experience</span>
-          </div>
-
-          <div>
-            <span class="block text-3xl font-bold text-slate-900">9+</span>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">SAP Specialized Years</span>
-          </div>
-
-          <div>
-            <span class="block text-3xl font-bold text-slate-900">6+</span>
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">E2E Implementation Projects</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section id="expertise" class="py-24 bg-slate-50 overflow-hidden">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<h2 class="text-3xl font-bold text-slate-900 mb-16 border-l-4 border-sky-500 pl-4">Core Architectural Expertise</h2>
-        
-<div class="grid md:grid-cols-2 gap-8">
-            
-<div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="100">
-
-<div class="flex items-center mb-6">
-
-<div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mr-4">
-
-<i class="fas fa-layer-group text-xl"></i>
-
-</div>
-
-<h3 class="text-xl font-bold text-slate-900">SAP BRIM (Lead-to-Cash)</h3>
-
-</div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Architecting high-volume subscription models across SOM, CC, and CI. Specializing in <span class="font-semibold">performance tuning</span> and <span class="font-semibold">multithreading</span> in Convergent Invoicing to handle enterprise-scale billing data for global Telecom and SaaS leaders.
-                </p>
-                <ul class="space-y-2">
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-sky-500 mr-2"></i> Advanced Variant Configuration (AVC)
-                    </li>
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-sky-500 mr-2"></i> Subscription Order Management (SOM)
-                    </li>
-                </ul>
-            </div>
-
-            <div class=" expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-file-contract text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900">SAP RAR (Revenue Compliance)</h3>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Automating <span class="font-semibold">IFRS-15 / ASC-606 compliance</span> through robust architectural design. Expert in establishing seamless real-time integration between BRIM, SD, and RAR to ensure synchronized revenue recognition.
-                </p>
-                <ul class="space-y-2">
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-indigo-500 mr-2"></i> Complex BRF+ Decision Tables
-                    </li>
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-indigo-500 mr-2"></i> Multi-Element Bundle Allocation
-                    </li>
-                </ul>
-            </div>
-
-            <div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-shield-alt text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900">SAP FSCM & FI-CA</h3>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Optimizing working capital and liquidity through automated Credit, Dispute, and Collections management. Leveraging <span class="font-semibold">RPA-led exception management (EMMA)</span> to streamline high-volume utility billing operations.
-                </p>
-                <ul class="space-y-2">
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-emerald-500 mr-2"></i> Automated Credit Scoring
-                    </li>
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-emerald-500 mr-2"></i> Real-Time External Cash Desks
-                    </li>
-                </ul>
-            </div>
-
-            <div class="expertise-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100" data-aos="fade-up" data-aos-delay="400">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-university text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900">S/4HANA Finance</h3>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Designing the Universal Journal as a "Single Source of Truth" for <span class="font-semibold">Multi-GAAP reporting</span>. My technical designs are grounded in professional auditing experience, ensuring every architecture is inherently audit-ready.
-                </p>
-                <ul class="space-y-2">
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-slate-500 mr-2"></i> Parallel Ledger Architecture
-                    </li>
-                    <li class="text-xs font-bold text-slate-400 uppercase tracking-tight flex items-center">
-                        <i class="fas fa-caret-right text-slate-500 mr-2"></i> Global Asset Accounting
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="py-24 bg-white overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Industry Exposure -->
-    <div class="mb-24">
-      <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4" data-aos="fade-right">
-        Industry Exposure
-      </h2>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fas fa-broadcast-tower text-2xl text-sky-600 mb-4"></i>
-          <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Telecommunication</span>
-        </div>
-        <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fas fa-ad text-2xl text-sky-600 mb-4"></i>
-          <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Online Media Agency</span>
-        </div>
-        <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-cloud-download-alt text-2xl text-sky-600 mb-4"></i>
-          <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Software (SaaS)</span>
-        </div>
-        <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="400">
-          <i class="fas fa-bolt text-2xl text-sky-600 mb-4"></i>
-          <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Power and Utilities</span>
-        </div>
-        <div class="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md transition transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="500">
-          <i class="fas fa-industry text-2xl text-sky-600 mb-4"></i>
-          <span class="text-xs font-bold text-slate-700 text-center uppercase tracking-tight">Manufacturing</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Strategic Project Milestones -->
-    <h2 class="text-3xl font-bold text-slate-900 mb-12 border-l-4 border-sky-500 pl-4" data-aos="fade-right">
-      Strategic Project Milestones
-    </h2>
-
-    <!-- Projects Wrapper -->
-    <div class="flex flex-col">
-
-      <!-- TELECOM ERP TRANSFORMATION -->
-      <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up">
-        <div class="md:flex">
-          <div class="md:w-1/3 bg-slate-900 p-8 text-white transition-colors duration-500 group-hover:bg-sky-900 rounded-t-3xl md:rounded-l-3xl">
-            <div class="flex items-center mb-4">
-              <i class="fas fa-project-diagram text-sky-400 mr-3"></i>
-              <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Lead Solution Architect</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">American Telecommunications Company</h3>
-            <p class="text-slate-400 text-sm">ERP Transformation Phase 1 (S/4HANA 2022)</p>
-          </div>
-          <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-            <p class="text-slate-700 font-medium mb-6">
-              Consolidate fragmented telecom billing systems into a unified SAP S/4HANA BRIM architecture capable of processing massive financial transaction volumes.
-            </p>
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="text-xs font-semibold bg-sky-50 text-sky-700 px-3 py-1 rounded-full border border-sky-100">1B+ Records / Month</span>
-              <span class="text-xs font-semibold bg-sky-50 text-sky-700 px-3 py-1 rounded-full border border-sky-100">70% Process Automation</span>
-              <span class="text-xs font-semibold bg-sky-50 text-sky-700 px-3 py-1 rounded-full border border-sky-100">Real-Time Payments</span>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start"><i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>Architected CI data processing capable of handling 1+ billion records monthly.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>Automated refunds, credit checks and reconciliation reducing manual effort by <span class="font-semibold">~70%</span>.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>Integrated banking partners enabling real-time payment posting in SAP FI-CA.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>Implemented FSCM Credit & Dispute integration across BRIM landscape.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ONLINE MEDIA -->
-      <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group mt-12" data-aos="fade-up" data-aos-delay="100">
-        <div class="md:flex">
-          <div class="md:w-1/3 bg-slate-800 p-8 text-white transition-colors duration-500 group-hover:bg-blue-900 rounded-t-3xl md:rounded-l-3xl">
-            <div class="flex items-center mb-4">
-              <i class="fas fa-ad text-blue-400 mr-3"></i>
-              <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Business Analyst</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">European Online Media Advertising Company</h3>
-            <p class="text-slate-400 text-sm">Project Amplify (S/4HANA 2021)</p>
-          </div>
-          <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-            <p class="text-slate-700 font-medium mb-6">
-              Standardize global vendor settlement and accounts payable processes by implementing SAP BRIM on S/4HANA, enabling automated payment processing and scalable financial operations for a high-volume digital advertising ecosystem.
-            </p>
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-100">40% Faster Payments</span>
-              <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-100">Automated Vendor Settlement</span>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>Automated vendor payments using FI-CA Payment Program and DMEE.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>Implemented three-way invoice validation improving payment accuracy.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>Integrated OpenText for automated global check printing.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TELECOM RAR -->
-      <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group mt-12" data-aos="fade-up" data-aos-delay="200">
-        <div class="md:flex">
-          <div class="md:w-1/3 bg-slate-900 p-8 text-white transition-colors duration-500 group-hover:bg-cyan-900 rounded-t-3xl md:rounded-l-3xl">
-            <div class="flex items-center mb-4">
-              <i class="fas fa-file-invoice-dollar text-cyan-400 mr-3"></i>
-              <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">SAP RAR Consultant</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Major Telecommunications Conglomerate</h3>
-            <p class="text-slate-400 text-sm">1ERP Transformation</p>
-          </div>
-          <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-            <p class="text-slate-700 font-medium mb-6">
-              Enable IFRS-15 compliant revenue recognition by implementing SAP Revenue Accounting and Reporting (RAR) and integrating it with SAP BRIM and SD to automate complex telecom contract accounting processes.
-            </p>
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="text-xs font-semibold bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full border border-cyan-100">IFRS-15 Compliance</span>
-              <span class="text-xs font-semibold bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full border border-cyan-100">Automated Revenue Logic</span>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start"><i class="fas fa-check-circle text-cyan-500 mt-1 mr-3"></i>Configured BRF+ decision tables for automated revenue recognition.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-cyan-500 mt-1 mr-3"></i>Integrated SAP BRIM, SD and RAR for real-time contract accounting.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-cyan-500 mt-1 mr-3"></i>Migrated legacy revenue contracts ensuring accurate financial reconciliation.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SOFTWARE COMPANY -->
-      <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group mt-12" data-aos="fade-up" data-aos-delay="300">
-        <div class="md:flex">
-          <div class="md:w-1/3 bg-slate-900 p-8 text-white transition-colors duration-500 group-hover:bg-indigo-900 rounded-t-3xl md:rounded-l-3xl">
-            <div class="flex items-center mb-4">
-              <i class="fas fa-rocket text-indigo-400 mr-3"></i>
-              <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Lead Solution Architect</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">American Software Company</h3>
-            <p class="text-slate-400 text-sm">Project Apollo (S/4HANA 1909)</p>
-          </div>
-          <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-            <p class="text-slate-700 font-medium mb-6">
-              Implement a scalable SAP BRIM platform on S/4HANA to support subscription-based business models, enabling seamless order-to-cash processing, automated billing, and integrated revenue recognition.
-            </p>
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">60% Faster Order Flow</span>
-              <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">Subscription Billing</span>
-              <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">Multi-channel billing</span>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i>Integrated legacy ECC with S/4HANA SOM via MuleSoft.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i>Configured complex subscription products using AVC.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-indigo-500 mt-1 mr-3"></i>Implemented automated CI and FI-CA billing workflows.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- POWER UTILITIES -->
-      <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group mt-12" data-aos="fade-up" data-aos-delay="400">
-        <div class="md:flex">
-          <div class="md:w-1/3 bg-slate-800 p-8 text-white transition-colors duration-500 group-hover:bg-orange-900 rounded-t-3xl md:rounded-l-3xl">
-            <div class="flex items-center mb-4">
-              <i class="fas fa-bolt text-orange-400 mr-3"></i>
-              <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Functional Consultant</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Power & Utilities Company</h3>
-            <p class="text-slate-400 text-sm">SAP IS-U FI-CA</p>
-          </div>
-          <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-            <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-            <p class="text-slate-700 font-medium mb-6">
-              Optimize SAP IS-U FI-CA workflows to streamline meter-to-cash processes, automate payment handling, and reduce manual intervention by leveraging RPA and multi-channel payment solutions.
-            </p>
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="text-xs font-semibold bg-orange-50 text-orange-700 px-3 py-1 rounded-full border border-orange-100">80% Manual Reduction</span>
-              <span class="text-xs font-semibold bg-orange-50 text-orange-700 px-3 py-1 rounded-full border border-orange-100">RPA Exception Handling</span>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-              <ul class="space-y-3 text-sm text-slate-600">
-                <li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>Configured end-to-end FI-CA payment and clearing lifecycle.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>Implemented RPA for EMMA exception management reducing manual effort by  <span class="font-semibold">~80%</span>.</li>
-                <li class="flex items-start"><i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>Automated multi-channel payments across utilities billing processes.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-<!-- CONTRIBUTIONS -->
-<div class="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 group mt-12" data-aos="fade-up" data-aos-delay="500">
-  <div class="md:flex">
-
-    <div class="md:w-1/3 bg-slate-900 p-8 text-white transition-colors duration-500 group-hover:bg-purple-900 rounded-t-3xl md:rounded-l-3xl">
-      <div class="flex items-center mb-4">
-        <i class="fas fa-lightbulb text-purple-400 mr-3"></i>
-        <span class="text-xs font-bold uppercase tracking-widest text-purple-400">Organizational Contribution</span>
-      </div>
-      <h3 class="text-xl font-bold mb-2">Innovation & Leadership</h3>
-      <p class="text-slate-400 text-sm">Beyond Project Delivery</p>
-    </div>
-
-    <div class="md:w-2/3 p-8 bg-white rounded-b-3xl md:rounded-r-3xl">
-      <h4 class="text-xs font-bold uppercase text-slate-400 mb-2">The Mission</h4>
-      <p class="text-slate-700 font-medium mb-6">
-        Boost efficiency, foster expertise, and create scalable solutions to drive organizational success.
-      </p>
-
-      <div class="flex flex-wrap gap-3 mb-6">
-        <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">Pre-Sales</span>
-        <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">Mentoring</span>
-        <span class="text-xs font-semibold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-100">AcuitiPay</span>
-      </div>
-
-      <div>
-        <h4 class="text-xs font-bold uppercase text-slate-400 mb-3">Strategic Impacts</h4>
-        <ul class="space-y-3 text-sm text-slate-600">
-          <li class="flex items-start"><i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>Co-developed enterprise solutions AcuitiPay and AcuitiMobi.</li>
-          <li class="flex items-start"><i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>Mentored consultants in SAP BRIM, RAR and FSCM implementations.</li>
-          <li class="flex items-start"><i class="fas fa-check-circle text-purple-500 mt-1 mr-3"></i>Supported RFP responses and Proof-of-Concepts contributing to new business wins.</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Strategic Expertise & Domain Origin -->
-
-<div class="mt-24 p-12 bg-slate-900 rounded-3xl text-white shadow-2xl transform transition-transform duration-700 hover:scale-[1.01]" data-aos="zoom-in-up">
-
-<h3 class="text-2xl font-bold mb-8">Strategic Expertise & Domain Origin</h3>
-
-<div class="grid md:grid-cols-2 gap-12">
-
-<div data-aos="fade-up" data-aos-delay="300">
-
-<h4 class="text-sky-400 font-bold uppercase tracking-tighter text-xs mb-4">
-Core Methodologies
-</h4>
-
-<p class="text-slate-300 text-sm leading-relaxed">
-Expert in <span class="text-white font-bold">SAP Activate</span> and 
-<span class="text-white font-bold">Agile delivery models</span>, leveraging tools like 
-<span class="text-white font-bold">JIRA</span> and 
-<span class="text-white font-bold">SAP Solution Manager</span> to manage complex enterprise transformation programs.
-</p>
-
-</div>
-
-<div data-aos="fade-up" data-aos-delay="400">
-
-<h4 class="text-sky-400 font-bold uppercase tracking-tighter text-xs mb-4">
-Finance-Driven Architecture
-</h4>
-
-<p class="text-slate-300 text-sm leading-relaxed">
-My background in <span class="text-white font-bold">Finance and Auditing</span> enables me to design SAP architectures that align technology with financial compliance, regulatory governance, and scalable revenue operations across the <span class="text-white font-bold">Lead-to-Cash lifecycle</span>.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-</div>
-</section>
-
-    
-<section id="resources" class="py-24 bg-slate-50 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-        
-        <!-- Header & E-book Announcement -->
-        <div class="grid lg:grid-cols-12 gap-12 mb-20 items-center">
-            <div class="lg:col-span-7" data-aos="fade-right" data-aos-duration="1000">
-                <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4">Knowledge Hub</h4>
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">Architecture & Technical Insights Hub</h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Explore my whitepapers, technical articles, and architectural guides focused on 
+<!-- HEADER -->
+<header class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-8 items-center">
+
+    <div class="lg:col-span-7">
+      <h1 class="text-4xl font-bold mb-4">Explore All Insights</h1>
+      <p class="text-slate-500">
+        A curated collection of my whitepapers, technical articles, and architectural guides focused on 
                     <span class="font-semibold text-slate-900">Financial Transformation, SAP BRIM, SAP RAR, SAP FSCM, SAP FI and ERP modernization</span>. 
                     These publications synthesize strategic perspectives with deep technical expertise and have been featured across LinkedIn, Acuiti Labs, and my personal architecture blog.
-                </p>
-            </div>
-            
-            <div class="lg:col-span-5" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-                <div class="relative p-8 bg-white rounded-3xl border-2 border-sky-100 shadow-xl shadow-sky-100/50 transform transition hover:scale-[1.02] duration-500">
-                    <span class="absolute -top-3 left-6 px-3 py-1 bg-sky-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Upcoming Publication</span>
-                    <div class="flex items-start">
-                        <div class="mr-6 hidden sm:block">
-                            <i class="fas fa-book-open text-4xl text-sky-200"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-slate-900">SAP BRIM: A Consultant's Guide</h4>
-                            <p class="text-xs text-slate-500 mt-2 leading-relaxed italic">
-                                Currently authoring a comprehensive roadmap to mastering SAP BRIM. Stay tuned for the official launch and digital excerpt.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Article Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="article-grid"></div>
-
-        <!-- View All Resources -->
-        <div class="mt-16 text-center" data-aos="zoom-in" data-aos-offset="50">
-            <a href="resources.html" class="inline-block px-10 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-sky-600 transition-all duration-300 shadow-xl hover:shadow-sky-200/50 active:scale-95">
-                View All Resources
-            </a>
-            <p class="mt-4 text-[10px] text-slate-400 uppercase tracking-widest font-bold">New insights published quarterly</p>
-        </div>
-
+      </p>
     </div>
-</section>
-    
-    <section id="interests" class="py-24 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="mb-16" data-aos="fade-down" data-aos-duration="1000">
-            <h4 class="text-xs font-bold text-sky-600 uppercase tracking-widest mb-4">Beyond the Architecture</h4>
-            <h2 class="text-3xl font-bold text-slate-900">Passions & Pursuits</h2>
+
+    <div class="lg:col-span-5">
+      <div class="p-8 bg-gradient-to-r from-sky-600 to-indigo-600 rounded-3xl text-white">
+        <h4 class="text-xl font-bold mb-2">SAP BRIM: A Consultant's Guide</h4>
+        <p class="text-sm mb-4">I’m currently working on a comprehensive roadmap to mastering SAP BRIM—translating real-world experience into a structured guide for professionals looking to deepen their expertise. Stay tuned for the official launch and early access excerpts.</p>
+        <a href="mailto:contact@amitkshaw.com"
+           class="px-5 py-2 bg-white text-sky-600 rounded-lg font-bold">
+           Get Notified
+        </a>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- CONTENT -->
+<section class="pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- FEATURED -->
+    <div class="mb-16">
+      <h3 class="text-sm font-bold text-slate-400 uppercase mb-6">Featured Insights</h3>
+      <div id="featured-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+
+    <!-- SEARCH + FILTERS -->
+    <div class="mb-8 flex flex-col lg:flex-row gap-8 justify-between">
+
+      <!-- SEARCH -->
+      <div class="w-full lg:w-1/2">
+        <input id="search-box" type="text"
+          placeholder="Search articles..."
+          class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-sky-400">
+      </div>
+
+      <!-- FILTERS -->
+      <div class="w-full lg:w-1/2">
+
+        <div class="mb-4">
+          <h4 class="text-[10px] font-bold text-slate-400 uppercase mb-2">Categories</h4>
+          <div id="category-filters" class="flex flex-wrap gap-2"></div>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-12">
-            
-            <div class="space-y-6" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
-                <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden relative group cursor-pointer" onclick="openLightbox('assets/loco-large.jpg')">
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-300 group-hover:bg-slate-900/40 z-20 transition-all duration-500">
-                        <i class="fas fa-search-plus text-3xl opacity-0 group-hover:opacity-100 text-white transition transform scale-50 group-hover:scale-100"></i>
-                    </div>
-                    <img src="assets/train-collection-main.jpg" loading="lazy" alt="Brass Locomotive Collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Model Railroading (HO Scale)</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-4">
-                        Captured by the mechanical precision of <span class="font-semibold">Brass and Diecast steam locomotives</span>. My collection highlights the intricate detailing of the steam era, bridging historical engineering with modern DCC/DC technology.
-                    </p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div class="aspect-square bg-slate-50 rounded-lg border border-dashed border-slate-200 flex items-center justify-center text-slate-300 hover:border-sky-500 hover:text-sky-500 transition-all cursor-pointer group/cam" onclick="openLightbox('assets/freight-car.jpg')">
-                            <i class="fas fa-camera text-xs transition-transform group-hover/cam:scale-125"></i>
-                        </div>
-                        <div class="aspect-square bg-slate-50 rounded-lg border border-slate-100"></div>
-                        <div class="aspect-square bg-slate-50 rounded-lg border border-slate-100"></div>
-                    </div>
-                    <p class="mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center">
-                        <span class="inline-block w-2 h-2 bg-sky-500 rounded-full mr-2 animate-pulse"></span>
-                        Layout: Planning Phase
-                    </p>
-                </div>
-            </div>
-
-            <div class="space-y-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                <div class="aspect-video bg-slate-900 rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden group">
-                    <i class="fas fa-microchip text-sky-500/10 text-9xl absolute rotate-12 transition-transform duration-1000 group-hover:rotate-45 group-hover:scale-125"></i>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-sky-500/30">
-                            <i class="fas fa-brain text-sky-400"></i>
-                        </div>
-                        <h4 class="text-white font-bold text-lg">AI + Finance</h4>
-                        <p class="text-sky-400 text-xs font-mono mt-2 tracking-tighter">Elevating Transformation</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">AI-Driven Transformation</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Passionately exploring how Gen-AI and Machine Learning reshape the financial landscape. I focus on elevating SAP ecosystems through autonomous revenue recognition, predictive credit scoring, and automated clearing cycles.
-                    </p>
-                </div>
-            </div>
-
-            <div class="space-y-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
-                <div class="aspect-video bg-sky-50 rounded-2xl p-8 relative overflow-hidden group cursor-pointer" onclick="openLightbox('assets/travel-main.jpg')">
-                    <i class="fas fa-globe-americas text-sky-100 text-9xl absolute -right-5 -bottom-5 transition-all duration-1000 group-hover:rotate-90 group-hover:scale-110"></i>
-                    <div class="relative z-10">
-                        <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Recent Visits</span>
-                        <ul class="mt-4 space-y-3">
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/japan-kyoto.jpg')">
-                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Tokyo & Kyoto, Japan</span>
-                                <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
-                            </li>
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/alaska.jpg')">
-                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Alaska, USA</span>
-                                <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
-                            </li>
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/colorado.jpg')">
-                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Colorado, USA</span>
-                                <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Exploring the World</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Travel provides the perspective needed to solve global-scale architectural problems. From the urban pulse of Japan to the wilderness of Alaska, these experiences fuel my creative approach to SAP solutioning.
-                    </p>
-                </div>
-            </div>
-
-        </div> </div> </section>
-       
-<section id="contact" class="py-24 bg-slate-900 text-white overflow-hidden">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-
-<!-- LEFT SIDE -->
-
-<div>
-
-<h4 class="text-xs font-bold text-sky-400 uppercase tracking-widest mb-4">
-Start a Conversation
-</h4>
-
-<h2 class="text-4xl font-bold mb-6 leading-tight">
-Discuss Architecture, <br>
-Ideas, and Insights
-</h2>
-
-<p class="text-slate-400 mb-10 max-w-md leading-relaxed">
-
-I enjoy thoughtful discussions about SAP architecture, Lead-to-Cash transformation,
-and topics explored in my technical articles and upcoming SAP BRIM book.
-
-If you have a question, insight, or would like to exchange ideas around
-enterprise architecture and financial transformation, feel free to reach out.
-
-</p>
-
-<div class="space-y-6">
-
-<!-- EMAIL -->
-
-<a href="mailto:contact@amitkshaw.com?subject=SAP%20Architecture%20Discussion"
-class="flex items-center p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-sky-500 transition group">
-
-<div class="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-xl flex items-center justify-center mr-4">
-
-<i class="fas fa-envelope"></i>
-
-</div>
-
-<div>
-
-<span class="block text-[10px] font-bold text-slate-500 uppercase">
-Email
-</span>
-
-<span class="text-lg font-medium group-hover:text-sky-400 transition">
-contact@amitkshaw.com
-</span>
-
-</div>
-
-</a>
-
-<!-- LINKEDIN -->
-
-<a href="https://www.linkedin.com/in/amitkshaw"
-target="_blank"
-class="flex items-center p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-sky-500 transition group">
-
-<div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mr-4">
-
-<i class="fab fa-linkedin-in"></i>
-
-</div>
-
-<div>
-
-<span class="block text-[10px] font-bold text-slate-500 uppercase">
-Professional Network
-</span>
-
-<span class="text-lg font-medium group-hover:text-sky-400 transition">
-linkedin.com/in/amitkshaw
-</span>
-
-</div>
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- RIGHT SIDE -->
-
-<div class="bg-white rounded-[2rem] p-10 text-slate-900 shadow-2xl">
-
-<h3 class="text-xl font-bold mb-6">
-Common Discussion Topics
-</h3>
-
-<p class="text-sm text-slate-600 mb-8 leading-relaxed">
-
-Choose a topic below to start a conversation. Your email client will open
-with a prefilled subject to make reaching out quick and easy.
-
-</p>
-
-<div class="space-y-4">
-
-<!-- SAP BRIM -->
-
-<a href="mailto:contact@amitkshaw.com?subject=Question%20about%20SAP%20BRIM"
-class="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-sky-500 hover:bg-sky-50 transition group">
-
-<span class="font-medium text-sm">
-Question about SAP BRIM Architecture
-</span>
-
-<i class="fas fa-arrow-right text-slate-300 group-hover:text-sky-500"></i>
-
-</a>
-
-<!-- SAP RAR -->
-
-<a href="mailto:contact@amitkshaw.com?subject=Discussion%20about%20SAP%20RAR"
-class="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-indigo-500 hover:bg-indigo-50 transition group">
-
-<span class="font-medium text-sm">
-Discussion about SAP RAR
-</span>
-
-<i class="fas fa-arrow-right text-slate-300 group-hover:text-indigo-500"></i>
-
-</a>
-
-<!-- ARTICLES -->
-
-<a href="mailto:contact@amitkshaw.com?subject=Feedback%20about%20your%20articles"
-class="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-emerald-500 hover:bg-emerald-50 transition group">
-
-<span class="font-medium text-sm">
-Feedback or Discussion on Articles
-</span>
-
-<i class="fas fa-arrow-right text-slate-300 group-hover:text-emerald-500"></i>
-
-</a>
-
-<!-- BOOK -->
-
-<a href="mailto:contact@amitkshaw.com?subject=Question%20about%20SAP%20BRIM%20Book"
-class="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-purple-500 hover:bg-purple-50 transition group">
-
-<span class="font-medium text-sm">
-Question about the SAP BRIM Book
-</span>
-
-<i class="fas fa-arrow-right text-slate-300 group-hover:text-purple-500"></i>
-
-</a>
-
-</div>
-
-<p class="text-xs text-slate-400 mt-8 text-center uppercase tracking-widest font-bold">
-
-Responses typically within 1–2 business days
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+        <div>
+          <h4 class="text-[10px] font-bold text-slate-400 uppercase mb-2">Tags</h4>
+          <div id="tag-filters" class="flex flex-wrap gap-2"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ACTIVE FILTERS -->
+    <div class="mb-6 flex items-center gap-3 flex-wrap" id="active-filters"></div>
+
+    <!-- CLEAR BUTTON -->
+    <div class="mb-10">
+      <button id="clear-filters"
+        class="text-xs text-red-500 font-bold hover:underline hidden">
+        Clear All Filters
+      </button>
+    </div>
+
+    <!-- GRID -->
+    <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+  </div>
 </section>
 
-    <footer class="bg-slate-50 pt-20 pb-10 border-t border-slate-100">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-4 gap-12 mb-16">
-            
-            <div class="col-span-1 md:col-span-2">
-                <a href="#home" class="text-xl font-bold text-slate-900 tracking-tight">
-                    Amit Kumar <span class="text-sky-600">SHAW</span>
-                </a>
-                <p class="mt-4 text-sm text-slate-500 max-w-xs leading-relaxed">
-                    SAP Solution Architect specializing in end-to-end Lead-to-Cash transformations and AI-driven financial innovation.
-                </p>
-            </div>
-
-            <div>
-                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest mb-6">Navigation</h4>
-                <ul class="space-y-4 text-sm text-slate-500">
-                    <li><a href="#about" class="hover:text-sky-600 transition">About</a></li>
-                    <li><a href="#expertise" class="hover:text-sky-600 transition">Expertise</a></li>
-                    <li><a href="#projects" class="hover:text-sky-600 transition">Projects</a></li>
-                    <li><a href="resources.html" class="hover:text-sky-600 transition">Resources</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest mb-6">Connect</h4>
-                <ul class="space-y-4 text-sm text-slate-500">
-                    <li>
-                        <a href="https://www.linkedin.com/in/amitkshaw" target="_blank" class="flex items-center hover:text-sky-600 transition">
-                            <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:contact[at]amitkshaw.com" class="flex items-center hover:text-sky-600 transition">
-                            <i class="fas fa-envelope mr-2"></i> Email
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                &copy; 2026 Amit Kumar Shaw. Built with precision and SAP expertise.
-            </p>
-            <div class="flex space-x-6">
-                <a href="#home" class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-sky-600 hover:border-sky-600 transition">
-                    <i class="fas fa-chevron-up text-xs"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
-    <button class="absolute top-8 right-8 text-white text-4xl hover:text-sky-400 transition">&times;</button>
-    
-    <div class="relative max-w-5xl">
-        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-white/10">
-        <p id="lightbox-caption" class="text-white text-center mt-6 font-medium tracking-wide text-sm"></p>
-    </div>
-</div>
-            
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-
-/* AOS Animation */
-
-AOS.init({
-  duration: 900,
-  easing: "ease-out-cubic",
-  once: false,
-  mirror: true
-});
-
-
-/* LIGHTBOX */
-
-function openLightbox(src, caption="Portfolio Detail") {
-
-  const lightbox = document.getElementById("lightbox");
-  const img = document.getElementById("lightbox-img");
-  const cap = document.getElementById("lightbox-caption");
-
-  img.src = src;
-  cap.innerText = caption;
-
-  lightbox.classList.remove("hidden");
-  lightbox.classList.add("flex");
-
-  document.body.style.overflow = "hidden";
-}
-
-function closeLightbox() {
-
-  const lightbox = document.getElementById("lightbox");
-
-  lightbox.classList.add("hidden");
-  lightbox.classList.remove("flex");
-
-  document.body.style.overflow = "auto";
-}
-
-document.getElementById("lightbox").addEventListener("click", (e) => {
-  if (e.target === lightbox || e.target.tagName === "BUTTON") {
-    closeLightbox();
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeLightbox();
-});
-
-
-/* HERO GLOW EFFECT */
-
-const glow = document.getElementById("hero-glow");
-
-document.addEventListener("mousemove", (e) => {
-  if (glow) {
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-  }
-});
-
-
-/* CANVAS DATA FLOW ANIMATION */
-
-const canvas = document.getElementById("data-flow");
-
-if (canvas) {
-
-  const ctx = canvas.getContext("2d");
-
-  let particles = [];
-
-  function resizeCanvas() {
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-  }
-
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
-
-  /* PARTICLE CLASS */
-
-  class Particle {
-
-    constructor() {
-
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-
-      this.speedX = (Math.random() - 0.5) * 0.4;
-      this.speedY = (Math.random() - 0.5) * 0.4;
-
-      this.size = Math.random() * 2 + 1;
-      this.opacity = Math.random() * 0.6 + 0.2;
-
-    }
-
-    update() {
-
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-    }
-
-    draw() {
-
-      ctx.fillStyle = `rgba(99,102,241,${this.opacity})`;
-
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-
-    }
-
-  }
-
-  /* SYSTEM NODE HIGHLIGHTS */
-
-  function drawSystemNodes() {
-
-    const nodes = [
-
-      { x: canvas.width * 0.2, y: canvas.height * 0.4 },
-      { x: canvas.width * 0.4, y: canvas.height * 0.2 },
-      { x: canvas.width * 0.6, y: canvas.height * 0.6 },
-      { x: canvas.width * 0.75, y: canvas.height * 0.35 },
-      { x: canvas.width * 0.5, y: canvas.height * 0.8 }
-
-    ];
-
-    nodes.forEach(n => {
-
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 5, 0, Math.PI * 2);
-
-      ctx.fillStyle = "rgba(14,165,233,0.9)";
-      ctx.fill();
-
-    });
-
-  }
-
-  /* FLOATING DOMAIN LABELS */
-
-  function drawFloatingLabels() {
-
-    const labels = [
-
-      "ERP Transformation",
-      "Finance",
-      "Accounting",
-      "Digital Transformation",
-      "SAP",	
-      "S/4HANA",
-      "Lead-to-Cash",
-      "Record-to-Report",
-      "Integration",
-      "Innovation & Automation",
-      "Enterprise Architecture",
-      "Artificial Intelligence",
-      "Machine Learning"
-
-    ];
-
-    ctx.font = "600 14px Inter";
-    ctx.textAlign = "center";
-
-    labels.forEach((label, index) => {
-
-      const offset = Math.sin(Date.now() * 0.0005 + index) * 10;
-
-      const x = canvas.width * ((index % 4) + 1) / 5;
-
-      const y = canvas.height * (0.2 + Math.floor(index / 4) * 0.25) + offset;
-
-      if (label === "S/4HANA" || label === "Lead-to-Cash") {
-
-        ctx.fillStyle = "rgba(14,165,233,0.35)";
-
-      } else {
-
-        ctx.fillStyle = "rgba(71,85,105,0.18)";
-
-      }
-
-      ctx.fillText(label, x, y);
-
-    });
-
-  }
-
-  /* INITIALIZE PARTICLES */
-
-  function init() {
-
-    particles = [];
-
-    const particleCount = window.innerWidth < 768 ? 20 : 35;
-
-    for (let i = 0; i < particleCount; i++) {
-
-      particles.push(new Particle());
-
-    }
-
-  }
-
-  /* CONNECT PARTICLES */
-
-  function connect() {
-
-    for (let a = 0; a < particles.length; a++) {
-
-      for (let b = a; b < particles.length; b++) {
-
-        let dx = particles[a].x - particles[b].x;
-        let dy = particles[a].y - particles[b].y;
-
-        let distance = dx * dx + dy * dy;
-
-        if (distance < 12000) {
-
-          ctx.strokeStyle = "rgba(99,102,241,0.15)";
-          ctx.lineWidth = 1.2;
-
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.stroke();
-
-        }
-
-      }
-
-    }
-
-  }
-
-  /* ANIMATION LOOP */
-
-  function animate() {
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-
-      p.update();
-      p.draw();
-
-    });
-
-    drawFloatingLabels();
-    drawSystemNodes();
-
-    connect();
-
-    requestAnimationFrame(animate);
-
-  }
-
-  init();
-  animate();
-
-}
-
-/* NAVBAR COLOR CHANGE ON SCROLL */
-
-window.addEventListener("scroll", () => {
-
-  const nav = document.querySelector("nav");
-
-  if (!nav) return;
-
-  if (window.scrollY > 40) {
-    nav.classList.add("nav-scrolled");
-  } else {
-    nav.classList.remove("nav-scrolled");
-  }
-
-});
-
-
-/* MOBILE MENU */
-
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-const menuOpen = document.getElementById("menu-open");
-const menuClose = document.getElementById("menu-close");
-
-if (menuBtn && mobileMenu) {
-
-  menuBtn.addEventListener("click", () => {
-
-    const isHidden = mobileMenu.classList.contains("hidden");
-
-    if (isHidden) {
-
-      mobileMenu.classList.remove("hidden");
-
-      if (menuOpen) menuOpen.classList.add("hidden");
-      if (menuClose) menuClose.classList.remove("hidden");
-
-    } else {
-
-      if (mobileMenu) {
-  mobileMenu.classList.add("hidden");
-}
-
-      if (menuOpen) menuOpen.classList.remove("hidden");
-      if (menuClose) menuClose.classList.add("hidden");
-
-    }
-
-  });
-
-}
-
-
-/* MOBILE LINK CLICK */
-
-document.querySelectorAll(".mobile-link").forEach(link => {
-
-  link.addEventListener("click", (e) => {
-
-    const targetId = link.getAttribute("href");
-
-    if (targetId.startsWith("#")) {
-
-      e.preventDefault();
-
-      const target = document.querySelector(targetId);
-
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-
-    }
-
-    if (mobileMenu) {
-  mobileMenu.classList.add("hidden");
-}
-
-    if (menuOpen) menuOpen.classList.remove("hidden");
-    if (menuClose) menuClose.classList.add("hidden");
-
-  });
-
-});
-
-/* SCROLL SPY FOR NAV LINKS */
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (window.scrollY >= sectionTop - 200) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("text-sky-600");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("text-sky-600");
-    }
-  });
-});
-
-</script>    
-
-<!-- Load Article Data -->
 <script src="articles.js"></script>
 
 <script>
+
+const featuredGrid = document.getElementById("featured-grid");
+const grid = document.getElementById("resources-grid");
+const searchBox = document.getElementById("search-box");
+const categoryContainer = document.getElementById("category-filters");
+const tagContainer = document.getElementById("tag-filters");
+const activeFiltersDiv = document.getElementById("active-filters");
+const clearBtn = document.getElementById("clear-filters");
+
+let activeCategories = new Set();
+let activeTags = new Set();
+
+// CATEGORY
+const categoryMap = {};
+articles.forEach(a => {
+  categoryMap[a.category] = (categoryMap[a.category] || 0) + 1;
+});
+
+Object.keys(categoryMap).forEach(cat => {
+  const btn = document.createElement("button");
+  btn.className = "px-3 py-1 border border-slate-200 rounded-lg text-xs font-semibold text-slate-600";
+
+  btn.innerText = `${cat} (${categoryMap[cat]})`;
+
+  btn.onclick = () => {
+    toggleSet(activeCategories, cat);
+    btn.classList.toggle("bg-sky-600");
+    btn.classList.toggle("text-white");
+    applyFilters();
+  };
+
+  categoryContainer.appendChild(btn);
+});
+
+// TAGS
+const tagSet = new Set();
+articles.forEach(a => a.tags?.forEach(t => tagSet.add(t)));
+
+tagSet.forEach(tag => {
+  const btn = document.createElement("button");
+  btn.className = "px-3 py-1 border border-slate-200 rounded-lg text-xs text-slate-500";
+
+  btn.innerText = tag;
+
+  btn.onclick = () => {
+    toggleSet(activeTags, tag);
+    btn.classList.toggle("bg-indigo-600");
+    btn.classList.toggle("text-white");
+    applyFilters();
+  };
+
+  tagContainer.appendChild(btn);
+});
+
+// TOGGLE
+function toggleSet(set, value) {
+  set.has(value) ? set.delete(value) : set.add(value);
+}
+
+// TAG COLOR
 function getTagColor(tag) {
   switch(tag) {
     case "SAP BRIM":
@@ -1639,93 +181,182 @@ function getTagColor(tag) {
       return "bg-slate-100 text-slate-600";
   }
 }
-</script>
 
-<!-- Render Featured Articles -->
+// CARD — Upgraded to match main page UI (NO functional changes)
+function createCard(a, index = 0) {
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  const delay = 100 + index * 100;
 
-  const grid = document.getElementById("article-grid");
+  const card = document.createElement("a");
+  card.href = a.link;
+  card.target = "_blank";
+  card.rel = "noopener noreferrer";
 
-  if (!grid || typeof articles === "undefined") {
-    console.error("Article grid or articles data not found.");
-    return;
-  }
+  card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
 
-  const featuredArticles = articles.filter(a => a.featured);
+  card.setAttribute("data-aos", "fade-up");
+  card.setAttribute("data-aos-delay", delay);
 
-  featuredArticles.forEach((article, index) => {
+  card.innerHTML = `
+    <div>
 
-    const delay = 100 + index * 100;
+      <img src="${a.image}" alt="${a.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
 
-    const card = document.createElement("a");
+      <div class="flex justify-between items-start mb-4">
 
-    card.href = article.link;
-    card.target = "_blank";
-    card.rel = "noopener noreferrer";
+        <div class="flex flex-wrap gap-2">
 
-    card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
+          <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
+            ${a.category}
+          </span>
 
-    card.setAttribute("data-aos","fade-up");
-    card.setAttribute("data-aos-delay",delay);
-
-    card.innerHTML = `
-      <div>
-
-        <img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
-
-        <div class="flex justify-between items-start mb-4">
-
-          <div class="flex flex-wrap gap-2">
-
-            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">
-              ${article.category}
+          ${a.tags ? a.tags.map(t => `
+            <span class="text-[10px] font-bold px-2 py-1 rounded uppercase ${getTagColor(t)}">
+              ${t}
             </span>
-
-            ${article.tags ? article.tags.map(t => `
-              <span class="text-[10px] font-bold px-2 py-1 rounded uppercase ${getTagColor(t)}">
-                ${t}
-              </span>
-            `).join("") : ""}
-
-          </div>
-
-          <i class="fas fa-external-link-alt text-slate-300 text-xs group-hover:text-slate-500 transition"></i>
+          `).join("") : ""}
 
         </div>
 
-        <h3 class="text-lg font-bold text-slate-900 transition mb-3 group-hover:text-sky-600">
-          ${article.title}
-        </h3>
-
-        <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
-          ${article.description}
-        </p>
+        <i class="fas fa-external-link-alt text-slate-300 text-xs group-hover:text-slate-500 transition"></i>
 
       </div>
 
-      <!-- Footer -->
-      <div class="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between">
+      <h3 class="text-lg font-bold text-slate-900 transition mb-3 group-hover:text-indigo-600">
+        ${a.title}
+      </h3>
+      
+      <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
+        ${a.description}
+      </p>
 
-        <div class="flex items-center text-xs font-bold text-slate-400">
-          <i class="${article.icon} mr-2"></i> ${article.source}
-        </div>
+    </div>
 
-        <!-- CTA -->
-        <div class="text-xs font-semibold text-sky-600 group-hover:text-sky-700 transition flex items-center gap-1">
-          Read Article
-          <span class="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-        </div>
-
+    <!-- Footer with CTA -->
+    <div class="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between">
+      <div class="flex items-center text-xs font-bold text-slate-400">
+        <i class="${a.icon} mr-2"></i> ${a.source}
       </div>
-    `;
 
-    grid.appendChild(card);
+      <!-- CTA -->
+      <div class="text-xs font-semibold text-indigo-600 group-hover:text-indigo-700 transition flex items-center gap-1">
+        Read Article
+        <span class="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </div>
 
+    </div>
+  `;
+
+  return card;
+}
+
+// FEATURED (with animation index)
+function renderFeatured() {
+  featuredGrid.innerHTML = "";
+
+  articles
+    .filter(a => a.featured)
+    .forEach((a, i) => {
+      featuredGrid.appendChild(createCard(a, i));
+    });
+}
+
+// ACTIVE FILTER CHIPS
+function renderActiveFilters() {
+
+  activeFiltersDiv.innerHTML = "";
+
+  [...activeCategories, ...activeTags].forEach(f => {
+    const chip = document.createElement("span");
+    chip.className = "px-3 py-1 bg-slate-200 rounded-full text-xs flex items-center gap-2";
+    chip.innerHTML = `${f} ✕`;
+
+    chip.onclick = () => {
+      activeCategories.delete(f);
+      activeTags.delete(f);
+      applyFilters();
+      rebuildButtons();
+    };
+
+    activeFiltersDiv.appendChild(chip);
   });
 
+  clearBtn.style.display = (activeCategories.size || activeTags.size) ? "inline" : "none";
+}
+
+// RESET BUTTON UI
+function rebuildButtons() {
+  document.querySelectorAll("#category-filters button").forEach(btn => {
+    const name = btn.innerText.split(" (")[0];
+    btn.classList.toggle("bg-sky-600", activeCategories.has(name));
+    btn.classList.toggle("text-white", activeCategories.has(name));
+  });
+
+  document.querySelectorAll("#tag-filters button").forEach(btn => {
+    const name = btn.innerText;
+    btn.classList.toggle("bg-indigo-600", activeTags.has(name));
+    btn.classList.toggle("text-white", activeTags.has(name));
+  });
+}
+
+// FILTER
+function applyFilters() {
+
+  const term = searchBox.value.toLowerCase();
+
+  const filtered = articles.filter(a => {
+
+    const matchSearch =
+      a.title.toLowerCase().includes(term) ||
+      a.description.toLowerCase().includes(term);
+
+    const matchCategory =
+      activeCategories.size === 0 || activeCategories.has(a.category);
+
+    const matchTags =
+      activeTags.size === 0 || a.tags?.some(t => activeTags.has(t));
+
+    return matchSearch && matchCategory && matchTags;
+  });
+
+ grid.innerHTML = "";
+
+let index = 0;
+
+filtered.forEach(a => {
+  if (!a.featured) {
+    grid.appendChild(createCard(a, index));
+    index++;
+  }
 });
+
+// Optional empty state (safe UX improvement)
+if (index === 0) {
+  grid.innerHTML = `<p class="text-slate-400 text-sm">No articles found for selected filters.</p>`;
+}
+
+// Refresh animations after DOM update
+AOS.refresh();
+
+  renderActiveFilters();
+}
+
+// CLEAR
+clearBtn.onclick = () => {
+  activeCategories.clear();
+  activeTags.clear();
+  applyFilters();
+  rebuildButtons();
+};
+
+// SEARCH
+searchBox.addEventListener("input", applyFilters);
+
+// INIT
+renderFeatured();
+applyFilters();
+AOS.init();
+
 </script>
 
 </body>
