@@ -178,7 +178,7 @@ function getTagColor(tag) {
     case "SAP FI":
       return "bg-amber-50 text-amber-600";
     default:
-      return "bg-zinc-200 text-zinc-700";
+      return "bg-orange-100 text-orange-600";
   }
 }
 
@@ -234,9 +234,8 @@ function createCard(a, index = 0) {
 
     <!-- Footer with CTA -->
     <div class="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between">
-
       <div class="flex items-center text-xs font-bold text-slate-400">
-        <i class="${a.icon} mr-2"></i> ${a.source}
+        <i class="${a.icon} mr-2">Published on</i> ${a.source}
       </div>
 
       <!-- CTA -->
