@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interests | Amit Kumar Shaw</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    .hero-glow {
+      opacity: 0;
+      animation: glowFade 1.6s ease-out forwards;
+    }
+
+    @keyframes glowFade {
+      from {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #story-card {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      animation: cardReveal 1.2s ease-out 0.4s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes cardReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    #story-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      transition: all 0.4s ease;
+    }
+
+    #hero {
+      will-change: transform;
+    }
+
+    .story-paragraph {
+      transition: all 0.4s ease;
+    }
+
+    .story-paragraph.hidden {
+      display: none;
+    }
+
+    #story-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: radial-gradient(
+        600px circle at var(--x, 50%) var(--y, 50%),
+        rgba(56, 189, 248, 0.25),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    #story-card:hover::before {
+      opacity: 1;
+    }
+
+    #modal-media-wrapper img.scale-150,
+    #modal-media-wrapper video.scale-150 {
+      transform: scale(1.5);
+      cursor: zoom-out;
+    }
+
+    #modal-media-wrapper {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    #modal-media-wrapper img,
+    #modal-media-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+	
+		.group:hover {
+	  transform: translateY(-6px);
+	}
+
+	.group::after {
+	  content: "";
+	  position: absolute;
+	  inset: 0;
+	  border-radius: inherit;
+	  background: radial-gradient(
+		400px circle at var(--x, 50%) var(--y, 50%),
+		rgba(56, 189, 248, 0.25),
+		transparent 40%
+	  );
+	  opacity: 0;
+	  transition: opacity 0.3s ease;
+	}
+
+	.group:hover::after {
+	  opacity: 1;
+	}
+	
+		/* Enable 3D space */
+	.card-3d {
+	  transform-style: preserve-3d;
+	  will-change: transform;
+	  transition: transform 0.2s ease;
+	}
+
+	/* Optional: stronger glow */
+	.card-3d::after {
+	  content: "";
+	  position: absolute;
+	  inset: 0;
+	  border-radius: inherit;
+	  background: radial-gradient(
+		400px circle at var(--x, 50%) var(--y, 50%),
+		rgba(56, 189, 248, 0.25),
+		transparent 40%
+	  );
+	  opacity: 0;
+	  transition: opacity 0.3s ease;
+	  pointer-events: none;
+	}
+
+	.card-3d:hover::after {
+	  opacity: 1;
+	}
+
+	.card-arrow:hover {
+	  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+	}
+
+	.group:hover .card-arrow {
+	  transform: translateX(4px);
+	}
+
+		.travel-card {
+	  transition: transform 0.4s ease, box-shadow 0.4s ease;
+	}
+
+	.travel-card:hover {
+	  transform: translateY(-6px);
+	  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+	}
+
+	#railroad, #ai, #travel {
+	  scroll-margin-top: 100px;
+	}
+
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+  <!-- NAV -->
+  <nav class="w-full bg-white border-b border-slate-100 py-6">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="font-bold flex items-center">
+        <i class="fas fa-arrow-left mr-3 text-sky-500"></i>
+        Back to Home
+      </a>
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+        Beyond Architecture
+      </span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header
+    id="hero"
+    class="relative overflow-hidden bg-slate-950 text-white py-28"
+  >
+    <div class="absolute inset-0 hero-glow">
+      <div
+        class="absolute w-[600px] h-[600px] bg-sky-500/20 blur-3xl rounded-full top-[-100px] left-[-100px]"
+      ></div>
+      <div
+        class="absolute w-[500px] h-[500px] bg-indigo-500/20 blur-3xl rounded-full bottom-[-120px] right-[-120px]"
+      ></div>
+    </div>
+
+    <div
+      class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+    >
+      <div data-aos="fade-right" data-aos-delay="100">
+        <h1 class="text-4xl font-bold mb-6">
+          Systems, Intelligence & Perspective
+        </h1>
+        <p class="text-slate-300 max-w-xl">
+          A deeper look into the disciplines that shape how I think — from
+          precision engineering to global exploration and AI-driven
+          transformation.
+        </p>
+      </div>
+
+      <div
+        id="story-card"
+        class="relative p-8 rounded-3xl bg-gradient-to-br from-slate-900/60 to-slate-800/30 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/30 transition-all duration-500"
+        data-aos="fade-right"
+        data-aos-delay="250"
+      >
+        <p class="text-slate-300 text-sm leading-relaxed">
+          My interests are interconnected rather than isolated, shaped by a way
+          of thinking that gravitates toward complexity, systems, and large-scale
+          transformation.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION NAV -->
+	<div class="max-w-7xl mx-auto px-6 mt-4 sticky top-4 z-50 w-full">
+	  <div class="flex gap-4 text-sm font-semibold px-6 py-3 rounded-2xl 
+				  bg-slate-900/70 backdrop-blur-xl border border-white/10 
+				  shadow-lg shadow-black/20 justify-center">
+
+				<a href="#railroad" data-section="railroad"
+				   class="nav-link px-4 py-2 rounded-lg text-white/70 transition-all duration-300">
+				  Model Railroading
+				</a>
+
+				<a href="#ai" data-section="ai"
+				   class="nav-link px-4 py-2 rounded-lg text-white/70 transition-all duration-300">
+				  AI + Finance
+				</a>
+
+				<a href="#travel" data-section="travel"
+				   class="nav-link px-4 py-2 rounded-lg text-white/70 transition-all duration-300">
+				  Travel
+				</a>
+
+	  </div>
+	</div>
+
+  <!-- MAIN SECTION -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6 space-y-20">
+      <div id="railroad">
+		<div class="mb-8">
+		  <span class="inline-block px-4 py-2 rounded-lg 
+					   bg-slate-900 text-white text-sm font-semibold 
+					   shadow-md">
+			Model Railroading
+		  </span>
+		</div>
+        <div
+          id="railroad-grid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        ></div>
+      </div>
+	  
+	  <div id="ai">
+		<div class="mb-8">
+			<span class="inline-block px-4 py-2 rounded-lg 
+					 bg-slate-900 text-white text-sm font-semibold shadow-md">
+		  AI + Finance
+			</span>
+		</div>
+	    <div id="ai-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+	  </div>
+	  
+      <div id="travel">
+        <div class="mb-8">
+			<span class="inline-block px-4 py-2 rounded-lg 
+					 bg-slate-900 text-white text-sm font-semibold shadow-md">
+		  Travel
+			</span>
+		</div>
+        <div
+          id="travel-grid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  
+  <!-- RAIL MODAL -->
+  <div
+    id="rail-modal"
+    role="dialog"
+    aria-modal="true"
+    class="hidden fixed inset-0 bg-white/90 backdrop-blur-lg z-[999] flex items-center justify-center"
+  >
+    <button
+      id="close-modal"
+      class="absolute top-5 right-6 text-black text-4xl hover:opacity-70 z-20"
+    >
+      ×
+    </button>
+
+    <button
+      id="card-prev"
+      class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/20 text-white text-3xl px-4 py-2 rounded-full hover:bg-black/40"
+    >
+      ‹
+    </button>
+
+    <button
+      id="card-next"
+      class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/20 text-white text-3xl px-4 py-2 rounded-full hover:bg-black/40"
+    >
+      ›
+    </button>
+
+    <button
+      id="modal-favorite"
+      class="absolute top-5 right-20 text-2xl text-gray-400 hover:text-red-500 z-20"
+    >
+      ♡
+    </button>
+
+    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-10 px-6">
+      <div class="relative flex flex-col items-center">
+        <div
+          id="modal-media-wrapper"
+          class="w-full relative flex justify-center items-center"
+        >
+          <button
+            id="media-prev"
+            class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/50 text-black px-3 py-2 rounded-full hover:bg-white/80"
+          >
+            ‹
+          </button>
+
+          <button
+            id="media-next"
+            class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/50 text-black px-3 py-2 rounded-full hover:bg-white/80"
+          >
+            ›
+          </button>
+        </div>
+
+<div id="rail-progress" class="absolute top-0 left-0 w-full flex gap-1 p-3 z-10"></div>
+
+        <div
+          id="modal-thumbnails"
+          class="flex gap-2 mt-4 overflow-x-auto"
+        ></div>
+      </div>
+
+      <div
+        class="text-black space-y-4 overflow-y-auto max-h-[80vh] pl-4"
+      >
+        <h2 id="modal-title" class="text-2xl font-bold"></h2>
+        <div
+          id="modal-details"
+          class="text-xs text-slate-500 space-y-1"
+        ></div>
+        <div
+          id="modal-story"
+          class="text-sm leading-relaxed space-y-3"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+<!-- TRAVEL MODAL -->
+<div
+  id="travel-modal"
+  class="hidden fixed inset-0 bg-black/95 z-[999] flex flex-col"
+>
+  <!-- CLOSE -->
+  <button
+    id="travel-close"
+    class="absolute top-6 right-6 text-white text-4xl z-20"
+  >
+    ×
+  </button>
+
+  <!-- NAV -->
+  <button
+    id="travel-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl z-20"
+  >
+    ‹
+  </button>
+
+  <button
+    id="travel-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl z-20"
+  >
+    ›
+  </button>
+
+  <!-- MEDIA -->
+  <div id="travel-media" class="relative w-full h-[60vh] overflow-hidden">
+    <div class="absolute inset-0 bg-black/20 pointer-events-none z-10"></div>
+  </div>
+
+<!-- MEDIA PROGRESS -->
+<div id="travel-progress" class="absolute top-0 left-0 w-full flex gap-1 p-3 z-20"></div>
+
+  <!-- CONTENT -->
+  <div class="text-white max-w-4xl mx-auto px-6 py-10 space-y-6">
+    <p id="travel-meta" class="text-xs uppercase tracking-widest text-white/60"></p>
+    <h2 id="travel-title" class="text-3xl font-bold"></h2>
+
+    <div id="travel-story" class="space-y-4 text-white/80 leading-relaxed"></div>
+  </div>
+</div>
+
+
+  <script src="interests.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const railGrid = document.getElementById("railroad-grid");
+  const travelGrid = document.getElementById("travel-grid");
+  const aiGrid = document.getElementById("ai-grid");
+
+  // =========================
+  // ELEMENTS REF
+  // =========================
+  
+  //RAIL
+  const modal = document.getElementById("rail-modal");
+  const closeBtn = document.getElementById("close-modal");
+  const cardPrevBtn = document.getElementById("card-prev");
+  const cardNextBtn = document.getElementById("card-next");
+  const mediaPrevBtn = document.getElementById("media-prev");
+  const mediaNextBtn = document.getElementById("media-next");
+  const modalTitle = document.getElementById("modal-title");
+  const modalStory = document.getElementById("modal-story");
+  const modalMediaWrapper = document.getElementById("modal-media-wrapper");
+  const favBtn = document.getElementById("modal-favorite");
+
+  // TRAVEL
+  const travelModal = document.getElementById("travel-modal");
+  const travelClose = document.getElementById("travel-close");
+  const travelNext = document.getElementById("travel-next");
+  const travelPrev = document.getElementById("travel-prev");
+  const travelMedia = document.getElementById("travel-media");
+  const travelTitle = document.getElementById("travel-title");
+  const travelMeta = document.getElementById("travel-meta");
+  const travelStory = document.getElementById("travel-story");
+	const travelThemes = {
+	  spring: {
+		bg: "bg-gradient-to-br from-pink-100 via-rose-100 to-emerald-100",
+		textPrimary: "text-slate-900",
+		textSecondary: "text-slate-600",
+		textMuted: "text-slate-500",
+		ui: "text-slate-700",
+		progressBg: "bg-slate-300",
+		progressFill: "bg-slate-800"
+	  },
+
+	  summer: {
+		bg: "bg-gradient-to-br from-yellow-100 via-orange-100 to-sky-100",
+		textPrimary: "text-slate-900",
+		textSecondary: "text-slate-600",
+		textMuted: "text-slate-500",
+		ui: "text-slate-700",
+		progressBg: "bg-slate-300",
+		progressFill: "bg-slate-800"
+	  },
+
+	  autumn: {
+		bg: "bg-gradient-to-br from-amber-200 via-orange-200 to-red-200",
+		textPrimary: "text-slate-900",
+		textSecondary: "text-slate-700",
+		textMuted: "text-slate-600",
+		ui: "text-slate-800",
+		progressBg: "bg-slate-400",
+		progressFill: "bg-slate-900"
+	  },
+
+	  winter: {
+		bg: "bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900",
+		textPrimary: "text-white",
+		textSecondary: "text-white/80",
+		textMuted: "text-white/60",
+		ui: "text-white",
+		progressBg: "bg-white/30",
+		progressFill: "bg-white"
+	  }
+	};
+
+  // =========================
+  // STATE VARIABLES
+  // =========================
+  
+  // RAIL
+  let currentRailItems = [];
+  let currentItemIndex = 0;
+  let currentMedia = [];
+  let currentItemIndexMedia = 0;
+  let isAnimating = false;
+  let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  let currentItemId = null;
+  let railProgressBars = [];
+  
+  // TRAVEL
+  let currentTravelItems = [];
+  let currentTravelIndex = 0;
+  let currentTravelMedia = [];
+  let currentTravelMediaIndex = 0;
+  let travelTimer = null;
+  let travelProgressBars = [];
+  let isPaused = false;
+  let storyDuration = 4000; // 4 sec per slide
+  let travelModalOpen = false;
+
+  // =========================
+  // CARD NAVIGATION
+  // =========================
+  function showNextItem() {
+    currentItemIndex = (currentItemIndex + 1) % currentRailItems.length;
+    openRailModal(currentRailItems[currentItemIndex], currentItemIndex);
+  }
+
+  function showPrevItem() {
+    currentItemIndex =
+      (currentItemIndex - 1 + currentRailItems.length) %
+      currentRailItems.length;
+    openRailModal(currentRailItems[currentItemIndex], currentItemIndex);
+  }
+
+  cardNextBtn.addEventListener("click", showNextItem);
+  cardPrevBtn.addEventListener("click", showPrevItem);
+
+  // =========================
+  // MEDIA NAVIGATION
+  // =========================
+  
+  //RAIL
+  function showNextMedia() {
+    if (!currentMedia.length) return;
+    currentItemIndexMedia =
+      (currentItemIndexMedia + 1) % currentMedia.length;
+    renderMedia("next");
+  }
+
+  function showPrevMedia() {
+    if (!currentMedia.length) return;
+    currentItemIndexMedia =
+      (currentItemIndexMedia - 1 + currentMedia.length) %
+      currentMedia.length;
+    renderMedia("prev");
+  }
+
+  mediaNextBtn.addEventListener("click", showNextMedia);
+  mediaPrevBtn.addEventListener("click", showPrevMedia);
+
+//TRAVEL
+function nextTravel() {
+  currentTravelIndex =
+    (currentTravelIndex + 1) % currentTravelItems.length;
+
+  openTravelModal(
+    currentTravelItems[currentTravelIndex],
+    currentTravelIndex
+  );
+}
+
+function prevTravel() {
+  currentTravelIndex =
+    (currentTravelIndex - 1 + currentTravelItems.length) %
+    currentTravelItems.length;
+
+  openTravelModal(
+    currentTravelItems[currentTravelIndex],
+    currentTravelIndex
+  );
+}
+
+travelNext.onclick = nextTravel;
+travelPrev.onclick = prevTravel;
+
+  // =========================
+  // FAVORITES
+  // =========================
+  function updateFavIcon() {
+    favBtn.textContent = favorites.includes(currentItemId)
+      ? "❤️"
+      : "♡";
+  }
+
+  favBtn.onclick = () => {
+    const idx = favorites.indexOf(currentItemId);
+
+    if (idx >= 0) {
+      favorites.splice(idx, 1);
+    } else {
+      favorites.push(currentItemId);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    updateFavIcon();
+  };
+
+  // =========================
+  // PREPARE MEDIA
+  // =========================
+  
+  //RAIL
+  function prepareMedia(item) {
+    const mediaArray = item.media || item.images;
+    if (!mediaArray) return [];
+
+    return mediaArray.map((m) => {
+      if (typeof m === "object") return m;
+
+      const ext = m.split(".").pop().toLowerCase();
+
+      if (ext === "mp4" || ext === "webm") {
+        return { type: "video", src: m };
+      }
+
+      if (ext === "gif") {
+        return { type: "gif", src: m };
+      }
+
+      return { type: "image", src: m };
+    });
+  }
+
+//TRAVEL
+function prepareTravelMedia(item) {
+  const arr = item.media || item.images || [];
+
+  return arr.map((m) => {
+    if (typeof m === "object") return m;
+
+    const ext = m.split(".").pop().toLowerCase();
+
+    if (ext === "mp4" || ext === "webm") {
+      return { type: "video", src: m };
+    }
+
+    return { type: "image", src: m };
+  });
+}
+
+  // =========================
+  // CREATE MEDIA ELEMENT
+  // =========================
+  function createMediaElement(media) {
+    let el;
+
+    if (media.type === "video") {
+      el = document.createElement("video");
+      el.src = media.src;
+      el.loading = "lazy";
+      el.controls = true;
+      el.autoplay = true;
+      el.muted = true;
+      el.loop = true;
+    } else {
+      el = document.createElement("img");
+      el.src = media.src;
+      el.loading = "lazy";
+    }
+
+    el.className =
+      "rounded-xl max-h-[70vh] w-full object-cover transition-transform duration-300 cursor-zoom-in";
+
+    let isDragging = false;
+
+    el.addEventListener("mousedown", () => (isDragging = false));
+    el.addEventListener("mousemove", () => (isDragging = true));
+    el.addEventListener("click", () => {
+      if (!isDragging) el.classList.toggle("scale-150");
+    });
+
+    el.style.opacity = 0;
+
+    if (media.type === "video") {
+      el.onloadeddata = () => (el.style.opacity = 1);
+    } else {
+      el.onload = () => (el.style.opacity = 1);
+    }
+
+    return el;
+  }
+
+  // =========================
+  // RENDER THUMBNAILS
+  // =========================
+  function renderThumbnails() {
+    const thumbs = document.getElementById("modal-thumbnails");
+    thumbs.innerHTML = "";
+
+    currentMedia.forEach((m, i) => {
+      let thumb;
+
+      if (m.type === "video") {
+        thumb = document.createElement("div");
+        thumb.className =
+          "h-16 w-24 flex items-center justify-center bg-black text-white text-xs rounded cursor-pointer border";
+        thumb.innerHTML = '<i class="fas fa-play"></i>';
+      } else {
+        thumb = document.createElement("img");
+        thumb.src = m.src;
+        thumb.className =
+          "h-16 w-24 object-cover rounded cursor-pointer border";
+      }
+
+      if (i === currentItemIndexMedia) {
+        thumb.classList.add("border-sky-500", "border-2");
+      }
+
+      thumb.onclick = () => {
+        currentItemIndexMedia = i;
+        renderMedia();
+      };
+
+      thumbs.appendChild(thumb);
+    });
+  }
+
+  // =========================
+  // PRELOAD ADJACENT MEDIA
+  // =========================
+  function preloadAdjacentMedia() {
+    [currentItemIndexMedia - 1, currentItemIndexMedia + 1].forEach((i) => {
+      if (i < 0) i += currentMedia.length;
+      i %= currentMedia.length;
+
+      const m = currentMedia[i];
+
+      if (m.type === "image" || m.type === "gif") {
+        new Image().src = m.src;
+      }
+    });
+  }
+
+  // =========================
+  // RENDER MEDIA
+  // =========================
+  
+  //RAIL
+  function renderMedia(direction = "next") {
+    if (!currentMedia.length || isAnimating) return;
+
+    isAnimating = true;
+
+    const m = currentMedia[currentItemIndexMedia];
+    const el = createMediaElement(m);
+
+    el.style.position = "absolute";
+    el.style.top = 0;
+    el.style.left = direction === "next" ? "100%" : "-100%";
+    el.style.width = "100%";
+    el.style.height = "100%";
+    el.style.transition = "left 0.5s ease, opacity 0.5s ease";
+
+    modalMediaWrapper.appendChild(el);
+
+    Array.from(
+      modalMediaWrapper.querySelectorAll("img, video")
+    ).forEach((child) => {
+      if (child !== el) {
+        child.style.left = direction === "next" ? "-100%" : "100%";
+        child.style.opacity = 0;
+
+        setTimeout(() => {
+          if (child !== el) child.remove();
+        }, 500);
+      }
+    });
+
+    requestAnimationFrame(() => {
+      el.style.left = "0";
+    });
+
+    const existingCap =
+      modalMediaWrapper.querySelector("p.text-slate-500");
+
+    if (existingCap) existingCap.remove();
+
+    if (m.caption) {
+      const cap = document.createElement("p");
+      cap.textContent = m.caption;
+      cap.className =
+        "text-sm text-slate-500 mt-2 opacity-0 transition-opacity duration-500";
+
+      modalMediaWrapper.appendChild(cap);
+
+      setTimeout(() => cap.classList.remove("opacity-0"), 10);
+    }
+
+    renderThumbnails();
+    preloadAdjacentMedia();
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 500);
+  
+  renderRailProgress();
+  }
+
+// TRAVEL
+function renderTravelMedia(direction = "next") {
+  if (!currentTravelMedia.length) return;
+
+  const m = currentTravelMedia[currentTravelMediaIndex];
+
+  let el;
+
+  if (m.type === "video") {
+    el = document.createElement("video");
+    el.src = m.src;
+    el.autoplay = true;
+    el.loop = true;
+    el.muted = true;
+  } else {
+    el = document.createElement("img");
+    el.src = m.src;
+  }
+
+  el.className =
+    "absolute inset-0 w-full h-full object-cover transition-all duration-700";
+
+  el.style.opacity = 0;
+  el.style.transform =
+    direction === "next" ? "scale(1.1)" : "scale(0.95)";
+
+  travelMedia.appendChild(el);
+
+  requestAnimationFrame(() => {
+    el.style.opacity = 1;
+    el.style.transform = "scale(1)";
+  });
+
+  // remove old
+  Array.from(travelMedia.children).forEach((child) => {
+    if (child !== el) {
+      child.style.opacity = 0;
+      setTimeout(() => child.remove(), 600);
+    }
+  });
+}
+
+  // =========================
+  // MEDIA PROGRESS
+  // =========================
+
+// RAIL
+
+function renderRailProgress() {
+  const container = document.getElementById("rail-progress");
+  container.innerHTML = "";
+
+  railProgressBars = currentMedia.map((_, i) => {
+    const bar = document.createElement("div");
+    bar.className = "flex-1 h-[3px] bg-white/30 rounded overflow-hidden";
+
+    const fill = document.createElement("div");
+    fill.className = "h-full bg-white w-0 transition-all duration-300";
+
+    if (i === currentItemIndexMedia) {
+      fill.style.width = "100%";
+    }
+
+    bar.appendChild(fill);
+    container.appendChild(bar);
+
+    return fill;
+  });
+}
+
+// TRAVEL
+function renderTravelProgress() {
+  const container = document.getElementById("travel-progress");
+  container.innerHTML = "";
+
+  travelProgressBars = currentTravelMedia.map((_, i) => {
+    const bar = document.createElement("div");
+    bar.className = "flex-1 h-[3px] bg-white/30 rounded overflow-hidden";
+
+    const fill = document.createElement("div");
+    fill.className = "h-full bg-white w-0";
+
+    bar.appendChild(fill);
+    container.appendChild(bar);
+
+    return fill;
+  });
+}
+
+  // =========================
+  // START STORY TIMER
+  // =========================
+
+//TRAVEL
+function startStoryTimer() {
+  clearInterval(travelTimer);
+
+  let startTime = Date.now();
+  const currentBar = travelProgressBars[currentTravelMediaIndex];
+
+  function animate() {
+    if (isPaused) return;
+
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / storyDuration, 1);
+
+    currentBar.style.width = `${progress * 100}%`;
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      nextTravelMedia();
+    }
+  }
+
+  animate();
+}
+
+
+  // =========================
+  // OPEN MODAL
+  // =========================
+  
+  //RAIL
+  function openRailModal(item, index) {
+    closeTravelModal(); // close travel modal if open
+    currentItemIndex = index;
+    currentItemId = item.id;
+
+    modal.classList.remove("hidden");
+    modal.setAttribute("tabindex", "-1");
+    modal.focus();
+
+    document.body.style.overflow = "hidden";
+
+    modalTitle.textContent = item.name;
+
+    const detailsDiv = document.getElementById("modal-details");
+    detailsDiv.innerHTML = "";
+
+    if (item.details) {
+      Object.entries(item.details).forEach(([k, v]) => {
+        detailsDiv.innerHTML += `<p><strong>${k}:</strong> ${v}</p>`;
+      });
+    }
+
+    modalStory.innerHTML = "";
+
+    const paragraphs = Array.isArray(item.story)
+      ? item.story
+      : [item.story];
+
+    paragraphs.forEach((p, i) => {
+      const el = document.createElement("p");
+      el.textContent = p;
+      el.className = "story-paragraph";
+
+      if (i > 1) el.classList.add("hidden");
+
+      modalStory.appendChild(el);
+    });
+
+    if (paragraphs.length > 2) {
+      const btn = document.createElement("button");
+      btn.textContent = "Read more";
+      btn.className = "text-sky-500 text-xs";
+
+      let expanded = false;
+
+      btn.onclick = () => {
+        expanded = !expanded;
+
+        modalStory
+          .querySelectorAll(".story-paragraph")
+          .forEach((p, i) => {
+            if (i > 1) {
+              p.classList.toggle("hidden", !expanded);
+            }
+          });
+
+        btn.textContent = expanded ? "Show less" : "Read more";
+      };
+
+      modalStory.appendChild(btn);
+    }
+
+    currentMedia = prepareMedia(item);
+    currentItemIndexMedia = 0;
+
+    renderMedia();
+    updateFavIcon();
+  }
+
+//TRAVEL
+function openTravelModal(item, index) {
+  closeModal(); // close rail modal if open
+
+  currentTravelIndex = index;
+  currentTravelItems = currentTravelItems.length
+    ? currentTravelItems
+    : [];
+
+  travelModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+
+  travelTitle.textContent = item.name;
+  travelMeta.textContent = item.meta || "";
+  applyTravelTheme(item.theme);
+  
+  // STORY
+  travelStory.innerHTML = "";
+
+  const paragraphs = Array.isArray(item.story)
+    ? item.story
+    : [item.story];
+
+  paragraphs.forEach((p, i) => {
+    const el = document.createElement("p");
+    el.textContent = p;
+    el.style.opacity = 0;
+    el.style.transform = "translateY(10px)";
+    el.style.transition = `all 0.5s ease ${i * 0.1}s`;
+
+    travelStory.appendChild(el);
+
+    setTimeout(() => {
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    }, 50);
+  });
+
+  // MEDIA
+	currentTravelMedia = prepareTravelMedia(item);
+	currentTravelMediaIndex = 0;
+
+	renderTravelMedia();
+	renderTravelProgress();
+	applyTravelTheme(item.theme);
+	startStoryTimer();
+	}
+
+  // =========================
+  // CLOSE MODAL
+  // =========================
+  
+  //RAIL
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+//TRAVEL
+function closeTravelModal() {
+  clearInterval(travelTimer);
+  travelModal.classList.add("hidden");
+  document.body.style.overflow = "auto";
+  
+  // Reset modal state to prevent random reopen
+  travelModalOpen = false;
+  currentTravelIndex = 0;
+  currentTravelMediaIndex = 0;
+  currentTravelMedia = [];
+}
+travelClose.onclick = closeTravelModal;
+
+
+  // =========================
+  // KEYBOARD NAVIGATION
+  // =========================
+  
+document.addEventListener("keydown", (e) => {
+  // ESC closes whichever modal is open
+  if (e.key === "Escape") {
+    if (!modal.classList.contains("hidden")) closeModal();
+    if (!travelModal.classList.contains("hidden")) closeTravelModal();
+  }
+
+  // RAIL controls
+  if (!modal.classList.contains("hidden")) {
+    if (e.key === "ArrowRight") showNextMedia();
+    if (e.key === "ArrowLeft") showPrevMedia();
+
+    if (e.shiftKey && e.key === "ArrowRight") showNextItem();
+    if (e.shiftKey && e.key === "ArrowLeft") showPrevItem();
+  }
+
+  // TRAVEL controls
+  if (!travelModal.classList.contains("hidden")) {
+    if (e.key === "ArrowRight") nextTravelMedia();
+    if (e.key === "ArrowLeft") prevTravelMedia();
+  }
+});
+
+  // =========================
+  // SWIPE MEDIA
+  // =========================
+  let startX = 0;
+  let startTime = 0;
+
+  modalMediaWrapper.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    startTime = Date.now();
+  });
+
+  modalMediaWrapper.addEventListener("touchend", (e) => {
+    if (currentMedia.length <= 1) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    const time = Date.now() - startTime;
+
+    const velocity = Math.abs(diffX) / time;
+    const isFastSwipe = velocity > 0.5;
+    const isLongSwipe = Math.abs(diffX) > 80;
+
+    if (!(isFastSwipe || isLongSwipe)) return;
+
+    if (diffX > 0) showNextMedia();
+    else showPrevMedia();
+  });
+
+  // =========================
+  // TEXT SWIPE
+  // =========================
+  const modalTextPanel = modal.querySelector(".overflow-y-auto");
+
+  let textStartX = 0;
+  let textStartY = 0;
+
+  modalTextPanel.addEventListener("touchstart", (e) => {
+    textStartX = e.touches[0].clientX;
+    textStartY = e.touches[0].clientY;
+  });
+
+  modalTextPanel.addEventListener("touchend", (e) => {
+    if (currentRailItems.length <= 1) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+
+    const diffX = textStartX - endX;
+    const diffY = textStartY - endY;
+
+    if (Math.abs(diffY) > Math.abs(diffX)) return;
+    if (Math.abs(diffX) < 80) return;
+
+    if (diffX > 0) showNextItem();
+    else showPrevItem();
+  });
+
+  // =========================
+  // MEDIA NAVIGATION (STORY STYLE)
+  // =========================
+
+//TRAVEL
+function nextTravelMedia() {
+  if (!currentTravelMedia.length) return;
+
+  currentTravelMediaIndex++;
+
+  if (currentTravelMediaIndex >= currentTravelMedia.length) {
+    nextTravel(); // move to next location
+    return;
+  }
+
+  renderTravelMedia("next");
+  renderTravelProgress();
+  startStoryTimer();
+}
+
+function prevTravelMedia() {
+  if (!currentTravelMedia.length) return;
+
+  currentTravelMediaIndex--;
+
+  if (currentTravelMediaIndex < 0) {
+    prevTravel();
+    return;
+  }
+
+  renderTravelMedia("prev");
+  renderTravelProgress();
+  startStoryTimer();
+}
+
+// TAP ZONES (Instagram Style)
+let isSwiping = false;
+
+travelMedia.addEventListener("touchstart", (e) => {
+  isSwiping = false;
+  travelStartX = e.touches[0].clientX;
+});
+
+travelMedia.addEventListener("touchmove", () => {
+  isSwiping = true;
+});
+
+travelMedia.addEventListener("click", (e) => {
+  if (isSwiping) return; // 🚀 prevents accidental tap after swipe
+
+  const rect = travelMedia.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+
+  if (x < rect.width / 2) {
+    prevTravelMedia();
+  } else {
+    nextTravelMedia();
+  }
+});
+
+//HOLD TO PAUSE
+travelMedia.addEventListener("mousedown", () => {
+  isPaused = true;
+});
+
+travelMedia.addEventListener("mouseup", () => {
+  isPaused = false;
+});
+
+travelMedia.addEventListener("touchstart", () => {
+  isPaused = true;
+});
+
+travelMedia.addEventListener("touchend", () => {
+  isPaused = false;
+});
+
+// Fix: prevent stuck pause if mouse/touch ends outside
+window.addEventListener("mouseup", () => {
+  isPaused = false;
+});
+
+window.addEventListener("touchend", () => {
+  isPaused = false;
+});
+
+//SWIPE (MOBILE)
+let travelStartX = 0;
+
+travelMedia.addEventListener("touchstart", (e) => {
+  travelStartX = e.touches[0].clientX;
+});
+
+travelMedia.addEventListener("touchend", (e) => {
+  const diff = travelStartX - e.changedTouches[0].clientX;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) nextTravelMedia();
+  else prevTravelMedia();
+});
+
+  // =========================
+  // HERO GLOW
+  // =========================
+  const storyCard = document.getElementById("story-card");
+
+  storyCard.addEventListener("mousemove", (e) => {
+    const rect = storyCard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    storyCard.style.setProperty("--x", `${x}px`);
+    storyCard.style.setProperty("--y", `${y}px`);
+  });
+
+  // =========================
+  // STORY TOGGLE (TRAVEL)
+  // =========================
+  setTimeout(() => {
+    document.querySelectorAll(".story-wrapper").forEach((wrapper) => {
+      const btn = wrapper.querySelector(".story-toggle");
+      if (!btn) return;
+
+      const paragraphs =
+        wrapper.querySelectorAll(".story-paragraph");
+
+      let expanded = false;
+
+      btn.addEventListener("click", () => {
+        expanded = !expanded;
+
+        paragraphs.forEach((p, i) => {
+          if (i > 1) {
+            p.classList.toggle("hidden", !expanded);
+          }
+        });
+
+        btn.textContent = expanded
+          ? "Show less"
+          : "Read more";
+      });
+    });
+  }, 100);
+
+  // =========================
+  // FOCUS TRAP
+  // =========================
+  modal.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+
+    const focusable = modal.querySelectorAll("button, [tabindex]");
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+  
+	  // =========================
+	  // THEME FUNCTION
+	  // =========================
+	  function applyTravelTheme(themeName) {
+	  const theme = travelThemes[themeName] || travelThemes.winter;
+
+	  // 🎨 Modal background
+	  travelModal.className =
+		`fixed inset-0 z-[999] flex flex-col transition-all duration-500 ${theme.bg}`;
+
+	  // 🧠 Text styling
+	  travelTitle.className = `text-3xl font-bold ${theme.textPrimary}`;
+	  travelMeta.className = `text-xs uppercase tracking-widest ${theme.textMuted}`;
+	  travelStory.className = `space-y-4 leading-relaxed ${theme.textSecondary}`;
+
+	  // 🎯 Buttons (close + arrows)
+	  travelClose.className = `absolute top-6 right-6 text-4xl z-20 ${theme.ui}`;
+	  travelNext.className = `absolute right-4 top-1/2 -translate-y-1/2 text-3xl z-20 ${theme.ui}`;
+	  travelPrev.className = `absolute left-4 top-1/2 -translate-y-1/2 text-3xl z-20 ${theme.ui}`;
+
+	  // 📊 Progress bars
+	  const bars = document.querySelectorAll("#travel-progress div");
+
+	  bars.forEach(bar => {
+		bar.className = `flex-1 h-[3px] ${theme.progressBg} rounded overflow-hidden`;
+
+		const fill = bar.firstChild;
+		if (fill) {
+		  fill.className = `h-full ${theme.progressFill} w-0`;
+		}
+	  });
+	}
+
+  // =========================
+  // RENDER SECTIONS
+  // =========================
+  const railSection = interests.find((s) => s.type === "railroad");
+  const aiSection = interests.find((s) => s.type === "ai");
+  const travelSection = interests.find((s) => s.type === "travel");
+
+  const orderedSections = [railSection, aiSection, travelSection];
+
+  orderedSections.forEach((section) => {
+    if (section.type === "railroad") {
+      currentRailItems = section.items;
+
+      section.items.forEach((item, i) => {
+        const card = document.createElement("div");
+
+        card.className =
+		  "card-3d group relative rounded-2xl overflow-hidden cursor-pointer shadow-lg";
+
+        card.setAttribute("data-aos", "fade-right");
+        card.setAttribute("data-aos-delay", i * 100);
+
+        const firstPara = Array.isArray(item.story)
+          ? item.story[0]
+          : item.story;
+
+        card.innerHTML = `
+          <img src="${item.cover}" class="w-full h-52 object-cover">
+          <h3 class="font-bold mt-3 px-4">${item.name}</h3>
+          <div class="text-sm text-slate-500 px-4 pb-4">
+            <p>${firstPara}</p>
+          </div>
+          <div class="px-4 pb-4 flex items-center justify-between">
+		  <button class="story-toggle text-sky-500 text-xs font-semibold flex items-center gap-1">
+			Go deeper
+		  </button>
+
+		  <button class="card-arrow text-slate-400 hover:text-sky-500 transition transform duration-300 group-hover:translate-x-1">
+		    <i class="fas fa-arrow-right"></i>
+		  </button>
+
+		</div>
+        `;
+
+        card
+          .querySelector(".story-toggle")
+          .addEventListener("click", (e) => {
+            e.stopPropagation();
+            openRailModal(item, i);
+          });
+
+		card.querySelector(".card-arrow").addEventListener("click", (e) => {
+		  e.stopPropagation(); // prevents double trigger
+		  openRailModal(item, i);
+		});
+
+		let rafId = null;
+		let rect = null;
+
+		card.addEventListener("mouseenter", () => {
+		  rect = card.getBoundingClientRect();
+		});
+
+		card.addEventListener("mousemove", (e) => {
+		  if (rafId) return;
+
+		  rafId = requestAnimationFrame(() => {
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			// Normalize (-0.5 to 0.5)
+			const px = x / rect.width - 0.5;
+			const py = y / rect.height - 0.5;
+
+			// 🎯 HYBRID EFFECT
+			const rotateX = -py * 6;   // tilt up/down
+			const rotateY = px * 8;    // tilt left/right
+
+			const translateX = px * 6; // magnetic move
+			const translateY = py * 6;
+
+			card.style.transform = `
+			  perspective(800px)
+			  rotateX(${rotateX}deg)
+			  rotateY(${rotateY}deg)
+			  translateX(${translateX}px)
+			  translateY(${translateY}px)
+			  scale(1.03)
+			`;
+
+			// Glow tracking (you already use this)
+			card.style.setProperty("--x", `${x}px`);
+			card.style.setProperty("--y", `${y}px`);
+
+			rafId = null;
+		  });
+		});
+
+		card.addEventListener("mouseleave", () => {
+		  card.style.transform = `
+			perspective(800px)
+			rotateX(0deg)
+			rotateY(0deg)
+			translateX(0px)
+			translateY(0px)
+			scale(1)
+		  `;
+		});
+          railGrid.appendChild(card);
+      });
+    }
+
+    if (section.type === "ai") {
+      section.posts.forEach((post, i) => {
+        const card = document.createElement("div");
+
+		card.className = `
+		  group relative rounded-2xl p-6 cursor-pointer overflow-hidden
+		  backdrop-blur-xl bg-white/70 border border-slate-200
+		  shadow-lg transition-all duration-300
+		`;
+
+        card.setAttribute("data-aos", "fade-up");
+        card.setAttribute("data-aos-delay", i * 120);
+
+		card.innerHTML = `
+		  <!-- Glow Layer -->
+		  <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"
+			   style="background: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), rgba(56,189,248,0.25), transparent 40%);">
+		  </div>
+
+		  <!-- Content -->
+		  <div class="relative z-10 space-y-3">
+
+			<!-- TAG -->
+			<span class="text-xs font-semibold text-orange-400 uppercase tracking-wider">
+			  ${post.tag}
+			</span>
+
+			<!-- TITLE -->
+			<h3 class="font-bold text-lg text-slate-800">
+			  ${post.title}
+			</h3>
+
+			<!-- SOURCE BADGE -->
+			<p class="text-xs text-text-slate-600">
+			  via ${post.source}
+			</p>
+
+			<!-- DESCRIPTION -->
+			<p class="text-sm text-text-slate-500 leading-relaxed line-clamp-3 group-hover:opacity-0 transition duration-300">
+			  ${post.description}
+			</p>
+
+			<!-- HOVER TEASER -->
+			<p class="absolute inset-6 text-sm text-white/90 opacity-0 group-hover:opacity-100 transition duration-300">
+			  ${post.description}
+			</p>
+
+			<!-- CTA -->
+			<div class="flex justify-between items-center pt-3">
+			  <span class="text-sky-400 text-sm font-semibold">
+				Read Insight
+			  </span>
+
+			  <span class="transform transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110">
+				→
+			  </span>
+			</div>
+
+		  </div>
+		`;
+        card.addEventListener("click", () =>
+          window.open(post.link, "_blank")
+        );
+
+		let rafId = null;
+		let rect = null;
+
+		card.addEventListener("mouseenter", () => {
+		  rect = card.getBoundingClientRect();
+		});
+
+		card.addEventListener("mousemove", (e) => {
+		  if (rafId) return;
+
+		  rafId = requestAnimationFrame(() => {
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			const px = x / rect.width - 0.5;
+			const py = y / rect.height - 0.5;
+
+			// subtle tilt (AI cards = softer than railroad)
+			const rotateX = -py * 3;
+			const rotateY = px * 3;
+
+			const translateX = px * 4;
+			const translateY = py * 4;
+
+			card.style.transform = `
+			  perspective(800px)
+			  rotateX(${rotateX}deg)
+			  rotateY(${rotateY}deg)
+			  translateX(${translateX}px)
+			  translateY(${translateY}px)
+			  scale(1.02)
+			`;
+
+			card.style.setProperty("--x", `${x}px`);
+			card.style.setProperty("--y", `${y}px`);
+
+			rafId = null;
+		  });
+		});
+
+		card.addEventListener("mouseleave", () => {
+		  card.style.transform = `
+			perspective(800px)
+			rotateX(0deg)
+			rotateY(0deg)
+			translateX(0px)
+			translateY(0px)
+			scale(1)
+		  `;
+		});
+
+        aiGrid.appendChild(card);
+      });
+    }
+
+    if (section.type === "travel") {
+      travelGrid.innerHTML = ""; // ✅ prevents duplicate cards
+	  section.items.forEach((item, i) => {
+        const card = document.createElement("div");
+
+        card.className =
+          "travel-card";
+
+        card.setAttribute("data-aos", "fade-left");
+        card.setAttribute("data-aos-delay", i * 120);
+
+		card.addEventListener("click", () => {
+		  if (travelModalOpen) return; // prevent phantom clicks
+		  travelModalOpen = true;
+
+		  currentTravelItems = section.items;
+		  currentTravelIndex = i;
+		  openTravelModal(item, i);
+		});
+
+		card.innerHTML = `
+		  <div class="relative h-80 rounded-2xl overflow-hidden group cursor-pointer">
+
+			<!-- IMAGE -->
+			<img 
+			  src="${item.cover}" 
+			  class="absolute inset-0 w-full h-full object-cover 
+					 transition-transform duration-[1200ms] ease-out 
+					 group-hover:scale-110"
+			>
+
+			<!-- DARK GRADIENT -->
+			<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+			<!-- CONTENT -->
+			<div class="absolute bottom-0 left-0 p-6 text-white w-full">
+
+			  <p class="text-xs uppercase tracking-widest text-white/70 mb-1">
+				${item.meta}
+			  </p>
+
+			  <h3 class="text-2xl font-bold leading-tight">
+				${item.name}
+			  </h3>
+
+			  <div class="mt-3 flex items-center justify-between">
+
+				<span class="text-sm text-white/80">
+				  View Experience
+				</span>
+
+				<span class="text-lg transform transition-transform duration-300 group-hover:translate-x-1">
+				  →
+				</span>
+
+			  </div>
+
+			</div>
+
+		  </div>
+		`;
+
+        travelGrid.appendChild(card);
+      });
+    }
+  });
+
+// AUTO HIGHLIGHTING SECTION
+
+	const navLinks = document.querySelectorAll(".nav-link");
+
+	const sectionColors = {
+	  railroad: "bg-sky-500/20 text-sky-300",
+	  ai: "bg-orange-500/20 text-orange-300",
+	  travel: "bg-emerald-500/20 text-emerald-300"
+	};
+
+	function setActiveNav(sectionId) {
+	  navLinks.forEach(link => {
+		const sec = link.dataset.section;
+
+		// reset
+		link.className =
+		  "nav-link px-4 py-2 rounded-lg text-white/70 transition";
+
+		// apply active
+		if (sec === sectionId) {
+		  link.className += " " + sectionColors[sec] + " shadow-inner";
+		}
+	  });
+	}
+
+	const observer = new IntersectionObserver(
+	  (entries) => {
+		entries.forEach(entry => {
+		  if (entry.isIntersecting) {
+			setActiveNav(entry.target.id);
+		  }
+		});
+	  },
+	  {
+		threshold: 0.6
+	  }
+	);
+
+	// Observe sections
+	["railroad", "ai", "travel"].forEach(id => {
+	  const el = document.getElementById(id);
+	  if (el) observer.observe(el);
+	});
+
+});
+  </script>
+
+	<div class="fixed inset-0 -z-10">
+	  <div class="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] bg-sky-200/30 blur-3xl rounded-full"></div>
+	  <div class="absolute bottom-[-120px] right-[-120px] w-[500px] h-[500px] bg-indigo-200/30 blur-3xl rounded-full"></div>
+	</div>
+
+</body>
+</html>
