@@ -95,14 +95,16 @@ window.interests = [
         source: "McKinsey",
         tag: "Whitepaper",
         link: "https://www.mckinsey.com/",
-        description: "How AI is reshaping revenue recognition..."
+        description: "How AI is reshaping revenue recognition...",
+		insight: "This is where I see AI moving from analysis to decision-making."
       },
       {
         title: "Future of Autonomous Finance",
         source: "Deloitte",
         tag: "Research",
         link: "https://www2.deloitte.com/",
-        description: "Exploring the evolution..."
+        description: "Exploring the evolution...",
+		insight: "This is where I see AI moving from analysis to decision-making."
       }
     ]
   }

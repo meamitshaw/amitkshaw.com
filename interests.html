@@ -180,7 +180,7 @@
   </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body id="top" class="bg-slate-50 text-slate-800">
   <!-- NAV -->
   <nav class="w-full bg-white border-b border-slate-100 py-6">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -269,8 +269,14 @@
 		  <span class="inline-block px-4 py-2 rounded-lg 
 					   bg-slate-900 text-white text-sm font-semibold 
 					   shadow-md">
-			Model Railroading
+			Model Railroading · Systems
 		  </span>
+		  <p class="mt-3 text-sm text-slate-500 max-w-xl">
+			A hands-on system for understanding constraints, sequencing, and operational complexity.
+		  </p>
+			<p class="text-xs text-slate-400 mt-1">
+			Built and refined multiple layouts over several years
+			</p>		
 		</div>
         <div
           id="railroad-grid"
@@ -282,8 +288,14 @@
 		<div class="mb-8">
 			<span class="inline-block px-4 py-2 rounded-lg 
 					 bg-slate-900 text-white text-sm font-semibold shadow-md">
-		  AI + Finance
+		  AI + Finance · Intelligence
 			</span>
+			<p class="mt-3 text-sm text-slate-500 max-w-xl">
+			  Exploring how intelligence scales decision-making in uncertain, data-rich environments.
+			</p>		
+			<p class="text-xs text-slate-400 mt-1">
+			  Tracking AI + financial systems evolution since 2022
+			</p>		
 		</div>
 	    <div id="ai-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 	  </div>
@@ -292,8 +304,14 @@
         <div class="mb-8">
 			<span class="inline-block px-4 py-2 rounded-lg 
 					 bg-slate-900 text-white text-sm font-semibold shadow-md">
-		  Travel
+		  Travel · Perspective
 			</span>
+			<p class="mt-3 text-sm text-slate-500 max-w-xl">
+			  A way to observe systems, culture, and infrastructure at a global scale.
+			</p>		
+			<p class="text-xs text-slate-400 mt-1">
+			  Explored multiple cities across different regions
+			</p>		
 		</div>
         <div
           id="travel-grid"
@@ -301,6 +319,34 @@
         ></div>
       </div>
     </div>
+	<div class="text-center space-y-4 pt-10 pb-10 border-t border-slate-200" data-aos="fade-up">
+
+	  <!-- Context Line -->
+	  <p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+		Across engineering systems, intelligent models, and global environments, I explore how complexity is designed, understood, and evolved.
+	  </p>
+
+	  <!-- Divider -->
+	  <div class="w-12 h-px bg-slate-300 mx-auto"></div>
+
+	  <!-- Signature Tagline -->
+	  <p class="text-xs text-slate-400 tracking-wide">
+		Exploring how systems think, scale, and transform.
+	  </p>
+
+	  <!-- Copyright -->
+	  <p class="text-xs text-slate-400 tracking-wide">
+		© 2026 Amit Kumar Shaw
+	  </p>
+
+	  <!-- Back to Top -->
+	  <div class="mt-4">
+		<a href="#top" class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-sky-600 hover:border-sky-600 transition mx-auto">
+		  <i class="fas fa-chevron-up text-xs"></i>
+		</a>
+	  </div>
+
+	</div>
   </section>
 
   <!-- MODAL -->
@@ -522,6 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
   let currentItemId = null;
   let railProgressBars = [];
+  let scrollPosition = 0;
   
   // TRAVEL
   let currentTravelItems = [];
@@ -670,6 +717,13 @@ function prepareTravelMedia(item) {
   // =========================
   function createMediaElement(media) {
     let el;
+	
+	// Loader
+	const loader = document.createElement("div");
+	loader.className =
+	  "absolute inset-0 flex items-center justify-center text-white text-sm bg-black/30 rounded-xl";
+	loader.innerHTML = '<div class="animate-pulse">Loading...</div>';
+	modalMediaWrapper.appendChild(loader);
 
     if (media.type === "video") {
       el = document.createElement("video");
@@ -698,11 +752,17 @@ function prepareTravelMedia(item) {
 
     el.style.opacity = 0;
 
-    if (media.type === "video") {
-      el.onloadeddata = () => (el.style.opacity = 1);
-    } else {
-      el.onload = () => (el.style.opacity = 1);
-    }
+	if (media.type === "video") {
+	  el.onloadeddata = () => {
+		el.style.opacity = 1;
+		loader.remove();
+	  };
+	} else {
+	  el.onload = () => {
+		el.style.opacity = 1;
+		loader.remove();
+	  };
+	}
 
     return el;
   }
@@ -788,7 +848,16 @@ function prepareTravelMedia(item) {
         child.style.opacity = 0;
 
         setTimeout(() => {
-          if (child !== el) child.remove();
+			if (child !== el) {
+			  // Stop video before removing
+			  if (child.tagName === "VIDEO") {
+				child.pause();
+				child.currentTime = 0;
+				child.src = "";
+			  }
+
+			  child.remove();
+			}
         }, 500);
       }
     });
@@ -948,6 +1017,7 @@ function startStoryTimer() {
   
   //RAIL
   function openRailModal(item, index) {
+	scrollPosition = window.scrollY;
     closeTravelModal(); // close travel modal if open
     currentItemIndex = index;
     currentItemId = item.id;
@@ -1068,11 +1138,24 @@ function openTravelModal(item, index) {
   // CLOSE MODAL
   // =========================
   
-  //RAIL
-  function closeModal() {
-    modal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-  }
+	function closeModal() {
+	  // Stop all videos
+	  const videos = modal.querySelectorAll("video");
+	  videos.forEach((video) => {
+		video.pause();
+		video.currentTime = 0;
+		video.src = "";
+	  });
+
+	  // Clear media
+	  modalMediaWrapper.innerHTML = "";
+
+	  modal.classList.add("hidden");
+	  document.body.style.overflow = "auto";
+
+	  // Restore scroll position
+	  window.scrollTo(0, scrollPosition);
+	}
 
   closeBtn.addEventListener("click", closeModal);
 
@@ -1524,6 +1607,9 @@ travelMedia.addEventListener("touchend", (e) => {
 			<!-- DESCRIPTION -->
 			<p class="text-sm text-text-slate-500 leading-relaxed line-clamp-3 group-hover:opacity-0 transition duration-300">
 			  ${post.description}
+			<p class="text-xs text-slate-400 italic">
+			  Why this matters to me: ${post.insight || "Add your perspective here."}
+			</p>			  
 			</p>
 
 			<!-- HOVER TEASER -->
@@ -1713,7 +1799,22 @@ travelMedia.addEventListener("touchend", (e) => {
 	  const el = document.getElementById(id);
 	  if (el) observer.observe(el);
 	});
+	
+	// =========================
+	// TAB VISIBILITY CONTROL (TRAVEL)
+	// =========================
+	document.addEventListener("visibilitychange", () => {
+	  if (document.hidden) {
+		isPaused = true;
+	  } else {
+		isPaused = false;
 
+		// restart only if modal is open
+		if (!travelModal.classList.contains("hidden")) {
+		  startStoryTimer();
+		}
+	  }
+	});
 });
   </script>
 
