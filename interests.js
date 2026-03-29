@@ -6,6 +6,7 @@ window.interests = [
     items: [
       {
         id: "prr-1211",
+		slug: "prr-e6-4-4-2-atlantic",
 		name: "PRR E6 4-4-2, Atlantic",
         cover: "assets/model-railroad/prr-E6.jpg",
         media: [
@@ -34,6 +35,7 @@ window.interests = [
 
       {
         id: "1100",
+		slug: "brass-steam-collection",
 		name: "Brass Steam Collection",
         cover: "assets/brass.jpg",
         media: [
@@ -60,6 +62,7 @@ window.interests = [
     items: [
       {
         id: "Kyoto",
+		slug: "kyoto-japan-experience",
 		name: "Kyoto, Japan",
         meta: "Japan • 2023",
 		theme: "spring",
@@ -73,6 +76,7 @@ window.interests = [
       },
       {
         id: "Alaska",
+		slug: "alaska-wilderness-experience",
 		name: "Alaska, USA",
         meta: "USA • Wilderness",
 		theme: "winter",
@@ -92,6 +96,7 @@ window.interests = [
     posts: [
       {
         id: "ai-in-revenue-recognition",
+		slug: "ai-revenue-recognition",
 		title: "AI in Revenue Recognition",
         source: "McKinsey",
         tag: "Whitepaper",
@@ -101,6 +106,7 @@ window.interests = [
       },
       {
         id: "future-of-autonomous-finance",
+		slug: "autonomous-finance-future",
 		title: "Future of Autonomous Finance",
         source: "Deloitte",
         tag: "Research",
