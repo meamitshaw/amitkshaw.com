@@ -1014,7 +1014,7 @@
 	  icon: "fab fa-linkedin",
 	  featured: false,
 	  type: "bridge",
-	  readingTime: "3 mins read",
+	  readingTime: "4 mins read",
 	  sections: [
 
 		{
