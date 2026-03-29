@@ -262,6 +262,18 @@
 	transition:all .3s ease;
 	}
 
+    [data-aos] {
+      transition-property: transform, opacity !important;
+    }
+
+	.group:hover img {
+	  transform: scale(1.03);
+	}
+
+	.group img {
+	  transition: transform 0.4s ease;
+	}
+	
 	</style>
 
 	</head>
@@ -1691,9 +1703,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const card = document.createElement("a");
 
-    card.href = article.link;
-    card.target = "_blank";
-    card.rel = "noopener noreferrer";
+	// Determine href and target based on type and availability
+	if (article.type === "bridge" && article.bridge) {
+	  card.href = article.bridge; // internal bridge page
+	  card.target = "_self";
+	} else if (article.type === "blog" && article.content) {
+	  card.href = `blog.html?article=${article.id}`; // internal blog page
+	  card.target = "_self";
+	} else if (article.link) {
+	  card.href = article.link; // external
+	  card.target = "_blank";
+	  card.rel = "noopener noreferrer";
+	} else {
+	  card.href = "#"; // fallback
+	  card.target = "_self";
+	}
 
     card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
 

@@ -10,6 +10,23 @@
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+  
+    [data-aos] {
+      transition-property: transform, opacity !important;
+    }
+
+	.group:hover img {
+	  transform: scale(1.03);
+	}
+
+	.group img {
+	  transition: transform 0.4s ease;
+	}
+	
+  </style>
+
 </head>
 
 <body id="top" class="bg-slate-50 text-slate-800">
@@ -18,7 +35,7 @@
 <nav class="w-full bg-white border-b border-slate-100 py-6">
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
     <a href="index.html" class="font-bold text-slate-900 flex items-center">
-      <i class="fas fa-arrow-left mr-3 text-sky-500"></i> Back to Home
+      <i class="fas fa-arrow-left mr-3 text-sky-500"></i> Home
     </a>
     <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
   </div>
@@ -188,9 +205,25 @@ function createCard(a, index = 0) {
   const delay = 100 + index * 100;
 
   const card = document.createElement("a");
-  card.href = a.link;
-  card.target = "_blank";
-  card.rel = "noopener noreferrer";
+  // Determine card href and target based on type and availability
+  if (a.type === "bridge" && a.bridge) {
+    // Internal bridge page: same tab
+    card.href = a.bridge;
+    card.target = "_self";
+  } else if (a.type === "blog" && a.content) {
+    // Internal blog page: same tab
+    card.href = `blog.html?article=${a.id}`;
+    card.target = "_self";
+  } else if (a.link) {
+    // External article: open in new tab for safety & SEO
+    card.href = a.link;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+  } else {
+    // Fallback if nothing is defined
+    card.href = "#";
+    card.target = "_self";
+  }
 
   card.className = "group bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between";
 

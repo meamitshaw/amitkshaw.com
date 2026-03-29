@@ -91,7 +91,8 @@ window.interests = [
     title: "AI + Finance",
     posts: [
       {
-        title: "AI in Revenue Recognition",
+        id: "ai-in-revenue-recognition",
+		title: "AI in Revenue Recognition",
         source: "McKinsey",
         tag: "Whitepaper",
         link: "https://www.mckinsey.com/",
@@ -99,7 +100,8 @@ window.interests = [
 		insight: "This is where I see AI moving from analysis to decision-making."
       },
       {
-        title: "Future of Autonomous Finance",
+        id: "future-of-autonomous-finance",
+		title: "Future of Autonomous Finance",
         source: "Deloitte",
         tag: "Research",
         link: "https://www2.deloitte.com/",

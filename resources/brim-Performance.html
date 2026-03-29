@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAP BRIM Performance Optimization | Architecture Guide</title>
+<meta name="description" content="Techniques to scale billing runs using SAP Convergent Invoicing multithreading.">
+<meta name="author" content="Personal Blog">
+<meta name="keywords" content="">
+<link rel="canonical" href="https://amitkshaw.com/resources/brim-Performance.html">
+<meta property="og:title" content="SAP BRIM Performance Optimization">
+<meta property="og:description" content="Techniques to scale billing runs using SAP Convergent Invoicing multithreading.">
+<meta property="og:image" content="https://amitkshaw.com/assets/assets/brim-performance.jpg">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SAP BRIM Performance Optimization",
+  "author": {
+    "@type": "Person",
+    "name": "Personal Blog"
+  },
+  "datePublished": "2026-03-27T01:05:34.446Z",
+  "image": "https://amitkshaw.com/assets/assets/brim-performance.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Amit Kumar Shaw",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://amitkshaw.com/assets/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://amitkshaw.com/resources/brim-Performance.html"
+  },
+  "description": "Techniques to scale billing runs using SAP Convergent Invoicing multithreading."
+}</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<style>
+.clock-icon { width: 18px; height: 18px; border: 2px solid #6366f1; border-radius: 50%; position: relative; display: inline-block; }
+.clock-icon::before { content:""; position:absolute; width:2px; height:5px; background:#6366f1; top:4px; left:50%; transform-origin:bottom; animation: hourHand 6s linear infinite; }
+.clock-icon::after { content:""; position:absolute; width:2px; height:7px; background:#f59e0b; top:2px; left:50%; transform-origin:bottom; animation: minuteHand 2s linear infinite; }
+@keyframes minuteHand { from {transform:rotate(0deg) translateX(-50%);} to {transform:rotate(360deg) translateX(-50%);} }
+@keyframes hourHand { from {transform:rotate(0deg) translateX(-50%);} to {transform:rotate(360deg) translateX(-50%);} }
+</style>
+</head>
+<body id="top" class="bg-slate-50 text-slate-800">
+
+<!-- NAV -->
+<nav class="w-full bg-white border-b border-slate-100 py-6">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+  <div class="flex gap-4 items-center">
+    <a href="/" class="font-bold text-slate-900 flex items-center px-3 py-2 border border-slate-200 rounded-lg hover:bg-sky-50 hover:border-sky-300 transition"><i class="fas fa-home mr-2 text-sky-500"></i> Home</a>
+    <a href="/resources" class="font-bold text-slate-900 flex items-center px-3 py-2 border border-slate-200 rounded-lg hover:bg-indigo-50 hover:border-indigo-300 transition"><i class="fas fa-arrow-left mr-2 text-indigo-500"></i> Knowledge Hub</a>
+  </div>
+  <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Knowledge Hub</span>
+</div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-20">
+<div class="flex flex-col lg:flex-row gap-10">
+<div class="flex-1" id="article-content">
+<nav class="text-sm text-slate-500 mb-6" data-aos="fade-up">
+  <a href="/" class="hover:text-sky-600">Home</a>
+  <span class="mx-2">›</span>
+  <a href="/resources" class="hover:text-sky-600">Knowledge Hub</a>
+  <span class="mx-2">›</span>
+  <span class="text-slate-700 font-semibold">SAP BRIM Performance Optimization</span>
+</nav>
+
+<h1 class="text-4xl font-bold mb-4" data-aos="fade-up">SAP BRIM Performance Optimization</h1>
+<div class="flex flex-wrap gap-4 mb-4 text-sm text-slate-500" data-aos="fade-up">
+  <span>Personal Blog</span>
+  <span></span>
+</div>
+
+<div class="flex flex-wrap gap-2 mb-6" data-aos="fade-up">
+  <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded uppercase">Performance</span>
+  <span class="text-[10px] font-bold px-2 py-1 rounded uppercase">SAP BRIM</span>
+</div>
+
+<p class="text-sm text-slate-400 mb-8" data-aos="fade-up">Source: Personal Blog • Curated & Expanded by Amit Kumar Shaw</p>
+<p class="text-sm text-slate-400 mb-8 flex items-center gap-2" data-aos="fade-up">
+  <span class="clock-icon"></span> 
+</p>
+
+<div id="article-intro" data-aos="fade-up">
+  <p class="text-slate-600 mb-6 leading-relaxed">Techniques to scale billing runs using SAP Convergent Invoicing multithreading.</p>
+</div>
+
+<div id="bridge-sections">
+
+</div>
+
+<!-- CTA -->
+<div class="bg-white border border-slate-200 rounded-2xl p-6 mt-10" data-aos="fade-up">
+<p class="text-sm text-slate-500 mb-3">Read the full article at the original source:</p>
+<a href="#" target="_blank" class="inline-block text-indigo-600 font-semibold hover:text-indigo-800 transition">Read Full Article →</a>
+</div>
+</div>
+
+<!-- FAQ -->
+
+</div>
+</div>
+
+<!-- Related Articles -->
+<div class="max-w-7xl mx-auto px-6 pb-20" data-aos="fade-up">
+<h2 class="text-2xl font-bold mb-6">Related Articles</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+<img src="/assets/sap-rar-brim.jpg" class="w-full h-40 object-cover" loading="lazy"/>
+<div class="p-4">
+<p class="text-xs text-slate-400 mb-2 uppercase">Integration</p>
+<h3 class="font-semibold text-slate-800 mb-2">IFRS-15 Compliance: SAP RAR Integration with SAP BRIM</h3>
+<p class="text-sm text-slate-500 mb-4">Architecting the flow between subscription billing and revenue recognition engines to ensure IFRS 15 compliance.</p>
+<a href="/resources/brim-rar-integration.html" class="text-indigo-600 font-semibold text-sm hover:text-indigo-800">Read More →</a>
+</div></div><div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+<img src="/assets/brim-vertex.jpg" class="w-full h-40 object-cover" loading="lazy"/>
+<div class="p-4">
+<p class="text-xs text-slate-400 mb-2 uppercase">Taxation</p>
+<h3 class="font-semibold text-slate-800 mb-2">SAP S/4HANA BRIM Integration with Vertex Tax Solution</h3>
+<p class="text-sm text-slate-500 mb-4">Handling global taxation complexities and automated tax calculations in high-volume subscription environments.</p>
+<a href="/resources/brim-vertex-tax.html" class="text-indigo-600 font-semibold text-sm hover:text-indigo-800">Read More →</a>
+</div></div><div class="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+<img src="/assets/fica-realtime.png" class="w-full h-40 object-cover" loading="lazy"/>
+<div class="p-4">
+<p class="text-xs text-slate-400 mb-2 uppercase">Financial Ops</p>
+<h3 class="font-semibold text-slate-800 mb-2">Real-Time Processing in SAP FI-CA using External Cash Desks</h3>
+<p class="text-sm text-slate-500 mb-4">Utilizing External Cash Desks to optimize payment processing and clearing cycles for Utilities and Telecom.</p>
+<a href="/resources/fica-realtime-framework.html" class="text-indigo-600 font-semibold text-sm hover:text-indigo-800">Read More →</a>
+</div></div>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="text-center space-y-4 pt-10 pb-10 border-t border-slate-200" data-aos="fade-up">
+<p class="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+Across engineering systems, intelligent models, and global environments, I explore how complexity is designed, understood, and evolved.
+</p>
+<div class="w-12 h-px bg-slate-300 mx-auto"></div>
+<p class="text-xs text-slate-400 tracking-wide">
+Exploring how systems think, scale, and transform.
+</p>
+<p class="text-xs text-slate-400 tracking-wide">
+© 2026 Amit Kumar Shaw
+</p>
+<div class="mt-4">
+<a href="#top" class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-sky-600 hover:border-sky-600 transition mx-auto">
+<i class="fas fa-chevron-up text-xs"></i>
+</a>
+</div>
+</div>
+
+<script>
+document.querySelectorAll(".faq-question").forEach(btn=>btn.addEventListener("click",()=>{
+  const ans = btn.nextElementSibling; const hidden = ans.classList.toggle("hidden");
+  btn.setAttribute("aria-expanded", !hidden);
+}));
+const faqSearch=document.getElementById("faq-search");
+if(faqSearch){faqSearch.addEventListener("input",function(){
+  const query=this.value.toLowerCase();
+  document.querySelectorAll(".faq-item").forEach(item=>item.style.display=item.textContent.toLowerCase().includes(query)?"block":"none");
+});}
+if(typeof AOS!=="undefined"){AOS.init({once:true,duration:800});}
+</script>
+
+</body>
+</html>
