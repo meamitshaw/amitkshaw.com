@@ -282,11 +282,18 @@
     min-height: 100vh;
 	}
 	
+	#lightbox-img {
+	transition: all 0.4s ease;
+	}
+	
 	</style>
 
 	</head>
 
 	<body class="bg-slate-50 text-slate-800 font-sans">
+	
+	<!-- Scroll Progress Bar -->
+	<div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-sky-500 z-[200] w-0"></div>
 
 	<!-- Navigation -->
 	<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-sky-100">
@@ -1001,15 +1008,15 @@
                     <div class="relative z-10">
                         <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Recent Visits</span>
                         <ul class="mt-4 space-y-3">
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/japan-kyoto.jpg')">
+                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/japan-kyoto.jpg', 'Tokyo & Kyoto, Japan')">
                                 <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Tokyo & Kyoto, Japan</span>
                                 <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
                             </li>
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/alaska.jpg')">
+                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/alaska.jpg', 'Alaska, USA')">
                                 <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Alaska, USA</span>
                                 <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
                             </li>
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/colorado.jpg')">
+                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/colorado.jpg', 'Colorado, USA')">
                                 <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Colorado, USA</span>
                                 <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
                             </li>
@@ -1281,7 +1288,7 @@ Responses typically within 1–2 business days
     </div>
 </footer>
 
-<div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
+<div id="lightbox" tabindex="0" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex-col items-center justify-center p-4">
     <button class="absolute top-8 right-8 text-white text-4xl hover:text-sky-400 transition">&times;</button>
     
     <div class="relative max-w-5xl">
@@ -1299,8 +1306,8 @@ Responses typically within 1–2 business days
 AOS.init({
   duration: 900,
   easing: "ease-out-cubic",
-  once: false,
-  mirror: true
+  once: true,
+  mirror: false
 });
 
 
@@ -1314,6 +1321,14 @@ function openLightbox(src, caption="Portfolio Detail") {
 
   img.src = src;
   cap.innerText = caption;
+  
+  lightbox.classList.remove("hidden");
+  lightbox.classList.add("flex");
+
+  setTimeout(() => {
+    img.style.transform = "scale(1)";
+    img.style.opacity = "1";
+  }, 50);
 
   lightbox.classList.remove("hidden");
   lightbox.classList.add("flex");
@@ -1332,6 +1347,8 @@ function closeLightbox() {
 }
 
 document.getElementById("lightbox").addEventListener("click", (e) => {
+const lightbox = document.getElementById("lightbox");
+
   if (e.target === lightbox || e.target.tagName === "BUTTON") {
     closeLightbox();
   }
@@ -1339,6 +1356,7 @@ document.getElementById("lightbox").addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
+  if (e.key === "Enter") closeLightbox(); // optional
 });
 
 
@@ -1363,6 +1381,16 @@ if (canvas) {
   const ctx = canvas.getContext("2d");
 
   let particles = [];
+
+  let isVisible = true;
+
+  document.addEventListener("visibilitychange", () => {
+    isVisible = !document.hidden;
+	
+	if (isVisible) {
+      animate();
+    }
+  });
 
   function resizeCanvas() {
 
@@ -1537,30 +1565,28 @@ if (canvas) {
 
   /* ANIMATION LOOP */
 
-  function animate() {
+	function animate() {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+	  if (!isVisible) return; // ✅ stop when tab not active
 
-    particles.forEach(p => {
+	  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      p.update();
-      p.draw();
+	  particles.forEach(p => {
+		p.update();
+		p.draw();
+	  });
 
-    });
+	  drawFloatingLabels();
+	  drawSystemNodes();
+	  connect();
 
-    drawFloatingLabels();
-    drawSystemNodes();
+	  requestAnimationFrame(animate);
+	}
 
-    connect();
+	  init();
+	  animate();
 
-    requestAnimationFrame(animate);
-
-  }
-
-  init();
-  animate();
-
-}
+	}
 
 /* NAVBAR COLOR CHANGE ON SCROLL */
 
@@ -1577,6 +1603,20 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
+/* SCROLL PROGRESS JS */
+
+const progressBar = document.getElementById("scroll-progress");
+
+if (progressBar) {
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+  });
+}
 
 
 /* MOBILE MENU */
@@ -1630,7 +1670,8 @@ document.querySelectorAll(".mobile-link").forEach(link => {
       const target = document.querySelector(targetId);
 
       if (target) {
-        const yOffset = -120; // navbar height
+        const navHeight = document.querySelector("nav")?.offsetHeight || 100;
+		const yOffset = -navHeight;
 		const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
 		window.scrollTo({
@@ -1687,7 +1728,8 @@ window.addEventListener("load", () => {
       const target = document.querySelector("#" + section);
 
       if (target) {
-        const yOffset = -100; // match navbar height
+        const navHeight = document.querySelector("nav")?.offsetHeight || 100;
+		const yOffset = -navHeight;
         const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
         window.scrollTo({
@@ -1765,7 +1807,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card.innerHTML = `
       <div>
 
-        <img src="${article.image}" alt="${article.title}" class="w-full h-40 object-cover rounded-2xl mb-4">
+        <img src="${article.image}" alt="${article.title || 'Article Image'}" class="w-full h-40 object-cover rounded-2xl mb-4">
 
         <div class="flex justify-between items-start mb-4">
 
