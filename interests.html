@@ -604,7 +604,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let travelTimer = null;
   let travelProgressBars = [];
   let isPaused = false;
-  let storyDuration = 4000; // 4 sec per slide
+  let storyDuration = 7000; // 7 sec per slide
   let travelModalOpen = false;
 
   // =========================
@@ -1027,8 +1027,13 @@ function startStoryTimer() {
   function animate() {
     if (isPaused) return;
 
-    const elapsed = Date.now() - startTime;
-    const progress = Math.min(elapsed / storyDuration, 1);
+	const elapsed = Date.now() - startTime;
+
+	// Dynamic duration based on text length
+	const textLength = travelStory.innerText.length;
+	const duration = Math.max(storyDuration, textLength * 30);
+
+	const progress = Math.min(elapsed / duration, 1);
 
     currentBar.style.width = `${progress * 100}%`;
 
@@ -1878,28 +1883,14 @@ card.querySelector(".card-arrow").addEventListener("click", (e) => {
 		`;
 
 		// CLICK HANDLER
-		const link = card.querySelector("a");
-		if (link) {
-		  link.addEventListener("click", (e) => {
-			e.preventDefault();
-			e.stopPropagation(); // prevents link from hijacking click
-		  });
-		}
-		
 		card.addEventListener("click", (e) => {
 		  e.preventDefault();
-
-setTimeout(() => {
-  openTravelModal(item, i);
-}, 50);
-
-		  if (travelModalOpen) return;
-		  travelModalOpen = true;
 
 		  currentTravelItems = section.items;
 		  currentTravelIndex = i;
 
 		  openTravelModal(item, i);
+
 		  history.pushState(null, "", `?item=${item.slug}`);
 		});
 		
