@@ -278,6 +278,10 @@
 	  transition: transform 0.4s ease;
 	}
 	
+	#interests {
+    min-height: 100vh;
+	}
+	
 	</style>
 
 	</head>
@@ -1626,7 +1630,7 @@ document.querySelectorAll(".mobile-link").forEach(link => {
       const target = document.querySelector(targetId);
 
       if (target) {
-        const yOffset = -90; // navbar height
+        const yOffset = -120; // navbar height
 		const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
 		window.scrollTo({
