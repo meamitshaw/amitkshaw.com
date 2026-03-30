@@ -33,6 +33,9 @@
 
 <body id="top" class="bg-slate-50 text-slate-800">
 
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-sky-500 z-[200] w-0"></div>
+
 <!-- NAV -->
 <nav class="w-full bg-white border-b border-slate-100 py-6">
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -137,6 +140,20 @@ const clearBtn = document.getElementById("clear-filters");
 
 let activeCategories = new Set();
 let activeTags = new Set();
+
+/* SCROLL PROGRESS JS */
+
+const progressBar = document.getElementById("scroll-progress");
+
+if (progressBar) {
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+  });
+}
 
 // CATEGORY
 const categoryMap = {};
