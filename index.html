@@ -91,6 +91,10 @@
 	html{
 	scroll-behavior:smooth;
 	}
+	
+	section {
+    scroll-margin-top: 100px;
+    }
 
 	body{
 	font-family:'Inter',sans-serif;
@@ -1622,7 +1626,13 @@ document.querySelectorAll(".mobile-link").forEach(link => {
       const target = document.querySelector(targetId);
 
       if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        const yOffset = -90; // navbar height
+		const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+		window.scrollTo({
+		  top: y,
+		  behavior: "smooth"
+		});
       }
 
     }
@@ -1653,12 +1663,36 @@ window.addEventListener("scroll", () => {
     }
   });
 
+  sessionStorage.setItem("currentSection", current);
+
   navLinks.forEach(link => {
     link.classList.remove("text-sky-600");
     if (link.getAttribute("href") === "#" + current) {
       link.classList.add("text-sky-600");
     }
   });
+});
+
+/* RESTORE SCROLL */
+
+window.addEventListener("load", () => {
+  const section = sessionStorage.getItem("currentSection");
+
+  if (section) {
+    setTimeout(() => {
+      const target = document.querySelector("#" + section);
+
+      if (target) {
+        const yOffset = -100; // match navbar height
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "auto" // ⚠️ "instant" is not standard everywhere
+        });
+      }
+    }, 120); // small delay for layout + AOS
+  }
 });
 
 </script>    
