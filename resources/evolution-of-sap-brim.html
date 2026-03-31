@@ -255,5 +255,48 @@
 <!-- External Script -->
 <script src="../bridgeScripts.js"></script>
 
+<!-- Footer + GA + Cookie Banner -->
+<!-- Font Awesome CDN for fa-circle-info -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pM6K1XGzp/8Hfz/8iVOVB+59xZ6hkqC/ZxrY8lXz0M8s4K1cV6nOHTG2tMzq1R6oTfPtmnGqP/1djY2K6GT/hA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<footer class="bg-[#0a0a0b] py-3 px-4 text-center font-['Roboto'] text-xs text-slate-400">
+
+  <!-- Links with premium info icon divider -->
+  <div class="flex justify-center items-center space-x-2">
+    <a href="/privacy.html" target="_blank" class="text-white hover:opacity-70 transition-opacity">Privacy Policy</a>
+
+    <!-- Info Icon with Tailwind-style tooltip -->
+    <div class="relative group">
+      <i class="fa-solid fa-circle-info text-slate-400 text-[11px] cursor-pointer transition-colors"></i>
+      <span class="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 bg-slate-500 text-white text-xs px-2 py-1 rounded opacity-0 pointer-events-none group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-200">
+        This site uses anonymized Google Analytics to understand usage pattern. Continued use implies consent.
+      </span>
+    </div>
+
+    <a href="/disclaimer.html" target="_blank" class="text-white hover:opacity-70 transition-opacity">Disclaimer</a>
+  </div>
+</footer>
+
+<!-- Google Analytics -->
+<script>
+  // GA4 Setup
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  var gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5BD4LY1CJZ"; // Replace with GA4 ID
+  document.head.appendChild(gaScript);
+
+  gtag('js', new Date());
+  gtag('config', 'G-5BD4LY1CJZ', { 'anonymize_ip': true });
+</script>
+
+<style>
+  footer a:hover {
+    opacity: 0.7;
+  }
+</style>
+
 </body>
 </html>
