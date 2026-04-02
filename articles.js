@@ -21,6 +21,7 @@
 	  featured: true,
 	  type: "bridge",
 	  readingTime: "4 mins read",
+	  date: "2023-10-10",
 	  sections: [
 
 		{
@@ -183,6 +184,7 @@
 	  featured: true,
 	  type: "bridge",
 	  readingTime: "4 mins read",
+	  date: "2023-01-31",
 	  sections: [
 
 		{
@@ -318,6 +320,7 @@
 	  featured: true,
 	  type: "bridge",
 	  readingTime: "4 mins read",
+	  date: "2024-06-18",
 	  sections: [
 
 		{
@@ -454,6 +457,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "5 mins read",
+	  date: "2023-05-11",
 	  sections: [
 
 		{
@@ -624,6 +628,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "3 mins read",
+	  date: "2022-11-22",
 	  sections: [
 
 		{
@@ -735,6 +740,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "4 mins read",
+	  date: "2025-03-03",
 	  sections: [
 
 		{
@@ -815,6 +821,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "3 mins read",
+	  date: "2023-08-11",
 	  sections: [
 
 		{
@@ -910,6 +917,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "3 mins read",
+	  date: "2022-12-15",
 	  sections: [
 
 		{
@@ -1015,6 +1023,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "4 mins read",
+	  date: "2022-04-30",
 	  sections: [
 
 		{
@@ -1135,6 +1144,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "2 mins read",
+	  date: "2023-01-06",
 	  sections: [
 
 		{
@@ -1191,6 +1201,7 @@
 	  featured: false,
 	  type: "bridge",
 	  readingTime: "2 mins read",
+	  date: "2023-03-23",
 	  sections: [
 
 		{
@@ -1268,12 +1279,13 @@
 	  intro: "",
 	  image: "assets/brim-performance.jpg",
 	  link: "#",
-	  bridge: "resources/brim-Performance.html",
+	  bridge: "",
+	  page: "resources/brim-Performance.html",
 	  category: "Performance",
 	  tags: ["SAP BRIM"],
 	  keywords: [],
 	  source: "Personal Blog",
-	  author: "",
+	  author: "Amit Kumar Shaw",
 	  icon: "fas fa-pen-nib",
 	  featured: false,
 	  type: "blog",

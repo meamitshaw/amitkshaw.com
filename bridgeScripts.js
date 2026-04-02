@@ -288,10 +288,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     tocLinks.forEach(link => {
       link.classList.remove("text-indigo-600", "font-semibold", "bg-indigo-50");
-      if (link.dataset.target === current)
+      if (link.dataset.target === current) {
         link.classList.add("text-indigo-600", "font-semibold", "bg-indigo-50");
 		link.classList.add("active");
+	} else {
 		link.classList.remove("active");
+	}
     });
   });
 
@@ -373,26 +375,78 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("bridge-full-link").href = article.link;
 
 	document.title = `${article.title} | ${article.category} Guide`;
-	document.getElementById("meta-description").content = article.description || "";
+	document.getElementById("meta-description").content = article.description || article.intro?.[0] || "";
 	document.getElementById("meta-keywords").content = (article.keywords || []).join(", ");
 	document.getElementById("og-title").content = article.title;
 	document.getElementById("og-description").content = article.description || "";
-	document.getElementById("og-image").content = article.image || "";
-	if (article.slug) {
-	  document.querySelector('link[rel="canonical"]').href = `${window.location.origin}/resources/${article.slug}.html`;
-	}
+	document.getElementById("og-image").content =
+		new URL(article.image, window.location.origin).href;
+		if (article.slug) {
+		  document.querySelector('link[rel="canonical"]').setAttribute(
+			"href",
+			`${window.location.origin}/resources/${article.slug}.html`
+		  );
+		}
 
 	// Article Schema
+	function convertToISOTime(readingTime) {
+	  if (!readingTime) return null;
+	  const mins = parseInt(readingTime);
+	  return `PT${mins}M`;
+	}
+
 	document.getElementById("article-schema").textContent = JSON.stringify({
 	  "@context": "https://schema.org",
-	  "@type": "Article",
+	  "@type": "BlogPosting",
+
 	  "headline": article.title,
 	  "description": article.description,
+
 	  "image": new URL(article.image, window.location.origin).href,
-	  "author": { "@type": "Person", "name": article.author },
-	  "publisher": { "@type": "Organization", "name": "Amit Kumar Shaw" },
-	  "mainEntityOfPage": window.location.href,
+
+	  "author": {
+		"@type": "Person",
+		"name": article.author || "Amit Kumar Shaw"
+	  },
+
+	  "publisher": {
+		"@type": "Organization",
+		"name": "Amit Kumar Shaw"
+	  },
+
+	  "mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": window.location.href
+	  },
+
+	  "url": window.location.href,
+
+	  "keywords": (article.keywords || []).join(", "),
+
+	  "timeRequired": convertToISOTime(article.readingTime),
+	  "datePublished": article.date,
+	  "dateModified": article.date
 	});
+
+	// FAQ Schema
+	if (article.faq && article.faq.length > 0) {
+
+	  const faqSchema = {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": article.faq.map(f => ({
+		  "@type": "Question",
+		  "name": f.question,
+		  "acceptedAnswer": {
+			"@type": "Answer",
+			"text": f.answer
+		  }
+		}))
+	  };
+
+	  document.getElementById("faq-schema").textContent =
+		JSON.stringify(faqSchema);
+	}
 
 	// ======================
 	// RELATED ARTICLES
