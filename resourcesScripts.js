@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
     filtered.forEach(a => { if(!a.featured){ resourcesGrid.appendChild(createCard(a,index)); index++; } });
     if(index === 0){ resourcesGrid.innerHTML = `<p class="text-slate-400 text-sm">No articles found for selected filters.</p>`; }
     if (filtered.length < 20) {
-    AOS.refresh();
+    AOS.refreshHard();
 	}
     renderActiveFilters();
   }
@@ -235,7 +235,12 @@ document.addEventListener("DOMContentLoaded", function() {
   renderFeatured();
   applyFilters();
   rebuildButtons();
-  AOS.init();
+  AOS.init({
+  duration: 900,
+  easing: "ease-out-cubic",
+  once: true,
+  mirror: false
+});
 
   // ======================
   // JSON-LD: ItemList

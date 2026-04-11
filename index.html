@@ -55,7 +55,7 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 
 	<!-- ADD FONT AWESOME HERE -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<script>
 	tailwind.config = {
@@ -1009,10 +1009,14 @@
                     <div class="relative z-10">
                         <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Recent Visits</span>
                         <ul class="mt-4 space-y-3">
-                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/japan-kyoto.jpg', 'Tokyo & Kyoto, Japan')">
-                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Tokyo & Kyoto, Japan</span>
+                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/kyoto.jpg', 'Kyoto, Japan')">
+                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Kyoto, Japan</span>
                                 <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
                             </li>
+                            <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/tokyo.jpg', 'Tokyo, Japan')">
+                                <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Tokyo, Japan</span>
+                                <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
+                            </li>							
                             <li class="flex items-center justify-between text-slate-700 text-xs font-bold group/item hover:text-sky-600 transition-colors" onclick="event.stopPropagation(); openLightbox('assets/alaska.jpg', 'Alaska, USA')">
                                 <span><i class="fas fa-camera mr-2 text-sky-400 opacity-0 group-hover/item:opacity-100 transition-all transform -translate-x-2 group-hover/item:translate-x-0"></i> Alaska, USA</span>
                                 <i class="fas fa-chevron-right text-[10px] text-sky-200 group-hover/item:translate-x-1 transition-transform"></i>
@@ -1882,8 +1886,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- Footer + GA + Cookie Banner -->
 <!-- Font Awesome CDN for fa-circle-info -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pM6K1XGzp/8Hfz/8iVOVB+59xZ6hkqC/ZxrY8lXz0M8s4K1cV6nOHTG2tMzq1R6oTfPtmnGqP/1djY2K6GT/hA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <footer class="bg-[#0a0a0b] py-3 px-4 text-center font-['Roboto'] text-xs text-slate-400">
 
   <!-- Links with premium info icon divider -->
