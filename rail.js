@@ -371,7 +371,6 @@ function renderRailProgress() {
 // OPEN MODAL
 function openRailModal(item, index) {
   if (!item) return;
-  currentRailItems = interests.find(s => s.type === "railroad").items;
 
   window.lastScrollPosition = window.scrollY;
 
@@ -558,11 +557,12 @@ document.addEventListener("keydown", (e) => {
 
 
   // TEXT PANEL SWIPE (CARD NAV)
-  const modalTextPanel = modal.querySelector(".overflow-y-auto");
+  const modalTextPanel = document.getElementById("rail-text-panel");
 
   let textStartX = 0;
   let textStartY = 0;
 
+  if (modalTextPanel) {
   modalTextPanel.addEventListener("touchstart", (e) => {
     const touch = e.touches[0];
     textStartX = touch.clientX;
@@ -585,6 +585,7 @@ document.addEventListener("keydown", (e) => {
     else showPrevItem();
 
   }, { passive: true });
+  }
 }
 
 	
@@ -653,6 +654,7 @@ if (!railSection || !railGrid) return;
 currentRailItems = railSection.items;
 
 const sortedItems = sortByDate(railSection.items);
+currentRailItems = sortedItems;
 sortedItems.forEach((item, i) => {
 const card = document.createElement("div");
 card.className = "card-3d group relative rounded-2xl overflow-hidden cursor-pointer shadow-lg";
@@ -673,14 +675,14 @@ card.innerHTML = `
 // Story toggle
 card.querySelector(".story-toggle").addEventListener("click", (e) => {
   e.stopPropagation();
-  openRailModal(item, i);
+  openRailModal(sortedItems[i], i);
   updateURL(item.slug, true);
 });
 
 // Arrow click
 card.querySelector(".card-arrow").addEventListener("click", (e) => {
   e.stopPropagation();
-  openRailModal(item, i);
+  openRailModal(sortedItems[i], i);
   updateURL(item.slug, true);
 });
 

@@ -1,3 +1,2 @@
-*.html text/html
-*.css text/css
-*.js text/javascript
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text

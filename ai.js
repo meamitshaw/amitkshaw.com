@@ -42,6 +42,43 @@ export function renderAI(interests) {
 
 document.addEventListener("keydown", handleEsc);
 
+  // Auto-open from URL
+  function openFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("item");
+
+    if (!slug) return;
+
+    const match = sortedPosts.find(p => p.slug === slug);
+    if (!match) return;
+
+    expandCard(match);
+
+    // Optional: set activeCard visually (if needed later)
+    activeCard = null;
+  }
+
+  // Run after render
+  setTimeout(openFromURL, 100);
+  
+
+  // BACK / FORWARD NAV SUPPORT
+  window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("item");
+
+    if (!slug) {
+      collapseCard();
+      return;
+    }
+
+    const match = aiSection.posts.find(p => p.slug === slug);
+    if (match) {
+      expandCard(match);
+      injectSEO(match);
+    }
+  });
+
   // AI Card Render
   const sortedPosts = sortByDate(aiSection.posts);
   sortedPosts.forEach((post, i) => {
@@ -61,9 +98,9 @@ document.addEventListener("keydown", handleEsc);
 			${post.tag}
 			</span>
             <h3 class="font-bold text-lg text-slate-800 mt-2">${post.title}</h3>
-            <p class="text-xs text-slate-400 mt-1">Source: ${post.source}</p>
-            <p class="text-sm text-slate-500 mt-4 line-clamp-4">${post.description}</p>
-			<p class="text-[11px] text-slate-400 mt-1 flex items-center gap-2">${post.date ? `<span>${post.date}</span>` : ""}
+            <p class="text-xs text-slate-400 mt-2">Source: ${post.source}</p>
+            <p class="text-sm text-slate-500 mt-3 line-clamp-4">${post.description}</p>
+			<p class="text-[11px] text-slate-400 mt-3 flex items-center gap-2">${post.date ? `<span>${post.date}</span>` : ""}
 			  ${post.readTime ? `
 			   <span class="flex items-center gap-1">
 			   <i class="fas fa-clock-rotate-left text-indigo-500"></i>
@@ -169,7 +206,7 @@ function buildSubSectionHTML(sub) {
   `;
 
   // PARAGRAPHS
-  if (sub.type === "paragraphs") {
+  if (sub.type === "paragraphs" || sub.type === "paragraph") {
     const paragraphs = normalizeArray(sub.text);
 
     html += paragraphs
@@ -251,11 +288,13 @@ function buildSubSectionHTML(sub) {
 const sectionIcons = {
   insight: "🧠",
   thinking: "⚙",
+  focus: "🎯",
   evolution: "📈",
   quote: "❝❞",
-  highlight: "✨",
+  highlights: "✨",
   risks: "⚠",
-  data: "📊"
+  data: "📊",
+  commentary: "✍️"
 };
 
 // Build Sections
@@ -313,6 +352,17 @@ const sectionsHTML = safeContent
   .join("");
 
 	content.innerHTML = `
+	
+	  <!-- CLOSE BUTTON (GLOBAL) -->
+	  <button id="ai-panel-close"
+		class="fixed md:absolute top-4 right-4 md:top-2 md:right-2 
+			   w-9 h-9 flex items-center justify-center 
+			   bg-white/90 md:bg-transparent backdrop-blur 
+			   rounded-full shadow md:shadow-none 
+			   text-slate-600 hover:text-sky-500 z-50">
+		<i class="fas fa-times text-sm"></i>
+	  </button>
+		
 	  <div class="flex flex-col md:flex-row gap-6">
 
 		<!-- LEFT PANEL -->
@@ -324,7 +374,8 @@ const sectionsHTML = safeContent
 			${post.tag}
 			</span>
 			<h2 class="text-xl font-bold text-slate-800 mt-2">${post.title}</h2>
-			<p class="text-xs text-slate-400 mt-1">Source: ${post.source}</p>
+			<p class="italic font-semibold text-sm text-slate-600 mt-2">${post.subtitle}</p>
+			<p class="text-xs text-slate-400 mt-2">Source: ${post.source}</p>
 			<p class="text-sm text-slate-600 mt-4">${post.description}</p>
 		  </div>
 
@@ -342,11 +393,7 @@ const sectionsHTML = safeContent
 		<!-- RIGHT PANEL -->
 		<div class="panel-right w-full md:w-2/3 flex flex-col relative">
 
-		  <!-- CLOSE BUTTON (TOP RIGHT) -->
-		  <button id="ai-panel-close"
-			class="w-8 h-8 flex items-center justify-center absolute top-0 right-0 text-sm text-slate-400 hover:text-sky-500 transition">
-			<i class="fas fa-times text-sm"></i>
-		  </button>
+
 
 		  <!-- Scroll Progress -->
 		  <div class="ai-progress-bar">
@@ -388,12 +435,26 @@ const sectionsHTML = safeContent
 	const scrollContainer = content.querySelector(".ai-scroll-container");
 	const progressFill = content.querySelector(".ai-progress-fill");
 
-	scrollContainer.addEventListener("scroll", () => {
-	  const scrollTop = scrollContainer.scrollTop;
-	  const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+	// ✅ Wait for layout to stabilize
+	requestAnimationFrame(() => {
+	  const updateProgress = () => {
+		const scrollTop = scrollContainer.scrollTop;
+		const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
 
-	  const progress = (scrollTop / scrollHeight) * 100;
-	  progressFill.style.width = progress + "%";
+		if (scrollHeight <= 0) {
+		  progressFill.style.width = "0%";
+		  return;
+		}
+
+		const progress = (scrollTop / scrollHeight) * 100;
+		progressFill.style.width = progress + "%";
+	  };
+
+	  // Initial calculation
+	  updateProgress();
+
+	  // On scroll
+	  scrollContainer.addEventListener("scroll", updateProgress);
 	});
   }
 
@@ -502,5 +563,5 @@ const sectionsHTML = safeContent
 		name: post.title,
 		story
 	  });
-	}
+	}	
 }

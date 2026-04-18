@@ -398,7 +398,7 @@ img, video {
   max-width: 70rem;
   width: 92%;
   max-height: 85vh;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 2rem;
   transform: translateY(20px) scale(0.98);
   opacity: 0;
@@ -411,8 +411,7 @@ img, video {
 }
 
 .panel-right {
-  overflow-y: auto;
-  max-height: 65vh;
+  overflow: hidden;
   padding-right: 6px;
 }
 
@@ -748,7 +747,7 @@ img, video {
     id="rail-modal"
     role="dialog"
     aria-modal="true"
-    class="hidden fixed inset-0 bg-white/90 backdrop-blur-lg z-[999] flex items-center justify-center overflow-hidden"
+    class="hidden fixed inset-0 bg-white/90 backdrop-blur-lg z-[999] flex items-center justify-center overflow-y-auto"
   >
     <button
       id="close-modal"
@@ -763,7 +762,7 @@ img, video {
       ♡
     </button>
 
-    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-10 px-4 md:px-6">
+    <div class="w-full max-w-6xl grid md:grid-cols-2 gap-6 md:gap-10 px-4 md:px-6 py-6">
       <div class="relative flex flex-col items-center">
         <div
           id="modal-media-wrapper"
@@ -776,10 +775,10 @@ img, video {
       <div id="modal-thumbnails" class="flex gap-2 mt-4 overflow-x-auto"></div>
       </div>
 
-	<div class="flex flex-col h-[80vh] max-h-[80vh] min-h-0 text-black pl-2 md:pl-4">
+	<div class="flex flex-col md:h-[80vh] md:max-h-[80vh] min-h-0 text-black pl-2 md:pl-4">
 
 	  <!-- TOP SCROLLABLE CONTENT -->
-	  <div class="flex-1 min-h-0 overflow-y-auto space-y-4 pr-2">
+	  <div id="rail-text-panel" class="flex-1 min-h-0 md:overflow-y-auto space-y-4 pr-2">
 		<h2 id="modal-title" class="text-2xl font-bold"></h2>
 
 		<div id="modal-details" class="text-xs text-slate-500 space-y-1"></div>

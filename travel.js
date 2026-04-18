@@ -16,6 +16,9 @@ let travelStartX = 0;
 let originalOverflow = "";
 let hasSeenTravelHint = false;
 let currentTheme = "winter";
+let activeVideo = null;
+let videoProgressHandler = null;
+let isMuted = true;
 
 const travelModal = document.getElementById("travel-modal");
 const travelClose = document.getElementById("travel-close");
@@ -115,7 +118,6 @@ const themeImageStyles = {
   }
 };
 
-
 // HELPER (HISTORY)
 function updateURL(slug, push = false) {
   const params = new URLSearchParams(window.location.search);
@@ -129,6 +131,17 @@ function updateURL(slug, push = false) {
   } else {
     history.replaceState({ item: slug }, "", newURL);
   }
+}
+
+function killVideoCompletely(video) {
+  if (!video) return;
+
+  try {
+    video.pause();
+    video.removeAttribute("src");   // 🔥 breaks media pipeline immediately
+    video.load();                   // 🔥 forces decoder reset
+    video.currentTime = 0;
+  } catch (e) {}
 }
 
 function sortByDate(items) {
@@ -200,9 +213,20 @@ function renderTravelMedia(direction = "next") {
     return;
   }
 
-  const FADE_DURATION = 600;
+  const FADE_DURATION = 700;
 
   const m = currentTravelMedia[currentTravelMediaIndex];
+  
+  if (activeVideo) {
+    killVideoCompletely(activeVideo);
+
+    if (videoProgressHandler) {
+      activeVideo.removeEventListener("timeupdate", videoProgressHandler);
+    }
+
+    activeVideo = null;
+	videoProgressHandler = null;
+  }
 
   const bgContainer = document.getElementById("travel-bg");
   const fgContainer = document.getElementById("travel-fg");
@@ -223,13 +247,58 @@ function renderTravelMedia(direction = "next") {
   if (m.type === "video") {
     newFg = document.createElement("video");
     newFg.src = m.src;
-    newFg.autoplay = true;
     newFg.loop = true;
-    newFg.muted = true;
+	newFg.controls = true;
     newFg.playsInline = true;
+	newFg.muted = isMuted;
+	newFg.autoplay = true;
 
+	newFg.addEventListener("volumechange", () => {
+	isMuted = newFg.muted;
+    });
+	
+	newFg.addEventListener("play", () => {
+	  if (newFg.muted !== isMuted) {
+		newFg.muted = isMuted;
+	  }
+	});
+	
+	if (activeVideo) {
+	  killVideoCompletely(activeVideo);
+
+	  if (videoProgressHandler) {
+		activeVideo.removeEventListener("timeupdate", videoProgressHandler);
+	  }
+	}
+
+	activeVideo = newFg;
+
+    // ✅ PROGRESS HANDLER
+    videoProgressHandler = () => {
+	  if (!activeVideo || !travelProgressBars[currentTravelMediaIndex]) return;
+
+	  const progress =
+	    activeVideo.currentTime / (activeVideo.duration || 1);
+
+	  travelProgressBars[currentTravelMediaIndex].style.width =
+	    `${progress * 100}%`;
+
+	  if (progress >= 0.99) {
+	    nextTravelMedia();
+	  }
+    };
+
+    activeVideo.addEventListener("timeupdate", videoProgressHandler);
+	
     newFg.className =
       "absolute inset-0 w-full h-full object-contain z-10 transition-all duration-700 ease-out";
+	
+	newFg.onloadedmetadata = () => {
+      storyDuration = Math.min(
+		15000,
+	  Math.max(4000, newFg.duration * 1000)
+	  );
+	};
 
   } else {
 
@@ -259,8 +328,7 @@ function renderTravelMedia(direction = "next") {
 
   // 🎬 Motion
   newFg.style.transform =
-    direction === "next" ? "scale(1.06)" : "scale(0.96)";
-
+    direction === "next" ? "scale(1.08) translateX(10px)" : "scale(0.95) translateX(-10px)";
   newFg.style.opacity = 0;
 
   // ✅ APPEND FIRST (important)
@@ -272,26 +340,35 @@ function renderTravelMedia(direction = "next") {
     if (newBg) {
 		newBg.style.opacity = style.opacity || 0.5;
 		newBg.style.transform = "scale(1.05)";
+		newBg.style.filter = "blur(30px)";
 	}
-	newBg.style.filter = "blur(30px)";
     newFg.style.opacity = 1;
-    newFg.style.transform = "scale(1)";
+    newFg.style.transform = "scale(1) translateX(0)";
+  });
+  
+  // 🔥 Fade out old elements (smooth crossfade)
+  const oldItems = fgContainer.querySelectorAll("img, video");
+  oldItems.forEach((el, i) => {
+    if (i < oldItems.length - 1) {
+      el.style.opacity = 0;
+      el.style.transform = "scale(0.98)";
+    }
   });
 
   // 🔥 CLEANUP OLD ELEMENTS (after fade)
-  setTimeout(() => {
+  newFg.addEventListener("transitionend", () => {
     const bgItems = bgContainer.querySelectorAll("img, video");
     bgItems.forEach((el, i) => {
 	  if (i < bgItems.length - 1) el.remove();
-	});
+    });
 
     const fgItems = fgContainer.querySelectorAll("img, video");
     fgItems.forEach((el, i) => {
-      if (i < fgItems.length - 1) el.remove();
+	  if (i < fgItems.length - 1) el.remove();
     });
 
     isTransitioning = false;
-  }, FADE_DURATION);
+  }, { once: true });
 
   // 🚀 PRELOAD NEXT
   const nextItem = currentTravelMedia[currentTravelMediaIndex + 1];
@@ -335,6 +412,7 @@ function startStoryTimer() {
 
   let startTime = Date.now();
   let pausedTime = 0;
+  let duration;
 
     function animate() {
       if (isPaused) {
@@ -342,16 +420,24 @@ function startStoryTimer() {
       animationFrameId = requestAnimationFrame(animate);
       return;
       }
+	
+	const currentMedia = currentTravelMedia[currentTravelMediaIndex];
+	
+    // Video controls its own progress (timeupdate)
+    if (currentMedia?.type === "video") {
+      animationFrameId = requestAnimationFrame(animate);
+      return;
+    } 
 
 	const elapsed = Date.now() - startTime - pausedTime;
 	const currentBar = travelProgressBars[currentTravelMediaIndex];
 	if (!currentBar) return;
-
-	// Dynamic duration based on text length
+	
+	 // 🖼 TEXT / IMAGE TIMING ONLY
 	const textLength = travelStory.innerText.length;
-	const duration = Math.min(
-	  12000, // max 12s
-	  Math.max(4000, textLength * 18)
+	duration = Math.min(
+	  12000,
+	  Math.max(4000, textLength * 10)
 	);
 
 	const progress = Math.min(elapsed / duration, 1);
@@ -377,8 +463,6 @@ function openTravelModal(item, index) {
   if (typeof window.closeRailModal === "function") {
   window.closeRailModal();
   }
-
-  currentTravelItems = interests.find(s => s.type === "travel").items;
 
   travelModal.classList.remove("hidden");
   travelModal.setAttribute("aria-hidden", "false");
@@ -472,6 +556,25 @@ function closeTravelModal() {
 	history.replaceState(null, "", window.location.pathname);
   }
   cancelAnimationFrame(animationFrameId);
+  if (activeVideo) {
+    activeVideo.pause();
+    activeVideo.currentTime = 0;
+
+    if (videoProgressHandler) {
+      activeVideo.removeEventListener("timeupdate", videoProgressHandler);
+    }
+
+    activeVideo = null;
+  }
+  
+  isMuted = true;
+  
+  const videos = travelModal.querySelectorAll("video");
+  videos.forEach(v => {
+    v.pause();
+    v.currentTime = 0;
+    v.src = "";
+  });  
   travelModal.classList.add("hidden");
   travelModal.setAttribute("aria-hidden", "true");
   travelModal.blur();
@@ -744,6 +847,7 @@ travelGrid.innerHTML = "";
 window.currentTravelItems = travelSection.items;
 
 const sortedItems = sortByDate(travelSection.items);
+currentTravelItems = sortedItems;
 sortedItems.forEach((item, i) => {
 const card = document.createElement("div");
 card.className = "travel-card";
@@ -767,8 +871,8 @@ card.innerHTML = `
 
 card.addEventListener("click", (e) => {
   e.preventDefault();
-  window.currentTravelIndex = i;
-  openTravelModal(item, i);
+  currentTravelIndex = i;
+  openTravelModal(sortedItems[i], i);
   updateURL(item.slug, true);
 });
 
