@@ -118,6 +118,9 @@ const themeImageStyles = {
   }
 };
 
+const isTouchDevice = 
+  'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 // HELPER (HISTORY)
 function updateURL(slug, push = false) {
   const params = new URLSearchParams(window.location.search);
@@ -139,6 +142,7 @@ function killVideoCompletely(video) {
   try {
     video.pause();
     video.removeAttribute("src");   // 🔥 breaks media pipeline immediately
+	video.srcObject = null;
     video.load();                   // 🔥 forces decoder reset
     video.currentTime = 0;
   } catch (e) {}
@@ -156,6 +160,10 @@ function sortByDate(items) {
     // Compare dates (latest first)
     return new Date(b.date) - new Date(a.date);
   });
+}
+
+function isVideoTarget(target) {
+  return target && target.closest && target.closest("video");
 }
 
 //MEDIA NAVIGATION
@@ -247,7 +255,7 @@ function renderTravelMedia(direction = "next") {
   if (m.type === "video") {
     newFg = document.createElement("video");
     newFg.src = m.src;
-    newFg.loop = true;
+    newFg.loop = false;
 	newFg.controls = true;
     newFg.playsInline = true;
 	newFg.muted = isMuted;
@@ -256,12 +264,6 @@ function renderTravelMedia(direction = "next") {
 	newFg.addEventListener("volumechange", () => {
 	isMuted = newFg.muted;
     });
-	
-	newFg.addEventListener("play", () => {
-	  if (newFg.muted !== isMuted) {
-		newFg.muted = isMuted;
-	  }
-	});
 	
 	if (activeVideo) {
 	  killVideoCompletely(activeVideo);
@@ -274,6 +276,8 @@ function renderTravelMedia(direction = "next") {
 	activeVideo = newFg;
 
     // ✅ PROGRESS HANDLER
+	let videoEnded = false;
+	
     videoProgressHandler = () => {
 	  if (!activeVideo || !travelProgressBars[currentTravelMediaIndex]) return;
 
@@ -283,7 +287,8 @@ function renderTravelMedia(direction = "next") {
 	  travelProgressBars[currentTravelMediaIndex].style.width =
 	    `${progress * 100}%`;
 
-	  if (progress >= 0.99) {
+	  if (progress >= 0.99 && !videoEnded) {
+		videoEnded = true;
 	    nextTravelMedia();
 	  }
     };
@@ -314,7 +319,6 @@ function renderTravelMedia(direction = "next") {
 	`;
 
     newBg.style.opacity = 0; // start hidden
-	newBg.style.transform = "scale(1.12)";
     newBg.style.filter = "blur(40px) brightness(0.7) saturate(1.2)";
 	newBg.style.transform = "scale(1.1)";
 
@@ -620,13 +624,13 @@ const NAV_COOLDOWN = 300;
 
 function nextTravelMedia() {
   if (!currentTravelMedia.length) return;
-
-  currentTravelMediaIndex++;
   
   // FAST SKIP PREVENTION
   const now = Date.now();
   if (now - lastNavTime < NAV_COOLDOWN) return;
   lastNavTime = now;
+  
+  currentTravelMediaIndex++;  
   
   // ✅ PRELOAD NEXT MEDIA
   const nextItem = currentTravelMedia[currentTravelMediaIndex + 1];
@@ -666,6 +670,16 @@ let isHolding = false;
 let isSwiping = false;
 let touchMoved = 0;
 
+travelMedia.addEventListener("touchmove", (e) => {
+  const currentX = e.touches[0].clientX;
+  const diff = Math.abs(currentX - travelStartX);
+
+  if (diff > 10) {
+    isSwiping = true;
+    touchMoved = diff;
+  }
+});
+
 travelMedia.addEventListener("touchstart", (e) => {
   isSwiping = false;
   touchMoved = 0;
@@ -679,28 +693,32 @@ travelMedia.addEventListener("touchstart", (e) => {
   }, 300); // 300ms threshold for hold
 });
 
-travelMedia.addEventListener("touchmove", (e) => {
-  touchMoved += Math.abs(e.touches[0].clientX - travelStartX);
-  if (touchMoved > 10) isSwiping = true;
-});
-
 travelMedia.addEventListener("touchend", (e) => {
   clearTimeout(holdTimeout);
   isPaused = false;
 
+  const target = e.target;
+
+  // ✅ MOBILE ONLY VIDEO BLOCK
+  if (isVideoTarget(target)) {
+    return; // allow native controls
+  }
+
   if (isSwiping) {
     const diff = travelStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 30) {
+    if (Math.abs(diff) > 50) {
       if (diff > 0) nextTravelMedia();
       else prevTravelMedia();
     }
     return;
   }
 
-  if (!isHolding) {
-    // Tap detected
+  if (!isHolding) return;
+  
+  if (!isSwiping) {
     const rect = travelMedia.getBoundingClientRect();
     const x = e.changedTouches[0].clientX - rect.left;
+
     if (x < rect.width / 2) prevTravelMedia();
     else nextTravelMedia();
   }
@@ -718,9 +736,11 @@ travelMedia.addEventListener("mousedown", (e) => {
 travelMedia.addEventListener("mouseup", (e) => {
   clearTimeout(holdTimeout);
   isPaused = false;
+
   if (!isHolding) {
     const rect = travelMedia.getBoundingClientRect();
     const x = e.clientX - rect.left;
+
     if (x < rect.width / 2) prevTravelMedia();
     else nextTravelMedia();
   }
@@ -728,7 +748,11 @@ travelMedia.addEventListener("mouseup", (e) => {
 
 // Global fix: prevent stuck pause
 window.addEventListener("mouseup", () => (isPaused = false));
-window.addEventListener("touchend", () => (isPaused = false));
+window.addEventListener("touchend", (e) => {
+  if (!travelModal.contains(e.target)) {
+    isPaused = false;
+  }
+});
 
 // STORY TOGGLE (TRAVEL)
 setTimeout(() => {

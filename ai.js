@@ -366,7 +366,7 @@ const sectionsHTML = safeContent
 	  <div class="flex flex-col md:flex-row gap-6">
 
 		<!-- LEFT PANEL -->
-		<div class="panel-left w-full md:w-1/3 p-5 bg-slate-100 rounded-2xl flex flex-col justify-between">
+		<div class="panel-left w-full md:w-1/3 order-1 md:order-none p-5 bg-slate-100 rounded-2xl flex flex-col justify-between">
 
 		  <div>
 			<span class="text-[10px] font-semibold px-2 py-1 rounded-md uppercase tracking-wide 
@@ -391,7 +391,7 @@ const sectionsHTML = safeContent
 		</div>
 
 		<!-- RIGHT PANEL -->
-		<div class="panel-right w-full md:w-2/3 flex flex-col relative">
+		<div class="panel-right w-full md:w-2/3 order-2 md:order-none flex flex-col relative">
 
 
 
