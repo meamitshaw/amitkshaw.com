@@ -23,9 +23,10 @@ export const interests = [
           { type: "gif", src: "assets/model-railroad/prr-E6.gif" }
         ],
         story: [
-          "This model holds a special place as my very first locomotive purchase. From the moment the package arrived, it carried a sense of excitement and anticipation that only model railroading can bring. Opening it for the first time and placing it on the track was a truly memorable experience.",
-          "As it came to life, I was immediately captivated by its presence and performance. The combination of smooth movement, realistic chuffing sound, functional lighting, and subtle smoke effects creates an incredibly immersive experience. It feels less like a model and more like a miniature piece of living history.",
-          "The E6 was first designed in 1910, and in extensive testing, the E6 prototype consistently outperformed the K2. In 1912, the prototype was super-heated and also had her cylinders enlarged to 23. The locomotive became the E6s, and the PRR built 80 E6s locomotives in 1914. Most of the engines were assigned to New York - Philadelphia - Washington passenger service. They were excellent locomotives, with several lasting until the end of steam on the PRR."
+          "This locomotive represents the origin point of my railroad system, a foundational asset that mirrors the beginning of my journey as a builder of complex systems. Much like in enterprise architecture, this first acquisition established the baseline from which structure, integration, and refinement would evolve.",
+          "From the moment it was introduced to the track, it demonstrated more than visual appeal. Its smooth mechanical performance, synchronized chuffing audio, operational lighting, and integrated smoke effects function together as a cohesive system. Each component contributes to a unified operational experience, reflecting the same principles of reliability, integration, and realism that define well-architected platforms.",
+		  "The prototype for this model, the PRR E6, was originally designed in 1910. In testing, it consistently outperformed the PRR K2, leading to iterative enhancements. By 1912, the design incorporated superheating and enlarged 23-inch cylinders, resulting in the E6s classification. In 1914, the Pennsylvania Railroad produced 80 units, deploying them across the high-demand passenger corridor between New York, Philadelphia, and Washington. Their longevity and performance ensured continued operation through the final era of steam on the PRR.",
+          "Within the context of this system, the E6 serves as more than a historical model. It represents foundational architecture in practice, where individual components integrate into a reliable whole, and where thoughtful design enables both performance and longevity."
         ],
         details: {
           scale: "1:87 (HO)",
@@ -46,7 +47,13 @@ export const interests = [
           { type: "video", src: "assets/model-railroad/prr-s2-video.mp4" },
           { type: "gif", src: "assets/model-railroad/prr-s2.gif" }
         ],
-        story: "Steam turbine is powerful....",
+        story: [
+		"The addition of the PRR S2 6-8-6 introduces a unique architectural element into the railway system. Produced as a model by Broadway Limited Imports, it represents a departure from conventional steam locomotive design and reflects the exploration of non-traditional system patterns.",
+		"Developed by the Pennsylvania Railroad and completed in 1944, the S2 was among the most powerful steam locomotives ever constructed, capable of exceeding 6,000 horsepower. It was designed for high-speed passenger service and performed exceptionally well under sustained load, particularly on long-distance routes.",
+		"Its defining feature was the steam turbine drive. Instead of pistons, high-pressure steam passed over turbine blades, generating continuous rotational motion that was transferred to the wheels. This eliminated the mechanical interruptions typical of reciprocating engines and enabled smoother, more consistent power delivery.",
+		"From a system design perspective, this reflects a shift from batch-style processing to continuous flow execution. The turbine model delivers streamlined throughput but depends heavily on stable operating conditions. Like specialized architectures in enterprise systems, it excels in targeted scenarios but introduces constraints outside its optimal range.",
+		"Within this system, the S2 represents innovation in motion, where performance-driven design challenges convention and expands the boundaries of what is possible."
+		],
         details: {
           scale: "1:87 (HO)",
           manufacturer: "Broadway Limited Imports",
@@ -56,9 +63,9 @@ export const interests = [
       },	  
       {
         id: "1100",
-		slug: "brass-steam-collection",
-		name: "Brass Steam Collection",
-		date: "2024-11-10",
+		slug: "geared-steam -locomotive-collection",
+		name: "Geared Locomotives – Architecture for Extreme Terrain",
+		date: "2025-10-31",
         cover: "assets/brass.jpg",
         media: [
           { type: "image", src: "assets/brass1.jpg" },
@@ -66,15 +73,46 @@ export const interests = [
           { type: "video", src: "assets/brass-collection.mp4" }
         ],
         story: [
-          "Brass models bring unmatched detailing. The craftsmanship reflects a level of precision..."
-        ],
+          "The geared locomotive family represents a specialized branch of the railway system, designed for one core principle: controlled torque over speed. My brass models of the Heisler locomotive, Climax locomotive, Shay locomotive, and Willamette locomotive reflect this engineering philosophy, where resilience matters more than velocity.",
+		  "Historically used in logging and mining operations, these locomotives were built for environments where standard steam engines failed—steep grades, sharp curves, and unstable track conditions. Their solution was not more power, but better power distribution through gearing systems.",
+		  "Each design interprets this differently. The Heisler focuses on balanced shaft-driven delivery. The Climax introduces a gearbox-centric transformation layer for rugged adaptability. The Shay and its evolution, the Willamette, rely on external drive shafts to deliver consistent multi-axle traction, refined over time for smoother and more stable performance.",
+		  "From a system perspective, these are mechanical transformation architectures. Instead of direct transmission, power flows through intermediate layers before execution at the wheels. This mirrors enterprise systems where inputs are normalized, transformed, and routed through integration layers before final processing.",
+		  "Together, they represent a different kind of engineering thinking, not optimized for speed, but for stability under constraint. In that sense, geared locomotives are less about movement alone, and more about maintaining control when the environment refuses to be predictable."
+		  ],
         details: {
           scale: "1:87 (HO)",
           manufacturer: "Various Brass Makers",
           year: "Vintage Collection",
-          replica_of: "Multiple Steam Locomotives"
+          replica_of: "Multiple Geared Steam Locomotives"
         }
-      }
+      },
+      {
+        id: "dcc",
+		slug: "digital-command-control-system",
+		name: "Digital Control Changed Model Railroading Forever",
+		date: "2026-01-01",
+        cover: "assets/brass.jpg",
+        media: [
+          { type: "image", src: "assets/brass1.jpg" },
+          { type: "image", src: "assets/brass2.jpg" },
+          { type: "video", src: "assets/brass-collection.mp4" }
+        ],
+        story: [
+          "Digital Command Control (DCC) is a rare example of a standard that didn’t just solve a technical problem, it quietly reshaped an entire hobby. Introduced in the 1990s by the National Model Railroad Association (NMRA), it replaced a fragmented world of incompatible systems and gave hobbyists a shared language to build and expand layouts without being locked into a single manufacturer. For hobbyists, this meant freedom to grow complex railroads without rewiring everything from scratch.",
+		  "At its core, DCC turns the rails into both power and communication. Commands travel as digital packets (streams of 1s and 0s) through the track. Each locomotive carries a decoder, a small embedded system that listens to everything but responds only to its own address. Once selected, it can control speed and direction of movement, trigger sound systems like horns and engine noise, and operate lights or smoke effects. Control shifts from electrical sections of track to individual trains.",
+		  "What makes DCC compelling is its architecture. Intelligence lives at the edge. The system scales by adding more locomotives, not more wiring complexity. Established manufacturers like Digitrax and NCE build different ecosystems, yet remain interoperable because the protocol is standardized. At the same time, open platforms like DCC-EX bring a different dimension—lowering cost and enabling DIY command stations. It is similar to how open-source ERP systems provide an alternative to enterprise suites, offering flexibility and experimentation while still aligning with core standards.",
+		  "For anyone in systems architecture, the pattern feels familiar. DCC mirrors enterprise integration principles: a shared communication protocol at the core, distributed endpoints in the locomotives, and a central system focused on orchestration rather than micromanagement. The track becomes a transport layer, decoders behave like service nodes, and control logic is pushed outward instead of centralized.",
+		  "Even as modern interfaces evolve with mobile apps, wireless throttles, and automation layers, DCC remains the invisible foundation. The experience of control becomes more modern and intuitive, but the underlying contract between systems remains unchanged. That separation between interface and core is what allows innovation on top of stability.",
+		  "DCC endures because it gets one architectural decision right: a stable core protocol with freedom at the edges. That is what allows hobbyists to build simple layouts or complex rail empires without breaking compatibility.",
+		  "Great architecture is not the one you constantly see. It is the one that quietly scales, adapts, and keeps working across decades."
+		  ],
+        details: {
+          scale: "All",
+          manufacturer: "DCC-EX",
+          year: "2023",
+          replica_of: "NA"
+        }
+      }	  
     ]
   },
 
