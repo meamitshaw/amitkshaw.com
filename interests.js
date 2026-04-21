@@ -7,7 +7,7 @@ export const interests = [
       {
         id: "prr-1211",
 		slug: "prr-e6-4-4-2-atlantic",
-		name: "PRR E6 4-4-2, Atlantic",
+		name: "PRR E6 4-4-2: The Engine That Started It All",
 		date: "2023-08-02",
         cover: "assets/model-railroad/prr-E6.jpg",
         media: [
@@ -31,14 +31,14 @@ export const interests = [
         details: {
           scale: "1:87 (HO)",
           manufacturer: "Broadway Limited Imports",
-          year: 2023,
+          year: "2023",
           replica_of: "PRR E6 Atlantic"
         }
       },
       {
         id: "prr-6200",
-		slug: "prr-s2-6-8-6-turbine",
-		name: "PRR S2 6-8-6, Turbine",
+		slug: "prr-s2-6-8-6-turbine-power",
+		name: "PRR S2 6-8-6: A Different Kind of Steam Architecture",
 		date: "2025-10-10",
         cover: "assets/model-railroad/prr-s2.jpg",
         media: [
@@ -57,7 +57,7 @@ export const interests = [
         details: {
           scale: "1:87 (HO)",
           manufacturer: "Broadway Limited Imports",
-          year: 2024,
+          year: "2024",
           replica_of: "PRR S2 Turbine"
         }
       },	  
@@ -87,7 +87,7 @@ export const interests = [
         }
       },
       {
-        id: "dcc",
+        id: "dcc-system",
 		slug: "digital-command-control-system",
 		name: "Digital Control Changed Model Railroading Forever",
 		date: "2026-01-01",
@@ -111,6 +111,113 @@ export const interests = [
           manufacturer: "DCC-EX",
           year: "2023",
           replica_of: "NA"
+        }
+      },
+      {
+        id: "dcc-decoder",
+		slug: "ddc-decoder",
+		name: "Inside a DCC Decoder: Where the Real Intelligence Lives",
+		date: "2026-01-01",
+        cover: "assets/brass.jpg",
+        media: [
+          { type: "image", src: "assets/brass1.jpg" },
+          { type: "image", src: "assets/brass2.jpg" },
+          { type: "video", src: "assets/brass-collection.mp4" }
+        ],
+        story: [
+          "Most people assume the magic of DCC happens in the controller or the rails. In reality, it happens inside the locomotive itself.",
+		  "Every DCC-equipped train carries a decoder, a small embedded system that constantly listens to the signal flowing through the track. It hears every command being sent, but only reacts when it recognizes its own address. This is similar to how devices on a network receive all data packets but only process the ones meant for them.",
+		  "Once the decoder identifies a command, it translates digital instructions into physical actions. It controls motor speed using precise techniques like pulse width modulation, manages direction, and operates functions such as lights, horn, engine sounds, and even smoke units. More advanced decoders go further by simulating acceleration, braking delay, and momentum, making the train behave more like a real machine than a simple motor.",
+		  "What makes this powerful is where the intelligence resides. Instead of relying on a central system to control every detail, each locomotive processes its own instructions locally. The command station sends signals, but the decoder decides how to execute them. This approach is similar to distributed systems, where processing happens closer to the endpoint rather than being centralized.",
+		  "This design makes the system naturally scalable. Adding more trains does not increase control complexity in the same way traditional systems did. Instead, each new locomotive becomes another intelligent participant in the network.",
+		  "Open platforms like DCC-EX make this even more accessible. By lowering costs and enabling do-it-yourself setups, they allow hobbyists to experiment, learn, and build sophisticated systems without needing expensive proprietary hardware.",
+		  "In that sense, the decoder is more than just a component. It acts like a small, self-contained service running at the edge of the system, quietly handling its responsibilities while contributing to the behavior of the whole layout."
+		  ],
+        details: {
+          scale: "All",
+          manufacturer: "Multiple",
+          year: "NA",
+          replica_of: "NA"
+        }
+      },
+      {
+        id: "dcc-standard",
+		slug: "ddc-standard",
+		name: "Why Do Open Standards Outlast Proprietary Systems?",
+		date: "2026-01-01",
+        cover: "assets/brass.jpg",
+        media: [
+          { type: "image", src: "assets/brass1.jpg" },
+          { type: "image", src: "assets/brass2.jpg" },
+          { type: "video", src: "assets/brass-collection.mp4" }
+        ],
+        story: [
+          "Before DCC, model railroading faced a problem that is common in many technology domains. Each manufacturer created its own control system, and most of them were incompatible with one another. Choosing a system often meant committing to a single vendor, making it difficult to expand or adapt over time.",
+		  "The introduction of standards by the National Model Railroad Association changed this dynamic. Instead of defining how every product should be built, the standard defined how systems should communicate. This distinction was critical because it allowed different manufacturers to innovate while still remaining compatible.",
+		  "Companies like Digitrax and NCE could develop their own hardware, features, and user experiences, yet still operate within the same ecosystem. For hobbyists, this meant flexibility. They could mix components, upgrade incrementally, and build layouts over time without being locked into a single solution.",
+		  "Open ecosystems such as DCC-EX take this idea further by lowering the barrier to entry. By making command systems affordable and customizable, they bring more people into the hobby while still aligning with the same core standard. This is similar to open-source ERP platforms, which provide alternatives to traditional enterprise systems while maintaining compatibility with broader integration frameworks.",
+		  "This pattern extends beyond model railroading. In enterprise architecture, including SAP environments, long-term success often depends on stable integration layers and standardized interfaces. These allow organizations to evolve their systems without constant disruption.",
+		  "Proprietary systems can be powerful, but they tend to create boundaries. Open standards, on the other hand, create ecosystems. They may not always be the fastest path to innovation, but they are the most sustainable.",
+		  "That is why they endure. Not because they resist change, but because they allow change to happen around them without breaking the foundation."
+		  ],
+        details: {
+          scale: "All",
+          manufacturer: "NA",
+          year: "NA",
+          replica_of: "NA"
+        }
+      },
+      {
+        id: "switchers",
+		slug: "switcher-locomotives",
+		name: "Switcher Locomotives: Small Engines, Big Work",
+		date: "2025-11-27",
+        cover: "assets/brass.jpg",
+        media: [
+          { type: "image", src: "assets/brass1.jpg" },
+          { type: "image", src: "assets/brass2.jpg" },
+          { type: "video", src: "assets/brass-collection.mp4" }
+        ],
+        story: [
+          "When most people think of trains, they picture large locomotives pulling long freight or passenger consists across vast distances. In reality, much of the critical work in railroading happened in yards, factories, and industrial sidings, where precision mattered more than speed. This is where switcher locomotives played their role. They were responsible for assembling trains, breaking them apart, and moving individual cars exactly where they were needed, often in tight spaces and under constant start-and-stop conditions.",
+		  "Steam switchers such as 0-4-0 and 0-6-0 types were purpose-built for this kind of work. Their wheel arrangements, defined by the Whyte notation, reflect simplicity and function. With no leading or trailing wheels, these locomotives focused entirely on driving wheels, maximizing traction and control at low speeds. This made them compact, powerful, and well-suited for navigating sharp curves and confined industrial areas. Engines like the USRA 0-6-0 became reliable workhorses, not because they were fast or glamorous, but because they consistently performed the demanding, repetitive tasks that kept rail operations running smoothly.",
+		  "As railroads modernized, diesel switchers gradually replaced steam in these roles. Locomotives such as the EMD SW1 brought clear operational advantages. They could start instantly, required less maintenance, and handled stop-and-go duties more efficiently. This made them particularly effective in industrial environments where flexibility and uptime were critical. Electric switchers also found their place in specialized settings like tunnels and terminals, where ventilation concerns made non-combustion power more practical, showing how the same operational need adapted to different technologies over time.",
+		  "What stands out across this evolution is that the role itself never changed. Whether powered by steam, diesel, or electricity, switchers were always about control, precision, and reliability in constrained environments. The technology evolved, but the purpose remained constant.",
+		  "For model railroading, this makes switchers uniquely engaging. They shift the focus from simply running trains to actively operating them. Instead of watching a train circle a layout, you are making decisions, planning movements, and interacting with the railroad in a much more hands-on way. Personally, I find steam switchers especially appealing. Their compact form and mechanical character fit naturally with the era I want to recreate. While I also have diesel switchers in my collection, my future layout will lean toward a steam-era, free-style design where these locomotives play a central role.",
+		  "In many ways, switchers represent a different side of railroading. They may not be the most visible machines, but they are among the most essential, quietly bringing order and precision to what would otherwise be constant movement and chaos."
+		  ],
+        details: {
+          scale: "1:87 (HO)",
+          manufacturer: "Multiple",
+          year: "Multiple",
+          replica_of: "--"
+        }
+      },
+      {
+        id: "tank-engine",
+		slug: "tank-engine",
+		name: "Tank Engines: Power in One Unit",
+		date: "2025-10-27",
+        cover: "assets/brass.jpg",
+        media: [
+          { type: "image", src: "assets/brass1.jpg" },
+          { type: "image", src: "assets/brass2.jpg" },
+          { type: "video", src: "assets/brass-collection.mp4" }
+        ],
+        story: [
+          "When most people picture a steam locomotive, they imagine a large engine pulling a separate tender for coal and water. Tank engines take a different approach. They carry everything onboard, making them compact, self-contained, and designed for efficiency over distance.",
+		  "This design makes them shorter, more maneuverable, and capable of running equally well in both directions. As a result, they were widely used in yards, industrial sites, and branch lines where space was limited and flexibility mattered more than long-haul power.",
+		  "For many, tank engines feel familiar thanks to Thomas & Friends and characters like Thomas the Tank Engine. While simplified, they reflect the real role of these engines—compact, versatile, and built for shorter, controlled operations rather than long-distance hauling.",
+		  "Their biggest strength is also their limitation. Without a tender, fuel and water capacity is restricted, which limits range. But in return, they offer simplicity, efficiency, and operational flexibility where it matters most.",
+		  "What makes tank engines especially interesting is their design philosophy. Everything is integrated into one unit. In contrast, tender locomotives separate resources to enable scale and endurance. This mirrors a familiar idea in system design: self-contained systems optimized for specific tasks versus distributed systems built for range and scalability.",
+		  "For model railroading, tank engines are a natural fit for smaller or steam-era layouts. Their size, flexibility, and purpose encourage more interactive operations, making them both practical and engaging.",
+		  "Tank engines are not just smaller locomotives. They represent a different architectural choice—one that prioritizes simplicity, control, and efficiency within a defined scope."
+		  ],
+        details: {
+          scale: "1:87 (HO)",
+          manufacturer: "Multiple",
+          year: "Multiple",
+          replica_of: "--"
         }
       }	  
     ]
