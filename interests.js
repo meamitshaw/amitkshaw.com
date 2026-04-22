@@ -66,11 +66,11 @@ export const interests = [
 		slug: "geared-steam-locomotive-collection",
 		name: "Geared Locomotives – Architecture for Extreme Terrain",
 		date: "2025-10-31",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/brass.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/brass1.jpg" },
+          { type: "image", src: "assets/model-railroad/brass2.jpg" },
+          { type: "video", src: "assets/model-railroad/brass-collection.mp4" }
         ],
         story: [
           "The geared locomotive family represents a specialized branch of the railway system, designed for one core principle: controlled torque over speed. My brass models of the Heisler locomotive, Climax locomotive, Shay locomotive, and Willamette locomotive reflect this engineering philosophy, where resilience matters more than velocity.",
@@ -91,11 +91,11 @@ export const interests = [
 		slug: "digital-command-control-system",
 		name: "Digital Control Changed Model Railroading Forever",
 		date: "2026-01-01",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/dcc.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/dcc1.jpg" },
+          { type: "image", src: "assets/model-railroad/dcc2.jpg" },
+          { type: "video", src: "assets/model-railroad/dcc.mp4" }
         ],
         story: [
           "Digital Command Control (DCC) is a rare example of a standard that didn’t just solve a technical problem, it quietly reshaped an entire hobby. Introduced in the 1990s by the National Model Railroad Association (NMRA), it replaced a fragmented world of incompatible systems and gave hobbyists a shared language to build and expand layouts without being locked into a single manufacturer. For hobbyists, this meant freedom to grow complex railroads without rewiring everything from scratch.",
@@ -118,11 +118,11 @@ export const interests = [
 		slug: "ddc-decoder",
 		name: "Inside a DCC Decoder: Where the Real Intelligence Lives",
 		date: "2026-01-01",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/decoder.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/decoder1.jpg" },
+          { type: "image", src: "assets/model-railroad/decoder2.jpg" },
+          { type: "video", src: "assets/model-railroad/decoder.mp4" }
         ],
         story: [
           "Most people assume the magic of DCC happens in the controller or the rails. In reality, it happens inside the locomotive itself.",
