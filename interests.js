@@ -63,7 +63,7 @@ export const interests = [
       },	  
       {
         id: "1100",
-		slug: "geared-steam -locomotive-collection",
+		slug: "geared-steam-locomotive-collection",
 		name: "Geared Locomotives – Architecture for Extreme Terrain",
 		date: "2025-10-31",
         cover: "assets/brass.jpg",
