@@ -145,11 +145,11 @@ export const interests = [
 		slug: "ddc-standard",
 		name: "Why Do Open Standards Outlast Proprietary Systems?",
 		date: "2026-01-01",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/brass.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/dcc-standard1.jpg" },
+          { type: "image", src: "assets/model-railroad/dcc-standard2.jpg" },
+          { type: "video", src: "assets/model-railroad/dcc-standard-video.mp4" },
         ],
         story: [
           "Before DCC, model railroading faced a problem that is common in many technology domains. Each manufacturer created its own control system, and most of them were incompatible with one another. Choosing a system often meant committing to a single vendor, making it difficult to expand or adapt over time.",
@@ -172,11 +172,11 @@ export const interests = [
 		slug: "switcher-locomotives",
 		name: "Switcher Locomotives: Small Engines, Big Work",
 		date: "2025-11-27",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/brass.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/brass1.jpg" },
+          { type: "image", src: "assets/model-railroad/brass2.jpg" },
+          { type: "video", src: "assets/model-railroad/brass-collection.mp4" }
         ],
         story: [
           "When most people think of trains, they picture large locomotives pulling long freight or passenger consists across vast distances. In reality, much of the critical work in railroading happened in yards, factories, and industrial sidings, where precision mattered more than speed. This is where switcher locomotives played their role. They were responsible for assembling trains, breaking them apart, and moving individual cars exactly where they were needed, often in tight spaces and under constant start-and-stop conditions.",
@@ -198,11 +198,11 @@ export const interests = [
 		slug: "tank-engine",
 		name: "Tank Engines: Power in One Unit",
 		date: "2025-10-27",
-        cover: "assets/brass.jpg",
+        cover: "assets/model-railroad/tank-engine.jpg",
         media: [
-          { type: "image", src: "assets/brass1.jpg" },
-          { type: "image", src: "assets/brass2.jpg" },
-          { type: "video", src: "assets/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/tank-engine1.jpg" },
+          { type: "image", src: "assets/model-railroad/tank-engine2.jpg" },
+          { type: "video", src: "assets/model-railroad/tank-engine.mp4" }
         ],
         story: [
           "When most people picture a steam locomotive, they imagine a large engine pulling a separate tender for coal and water. Tank engines take a different approach. They carry everything onboard, making them compact, self-contained, and designed for efficiency over distance.",

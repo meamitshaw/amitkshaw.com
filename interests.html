@@ -242,6 +242,54 @@ img, video {
   border-radius: 999px;
 }
 
+/* =========================
+   MOBILE FIX ONLY - RAIL MODAL
+   ========================= */
+@media (max-width: 767px) {
+
+  /* Full modal becomes column layout */
+  #rail-modal .w-full.max-w-6xl {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* IMPORTANT: prevent global scroll conflict */
+  }
+
+  /* Media stays fixed at top */
+  #rail-modal .relative.flex.flex-col.items-center {
+    flex-shrink: 0;
+  }
+
+  /* Media height control */
+  #modal-media-wrapper {
+    height: 35vh !important;
+    min-height: 220px;
+  }
+
+  /* TEXT AREA ONLY scrolls */
+  #rail-text-panel {
+    flex: 1;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 8px;
+  }
+
+  /* 🚨 CRITICAL FIX: remove bottom nav from scroll flow */
+  #rail-bottom-nav {
+    flex-shrink: 0;
+    position: relative;
+    bottom: auto;
+    margin-top: 0;
+    background: white;
+    z-index: 10;
+  }
+
+  /* spacing fix so text doesn't touch nav */
+  #rail-text-panel {
+    padding-bottom: 12px;
+  }
+}
+
 /* TRAVEL CSS */
 
 .travel-card {
@@ -928,7 +976,7 @@ entries.forEach(entry => {
 	});
   }
 });
-}, { threshold: 0.4, rootMargin: "-50px 0px" });
+}, { threshold: 0, rootMargin: "-45% 0px -45% 0px" });
 
 ["railroad","ai","travel"].forEach(id => {
 const el = document.getElementById(id);
