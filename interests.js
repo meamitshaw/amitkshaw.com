@@ -9,18 +9,19 @@ export const interests = [
 		slug: "prr-e6-4-4-2-atlantic",
 		name: "PRR E6 4-4-2: The Engine That Started It All",
 		date: "2023-08-02",
-        cover: "assets/model-railroad/prr-E6.jpg",
+        cover: "assets/model-railroad/prr-1211/prr-E6.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/prr-E61.jpg" },
-          { type: "image", src: "assets/model-railroad/prr-E62.jpg" },
-          { type: "image", src: "assets/model-railroad/prr-E63.jpg" },
-		  { type: "image", src: "assets/model-railroad/prr-E64.jpg" },
-		  { type: "image", src: "assets/model-railroad/prr-E65.jpg" },
-		  { type: "image", src: "assets/model-railroad/prr-E66.jpg" },
-		  { type: "image", src: "assets/model-railroad/prr-E67.jpg" },
-		  { type: "image", src: "assets/model-railroad/prr-E68.jpg" },
-          { type: "video", src: "assets/model-railroad/prr-E6-video.mp4" },
-          { type: "gif", src: "assets/model-railroad/prr-E6.gif" }
+          { type: "image", src: "assets/model-railroad/prr-1211/prr-E61.jpg" },
+		  { type: "video", src: "assets/model-railroad/prr-1211/prr-E61.mp4" },
+          { type: "image", src: "assets/model-railroad/prr-1211/prr-E62.jpg" },
+		  { type: "video", src: "assets/model-railroad/prr-1211/prr-E62.mp4" },
+          { type: "image", src: "assets/model-railroad/prr-1211/prr-E63.jpg" },
+		  { type: "video", src: "assets/model-railroad/prr-1211/prr-E63.mp4" },
+		  { type: "image", src: "assets/model-railroad/prr-1211/prr-E64.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-1211/prr-E65.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-1211/prr-E66.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-1211/prr-E67.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-1211/prr-E68.jpg" }
         ],
         story: [
           "This locomotive represents the origin point of my railroad system, a foundational asset that mirrors the beginning of my journey as a builder of complex systems. Much like in enterprise architecture, this first acquisition established the baseline from which structure, integration, and refinement would evolve.",
@@ -40,12 +41,19 @@ export const interests = [
 		slug: "prr-s2-6-8-6-turbine-power",
 		name: "PRR S2 6-8-6: A Different Kind of Steam Architecture",
 		date: "2025-10-10",
-        cover: "assets/model-railroad/prr-s2.jpg",
+        cover: "assets/model-railroad/prr-6200/prr-s2.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/prr-s21.jpg" },
-          { type: "image", src: "assets/model-railroad/prr-s22.jpg" },
-          { type: "video", src: "assets/model-railroad/prr-s2-video.mp4" },
-          { type: "gif", src: "assets/model-railroad/prr-s2.gif" }
+          { type: "image", src: "assets/model-railroad/prr-6200/prr-s21.jpg" },
+		  { type: "video", src: "assets/model-railroad/prr-6200/prr-s21.mp4" },
+		  { type: "video", src: "assets/model-railroad/prr-6200/prr-s22.mp4" },
+		  { type: "video", src: "assets/model-railroad/prr-6200/prr-s23.mp4" },
+		  { type: "video", src: "assets/model-railroad/prr-6200/prr-s24.mp4" },
+		  { type: "video", src: "assets/model-railroad/prr-6200/prr-s25.mp4" },		  
+          { type: "image", src: "assets/model-railroad/prr-6200/prr-s22.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-6200/prr-s23.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-6200/prr-s24.jpg" },
+		  { type: "image", src: "assets/model-railroad/prr-6200/prr-s25.jpg" }
+
         ],
         story: [
 		"The addition of the PRR S2 6-8-6 introduces a unique architectural element into the railway system. Produced as a model by Broadway Limited Imports, it represents a departure from conventional steam locomotive design and reflects the exploration of non-traditional system patterns.",
@@ -62,15 +70,29 @@ export const interests = [
         }
       },	  
       {
-        id: "1100",
+        id: "geared-steam",
 		slug: "geared-steam-locomotive-collection",
 		name: "Geared Locomotives – Architecture for Extreme Terrain",
 		date: "2025-10-31",
-        cover: "assets/model-railroad/brass.jpg",
+        cover: "assets/model-railroad/geared-steam/geared-steam-engines.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/brass1.jpg" },
-          { type: "image", src: "assets/model-railroad/brass2.jpg" },
-          { type: "video", src: "assets/model-railroad/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/geared-steam/shay1.jpg" },
+          { type: "image", src: "assets/model-railroad/geared-steam/shay2.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/shay3.jpg" },
+          { type: "video", src: "assets/model-railroad/geared-steam/shay1.mp4" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/shay4.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/shay5.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/climax1.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/climax2.jpg" },
+		  { type: "video", src: "assets/model-railroad/geared-steam/climax1.mp4" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/climax3.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/climax4.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/climax5.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/willamette1.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/willamette2.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/willamette3.jpg" },
+		  { type: "image", src: "assets/model-railroad/geared-steam/willamette4.jpg" },
+		  { type: "video", src: "assets/model-railroad/geared-steam/willamette1.mp4" }		  
         ],
         story: [
           "The geared locomotive family represents a specialized branch of the railway system, designed for one core principle: controlled torque over speed. My brass models of the Heisler locomotive, Climax locomotive, Shay locomotive, and Willamette locomotive reflect this engineering philosophy, where resilience matters more than velocity.",
@@ -91,11 +113,11 @@ export const interests = [
 		slug: "digital-command-control-system",
 		name: "Digital Control Changed Model Railroading Forever",
 		date: "2026-01-01",
-        cover: "assets/model-railroad/dcc.jpg",
+        cover: "assets/model-railroad/dcc/dcc.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/dcc1.jpg" },
-          { type: "image", src: "assets/model-railroad/dcc2.jpg" },
-          { type: "video", src: "assets/model-railroad/dcc.mp4" }
+          { type: "image", src: "assets/model-railroad/dcc/dcc1.jpg" },
+          { type: "image", src: "assets/model-railroad/dcc/dcc2.jpg" },
+          { type: "video", src: "assets/model-railroad/dcc/dcc.mp4" }
         ],
         story: [
           "Digital Command Control (DCC) is a rare example of a standard that didn’t just solve a technical problem, it quietly reshaped an entire hobby. Introduced in the 1990s by the National Model Railroad Association (NMRA), it replaced a fragmented world of incompatible systems and gave hobbyists a shared language to build and expand layouts without being locked into a single manufacturer. For hobbyists, this meant freedom to grow complex railroads without rewiring everything from scratch.",
@@ -118,11 +140,11 @@ export const interests = [
 		slug: "ddc-decoder",
 		name: "Inside a DCC Decoder: Where the Real Intelligence Lives",
 		date: "2026-01-01",
-        cover: "assets/model-railroad/decoder.jpg",
+        cover: "assets/model-railroad/dcc/decoder.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/decoder1.jpg" },
-          { type: "image", src: "assets/model-railroad/decoder2.jpg" },
-          { type: "video", src: "assets/model-railroad/decoder.mp4" }
+          { type: "image", src: "assets/model-railroad/dcc/decoder1.jpg" },
+          { type: "image", src: "assets/model-railroad/dcc/decoder.jpg" },
+          { type: "video", src: "assets/model-railroad/dcc/dcc.mp4" }
         ],
         story: [
           "Most people assume the magic of DCC happens in the controller or the rails. In reality, it happens inside the locomotive itself.",
@@ -145,11 +167,11 @@ export const interests = [
 		slug: "ddc-standard",
 		name: "Why Do Open Standards Outlast Proprietary Systems?",
 		date: "2026-01-01",
-        cover: "assets/model-railroad/brass.jpg",
+        cover: "assets/model-railroad/dcc/dcc-standard.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/dcc-standard1.jpg" },
-          { type: "image", src: "assets/model-railroad/dcc-standard2.jpg" },
-          { type: "video", src: "assets/model-railroad/dcc-standard-video.mp4" },
+          { type: "image", src: "assets/model-railroad/dcc/dcc-standard1.jpg" },
+          { type: "image", src: "assets/model-railroad/dcc/dcc-standard2.jpg" },
+          { type: "video", src: "assets/model-railroad/dcc/dcc.mp4" },
         ],
         story: [
           "Before DCC, model railroading faced a problem that is common in many technology domains. Each manufacturer created its own control system, and most of them were incompatible with one another. Choosing a system often meant committing to a single vendor, making it difficult to expand or adapt over time.",
@@ -172,11 +194,16 @@ export const interests = [
 		slug: "switcher-locomotives",
 		name: "Switcher Locomotives: Small Engines, Big Work",
 		date: "2025-11-27",
-        cover: "assets/model-railroad/brass.jpg",
+        cover: "assets/model-railroad/switchers/switchers.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/brass1.jpg" },
-          { type: "image", src: "assets/model-railroad/brass2.jpg" },
-          { type: "video", src: "assets/model-railroad/brass-collection.mp4" }
+          { type: "image", src: "assets/model-railroad/switchers/steam-switchers1.jpg" },
+		  { type: "video", src: "assets/model-railroad/switchers/steam-switchers1.mp4" },
+          { type: "image", src: "assets/model-railroad/switchers/steam-switchers2.jpg" },
+          { type: "video", src: "assets/model-railroad/switchers/steam-switchers2.mp4" },
+		  { type: "image", src: "assets/model-railroad/switchers/steam-switchers3.jpg" },
+		  { type: "image", src: "assets/model-railroad/switchers/diesel-switchers1.jpg" },
+		  { type: "image", src: "assets/model-railroad/switchers/diesel-switchers2.jpg" },
+		  { type: "image", src: "assets/model-railroad/switchers/diesel-switchers3.jpg" }
         ],
         story: [
           "When most people think of trains, they picture large locomotives pulling long freight or passenger consists across vast distances. In reality, much of the critical work in railroading happened in yards, factories, and industrial sidings, where precision mattered more than speed. This is where switcher locomotives played their role. They were responsible for assembling trains, breaking them apart, and moving individual cars exactly where they were needed, often in tight spaces and under constant start-and-stop conditions.",
@@ -198,11 +225,18 @@ export const interests = [
 		slug: "tank-engine",
 		name: "Tank Engines: Power in One Unit",
 		date: "2025-10-27",
-        cover: "assets/model-railroad/tank-engine.jpg",
+        cover: "assets/model-railroad/tank-engine/tank-engine.jpg",
         media: [
-          { type: "image", src: "assets/model-railroad/tank-engine1.jpg" },
-          { type: "image", src: "assets/model-railroad/tank-engine2.jpg" },
-          { type: "video", src: "assets/model-railroad/tank-engine.mp4" }
+          { type: "video", src: "assets/model-railroad/tank-engine/saddle-tank1.mp4" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/saddle-tank1.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/saddle-tank2.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/saddle-tank3.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/saddle-tank4.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/saddle-tank5.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/logging-tank-engine1.jpg" },
+          { type: "image", src: "assets/model-railroad/tank-engine/logging-tank-engine2.jpg" },
+          { type: "image", src: "assets/model-railroad/tank-engine/logging-tank-engine3.jpg" },
+		  { type: "image", src: "assets/model-railroad/tank-engine/logging-tank-engine4.jpg" }
         ],
         story: [
           "When most people picture a steam locomotive, they imagine a large engine pulling a separate tender for coal and water. Tank engines take a different approach. They carry everything onboard, making them compact, self-contained, and designed for efficiency over distance.",
