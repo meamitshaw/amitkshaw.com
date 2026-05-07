@@ -10,8 +10,6 @@
   <meta name="yandex-verification" content="18f28b733a1a954b" />
   
   <title>Interests | Amit Kumar Shaw</title>
-  
-  <link rel="canonical" href="https://www.amitkshaw.com/interests.html">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -176,8 +174,11 @@ footer a:hover {
 }
 
 #seo-content {
-  position: absolute;
-  left: -9999px;
+  display: block !important;
+  max-width: 1px;
+  max-height: 1px;
+  overflow: hidden;
+  opacity: 0.01;
 }
 
 #modal-media-wrapper img.scale-150,
@@ -1063,6 +1064,10 @@ function updateMeta(item) {
     description = item.story || "";
   }
 
+  description = description
+    .replace(/\s+/g, " ")
+    .trim();
+
   let meta = document.querySelector('meta[name="description"]');
 
   if (!meta) {
@@ -1071,8 +1076,31 @@ function updateMeta(item) {
     document.head.appendChild(meta);
   }
 
-  meta.setAttribute("content", description.substring(0, 160));
-}
+  meta.setAttribute("content", description.substring(0, 155));
+  
+  // =========================
+  // CANONICAL
+  // =========================
+  let canonical = document.querySelector(
+    'link[rel="canonical"]'
+  );
+
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.appendChild(canonical);
+  }
+
+  const slug = getItemFromURL();
+
+  if (slug) {
+    canonical.href =
+      `https://www.amitkshaw.com/interests.html?item=${slug}`;
+  } else {
+    canonical.href =
+      "https://www.amitkshaw.com/interests.html";
+  }
+}  
 
 	// LOAD ITEM FROM URL
 	function getItemFromURL() {
@@ -1122,10 +1150,8 @@ function updateMeta(item) {
 	  }
 	}
 
-	setTimeout(() => {
 	  openFromURL();
 	  window.isInitialLoad = false;
-	}, 0);	
 
     // Handle Browser Back/Forward Buttons
 	window.addEventListener("popstate", () => {
@@ -1178,6 +1204,26 @@ function updateMeta(item) {
     <a href="/disclaimer.html" target="_blank" class="text-white hover:opacity-70 transition-opacity">Disclaimer</a>
   </div>
 </footer>
+
+<!-- INTERNAL SEO LINKS -->
+<div class="hidden">
+  <a href="/interests.html?item=prr-e6-4-4-2-atlantic">PRR E6 4-4-2: The Engine That Started It All</a>
+  <a href="/interests.html?item=prr-s2-6-8-6-turbine-power">PRR S2 6-8-6: A Different Kind of Steam Architecture</a>
+  <a href="/interests.html?item=tank-engine">Tank Engines: Power in One Unit</a>
+  <a href="/interests.html?item=geared-steam-locomotive-collection">Geared Locomotives – Architecture for Extreme Terrain</a>
+  <a href="/interests.html?item=switcher-locomotives">Switcher Locomotives: Small Engines, Big Work</a>
+  <a href="/interests.html?item=ddc-standard">Why Do Open Standards Outlast Proprietary Systems?</a>
+  <a href="/interests.html?item=ddc-decoder">Inside a DCC Decoder: Where the Real Intelligence Lives</a>
+  <a href="/interests.html?item=digital-command-control-system">Digital Control Changed Model Railroading Forever</a>
+  <a href="/interests.html?item=cfo-ai-playbook-for-sap-s4hana">The CFO’s AI Playbook for SAP S/4HANA: What Works, What Doesn’t, and What’s Next</a>
+  <a href="/interests.html?item=bridging-the-divide-between-ai-and-erp-for-real-value">Beyond the Hype: Bridging the Divide Between AI and ERP for Real Value</a>
+  <a href="/interests.html?item=ai-driven-erp-system-in-finance">The AI-Driven ERP: Navigating the 2026 Finance Frontier</a>
+  <a href="/interests.html?item=alaska-usa-perspective">Alaska, USA - Designing for Scale and Adaptability</a>
+  <a href="/interests.html?item=denver-to-las-vegas-journey-perspective">D2V, USA - Journey, Risk, and Transformation</a>
+  <a href="/interests.html?item=tokyo-japan-perspective">Tokyo, Japan - Coexistence of Legacy and Innovation</a>
+  <a href="/interests.html?item=kyoto-japan-perspective">Kyoto, Japan - Calmness within Complexity</a>
+  <a href="/interests.html?item=colorado-usa-perspective">Colorado, USA - Foundation that Last</a>
+</div>
 
 <!-- Google Analytics -->
 <script>
