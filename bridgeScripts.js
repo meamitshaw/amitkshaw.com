@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
       case "SAP RAR": return "bg-purple-50 text-purple-600";
       case "SAP FSCM": return "bg-emerald-50 text-emerald-600";
       case "SAP FI": return "bg-amber-50 text-amber-600";
+	  case "SAP BTP": return "bg-orange-50 text-orange-600";
       default: return "bg-slate-100 text-slate-600";
     }
   }
@@ -36,6 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	  "Why Monetization Strategy Needs Technology Alignment": "fas fa-chart-bar",
 	  "How SAP BRIM Evolved": "fa-layer-group",
 	  "SAP BRIM in the S/4HANA Era": "fa-rocket",
+	  "Architectural Principles and Business Considerations": "fa-chess-knight",
+	  "": "fa-magnifying-glass-chart",
+	  "": "fa-file-invoice-dollar",
+	  "": "fa-arrows-spin",
 	  "Learn More": "fa-link"
     };
     return map[title] || "fa-circle";
@@ -461,6 +466,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		  return "bg-emerald-50 text-emerald-600";
 		case "SAP FI":
 		  return "bg-amber-50 text-amber-600";
+		case "SAP BTP":
+		  return "bg-orange-50 text-orange-600";
 		default:
 		  return "bg-slate-100 text-slate-600";
 	  }
@@ -541,8 +548,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Initialize AOS
   if (typeof AOS !== "undefined") {
 	AOS.init({
-	  once: false,
-	  mirror: true,
+	  once: true,
+	  mirror: false,
 	  duration: 700,
 	  easing: "ease-out-cubic",
 	  offset: 100

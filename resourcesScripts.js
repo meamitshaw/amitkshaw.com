@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
       case "SAP RAR": return "bg-purple-50 text-purple-600";
       case "SAP FSCM": return "bg-emerald-50 text-emerald-600";
       case "SAP FI": return "bg-amber-50 text-amber-600";
+	  case "SAP BTP": return "bg-orange-50 text-orange-600";
       default: return "bg-slate-100 text-slate-600";
     }
   }

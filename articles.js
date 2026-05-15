@@ -317,7 +317,7 @@
 	  source: "LinkedIn",
 	  author: "Amit Kumar Shaw",
 	  icon: "fab fa-linkedin",
-	  featured: true,
+	  featured: false,
 	  type: "bridge",
 	  readingTime: "4 mins read",
 	  date: "2024-06-18",
@@ -1274,27 +1274,486 @@
 	{
 	  id: "brim-performance",
 	  slug: "",
+	  type: "blog",
+	  category: "Performance",
+	  tags: ["SAP BRIM"],
 	  title: "SAP BRIM Performance Optimization",
 	  description: "Techniques to scale billing runs using SAP Convergent Invoicing multithreading.",
-	  intro: "",
+	  keywords: [],
 	  image: "assets/brim-performance.jpg",
 	  link: "#",
 	  bridge: "",
 	  page: "resources/brim-Performance.html",
-	  category: "Performance",
-	  tags: ["SAP BRIM"],
-	  keywords: [],
-	  source: "Personal Blog",
-	  author: "Amit Kumar Shaw",
+	  source: "Blog",
 	  icon: "fas fa-pen-nib",
 	  featured: false,
-	  type: "blog",
+	  hero: [],
+	  author: "Amit Kumar Shaw",
+	  intro: "",
 	  readingTime: "",
-	  content: `
-		<p>This is the first paragraph of my blog article.</p>
-		<p>Include screenshots, diagrams, or any HTML content here.</p>
-		<img src="assets/my-diagram.png" alt="Diagram">
-	  `
+	  date: "",
+	  sections: [],
+	  faq: []
+	  
+	},
+	{
+	  id: "vendor-invoice-reconciliation",
+	  slug: "designing-vendor-invoice-recording-and-reconciliation-for-sap-brim-partner-settlement",
+	  type: "blog",
+	  category: "Financial Ops",
+	  tags: ["SAP BRIM", "SAP BTP", "SAP S/4HANA"],
+	  title: "Designing Vendor Invoice Recording and Reconciliation for SAP BRIM Partner Settlement",
+	  subtitle: "A conceptual architecture for intelligent invoice reconciliation across high-volume partner settlement ecosystems",
+	  hero: {
+		  type: "image",
+		  image: "../assets/vendor-invoice-reconciliation.jpg",
+		  eyebrow: "SAP BRIM Architecture"
+		  },
+	  description: "This article explores a conceptual architecture for vendor invoice recording and intelligent reconciliation within SAP BRIM partner settlement processes.",
+	  keywords: ["SAP BRIM", "SAP S/4HANA", "Partner Settlement", "Partner Agreement", "Partner Agreement in SOM", "Partner Billing", "Partner Invoicing", "Reconciliation"],
+	  image: "assets/vendor-invoice-reconciliation.jpg",
+	  link: "#",
+	  bridge: "",
+	  page: "resources/designing-vendor-invoice-recording-and-reconciliation-for-sap-brim-partner-settlement.html",
+	  source: "Blog",
+	  icon: "fas fa-pen-nib",
+	  featured: true,
+	  author: "Amit Kumar Shaw",
+	  intro: [
+	  "Back in 2021, while working on a large-scale SAP BRIM implementation for an online media and advertising organization, I came across an interesting operational challenge in the partner settlement process.",
+	  "The business operated in a high-volume partner ecosystem where settlement processes involved multiple vendors, publishers, and advertising partners. Some partners agreed to self-billing arrangements, while others preferred — or were contractually obligated — to issue their own invoices for settlement and payout processing.",
+	  "At the time, SAP BRIM provided strong capabilities around partner agreement management and self-invoicing. However, there was a noticeable gap when it came to vendor invoice recording and automated reconciliation against internally generated settlement invoices.",
+	  "The more I analysed the operational process, the clearer it became that invoice reconciliation was not simply a financial posting problem — it was a workflow, automation, compliance, and exception-management challenge.",
+	  "This article captures the original problem statement, the proposed architectural approach, and how modern technologies could make the solution significantly more powerful today."
+	  ],
+	  readingTime: "7 mins read",
+	  date: "2026-05-09",
+	  keyTakeaways: [
+					"Invoice reconciliation is fundamentally an operational intelligence problem.",
+					"Manual workflows do not scale in high-volume partner ecosystems.",
+					"AI-driven extraction significantly reduces reconciliation effort."
+				],
+	  insights: {
+		title: "Architecture Insights",
+		sections: [
+		  {
+			title: "Architectural Principles and Business Considerations",
+			content: [
+			  {
+				type: "paragraph",
+				text: "Coming from both finance and SAP solution architecture backgrounds, I have always believed that enterprise solutions should balance:"
+			  },
+			  {
+				  type: "list",
+				  style: "bullet",
+				  items: [
+				  "clean core principles,",
+				  "scalability,",
+				  "operational efficiency,",
+				  "and measurable business value."
+				  ]
+			  },
+			  {
+				  type: "paragraph",
+				  text: "Those considerations heavily influenced this proposal."
+			  },
+			  {
+				  type: "paragraph",
+				  text: "The objective was not to replace existing SAP BRIM partner settlement capabilities, but to introduce a configurable and extensible reconciliation layer with minimal disruption to the core landscape. A few principles guided the design:"
+			  },
+			  {
+				  type: "list",
+				  style: "number",
+				  items: [
+				  {
+					  text: "Configurability over hardcoding",
+					  subItems: ["Reconciliation rules, tolerances, and validations should remain business configurable rather than deeply embedded in custom code."]
+				  },
+				  {
+					  text: "Clean core and maintainability",
+					  subItems: ["The solution was envisioned as an extension to standard BRIM processes to reduce long-term technical debt and simplify future upgrades."]
+				  },
+				  {
+					  text: "Scalability and deployment flexibility",
+					  subItems: ["The architecture was designed to support high-volume partner ecosystems across SAP S/4HANA BRIM Private Cloud, Public Cloud, and On-Premises landscapes."]
+				  },
+				  {
+					  text: "Exception-driven processing",
+					  subItems: ["Human intervention should focus primarily on discrepancies and low-confidence reconciliation scenarios rather than repetitive manual validation."]
+				  }
+				  ]
+			  },
+			  {
+				  type: "paragraph",
+				  text: "From a business perspective, the proposed approach aimed to reduce manual reconciliation effort, improve settlement efficiency, strengthen auditability, and lower operational processing costs."
+			  },
+			  {
+				  type: "paragraph",
+				  text: "In large-scale partner settlement environments, even incremental automation improvements can generate meaningful operational ROI over time."
+			  }
+			]
+		  }
+		]
+	  },
+	  sections: [
+		{
+		  title: "Limitations in Vendor Invoice Processing",
+		  content: [
+		  {
+			  type: "paragraph",
+			  text: "In partner settlement ecosystems, businesses often operate using one of two invoicing models:"
+		  },
+		  {
+			  type: "list",
+			  style: "number",
+			  items: [
+			  {
+				  text: "Self-Invoicing (or Self-Billing):",
+				  subItems: [
+							"The business generates invoices on behalf of the vendor or partner and processes payment accordingly."
+						]
+			  },
+			  {
+				  text: "Vendor (Partner) Invoicing:",
+				  subItems: [
+							"The vendor generates and submits invoices for services, commissions, advertising payouts, or revenue-sharing obligations. "
+						]
+			  }
+		  ]
+		  },
+		  {
+			  type: "paragraph",
+			  text: "SAP BRIM natively supports self-invoicing scenarios effectively through:"
+		  },
+		  {
+		  type: "list",
+		  style: "bullet",
+		  items: [
+			"Partner Agreement management in SAP SOM,",
+			"Integration with SAP Convergent Charging (CC) for rating and charging,",
+			"Billing, settlement and financial processing through SAP CI and FI-CA."
+			]
+		  },
+		  {
+			  type: "paragraph",
+			  text: "This enables organizations to manage the complete partner settlement lifecycle seamlessly within the SAP BRIM ecosystem. However, challenges arise when vendors issue invoices independently. The standard SAP BRIM process does not provide native capabilities for:"
+		  },
+		  {
+			type: "list",
+			style: "bullet",
+			items: [
+				"Automated vendor invoice ingestion",
+				"Reconciliation against internally generated settlement documents",
+				"Intelligent invoice matching ",
+				"Discrepancy detection and handling",
+				"Duplicate invoice validation",
+				"Exception-driven workflow management"
+				]
+		  },
+		  {
+			  type: "paragraph",
+			  text: "As a result, several critical operational activities often become highly manual, including:"
+		  },
+		  {
+			type: "list",
+			style: "bullet",
+			items: [
+				"Invoice verification and reconciliation",
+				"Email-based communication and follow-ups",
+				"Approval tracking",
+				"Exception handling and resolution"
+				]
+		  },			  
+		  {
+			  type: "paragraph",
+			  text: "In high-volume partner settlement environments, these manual processes can quickly lead to operational inefficiencies, increased processing time, higher risk of errors, and scalability challenges."
+		  },
+		  {
+		    type: "callout",
+		    variant: "warning",
+		    text: "Manual reconciliation workflows become operationally unsustainable at scale."
+		  }		  
+		  ]
+		},
+		{
+			title: "Why This Problem Is More Complex Than It Appears",
+			content: [
+			{
+				type: "paragraph",
+				text: "Invoice reconciliation in partner settlement environments involves several complexities:"
+			},
+			{
+				type: "list",
+				style: "bullet",
+				items: [
+				"Different invoice formats across vendors",
+				"Structured and unstructured invoice content",
+				"OCR extraction challenges",
+				"Duplicate invoice handling",
+				"Tax inconsistencies",
+				"Settlement timing mismatches",
+				"Approval workflows",
+				"Exception management",
+				"Auditability requirements"
+				]
+			},
+			{
+				type: "paragraph",
+				text: "The challenge was not merely financial posting — it was operational intelligence."
+			},
+			{
+			  type: "callout",
+			  variant: "insight",
+			  text: "Intelligent finance requires adaptable reconciliation architectures, not static rule engines."
+			}			
+			]
+		},
+		{
+			title: "Proposed Solution Architecture",
+			content: [
+			{
+				type: "paragraph",
+				text: [
+				"The proposed approach introduced a configurable Vendor Invoice Recording and Matching Layer within the SAP BRIM partner settlement process.",
+				"The idea was to give businesses the flexibility to decide — at the partner agreement level — whether a partner would operate under:"
+				]
+			},
+			{
+				type: "list",
+				style: "bullet",
+				items: [
+				"self-invoicing,",
+				"vendor invoicing,",
+				"or hybrid settlement models."
+				]
+			},
+			{
+				type: "paragraph",
+				text: "The solution aimed to automate the entire lifecycle of vendor invoice processing, from ingestion to FI-CA posting while preserving controlled human intervention for discrepancies and approvals."
+			}
+			]
+		},
+		{
+			title: "Process Flow",
+			image: "assets/sap-brim/high-level-vendor-invoice-recording-and-reconciliation-flow.jpg",
+			content: [
+			{
+				type: "paragraph",
+				text: "The above high-level flow illustrates the proposed end-to-end processing lifecycle for vendor invoice ingestion, reconciliation, exception handling, and FI-CA posting. The architecture focused heavily on automation while still allowing controlled human intervention where discrepancies occurred."
+			},
+			{
+				
+				type: "list",
+				style: "number",
+				items: [
+				{
+					text: "Invoice Ingestion Layer",
+					subItems: [
+					{
+						type: "paragraph",
+						text: "The solution supported multiple invoice intake channels:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"Email attachments",
+						"SFTP-based file drops",
+						"Scanned paper invoices",
+						"Uploaded PDF or image documents",
+						"Structured electronic invoice files"
+						]
+					},
+					{
+						type: "paragraph",
+						text: "The goal was to minimize operational dependency on a single submission mechanism."
+					}
+					]
+				},
+				{
+					text: "OCR and Document Extraction",
+					subItems: [
+					{
+						type: "paragraph",
+						text: "At the time, the proposed design incorporated OCR and invoice capture capabilities to extract key invoice attributes such as invoice numbers, vendor identifiers, settlement amounts, tax values, invoice periods, and other critical reference data. This created a strong foundation for automating invoice processing and reducing manual effort."
+					},
+					{
+						type: "paragraph",
+						text: "Today, this layer could be significantly enhanced using:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"SAP BTP Document Information Extraction",
+						"AI-assisted document parsing",
+						"ML-driven field identification",
+						"LLM-powered interpretation of semi-structured or unstructured invoice content."
+						]
+					},
+					{
+						type: "paragraph",
+						text: "This is especially valuable in ecosystems where every vendor uses different invoice layouts and formats."
+					},
+					{
+						type: "paragraph",
+						text: "Modern AI capabilities greatly improve extraction accuracy, contextual understanding, anomaly detection, and reconciliation confidence levels. As a result, organizations can achieve more intelligent, scalable, and reliable invoice automation across the financial processing lifecycle."
+					}
+					]
+				},
+				{
+					text: "Validation and Duplicate Detection",
+					subItems: [
+					{
+						type: "paragraph",
+						text: "Before reconciliation, the invoice would undergo preliminary validations such as:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"vendor verification,",
+						"tax identifier validation,",
+						"invoice completeness checks,",
+						"duplicate invoice detection,",
+						"and settlement-period verification."
+						]
+					},
+					{
+						type: "paragraph",
+						text: "This stage aimed to reduce downstream reconciliation failures and financial risks."
+					}
+					]
+				},
+				{
+					text: "Intelligent Invoice Matching",
+					subItems: [
+					{
+						type: "paragraph",
+						text: "One of the core ideas was to compare vendor-issued invoices against internally generated self-invoices using configurable business rules managed through BRF+."
+					},
+					{
+						type: "paragraph",
+						text: "The matching logic could include:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"invoice amount tolerance,",
+						"tax reconciliation,",
+						"partner agreement rules,",
+						"settlement periods,",
+						"currency alignment,",
+						"and threshold-based validations."
+						]
+					}
+					]
+				},
+				{
+					text: "Exception Workflow and Collaboration",
+					subItems: [
+					{
+						type: "paragraph",
+						text: "Discrepancies between invoices would trigger an exception workflow. Potential workflow actions included:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"in-app notifications,",
+						"approval tasks,",
+						"email alerts,",
+						"discrepancy reviews,",
+						"escalation handling,",
+						"and clarification case creation."
+						]
+					},
+					{
+						type: "paragraph",
+						text: "For each exception, the system could generate a clarification case and route it to a business review queue for investigation and resolution. Business users could take appropriate actions, assign ownership, track status, and initiate internal or external communications related to:"
+					},
+					{
+						type: "list",
+						style: "bullet",
+						items: [
+						"mismatched values,",
+						"missing information,",
+						"tax inconsistencies,",
+						"or approval dependencies."
+						]
+					},
+					{
+						type: "paragraph",
+						text: "The intent was not just reconciliation — but operational collaboration and structured exception resolution."
+					}
+					]
+				},
+				{
+					text: "FI-CA Posting and Financial Processing",
+					subItems: [
+					"Approved invoices would automatically post into SAP FI-CA as payable documents for downstream payment processing. The intent was to reduce manual activities, operational delays and reconciliation overhead."
+					]
+				}
+			  ]
+			}
+			]
+		},
+		{
+			title: "From Vision to Reality with SAP BTP and AI",
+			content: [
+			{
+				type: "paragraph",
+				text: "When I proposed this idea in 2021, technologies such as AI-assisted document intelligence, LLM-powered extraction, and ML-driven reconciliation were not as operationally accessible or mature as they are today. Implementing such a solution at that time would have required substantial custom development around OCR pipelines, validation engines, workflow orchestration, and reconciliation logic."
+			},
+			{
+				type: "paragraph",
+				text: "Today, with the evolution of SAP BTP and modern AI capabilities, many aspects of the original vision have become significantly more achievable and scalable. Capabilities such as:"
+			},
+			{
+				type: "list",
+				style: "bullet",
+				items: [
+				"Intelligent document extraction",
+				"Semantic invoice interpretation",
+				"ML-driven anomaly detection",
+				"Confidence-based matching",
+				"AI-assisted exception handling"
+				]
+			},
+			{
+				type: "paragraph",
+				text: "can now dramatically reduce the operational complexity involved in vendor invoice processing and reconciliation."
+			},
+			{
+				type: "paragraph",
+				text: "What once required heavily customized integrations and rule-based processing can now be accelerated through AI-native services, intelligent automation, and cloud-based extensibility within the SAP ecosystem. This evolution enables organizations to move closer to real-time, adaptive, and intelligent financial operations."
+			},
+			{
+			  type: "callout",
+			  variant: "ai",
+			  text: "AI-powered extraction improves invoice understanding across diverse formats."
+			}			
+			]
+		},
+		{
+			title: "Beyond Financial Posting: The Future of Intelligent Reconciliation",
+			content: [
+			{
+				type: "paragraph",
+				text: "Not every architectural idea becomes a production feature — but some create lasting value by exposing operational gaps, reducing business friction, and revealing scalable paths forward."
+			},
+			{
+				type: "paragraph",
+				text: "What began as a partner settlement enhancement evolved into a broader vision aligned with intelligent finance and autonomous operational workflows. Although never fully implemented, the proposal sparked meaningful discussions because it addressed a real and persistent challenge within enterprise partner settlement ecosystems."
+			},
+			{
+				type: "paragraph",
+				text: "In retrospect, the most important realization was that reconciliation is not merely a financial posting activity — it is fundamentally an operational intelligence problem. With today’s AI-driven capabilities, the opportunity to build truly intelligent reconciliation workflows feels more achievable than ever."
+			}			
+			]
+		}		
+		],
+	  faq: []  
 	}
-
 	];
