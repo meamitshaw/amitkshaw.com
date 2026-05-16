@@ -1327,7 +1327,7 @@
 	  "This article captures the original problem statement, the proposed architectural approach, and how modern technologies could make the solution significantly more powerful today."
 	  ],
 	  readingTime: "7 mins read",
-	  date: "2026-05-09",
+	  date: "2026-05-15",
 	  keyTakeaways: [
 					"Invoice reconciliation is fundamentally an operational intelligence problem.",
 					"Manual workflows do not scale in high-volume partner ecosystems.",
