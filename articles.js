@@ -1310,7 +1310,7 @@
 		  eyebrow: "SAP BRIM Architecture"
 		  },
 	  description: "This article explores a conceptual architecture for vendor invoice recording and intelligent reconciliation within SAP BRIM partner settlement processes.",
-	  keywords: ["SAP BRIM", "SAP S/4HANA", "Partner Settlement", "Partner Agreement", "Partner Agreement in SOM", "Partner Billing", "Partner Invoicing", "Reconciliation"],
+	  keywords: ["SAP BRIM", "SAP S/4HANA", "Partner Settlement", "Partner Agreement", "Partner Agreement in SOM", "Partner Billing", "Partner Invoicing", "Reconciliation", "Vendor Invoice Recording", "Vendor Invoice Reconciliation", "SAP BRIM PARTNER SETTLEMENT", "BRIM Architecture"],
 	  image: "assets/vendor-invoice-reconciliation.jpg",
 	  link: "#",
 	  bridge: "",
