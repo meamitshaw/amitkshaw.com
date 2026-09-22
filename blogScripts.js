@@ -4,25 +4,852 @@ document.addEventListener("DOMContentLoaded", function() {
   // ======================
   // Helper Functions
   // ======================
-  function getTagColor(tag) {
-    switch(tag) {
-      case "SAP BRIM": return "bg-blue-500/20 text-blue-200";
-      case "SAP RAR": return "bg-purple-500/20 text-purple-200";
-      case "SAP FSCM": return "bg-emerald-500/20 text-emerald-200";
-      case "SAP FI": return "bg-amber-500/20 text-amber-200";
-	  case "SAP BTP": return "bg-orange-500/20 text-orange-200";
-      default: return "bg-slate/10 text-slate-200";
-    }
-  }
+	function renderInlineText(text) {
+	  const fragment = document.createDocumentFragment();
 
-  function getSectionIcon(title) {
-    const map = {
-      "Key Highlights": "fa-lightbulb",
-      "Architecture Overview": "fa-diagram-project",
+	  if (text === null || text === undefined) {
+		return fragment;
+	  }
+
+	  text = String(text);
+
+	  if (!text) return fragment;
+
+	  const pattern = /(\*\*\*.+?\*\*\*|\*\*.+?\*\*|\*.+?\*)/g;
+	  const parts = text.split(pattern);
+
+	  parts.forEach(part => {
+
+		// ***Bold Italic***
+		if (
+		  part.startsWith("***") &&
+		  part.endsWith("***") &&
+		  part.length >= 6
+		) {
+		  const el = document.createElement("strong");
+		  const italic = document.createElement("em");
+
+		  italic.textContent = part.slice(3, -3);
+
+		  el.appendChild(italic);
+		  fragment.appendChild(el);
+		}
+
+		// **Bold**
+		else if (
+		  part.startsWith("**") &&
+		  part.endsWith("**") &&
+		  part.length >= 4
+		) {
+		  const el = document.createElement("strong");
+
+		  el.textContent = part.slice(2, -2);
+
+		  fragment.appendChild(el);
+		}
+
+		// *Italic*
+		else if (
+		  part.startsWith("*") &&
+		  part.endsWith("*") &&
+		  part.length >= 2
+		) {
+		  const el = document.createElement("em");
+
+		  el.textContent = part.slice(1, -1);
+
+		  fragment.appendChild(el);
+		}
+
+		// Normal text
+		else {
+		  fragment.appendChild(
+			document.createTextNode(part)
+		  );
+		}
+
+	  });
+
+	  return fragment;
+	}
+
+	function renderContentBlock(block, container) {
+
+	  if (!block || !block.type || !container) return;
+
+
+	  // =========================================================
+	  // PARAGRAPH
+	  // =========================================================
+
+	  if (block.type === "paragraph") {
+
+		const p = document.createElement("p");
+
+		p.className =
+		  "text-slate-600 mb-6 leading-relaxed";
+
+		p.appendChild(
+		  renderInlineText(block.text || "")
+		);
+
+		container.appendChild(p);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // IMAGE
+	  // =========================================================
+
+	  if (block.type === "image") {
+
+		const img = document.createElement("img");
+
+		img.src =
+		  block.src ||
+		  block.image ||
+		  "";
+
+		img.alt =
+		  block.alt ||
+		  "";
+
+		img.className =
+		  "rounded-2xl w-full my-6";
+
+		img.setAttribute(
+		  "data-aos",
+		  "zoom-in-up"
+		);
+
+		img.setAttribute(
+		  "data-aos-duration",
+		  "700"
+		);
+
+		img.setAttribute(
+		  "data-aos-delay",
+		  "100"
+		);
+
+		img.setAttribute(
+		  "data-aos-easing",
+		  "ease-out-cubic"
+		);
+
+		img.setAttribute(
+		  "data-aos-anchor-placement",
+		  "top-bottom"
+		);
+
+		container.appendChild(img);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // QUOTE
+	  // =========================================================
+
+	  if (block.type === "quote") {
+
+		const quote =
+		  document.createElement("blockquote");
+
+		quote.className =
+		  "border-l-4 border-sky-500 pl-5 pr-4 py-2 my-8 italic text-slate-600 leading-relaxed";
+
+		quote.setAttribute(
+		  "data-aos",
+		  "fade-up"
+		);
+
+		quote.setAttribute(
+		  "data-aos-delay",
+		  "100"
+		);
+
+		quote.appendChild(
+		  renderInlineText(block.text || "")
+		);
+
+		container.appendChild(quote);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // CALLOUT
+	  // =========================================================
+
+	  if (block.type === "callout") {
+
+		const variants = {
+
+		  insight: {
+			icon: "fa-lightbulb",
+			wrapper:
+			  "bg-gradient-to-br from-indigo-50 to-white border-indigo-100",
+			iconBg:
+			  "bg-indigo-500/10 text-indigo-600"
+		  },
+
+		  architecture: {
+			icon: "fa-diagram-project",
+			wrapper:
+			  "bg-gradient-to-br from-purple-50 to-white border-purple-100",
+			iconBg:
+			  "bg-purple-500/10 text-purple-600"
+		  },
+
+		  warning: {
+			icon: "fa-triangle-exclamation",
+			wrapper:
+			  "bg-gradient-to-br from-amber-50 to-white border-amber-100",
+			iconBg:
+			  "bg-amber-500/10 text-amber-600"
+		  },
+
+		  ai: {
+			icon: "fa-brain",
+			wrapper:
+			  "bg-gradient-to-br from-cyan-50 to-white border-cyan-100",
+			iconBg:
+			  "bg-cyan-500/10 text-cyan-600"
+		  },
+
+		  strategy: {
+			icon: "fa-chart-line",
+			wrapper:
+			  "bg-gradient-to-br from-emerald-50 to-white border-emerald-100",
+			iconBg:
+			  "bg-emerald-500/10 text-emerald-600"
+		  },
+
+		  quote: {
+			icon: "fa-quote-left",
+			wrapper:
+			  "bg-gradient-to-br from-sky-50 to-white border-sky-100",
+			iconBg:
+			  "bg-sky-500/10 text-sky-600"
+		  }
+
+		};
+
+
+		const config =
+		  variants[block.variant] ||
+		  variants.insight;
+
+
+		const callout =
+		  document.createElement("div");
+
+		callout.className = `
+		  relative overflow-hidden
+		  border rounded-3xl
+		  p-6 mb-8
+		  backdrop-blur-sm
+		  shadow-sm hover:shadow-md
+		  transition-all duration-300
+		  ${config.wrapper}
+		`;
+
+		callout.setAttribute(
+		  "data-aos",
+		  "fade-up"
+		);
+
+		callout.setAttribute(
+		  "data-aos-delay",
+		  "100"
+		);
+
+
+		// Soft glow
+
+		const glow =
+		  document.createElement("div");
+
+		glow.className = `
+		  absolute -right-10 -top-10
+		  w-28 h-28 rounded-full
+		  bg-white/30 blur-3xl
+		`;
+
+
+		// Main row
+
+		const row =
+		  document.createElement("div");
+
+		row.className =
+		  "relative z-10 flex items-center gap-4";
+
+
+		// Icon
+
+		const iconBox =
+		  document.createElement("div");
+
+		iconBox.className = `
+		  w-9 h-9 rounded-xl
+		  flex items-center justify-center
+		  text-sm shrink-0
+		  backdrop-blur-md
+		  ${config.iconBg}
+		`;
+
+
+		const icon =
+		  document.createElement("i");
+
+		icon.className =
+		  `fas ${config.icon}`;
+
+		iconBox.appendChild(icon);
+
+
+		// Content
+
+		const content =
+		  document.createElement("div");
+
+		content.className =
+		  "flex-1 flex items-center";
+
+
+		const p =
+		  document.createElement("p");
+
+		p.className = `
+		  text-slate-700
+		  leading-relaxed
+		  text-[15px]
+		  m-0
+		`;
+
+		p.appendChild(
+		  renderInlineText(block.text || "")
+		);
+
+
+		content.appendChild(p);
+
+		row.appendChild(iconBox);
+		row.appendChild(content);
+
+		callout.appendChild(glow);
+		callout.appendChild(row);
+
+		container.appendChild(callout);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // TABLE
+	  // =========================================================
+
+	  if (block.type === "table") {
+
+		const wrapper =
+		  document.createElement("div");
+
+		wrapper.className =
+		  "w-full overflow-x-auto rounded-2xl border border-slate-200 my-8 shadow-sm";
+
+		wrapper.setAttribute(
+		  "data-aos",
+		  "fade-up"
+		);
+
+		wrapper.setAttribute(
+		  "data-aos-delay",
+		  "100"
+		);
+
+
+		const table =
+		  document.createElement("table");
+
+		table.className =
+		  "w-full min-w-[700px] border-collapse text-sm";
+
+
+		// -------------------------------------------------------
+		// TABLE COLORS
+		// -------------------------------------------------------
+
+		const tableColors = {
+
+		  indigo: {
+			header:
+			  "bg-indigo-600 text-white",
+			row:
+			  "hover:bg-indigo-50/60",
+			border:
+			  "border-indigo-100"
+		  },
+
+		  blue: {
+			header:
+			  "bg-blue-600 text-white",
+			row:
+			  "hover:bg-blue-50/60",
+			border:
+			  "border-blue-100"
+		  },
+
+		  emerald: {
+			header:
+			  "bg-emerald-600 text-white",
+			row:
+			  "hover:bg-emerald-50/60",
+			border:
+			  "border-emerald-100"
+		  },
+
+		  purple: {
+			header:
+			  "bg-purple-600 text-white",
+			row:
+			  "hover:bg-purple-50/60",
+			border:
+			  "border-purple-100"
+		  },
+
+		  amber: {
+			header:
+			  "bg-amber-500 text-white",
+			row:
+			  "hover:bg-amber-50/60",
+			border:
+			  "border-amber-100"
+		  },
+
+		  slate: {
+			header:
+			  "bg-slate-800 text-white",
+			row:
+			  "hover:bg-slate-50",
+			border:
+			  "border-slate-200"
+		  },
+
+		  dark: {
+			header:
+			  "bg-slate-950 text-white",
+			row:
+			  "hover:bg-slate-800/10",
+			border:
+			  "border-slate-300"
+		  }
+
+		};
+
+
+		const color =
+		  tableColors[block.color] ||
+		  tableColors.indigo;
+
+
+		// -------------------------------------------------------
+		// DATA
+		// -------------------------------------------------------
+
+		const data =
+		  Array.isArray(block.data)
+			? block.data
+			: [];
+
+
+		if (!data.length) {
+		  return;
+		}
+
+
+		// -------------------------------------------------------
+		// COLUMN / ROW COUNT
+		// -------------------------------------------------------
+
+		const columnCount =
+		  Number(block.columns) ||
+		  data[0].length;
+
+		const rowCount =
+		  Number(block.rows) ||
+		  data.length;
+
+
+		// -------------------------------------------------------
+		// VALIDATION
+		// -------------------------------------------------------
+
+		if (data.length !== rowCount) {
+
+		  console.warn(
+			`Table row mismatch. Expected ${rowCount}, received ${data.length}.`
+		  );
+
+		}
+
+
+		data.forEach((row, rowIndex) => {
+
+		  if (
+			!Array.isArray(row) ||
+			row.length !== columnCount
+		  ) {
+
+			console.warn(
+			  `Table column mismatch in row ${rowIndex + 1}. Expected ${columnCount} columns.`
+			);
+
+		  }
+
+		});
+
+
+		// -------------------------------------------------------
+		// RENDER ROWS
+		// -------------------------------------------------------
+
+		data.slice(0, rowCount).forEach(
+		  (row, rowIndex) => {
+
+			const tr =
+			  document.createElement("tr");
+
+
+			// First row = HEADER
+
+			if (rowIndex === 0) {
+
+			  tr.className =
+				color.header;
+
+			}
+
+			// Remaining rows
+
+			else {
+
+			  tr.className =
+				rowIndex % 2 === 0
+				  ? `bg-slate-50 ${color.row}`
+				  : `bg-white ${color.row}`;
+
+			}
+
+
+			// ---------------------------------------------------
+			// CELLS
+			// ---------------------------------------------------
+
+			for (
+			  let columnIndex = 0;
+			  columnIndex < columnCount;
+			  columnIndex++
+			) {
+
+			  const value =
+				row?.[columnIndex] ?? "";
+
+
+			  const cell =
+				rowIndex === 0
+				  ? document.createElement("th")
+				  : document.createElement("td");
+
+
+			  cell.className =
+				rowIndex === 0
+
+				  ? "px-5 py-4 text-left font-semibold whitespace-nowrap border-b border-white/20"
+
+				  : `px-5 py-4 text-slate-600 leading-relaxed align-top border-t ${color.border}`;
+
+
+			  // Support inline markdown
+
+			  if (
+				typeof value === "string"
+			  ) {
+
+				cell.appendChild(
+				  renderInlineText(value)
+				);
+
+			  }
+
+			  else {
+
+				cell.innerText =
+				  String(value);
+
+			  }
+
+
+			  tr.appendChild(cell);
+
+			}
+
+
+			table.appendChild(tr);
+
+		  }
+		);
+
+
+		wrapper.appendChild(table);
+
+		container.appendChild(wrapper);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // LIST
+	  //
+	  // Supports:
+	  //
+	  // 1. String items
+	  // 2. Object items
+	  // 3. text
+	  // 4. subItems
+	  // 5. Paragraph subItems
+	  // 6. Image subItems
+	  // 7. List subItems
+	  // 8. Table subItems
+	  // 9. Nested lists
+	  // 10. Deep nested content
+	  // =========================================================
+
+	  if (block.type === "list") {
+
+		const list =
+		  document.createElement(
+			block.style === "number"
+			  ? "ol"
+			  : "ul"
+		  );
+
+
+		list.className =
+		  "pl-6 mb-6 space-y-3 text-slate-600 " +
+		  (
+			block.style === "number"
+			  ? "list-decimal"
+			  : "list-disc"
+		  );
+
+
+		list.setAttribute(
+		  "data-aos",
+		  "fade-up"
+		);
+
+		list.setAttribute(
+		  "data-aos-delay",
+		  "100"
+		);
+
+
+		(block.items || []).forEach(
+		  item => {
+
+			const li =
+			  document.createElement("li");
+
+
+			// =================================================
+			// STRING ITEM
+			// =================================================
+
+			if (
+			  typeof item === "string"
+			) {
+
+			  li.appendChild(
+				renderInlineText(item)
+			  );
+
+			}
+
+
+			// =================================================
+			// OBJECT ITEM
+			// =================================================
+
+			else if (
+			  typeof item === "object" &&
+			  item !== null
+			) {
+
+
+			  // -----------------------------------------------
+			  // MAIN ITEM TEXT
+			  // -----------------------------------------------
+
+			  if (item.text) {
+
+				const title =
+				  document.createElement("div");
+
+				title.className =
+				  "font-semibold text-slate-700";
+
+				title.appendChild(
+				  renderInlineText(item.text)
+				);
+
+				li.appendChild(title);
+
+			  }
+
+			  else {
+
+				li.classList.add(
+				  "list-none"
+				);
+
+			  }
+
+
+			  // -----------------------------------------------
+			  // SUB ITEMS
+			  // -----------------------------------------------
+
+			  if (
+				Array.isArray(item.subItems) &&
+				item.subItems.length > 0
+			  ) {
+
+				const subContainer =
+				  document.createElement("div");
+
+				subContainer.className =
+				  "mt-2 text-slate-500 leading-relaxed space-y-3";
+
+
+				item.subItems.forEach(
+				  subItem => {
+
+					// ========================================
+					// STRING SUB-ITEM
+					// ========================================
+
+					if (
+					  typeof subItem === "string"
+					) {
+
+					  const p =
+						document.createElement("p");
+
+					  p.className =
+						"mb-1";
+
+					  p.appendChild(
+						renderInlineText(subItem)
+					  );
+
+					  subContainer.appendChild(p);
+
+					  return;
+					}
+
+
+					// ========================================
+					// OBJECT SUB-ITEM
+					// ========================================
+
+					if (
+					  typeof subItem === "object" &&
+					  subItem !== null
+					) {
+
+					  /*
+					   * IMPORTANT:
+					   *
+					   * Instead of manually handling only
+					   * paragraph/image/list/table here,
+					   * we recursively send the block back
+					   * through renderContentBlock().
+					   *
+					   * This means ANY future block type
+					   * automatically works inside subItems.
+					   */
+
+					  renderContentBlock(
+						subItem,
+						subContainer
+					  );
+
+					}
+
+				  }
+				);
+
+
+				li.appendChild(
+				  subContainer
+				);
+
+			  }
+
+			}
+
+
+			list.appendChild(li);
+
+		  }
+		);
+
+
+		container.appendChild(list);
+
+		return;
+	  }
+
+
+	  // =========================================================
+	  // UNKNOWN TYPE
+	  // =========================================================
+
+	  console.warn(
+		"Unknown content block type:",
+		block.type
+	  );
+
+	}
+
+
+	function getTagColor(tag) {
+	switch(tag) {
+	  case "SAP BRIM": return "bg-blue-500/20 text-blue-200";
+	  case "SAP RAR": return "bg-purple-500/20 text-purple-200";
+	  case "SAP FSCM": return "bg-emerald-500/20 text-emerald-200";
+	  case "SAP FI": return "bg-amber-500/20 text-amber-200";
+	  case "SAP BTP": return "bg-orange-500/20 text-orange-200";
+	  default: return "bg-slate/10 text-slate-200";
+	}
+	}
+
+	function getSectionIcon(title) {
+	const map = {
+	  "Key Highlights": "fa-lightbulb",
+	  "Architecture Overview": "fa-diagram-project",
 	  "Process Flow": "fa-diagram-project",
-      "Practical Implementation Insights": "fa-gears",
+	  "Practical Implementation Insights": "fa-gears",
 	  "Proposed Solution Architecture": "fa-gears",
-      "When Should You Use?": "fa-check-circle",
+	  "When Should You Use?": "fa-check-circle",
 	  "What Vertex Tax Solution Does": "fas fa-chart-bar",
 	  "How Integration Works": "fas fa-sync",
 	  "What Real-Time Processing Means in SAP FI-CA": "fas fa-bolt",
@@ -43,230 +870,215 @@ document.addEventListener("DOMContentLoaded", function() {
 	  "From Vision to Reality with SAP BTP and AI": "fa-rocket", 
 	  "Beyond Financial Posting: The Future of Intelligent Reconciliation": "fa-layer-group",
 	  "Architectural Principles and Business Considerations": "fa-chess-knight",
-	  "": "fa-magnifying-glass-chart",
+	  "From SAP Documentation to Architecture": "fa-graduation-cap",
+	  "The Business Problem": "fa-puzzle-piece",
+	  "One Subscription, Multiple Representations": "fa-layer-group",
+	  "Cross-Catalog Mapping As The Bridge": "fa-link",
+	  "From Technical Entitlement To Service Activation": "fa-toggle-on",
+	  "What If We Didn't Use An External Object?": "fa-link-slash",
+	  "What Would I Do Differently Today?": "fa-route",
+	  "": "fa-sitemap",
+	  "The Bigger Architectural Pattern": "fa-globe",
+	  "": "fa-arrows-to-circle",
+	  "Conclusion: Translating Intent Into Execution": "fa-lightbulb",
+	  "Design Time Vs. Runtime": "fa-magnifying-glass-chart",
+	  "The Shift in Mental Model": "fa-arrows-rotate",
 	  "": "fa-file-invoice-dollar",
 	  "": "fa-arrows-spin",
+	  "": "fa-shapes",
+	  "": "fa-clone",
+	  "": "fa-code-branch",
+	  "": "fa-arrows-split-up-and-left",
+	  "": "fa-object-group",
+	  "": "fa-circle-exclamation",
 	  "Learn More": "fa-link"
-    };
-    return map[title] || "fa-circle";
-  }
-
-  function scrollContainer(container, direction) {
-    const scrollAmount = container.clientHeight;
-    container.scrollBy({ top: direction * scrollAmount, behavior: "smooth" });
-  }
-
-  function updateArrowState(container, upBtn, downBtn) {
-    upBtn.disabled = container.scrollTop <= 0;
-    downBtn.disabled = container.scrollTop + container.clientHeight >= container.scrollHeight;
-
-    upBtn.classList.toggle("opacity-40", upBtn.disabled);
-    downBtn.classList.toggle("opacity-40", downBtn.disabled);
-    upBtn.classList.toggle("cursor-not-allowed", upBtn.disabled);
-    downBtn.classList.toggle("cursor-not-allowed", downBtn.disabled);
-  }
-
-	function renderContentBlocks(container, blocks = []) {
-	  blocks.forEach((block, index) => {
-		// PARAGRAPH
-		if (block.type === "paragraph") {
-		  const p = document.createElement("p");
-		  p.className =
-			"text-slate-600 leading-relaxed mb-6";
-		  p.innerText = block.text || "";
-		  container.appendChild(p);
-		}
-		
-		// IMAGE
-		else if (block.type === "image") {
-		  const img = document.createElement("img");
-		  img.src = block.src || block.image;
-		  img.alt = block.alt || "";
-		  img.className =
-			"rounded-2xl w-full my-6";
-		  container.appendChild(img);
-		}
-
-		// LIST
-		else if (block.type === "list") {
-		  const list = document.createElement(
-			block.style === "number"
-			  ? "ol"
-			  : "ul"
-		  );
-		  list.className =
-			"pl-6 mb-6 space-y-3 text-slate-600 " +
-			(block.style === "number"
-			  ? "list-decimal"
-			  : "list-disc");
-		  (block.items || []).forEach(item => {
-			const li = document.createElement("li");
-			// simple string
-			if (typeof item === "string") {
-			  li.innerText = item;
-			}
-			// object item
-			else if (
-			  typeof item === "object" &&
-			  item !== null
-			) {
-			  // title
-			  if (item.text) {
-				const title =
-				  document.createElement("div");
-				title.className =
-				  "font-semibold text-slate-700";
-				title.innerText = item.text;
-				li.appendChild(title);
-			  }
-			  // subitems
-			  if (
-				Array.isArray(item.subItems)
-			  ) {
-				const sub =
-				  document.createElement("div");
-				sub.className =
-				  "mt-2 space-y-2";
-				item.subItems.forEach(s => {
-				  // paragraph
-				  if (
-					typeof s === "string"
-				  ) {
-					const p =
-					  document.createElement("p");
-					p.innerText = s;
-					sub.appendChild(p);
-				  }
-				  else if (
-					s.type === "paragraph"
-				  ) {
-					const p =
-					  document.createElement("p");
-					p.innerText = s.text || "";
-					sub.appendChild(p);
-				  }
-				  // nested image
-				  else if (
-					s.type === "image"
-				  ) {
-					const img =
-					  document.createElement("img");
-					img.src =
-					  s.src || s.image;
-					img.className =
-					  "rounded-xl my-3 w-full";
-					sub.appendChild(img);
-				  }
-				});
-				li.appendChild(sub);
-			  }
-			}
-			list.appendChild(li);
-		  });
-		  container.appendChild(list);
-		}
-	  });
+	};
+	return map[title] || "fa-circle";
 	}
 
-  // ======================
-  // Article Rendering
-  // ======================
-  const currentFile = window.location.pathname.split("/").pop().split("?")[0];
-  const article = articles.find(a => a.page && a.page.endsWith(currentFile));
-  if (!article) return;
+	function scrollContainer(container, direction) {
+	const scrollAmount = container.clientHeight;
+	container.scrollBy({ top: direction * scrollAmount, behavior: "smooth" });
+	}
 
-  // Breadcrumb
-  document.getElementById("breadcrumb-title").innerText = article.title;
+	function updateArrowState(container, upBtn, downBtn) {
+	upBtn.disabled = container.scrollTop <= 0;
+	downBtn.disabled = container.scrollTop + container.clientHeight >= container.scrollHeight;
 
-  // HERO RENDERING
-  const heroSection = document.getElementById("hero-section");
+	upBtn.classList.toggle("opacity-40", upBtn.disabled);
+	downBtn.classList.toggle("opacity-40", downBtn.disabled);
+	upBtn.classList.toggle("cursor-not-allowed", upBtn.disabled);
+	downBtn.classList.toggle("cursor-not-allowed", downBtn.disabled);
+	}
 
-  if (article.hero) {
+	function renderContentBlocks(container, blocks = []) {
 
-    // Background image
-    if (article.hero.image) {
+	  blocks.forEach(block => {
+
+		renderContentBlock(
+		  block,
+		  container
+		);
+
+	  });
+
+	}
+
+	// ======================
+	// Article Rendering
+	// ======================
+	const currentFile = window.location.pathname.split("/").pop().split("?")[0];
+	const article = articles.find(a => a.page && a.page.endsWith(currentFile));
+	if (!article) return;
+
+	// Breadcrumb
+	document.getElementById("breadcrumb-title").innerText = article.title;
+
+	// HERO RENDERING
+	const heroSection = document.getElementById("hero-section");
+
+	if (article.hero) {
+
+	// Background image
+	if (article.hero.image) {
 	  document.getElementById("hero-bg").style.backgroundImage =
-	    `url('${article.hero.image}')`;
-    }
-	
+		`url('${article.hero.image}')`;
+	}
+
 	// Category
 	document.getElementById("hero-category").innerText =
 	  article.category || "";
 
-    // Eyebrow
-    document.getElementById("hero-eyebrow").innerText =
+	// Eyebrow
+	document.getElementById("hero-eyebrow").innerText =
 	  article.hero.eyebrow || "";
 
-    // Title
-    document.getElementById("hero-title").innerText =
+	// Title
+	document.getElementById("hero-title").innerText =
 	  article.title;
 
-    // Subtitle
-    document.getElementById("hero-subtitle").innerText =
+	// Subtitle
+	document.getElementById("hero-subtitle").innerText =
 	  article.subtitle || article.description || "";
 
-    // Meta
-    document.getElementById("hero-reading-time").innerText =
+	// Meta
+	document.getElementById("hero-reading-time").innerText =
 	  article.readingTime || "";
 
 	// Source
 	document.getElementById("hero-source").innerText =
 	  `${article.source} • ${article.author}`;
 
-    document.getElementById("hero-date").innerText =
+	document.getElementById("hero-date").innerText =
 	  article.date || "";
 
-    // Tags
-    const heroTags = document.getElementById("hero-tags");
+	// Tags
+	const heroTags = document.getElementById("hero-tags");
 
-    (article.tags || []).forEach(tag => {
+	(article.tags || []).forEach(tag => {
 	  const span = document.createElement("span");
 
 	  span.className =
-	    `text-[10px] font-bold px-2 py-1 rounded uppercase ${getTagColor(tag)}`;
+		`text-[10px] font-bold px-2 py-1 rounded uppercase ${getTagColor(tag)}`;
 	  span.innerText = tag;
 
 	  heroTags.appendChild(span);
-    });
+	});
 
-  } else {
-    heroSection.style.display = "none";
-  }
+	} else {
+	heroSection.style.display = "none";
+	}
 
-  // Intro
-  const introContainer = document.getElementById("blog-intro");
-  if (Array.isArray(article.intro)) {
-    article.intro.forEach(p => {
-      const para = document.createElement("p");
-      para.className = "text-slate-600 mb-6 leading-relaxed";
-      para.innerText = p;
-      introContainer.appendChild(para);
-    });
-  } else {
-    introContainer.innerText = article.intro || article.description;
-  }
+	// ======================
+	// INTRO
+	// ======================
 
-  // Sections
-  const container = document.getElementById("blog-sections");
-  (article.sections || []).forEach(sec => {
-    if (sec.title) {
-      const sectionId = sec.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      const h2 = document.createElement("h2");
-      h2.id = sectionId;
-      h2.className = "text-2xl font-bold mb-4 mt-6 flex items-center gap-3";
+	const introContainer =
+	  document.getElementById("blog-intro");
+
+	if (Array.isArray(article.intro)) {
+
+	  article.intro.forEach(item => {
+
+		// Backward compatible:
+		// existing intro strings continue working
+		if (typeof item === "string") {
+
+		  renderContentBlock(
+			{
+			  type: "paragraph",
+			  text: item
+			},
+			introContainer
+		  );
+
+		}
+
+		else if (
+		  typeof item === "object" &&
+		  item !== null
+		) {
+
+		  renderContentBlock(
+			item,
+			introContainer
+		  );
+
+		}
+
+	  });
+
+	}
+
+	else if (
+	  typeof article.intro === "object" &&
+	  article.intro !== null
+	) {
+
+	  renderContentBlock(
+		article.intro,
+		introContainer
+	  );
+
+	}
+
+	else {
+
+	  renderContentBlock(
+		{
+		  type: "paragraph",
+		  text:
+			article.intro ||
+			article.description ||
+			""
+		},
+		introContainer
+	  );
+
+	}
+
+
+	// Sections
+	const container = document.getElementById("blog-sections");
+	(article.sections || []).forEach(sec => {
+	if (sec.title) {
+	  const sectionId = sec.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+	  const h2 = document.createElement("h2");
+	  h2.id = sectionId;
+	  h2.className = "text-2xl font-bold mb-4 mt-6 flex items-center gap-3";
 	  h2.setAttribute("data-aos", "fade-up");
 	  h2.setAttribute("data-aos-offset", "120");
 
-      const icon = document.createElement("i");
-      icon.className = `fas ${getSectionIcon(sec.title)} text-indigo-500`;
+	  const icon = document.createElement("i");
+	  icon.className = `fas ${getSectionIcon(sec.title)} text-indigo-500`;
 
-      const span = document.createElement("span");
-      span.innerText = sec.title;
+	  const span = document.createElement("span");
+	  span.innerText = sec.title;
 
-      h2.appendChild(icon);
-      h2.appendChild(span);
-      container.appendChild(h2);
-    }
+	  h2.appendChild(icon);
+	  h2.appendChild(span);
+	  container.appendChild(h2);
+	}
 
     if (sec.image) {
       const img = document.createElement("img");
@@ -280,287 +1092,92 @@ document.addEventListener("DOMContentLoaded", function() {
 	  container.appendChild(img);
     }
 
-    if (sec.content) {
-      if (Array.isArray(sec.content)) {
-        sec.content.forEach((block, index) => {
-          if (block.type === "paragraph") {
-            const p = document.createElement("p");
-            p.className = "text-slate-600 mb-6 leading-relaxed";
-            p.innerText = block.text;
-		  if (index === 0) { 
-			const baseDelay = 50 + (index * 20);
-			p.setAttribute("data-aos", "fade-up");
-			p.setAttribute("data-aos-delay", baseDelay);
+	// SECTION CONTENT
+	if (sec.content) {
+
+	  // ARRAY CONTENT
+	  if (Array.isArray(sec.content)) {
+
+		sec.content.forEach((block, index) => {
+
+		  if (!block) return;
+
+		  // SECTION-SPECIFIC PARAGRAPH
+		  if (block.type === "paragraph") {
+
+			const p =
+			  document.createElement("p");
+
+			p.className =
+			  "text-slate-600 mb-6 leading-relaxed";
+
+			p.appendChild(
+			  renderInlineText(
+				block.text || ""
+			  )
+			);
+
+
+			// Preserve your existing
+			// first-paragraph AOS behavior
+
+			if (index === 0) {
+
+			  const baseDelay =
+				50 + (index * 20);
+
+			  p.setAttribute(
+				"data-aos",
+				"fade-up"
+			  );
+
+			  p.setAttribute(
+				"data-aos-delay",
+				baseDelay
+			  );
+
 			}
-            container.appendChild(p);
-          } else if (block.type === "list") {
-            const list = document.createElement(block.style === "number" ? "ol" : "ul");
-            list.className = "pl-6 mb-6 space-y-2 text-slate-600 " + (block.style === "number" ? "list-decimal" : "list-disc");
-            list.setAttribute("data-aos", "fade-up");
-			list.setAttribute("data-aos-delay", "100");
-			block.items.forEach(item => {
-			  const li = document.createElement("li");
 
-			  // ✅ Case 1: Old format (string) → keep working exactly as-is
-			  if (typeof item === "string") {
-				li.innerText = item;
-			  }
 
-			  // ✅ Case 2: New format (object with text + subItems)
-			  else if (typeof item === "object" && item !== null) {
+			container.appendChild(p);
 
-				// Main text (acts like heading)
-				if (item.text) {
-				  const title = document.createElement("div");
-				  title.className = "font-semibold text-slate-700";
-				  title.innerText = item.text;
-				  li.appendChild(title);
-				} else {
-				  li.classList.add("list-none"); // removes bullet if no title
-				}
+			return;
+		  }
+		  renderContentBlock(
+			block,
+			container
+		  );
 
-				// Enhanced Sub Items (Supports: paragraph, list, image)
-				if (Array.isArray(item.subItems) && item.subItems.length > 0) {
+		});
 
-				  const subContainer = document.createElement("div");
-				  subContainer.className = "mt-2 text-slate-500 leading-relaxed space-y-3";
+	  }
 
-				  item.subItems.forEach(sub => {
+	  // LEGACY STRING CONTENT
+	  else {
+		const p =
+		  document.createElement("p");
 
-					// STRING SUPPORT (Backward Compatible)
-					if (typeof sub === "string") {
-					  const p = document.createElement("p");
-					  p.className = "mb-1";
-					  p.innerText = sub;
-					  subContainer.appendChild(p);
-					  return;
-					}
+		p.className =
+		  "text-slate-600 mb-10 leading-relaxed";
 
-					// OBJECT SUPPORT
-					if (typeof sub === "object" && sub !== null) {
+		p.innerText =
+		  sec.content;
 
-					  // PARAGRAPH
-					  if (sub.type === "paragraph" || (!sub.type && sub.text)) {
-						const p = document.createElement("p");
-						p.className = "text-slate-500 leading-relaxed";
-						p.innerText = sub.text || "";
-						subContainer.appendChild(p);
-					  }
+		p.setAttribute(
+		  "data-aos",
+		  "fade-up"
+		);
 
-					  // IMAGE
-					  else if (sub.type === "image") {
-						const img = document.createElement("img");
-						img.src = sub.src || sub.image;
-						img.alt = sub.alt || "";
-						img.className = "rounded-xl my-3 w-full";
+		p.setAttribute(
+		  "data-aos-delay",
+		  "50"
+		);
 
-						img.setAttribute("data-aos", "zoom-in-up");
-						img.setAttribute("data-aos-duration", "700");
-
-						subContainer.appendChild(img);
-					  }
-
-					  // LIST
-					  else if (sub.type === "list") {
-
-						const subList = document.createElement(
-						  sub.style === "number" ? "ol" : "ul"
-						);
-
-						subList.className =
-						  "pl-6 space-y-2 " +
-						  (sub.style === "number"
-							? "list-decimal"
-							: "list-disc");
-
-						(sub.items || []).forEach(listItem => {
-
-						  const liEl = document.createElement("li");
-
-						  // simple string
-						  if (typeof listItem === "string") {
-							liEl.innerText = listItem;
-						  }
-
-						  // object item
-						  else if (
-							typeof listItem === "object" &&
-							listItem !== null
-						  ) {
-
-							if (listItem.text) {
-							  const title = document.createElement("div");
-							  title.className = "font-medium text-slate-700";
-							  title.innerText = listItem.text;
-							  liEl.appendChild(title);
-							}
-
-							// nested subitems again (recursive-lite)
-							if (
-							  Array.isArray(listItem.subItems) &&
-							  listItem.subItems.length > 0
-							) {
-
-							  const nested = document.createElement("div");
-							  nested.className = "mt-1 space-y-2";
-
-							  listItem.subItems.forEach(n => {
-
-								if (typeof n === "string") {
-								  const p = document.createElement("p");
-								  p.innerText = n;
-								  nested.appendChild(p);
-								}
-
-								else if (n.type === "paragraph") {
-								  const p = document.createElement("p");
-								  p.innerText = n.text || "";
-								  nested.appendChild(p);
-								}
-
-							  });
-
-							  liEl.appendChild(nested);
-							}
-						  }
-
-						  subList.appendChild(liEl);
-						});
-
-						subContainer.appendChild(subList);
-					  }
-					}
-				  });
-
-				  li.appendChild(subContainer);
-				}
-			  }
-
-			  list.appendChild(li);
-			});
-            container.appendChild(list);
-          }
-			else if (block.type === "callout") {
-
-			  const callout = document.createElement("div");
-
-			  const variants = {
-
-				insight: {
-				  icon: "fa-lightbulb",
-				  wrapper:
-					"bg-gradient-to-br from-indigo-50 to-white border-indigo-100",
-				  iconBg:
-					"bg-indigo-500/10 text-indigo-600"
-				},
-
-				architecture: {
-				  icon: "fa-diagram-project",
-				  wrapper:
-					"bg-gradient-to-br from-purple-50 to-white border-purple-100",
-				  iconBg:
-					"bg-purple-500/10 text-purple-600"
-				},
-
-				warning: {
-				  icon: "fa-triangle-exclamation",
-				  wrapper:
-					"bg-gradient-to-br from-amber-50 to-white border-amber-100",
-				  iconBg:
-					"bg-amber-500/10 text-amber-600"
-				},
-
-				ai: {
-				  icon: "fa-brain",
-				  wrapper:
-					"bg-gradient-to-br from-cyan-50 to-white border-cyan-100",
-				  iconBg:
-					"bg-cyan-500/10 text-cyan-600"
-				},
-
-				strategy: {
-				  icon: "fa-chart-line",
-				  wrapper:
-					"bg-gradient-to-br from-emerald-50 to-white border-emerald-100",
-				  iconBg:
-					"bg-emerald-500/10 text-emerald-600"
-				}
-
-			  };
-
-			  const config =
-				variants[block.variant] || variants.insight;
-
-			  callout.className = `
-				relative overflow-hidden
-				border rounded-3xl
-				p-6 mb-8
-				backdrop-blur-sm
-				shadow-sm hover:shadow-md
-				transition-all duration-300
-				${config.wrapper}
-			  `;
-
-			  callout.setAttribute("data-aos", "fade-up");
-			  callout.setAttribute("data-aos-delay", "100");
-
-			  callout.innerHTML = `
-
-			  <!-- SOFT GLOW -->
-			  <div class="
-				absolute -right-10 -top-10
-				w-28 h-28 rounded-full
-				bg-white/30 blur-3xl">
-			  </div>
-
-			  <div class="
-				relative z-10
-				flex items-center gap-4
-			  ">
-
-				<!-- ICON -->
-				<div class="
-				  w-9 h-9 rounded-xl
-				  flex items-center justify-center
-				  text-sm shrink-0
-				  backdrop-blur-md
-				  ${config.iconBg}
-				">
-
-				  <i class="fas ${config.icon}"></i>
-
-				</div>
-
-				<!-- CONTENT -->
-				<div class="flex-1 flex items-center">
-
-				  <p class="
-					text-slate-700
-					leading-relaxed
-					text-[15px]
-					m-0
-				  ">
-					${block.text}
-				  </p>
-
-				</div>
-
-			  </div>
-			`;
-
-			  container.appendChild(callout);
-			}		  
-        });
-      } else {
-        const p = document.createElement("p");
-        p.className = "text-slate-600 mb-10 leading-relaxed";
-        p.innerText = sec.content;
-        p.setAttribute("data-aos", "fade-up");
-		p.setAttribute("data-aos-delay", "50");
 		container.appendChild(p);
-      }
-    }
 
+	  }
+
+	}
     if (sec.list) {
       const ul = document.createElement("ul");
       ul.className = "list-disc pl-6 space-y-2 text-slate-600 mb-10";
