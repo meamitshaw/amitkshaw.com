@@ -1767,7 +1767,7 @@
 		  eyebrow: "SAP BRIM Architecture"
 		  },
 	  description: "Exploring how to translate commercial intent into technical fulfillment.",
-	  keywords: ["SAP BRIM", "SAP S/4HANA", "External Object", "Cross-Catalog Mapping", "CCM", "External Object In CCM", "External Object In SOM", "External Object Type", "External Object Type in CCM", "External Object Type in SOM", "Integration With Provisioning System", "Provisioning System", "ODI Framework", "Service Activation", "SAP CRM", "Entitlement", "Entitlement System", "Entitlement Management System", "BRIM Architecture"],
+	  keywords: ["SAP BRIM", "SAP S/4HANA", "External Object", "Cross-Catalog Mapping", "CCM", "External Object In CCM", "External Object In SAP CCM", "External Object In SOM", "External Object In SAP SOM", "External Object Type", "External Object Type in SAP CCM", "External Object Type in SAP SOM", "Integration With Provisioning System", "Provisioning System", "ODI Framework", "Service Activation", "SAP CRM", "Entitlement", "Entitlement System", "Entitlement Management System", "BRIM Architecture"],
 	  image: "assets/external-object-in-cross-catalog-mapping.jpg",
 	  link: "#",
 	  bridge: "",
