@@ -1465,6 +1465,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (a.bridge) {
 		  card.href = a.bridge.startsWith("/") ? a.bridge : `/${a.bridge}`;
 		  card.target = "_self";
+		} else if (a.page) {
+		  card.href = a.page.startsWith("/") ? a.page : `/${a.page}`;
+		  card.target = "_self";  
 		} else if (a.link) {
 		  card.href = a.link;
 		  card.target = "_blank";
